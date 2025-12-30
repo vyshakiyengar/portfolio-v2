@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Abstract Tech Schematic -->
+    <rect x="100" y="100" width="600" height="400" stroke="#000" stroke-width="0.5" stroke-dasharray="4 4"/>
+    <circle cx="400" cy="300" r="150" stroke="#000" stroke-width="0.5"/>
+    <circle cx="400" cy="300" r="250" stroke="#000" stroke-width="0.2"/>
+    <line x1="100" y1="100" x2="700" y2="500" stroke="#000" stroke-width="0.5"/>
+    <line x1="700" y1="100" x2="100" y2="500" stroke="#000" stroke-width="0.5"/>
+    <rect x="350" y="50" width="100" height="500" stroke="#000" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <path d="M50 300 H 750" stroke="#000" stroke-width="0.5"/>
+    <path d="M400 50 V 550" stroke="#000" stroke-width="0.5"/>
+    
+    <!-- Tech Markings -->
+    <text x="110" y="130" font-family="monospace" font-size="10" fill="#000">FIG. 1A</text>
+    <text x="650" y="480" font-family="monospace" font-size="10" fill="#000">REF-2025</text>
+</svg>

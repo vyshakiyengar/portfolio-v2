@@ -1,0 +1,162 @@
+/* Minimal Contact Design & Animation */
+.footer-section {
+    background-color: #fff;
+    padding: 120px 0 60px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center everything */
+    text-align: center;
+    gap: 64px;
+    height: 100%;
+}
+
+/* --- Typewriter Header --- */
+.contact-header-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.typewriter-container {
+    display: inline-block;
+}
+
+.contact-typewriter {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    /* Significantly Reduced */
+    color: var(--text-primary);
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: .05em;
+    animation:
+        typing-loop 5s steps(30, end) infinite,
+        blink-caret .75s step-end infinite;
+    width: 0;
+    max-width: fit-content;
+}
+
+/* Seamless Looping Animation: 
+   Start (5%) -> T y p e (35%) -> H o l d (45%) -> Delete (15%) -> Reset 
+*/
+@keyframes typing-loop {
+
+    0%,
+    5% {
+        width: 0;
+    }
+
+    40% {
+        width: 100%;
+    }
+
+    /* Type complete */
+    85% {
+        width: 100%;
+    }
+
+    /* Hold longer for readability */
+    95% {
+        width: 0;
+    }
+
+    /* Delete fast */
+    100% {
+        width: 0;
+    }
+
+    /* Reset */
+}
+
+/* Cursor Blink */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--text-primary);
+    }
+}
+
+
+/* --- Minimal Links --- */
+.contact-links-minimal {
+    display: flex;
+    gap: 64px;
+    margin-top: 16px;
+}
+
+.minimal-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    color: var(--text-primary);
+}
+
+.minimal-link:hover {
+    transform: translateY(-4px);
+}
+
+.minimal-icon {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.minimal-link:hover .minimal-icon {
+    color: var(--text-primary);
+}
+
+.minimal-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 2px;
+    transition: border-color 0.3s ease;
+}
+
+.minimal-link:hover .minimal-value {
+    border-color: var(--text-primary);
+}
+
+/* --- Footer --- */
+.contact-footer-minimal {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .contact-links-minimal {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-typewriter {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,75 @@
+.recommendations-section {
+    padding: var(--spacing-lg) 0;
+    /* Tighter spacing */
+    background-color: var(--bg-primary);
+    overflow: hidden;
+}
+
+.recommendations-scroll {
+    width: 100%;
+    overflow: hidden;
+    /* Essential for marquee */
+    padding: 20px 0;
+}
+
+.recommendations-track {
+    display: flex;
+    gap: 24px;
+    padding-right: 24px;
+    /* CRITICAL: Adds the missing gap for perfect 50% loop */
+    width: max-content;
+    /* Allow track to be as wide as needed */
+    animation: scroll 60s linear infinite;
+    /* Smooth, slow scroll */
+    will-change: transform;
+    /* Performance optimization */
+}
+
+/* Pause on hover for readability */
+.recommendations-track:hover {
+    animation-play-state: paused;
+}
+
+/* 
+   Animation Logic: 
+   We have duplicated the content 4 times in JS.
+   Scrolling -50% moves exactly halfway through the total width.
+   Since the first half is identical to the second half (2 copies vs 2 copies),
+   resetting to 0% creates a seamless loop.
+*/
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.rec-card {
+    flex-shrink: 0;
+    width: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Clean, raw look - no shadows/hover lifts */
+    background: transparent;
+    transition: opacity 0.3s ease;
+}
+
+.rec-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    /* Subtle border for definition */
+    pointer-events: none;
+    /* Prevent dragging */
+}
+
+@media (max-width: 768px) {
+    .rec-card {
+        width: 280px;
+    }
+}

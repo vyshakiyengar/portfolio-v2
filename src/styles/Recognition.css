@@ -1,0 +1,303 @@
+.recognition-section {
+    padding: var(--spacing-lg) 0;
+    /* Reduced from XL to LG for tighter section */
+    background-color: var(--bg-secondary);
+}
+
+.recognition-grid {
+    display: grid;
+    /* Responsive Grid: 3 columns on wide screens */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    /* Tighter gap */
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.builder-card {
+    background-color: var(--bg-primary);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* For image clip */
+    height: 100%;
+}
+
+.builder-card:hover {
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+    /* Minimal shadow lift */
+    transform: translateY(-4px);
+    border-color: var(--accent-highlight);
+}
+
+/* Image Preview Area */
+.card-preview {
+    width: 100%;
+    height: 160px;
+    /* Compact height */
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f4f6;
+}
+
+.card-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.builder-card:hover .card-preview img {
+    transform: scale(1.05);
+    /* Subtle zoom */
+}
+
+/* Overlay for text readability if needed (optional) */
+.preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+/* Tag positioned ON the image */
+.card-preview .feature-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    /* Top right corner */
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-content-wrapper {
+    padding: 20px;
+    /* Reduced padding from 32px */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Feature Tag - Inline fallback */
+.feature-tag-wrapper {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.feature-tag {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    /* Micro size */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--accent-main);
+    padding: 4px 10px;
+    /* Tighter padding */
+    border-radius: 4px;
+    /* Slightly softer than pill for minimal look */
+    display: inline-block;
+}
+
+.tag-patent {
+    background-color: var(--accent-highlight);
+}
+
+.tag-media {
+    background-color: #111;
+}
+
+.tag-article {
+    background-color: var(--accent-main);
+}
+
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-category {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    /* Smaller */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.card-icon {
+    color: var(--text-secondary);
+    opacity: 0.5;
+    /* More subtle */
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    /* Reduced from 1.5rem */
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.card-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--accent-highlight);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    /* Smaller body text to fit content */
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    /* Increased limit to show full text */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    /* Smaller link */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.card-link:hover {
+    color: var(--accent-highlight);
+}
+
+@media (max-width: 768px) {
+    .recognition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Thought Leadership List Styles */
+.thought-list-container {
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding: 0 var(--spacing-sm);
+}
+
+.thought-list-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.thought-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.thought-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.thought-item:hover {
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.01);
+    /* Subtle highlight */
+}
+
+.thought-category {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    width: 180px;
+    /* Fixed width for alignment */
+    flex-shrink: 0;
+}
+
+.thought-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    flex-grow: 1;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.thought-item:hover .thought-title {
+    color: var(--accent-highlight);
+}
+
+.thought-arrow {
+    color: var(--text-secondary);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.thought-item:hover .thought-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--accent-highlight);
+}
+
+/* Tablet/Mobile Adjustments for List */
+@media (max-width: 768px) {
+    .thought-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .thought-category {
+        width: auto;
+        font-size: 0.7rem;
+    }
+
+    .thought-arrow {
+        display: none;
+        /* Hide arrow on mobile to save space/cleanliness */
+    }
+
+    .thought-item:hover {
+        padding-left: 0;
+    }
+}

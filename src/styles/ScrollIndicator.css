@@ -1,0 +1,60 @@
+.scroll-indicator-wrapper {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: -12px;
+    /* Overlap slightly for double chevron look */
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow.delay {
+    margin-top: -20px;
+    animation-delay: 0.15s;
+    opacity: 0.6;
+}
+
+/* Colors */
+.scroll-indicator-wrapper.dark .scroll-arrow {
+    color: #111111;
+    /* Dark Grey / Black as requested */
+}
+
+.scroll-indicator-wrapper.light .scroll-arrow {
+    color: #ffffff;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-6px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator-wrapper {
+        bottom: 24px;
+        right: 24px;
+    }
+}

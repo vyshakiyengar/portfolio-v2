@@ -1,0 +1,125 @@
+.timeline-section {
+    padding: var(--spacing-xxl) 0;
+    padding-left: 0;
+    background-color: var(--bg-primary);
+}
+
+.timeline-container {
+    padding-left: 20%;
+    /* Align nodes to the right of the line */
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 20%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(15, 15, 15, 0.1);
+}
+
+.timeline-node {
+    position: relative;
+    margin-bottom: var(--spacing-xxl);
+    padding-left: var(--spacing-lg);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-node.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.node-marker {
+    position: absolute;
+    left: -5px;
+    /* Half of width (11px including border?) no, width is 9px */
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+.timeline-node:hover .node-marker {
+    background-color: var(--accent-gold);
+    border-color: var(--accent-gold);
+}
+
+.node-content {
+    max-width: 600px;
+}
+
+.node-year {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.node-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.node-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.node-description {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.node-category {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid rgba(15, 15, 15, 0.1);
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 24px;
+    }
+
+    .timeline-line {
+        left: 24px;
+    }
+
+    .timeline-node {
+        padding-left: var(--spacing-lg);
+    }
+
+    .node-title {
+        font-size: 2rem;
+    }
+}

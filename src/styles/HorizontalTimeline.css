@@ -1,0 +1,210 @@
+.horizontal-section {
+    padding: var(--spacing-lg) 0;
+    /* Reduced from XL (100px) to LG (64px) */
+    width: 100%;
+    background-color: var(--bg-primary);
+}
+
+.timeline-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    /* Slightly reduced */
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    /* Reduced from XL */
+    text-align: center;
+}
+
+.experience-group {
+    margin-bottom: var(--spacing-lg);
+    /* Reduced from XL (100px) to LG (64px) */
+}
+
+.group-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    /* Reduced from LG (64px) to MD (24px) */
+    border-bottom: 1px solid var(--accent-line);
+    padding-bottom: 12px;
+    display: block;
+}
+
+/* Horizontal Grid Layout */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-sm);
+    /* Reduced from MD (24px) to SM (12px) for tighter grid */
+    align-items: stretch;
+}
+
+/* --- Premium Minimal Card Design --- */
+.t-item {
+    position: relative;
+    padding: 28px;
+    /* Balanced padding (was 24px) */
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+    /* Pearl White Gradient */
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    /* Slightly subtler border to let gradient do the work */
+    border-radius: 6px;
+    /* Slightly softer corners */
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Ensure Top Alignment */
+    border-top: 2px solid transparent;
+    /* Prepare for top accent */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    /* Slightly clearer base shadow */
+    overflow: hidden;
+    /* Ensure nothing spills out */
+}
+
+.t-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+    /* Sophisticated lift */
+    border-color: rgba(0, 0, 0, 0.04);
+    border-top-color: var(--accent-highlight);
+}
+
+.current-role {
+    background-color: #FAFAFA;
+    /* Very subtle contrast for current role */
+    border-left: 2px solid var(--text-primary);
+}
+
+/* Typography */
+/* Card Header Layout with Logo */
+.t-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+    /* Better separation */
+    min-width: 0;
+    /* Important for flex child truncation */
+}
+
+.t-card-logo {
+    width: 44px;
+    /* Slightly larger logos */
+    height: 44px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+    /* Prevent logo squishing */
+}
+
+.t-header-content {
+    flex: 1;
+    min-width: 0;
+    /* Crucial for text-overflow to work in flex child */
+}
+
+.t-top {
+    display: flex;
+    flex-direction: column;
+    /* Stack Title and Period for better mobile/tight fit */
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.t-primary {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+    /* Removed white-space: nowrap to allow wrapping */
+    word-wrap: break-word;
+    /* Ensure valid wrap */
+    display: block;
+}
+
+.t-period {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-left: 0;
+    /* Reset margins since stacked */
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+.t-secondary {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: #4B5563;
+    /* Clearer secondary text */
+    font-weight: 400;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+    display: block;
+    /* Ensure wrapping */
+}
+
+.t-location {
+    color: #6B7280;
+    font-size: 0.85rem;
+}
+
+/* Expanding Divider */
+.t-divider {
+    width: 40px;
+    height: 1px;
+    background-color: var(--accent-highlight);
+    /* Use Highlight color */
+    margin-bottom: 16px;
+    margin-top: 12px;
+    transition: width 0.6s ease;
+    opacity: 0.4;
+}
+
+.t-item:hover .t-divider {
+    width: 100%;
+    opacity: 0.8;
+}
+
+.t-impact {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    /* Reduced size */
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 400;
+    margin-top: auto;
+    word-wrap: break-word;
+    /* Prevent overflow */
+    hyphens: auto;
+    /* Clean separation */
+}
+
+@media (max-width: 768px) {
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+    }
+
+    .t-header {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .t-period {
+        order: -1;
+        margin-bottom: 4px;
+    }
+}

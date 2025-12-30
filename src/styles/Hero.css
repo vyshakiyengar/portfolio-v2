@@ -1,0 +1,341 @@
+/* --- Hero Redesign v4: Luxury Editorial --- */
+
+/* 1. Layout & Spacing */
+.hero-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    /* Asymmetrical Balance: 1.2 (Text) to 1 (Image) */
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-top: 60px;
+    /* Reduced to remove dead space */
+    background: linear-gradient(120deg, var(--bg-primary) 0%, #F5F9FF 100%);
+    /* Subtle colorful lift */
+}
+
+/* Patent Watermark */
+.patent-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background-image: url('../assets/patent_drawing.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    /* Barely visible texture */
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Left Column */
+.hero-left-col {
+    padding: var(--spacing-xxl);
+    padding-right: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically centered */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text-content {
+    max-width: 600px;
+    width: 100%;
+}
+
+/* 2. Typography: Name - Refined Scale */
+/* Name & Title */
+.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    /* Reduced significantly for elegance */
+    font-weight: 600;
+    /* Bolder first name */
+    color: #111;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    /* Tighter spacing */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-last-name {
+    font-size: 0.5em;
+    /* relative to parent */
+    display: block;
+    font-weight: 300;
+    /* Much lighter for contrast */
+    color: #333;
+    /* Slightly softer black */
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+}
+
+/* 3. Accent Line - The "Bridge" -> 2px Hairline */
+.hero-divider {
+    height: 1px;
+    /* Thinner line */
+    background-color: #111;
+    /* Solid black */
+    width: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border-radius: 0;
+    opacity: 0.8;
+}
+
+.expand-width-long {
+    animation: expandLineLong 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes expandLineLong {
+    to {
+        width: 60px;
+        /* Shorter line */
+    }
+}
+
+/* Location Line - Micro-Typography */
+.hero-location {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #666;
+    margin-bottom: 120px;
+    /* Increased to push logos down */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-location .separator {
+    color: #111;
+    opacity: 0.4;
+    font-size: 1.2em;
+}
+
+/* 4. Minimal Logo Row - Colorful */
+.hero-logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    /* Reduced gap between logos */
+    flex-wrap: wrap;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.hero-logo-mono {
+    height: 44px;
+    /* Slightly bigger (was 40px) */
+    width: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo-mono:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.hero-cta-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    /* Reduced from 40px (Closer to logos) */
+    font-family: var(--font-sans);
+    font-size: 10px;
+    /* Reduced from 11px */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+}
+
+.hero-cta-text:hover {
+    color: #000;
+}
+
+.hero-cta-text .arrow-down {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.hero-cta-text:hover .arrow-down {
+    transform: translateY(4px);
+}
+
+
+/* Right Column */
+.hero-right-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Stack tagline and images */
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+    padding-left: 0;
+}
+
+/* Card Stack */
+.hero-card-stack {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4/5;
+    /* Portrait aspect for editorial feel */
+}
+
+.card-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    /* Fine-tuned offset stack */
+}
+
+.offset-0 {
+    z-index: 5;
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+.offset-1 {
+    z-index: 4;
+    transform: translateX(20px) translateY(10px) scale(0.95);
+    opacity: 0.8;
+}
+
+.offset-2 {
+    z-index: 3;
+    transform: translateX(40px) translateY(20px) scale(0.9);
+    opacity: 0.6;
+}
+
+.offset-3 {
+    z-index: 2;
+    transform: translateX(60px) translateY(30px) scale(0.85);
+    opacity: 0.4;
+}
+
+.offset-4 {
+    z-index: 1;
+    transform: translateX(80px) translateY(40px) scale(0.8);
+    opacity: 0.2;
+}
+
+
+/* Animation Utilities */
+.fade-in-1 {
+    animation: fadeInEditorial 1s ease-out forwards;
+    animation-delay: 0s;
+    opacity: 0;
+}
+
+.fade-in-2 {
+    animation: fadeInEditorial 1s ease-out forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.fade-in-3 {
+    animation: fadeInEditorial 1s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.fade-in-4 {
+    animation: fadeInEditorial 1s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@keyframes fadeInEditorial {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+        height: auto;
+    }
+
+    .hero-left-col {
+        padding: var(--spacing-md);
+        padding-top: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-name {
+        font-size: 56px;
+        align-items: center;
+    }
+
+    .hero-text-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-divider {
+        margin-bottom: 48px;
+    }
+
+    .hero-subheading-right {
+        text-align: center;
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    .hero-logos-minimal {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .hero-right-col {
+        padding: var(--spacing-md);
+        padding-top: 0;
+        margin-top: 40px;
+    }
+
+    .hero-card-stack {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,61 @@
+:root {
+  /* Colors - "Timeless Editorial" Palette */
+  --bg-primary: #FFFFFF;
+  /* Pure White */
+  --bg-secondary: #FAFAFA;
+  /* Off-white for subtle contrast if needed */
+
+  --text-primary: #111111;
+  /* Charcoal/Near-Black */
+  --text-secondary: #666666;
+  /* Soft Grey */
+  --text-light: #FFFFFF;
+
+  /* "Midnight & Copper" Palette */
+  --accent-main: #0B1736;
+  /* Deep Royal Blue -> Midnight Blue */
+  --accent-highlight: #B45309;
+  /* Burnished Copper */
+
+  --accent-subtle: rgba(30, 58, 138, 0.05);
+  --accent-line: rgba(30, 58, 138, 0.12);
+  /* Subtle Blue-tinted divider */
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-cursive: 'Cormorant Garamond', serif;
+  /* Using Display font for signature style */
+
+  /* Spacing & Grid - Generous Whitespace */
+  --spacing-xs: 4px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 64px;
+  --spacing-xl: 100px;
+  --spacing-xxl: 160px;
+  /* Vast spacing for calm authority */
+  --container-padding: 40px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 0px;
+  /* No header intended, but kept variable just in case */
+
+  /* Effects */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --shadow-subtle: none;
+  /* "No heavy shadows" */
+  --shadow-hover: none;
+  --transition-slow: 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-default: 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-xxl: 80px;
+    --container-padding: 20px;
+    --header-height: 80px;
+  }
+}

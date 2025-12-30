@@ -1,0 +1,175 @@
+.narrative-section {
+    padding: var(--spacing-lg) 0;
+    /* Reduced from xxl for tighter flow */
+    background-color: var(--bg-secondary);
+    /* Alternating Grey */
+    position: relative;
+    overflow: visible;
+    /* Allow shadow bloom */
+}
+
+.narrative-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    /* Elegant asymmetry */
+    gap: 120px;
+    /* Spacious luxury */
+    align-items: center;
+}
+
+.narrative-image-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 
+   The "Floating" Portrait
+   - No hard borders. 
+   - Deep, diffused ambient shadow to lift it off the page.
+*/
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    /* Slightly constrained for elegance */
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    /* Tiny micro-radius */
+    overflow: hidden;
+    /* The Quiet Luxury Shadow: Soft, layered, diffused */
+    box-shadow:
+        0 20px 40px -4px rgba(0, 0, 0, 0.08),
+        0 8px 16px -4px rgba(0, 0, 0, 0.04);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+}
+
+.image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 30px 60px -8px rgba(0, 0, 0, 0.12),
+        0 12px 24px -6px rgba(0, 0, 0, 0.06);
+}
+
+.narrative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Clean color, slightly desaturated for class? No, keep it natural but high quality */
+}
+
+.narrative-content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Clean left alignment */
+}
+
+/* Typography */
+.narrative-greeting {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.narrative-text p {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    /* Soft contrast */
+    line-height: 1.9;
+    /* Generous leading */
+    margin-bottom: 24px;
+    font-weight: 400;
+    max-width: 560px;
+}
+
+.narrative-text p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .narrative-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: left;
+        /* Keep left align often looks classier even on mobile */
+    }
+
+    .narrative-image-col {
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .image-wrapper {
+        max-width: 100%;
+        box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.1);
+    }
+
+    .narrative-greeting {
+        font-size: 2.5rem;
+        margin-bottom: 24px;
+    }
+
+    .narrative-signature {
+        margin-top: 32px;
+    }
+}
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.6;
+}
+
+.scroll-text {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 32px;
+    background-color: var(--text-secondary);
+    animation: scrollLine 2s ease-in-out infinite;
+    transform-origin: top;
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Updated Minimal Scroll Arrow */
+.scroll-indicator {
+    left: auto;
+    right: 40px; /* Right corner */
+    bottom: 40px;
+    transform: none; /* Remove center transform */
+    animation: bounceSubtle 3s infinite;
+}
+
+.scroll-indicator svg {
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}

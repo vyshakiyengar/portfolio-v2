@@ -1,0 +1,100 @@
+.scroll-progress-container {
+    position: fixed;
+    right: 48px;
+    bottom: 48px;
+    /* Bottom Right Corner */
+    left: auto;
+    top: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 32px;
+    /* Less than full height, more widget-like */
+    height: auto;
+    z-index: 100;
+    mix-blend-mode: difference;
+    opacity: 0.8;
+}
+
+.scroll-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Subtle line */
+    z-index: -1;
+}
+
+.scroll-dot-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-dot {
+    width: 6px;
+    /* Visible bubbles */
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* More visible */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.scroll-label {
+    position: absolute;
+    right: 24px;
+    /* Anchor to right */
+    left: auto;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #888;
+    opacity: 0;
+    transform: translateX(10px);
+    /* Slide from right */
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Active State */
+.scroll-dot-wrapper.active .scroll-dot {
+    background-color: #fff;
+    /* Active is white (via difference mode = black on white) */
+    transform: scale(1.5);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-dot-wrapper:hover .scroll-label,
+.scroll-dot-wrapper.active .scroll-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-delayed {
+    animation: fadeInSide 1.5s ease forwards 0.5s;
+    opacity: 0;
+}
+
+@keyframes fadeInSide {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-progress-container {
+        display: none;
+        /* Hide on mobile */
+    }
+}
