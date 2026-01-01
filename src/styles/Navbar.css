@@ -43,9 +43,20 @@
     z-index: 1001;
     position: relative;
     /* Ensure z-index works */
-    display: inline-block;
-    /* Ensure transform/transition works */
-    transition: opacity 0.3s ease;
+    display: inline-flex;
+    /* Flex for proper boxing */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid #0c1a40;
+    /* Box Effect */
+    padding: 6px 14px;
+    /* Breathing room */
+}
+
+.navbar-logo:hover {
+    background-color: #0c1a40;
+    color: #fff;
 }
 
 .nav-links {
@@ -77,24 +88,28 @@
     align-items: center;
 }
 
+/* Made less prominent as requested */
 .btn-resume {
     margin-left: var(--spacing-md);
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border: 1px solid var(--text-primary);
+    gap: 6px;
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    /* Removed visible border */
     border-radius: 4px;
-    /* Slight radius for button */
-    color: var(--text-primary);
-    font-weight: 600;
+    color: var(--text-secondary);
+    /* Softer color */
+    font-weight: 500;
+    /* Lighter weight */
     font-size: 0.85rem;
     transition: all var(--transition-default);
 }
 
 .btn-resume:hover {
-    background-color: var(--text-primary);
-    color: #fff;
+    color: var(--text-primary);
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Subtle hover bg */
 }
 
 /* Active State for Navbar Links */
