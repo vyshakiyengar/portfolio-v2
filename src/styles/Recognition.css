@@ -202,6 +202,9 @@
 @media (max-width: 768px) {
     .recognition-grid {
         grid-template-columns: 1fr;
+        padding: 0 16px;
+        /* Reduced from spacing-lg (60px) to 16px to widen cards */
+        gap: 16px;
     }
 }
 
