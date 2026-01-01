@@ -27,13 +27,8 @@ const Narrative = () => {
                             </p>
                         </div>
 
-                        <div className="narrative-signature">
-                            <img src={signatureImg} alt="Signature" />
-                        </div>
                     </div>
                 </div>
-
-            </div>
         </section>
     )
 }
