@@ -26,9 +26,9 @@ const Narrative = () => {
                                 When I'm not obsessing about startups or product strategy, you'll find me leaning into the classic "Tambram" trifecta: cricket, politics, and strong coffee. I like to think I'm on a serious spiritual journey, but memes keep distracting me from the path to enlightenment.
                             </p>
                         </div>
-
                     </div>
                 </div>
+            </div>
         </section>
     )
 }
