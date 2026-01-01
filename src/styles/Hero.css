@@ -329,10 +329,28 @@
     }
 
     .hero-logos-minimal {
+        display: flex;
+        /* Ensure flex is active */
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 24px;
+        flex-wrap: nowrap;
+        /* Force single line */
+        gap: 16px;
+        /* Tighter gap */
         margin-bottom: 40px;
+        overflow-x: auto;
+        /* Allow scroll if extreme small screen */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Make logos smaller on mobile to fit */
+    .hero-logo-mono {
+        height: 28px;
+    }
+
+    .logo-accenture {
+        height: 20px;
+        /* Proportional reduction */
     }
 
     .hero-right-col {
