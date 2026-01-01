@@ -51,7 +51,7 @@ const Hero = () => {
                         <img src={metaLogo} alt="Meta" className="hero-logo-mono" />
                         <img src={bcgLogo} alt="BCG" className="hero-logo-mono" />
                         <img src={lbsLogo} alt="LBS" className="hero-logo-mono" />
-                        <img src={accentureLogo} alt="Accenture" className="hero-logo-mono" />
+                        <img src={accentureLogo} alt="Accenture" className="hero-logo-mono logo-accenture" />
                     </div>
 
                     <a href="#experience" className="hero-cta-text fade-in-4">

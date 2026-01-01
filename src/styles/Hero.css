@@ -143,7 +143,13 @@
     object-fit: contain;
     filter: none;
     opacity: 0.95;
+    opacity: 0.95;
     transition: transform 0.3s ease;
+}
+
+.logo-accenture {
+    height: 32px;
+    /* Visual balance adjustment */
 }
 
 .hero-logo-mono:hover {
