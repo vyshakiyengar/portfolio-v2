@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, User, Briefcase, Brain, MessageSquare, Linkedin } from 'lucide-react'
+import { Menu, X, User, Briefcase, Star, Users, Mail, Linkedin } from 'lucide-react'
 import { useActiveSection } from '../hooks/useActiveSection'
 import '../styles/Navbar.css'
 
@@ -23,9 +23,9 @@ const Navbar = () => {
     const navLinks = [
         { name: 'About', href: '#narrative', icon: <User size={18} strokeWidth={1} />, id: 'narrative' },
         { name: 'Experience', href: '#experience', icon: <Briefcase size={18} strokeWidth={1} />, id: 'experience' },
-        { name: 'Spotlight', href: '#spotlight', icon: <Brain size={18} strokeWidth={1} />, id: 'spotlight' },
-        { name: 'Network', href: '#recommendations', icon: <MessageSquare size={18} strokeWidth={1} />, id: 'recommendations' },
-        { name: 'Contact', href: '#contact', icon: <MessageSquare size={18} strokeWidth={1} />, id: 'contact' },
+        { name: 'Spotlight', href: '#spotlight', icon: <Star size={18} strokeWidth={1} />, id: 'spotlight' },
+        { name: 'Network', href: '#recommendations', icon: <Users size={18} strokeWidth={1} />, id: 'recommendations' },
+        { name: 'Contact', href: '#contact', icon: <Mail size={18} strokeWidth={1} />, id: 'contact' },
     ]
 
     return (
