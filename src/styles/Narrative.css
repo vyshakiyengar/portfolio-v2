@@ -94,6 +94,10 @@
 @media (max-width: 768px) {
     .narrative-grid {
         grid-template-columns: 1fr;
+        display: flex;
+        /* Flex for ordering */
+        flex-direction: column-reverse;
+        /* Text first */
         gap: 48px;
         text-align: left;
         /* Keep left align often looks classier even on mobile */
