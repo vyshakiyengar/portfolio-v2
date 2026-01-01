@@ -113,4 +113,13 @@
     .rec-card {
         width: 280px;
     }
+
+    /* Hide scroll buttons on mobile - Swipe is better and saves space */
+    .scroll-btn {
+        display: none;
+    }
+
+    .scroll-wrapper {
+        gap: 0;
+    }
 }
