@@ -78,14 +78,13 @@
 
 .narrative-text p {
     font-family: var(--font-sans);
-    font-size: 1.15rem;
+    font-size: 1.05rem;
+    /* Reduced from 1.15rem */
+    line-height: 1.7;
+    /* Optimized */
     color: var(--text-secondary);
-    /* Soft contrast */
-    line-height: 1.9;
-    /* Generous leading */
     margin-bottom: 24px;
     font-weight: 400;
-    max-width: 560px;
 }
 
 .narrative-text p:last-child {
@@ -119,6 +118,7 @@
         margin-top: 32px;
     }
 }
+
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
@@ -149,18 +149,35 @@
 }
 
 @keyframes scrollLine {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    51% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
 }
 
 /* Updated Minimal Scroll Arrow */
 .scroll-indicator {
     left: auto;
-    right: 40px; /* Right corner */
+    right: 40px;
+    /* Right corner */
     bottom: 40px;
-    transform: none; /* Remove center transform */
+    transform: none;
+    /* Remove center transform */
     animation: bounceSubtle 3s infinite;
 }
 
@@ -170,6 +187,13 @@
 }
 
 @keyframes bounceSubtle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
 }
