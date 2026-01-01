@@ -3,13 +3,14 @@ import { Menu, X, User, Briefcase, Brain, MessageSquare, Linkedin } from 'lucide
 import { useActiveSection } from '../hooks/useActiveSection'
 import '../styles/Navbar.css'
 
+const SECTION_IDS = ['hero', 'narrative', 'experience', 'spotlight', 'recommendations', 'contact'];
+
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     // Use Shared Hook
-    const sectionIds = ['hero', 'narrative', 'experience', 'spotlight', 'recommendations', 'contact']
-    const activeSection = useActiveSection(sectionIds)
+    const activeSection = useActiveSection(SECTION_IDS)
 
     useEffect(() => {
         const handleScroll = () => {
