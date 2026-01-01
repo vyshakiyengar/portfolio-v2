@@ -7,9 +7,22 @@
 
 .recommendations-scroll {
     width: 100%;
-    overflow: hidden;
-    /* Essential for marquee */
+    overflow-x: auto;
+    /* Enable manual scrolling */
+    overflow-y: hidden;
     padding: 20px 0;
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    cursor: grab;
+    /* Indicate draggable */
+}
+
+.recommendations-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
 }
 
 .recommendations-track {
