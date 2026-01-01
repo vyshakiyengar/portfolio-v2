@@ -57,7 +57,13 @@ const thoughtLeadership = [
         id: 7,
         category: "Ecosystem Analysis",
         title: "AI Startup Ecosystem in India",
-        link: "#",
+        link: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
+    },
+    {
+        id: 8,
+        category: "Disruption",
+        title: "Robo Advisors: Disruption in Indian Wealth Management",
+        link: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
     },
     {
         id: 4,
