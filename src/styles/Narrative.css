@@ -121,6 +121,12 @@
     .narrative-signature {
         margin-top: 32px;
     }
+
+    .narrative-text p {
+        font-size: 0.9rem;
+        /* Reduced for mobile compactness */
+        line-height: 1.6;
+    }
 }
 
 /* Scroll Indicator */
