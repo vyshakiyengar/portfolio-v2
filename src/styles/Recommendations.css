@@ -19,8 +19,8 @@
     /* CRITICAL: Adds the missing gap for perfect 50% loop */
     width: max-content;
     /* Allow track to be as wide as needed */
-    animation: scroll 60s linear infinite;
-    /* Smooth, slow scroll */
+    animation: scroll 120s linear infinite;
+    /* Smooth, very slow scroll (reduced from 60s) */
     will-change: transform;
     /* Performance optimization */
 }
