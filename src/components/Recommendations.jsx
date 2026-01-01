@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import '../styles/Recommendations.css'
 import ScrollIndicator from './ScrollIndicator'
 import rec1 from '../assets/recommendations/rec1.jpg'
@@ -17,20 +19,42 @@ const recommendations = [
 const Recommendations = () => {
     // Duplicate the list 4 times for a smoother, longer infinite scroll effect
     const loopedRecommendations = [...recommendations, ...recommendations, ...recommendations, ...recommendations];
+    const scrollRef = useRef(null)
+
+    const scroll = (direction) => {
+        if (scrollRef.current) {
+            const { current } = scrollRef
+            const scrollAmount = 340 // Card width + gap
+            current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            })
+        }
+    }
 
     return (
         <section className="recommendations-section" id="recommendations">
             <div className="container">
                 <h2 className="section-heading text-center">Words from the Network</h2>
 
-                <div className="recommendations-scroll">
-                    <div className="recommendations-track">
-                        {loopedRecommendations.map((rec, index) => (
-                            <div key={`${rec.id}-${index}`} className="rec-card">
-                                <img src={rec.img} alt={rec.alt} loading="lazy" />
-                            </div>
-                        ))}
+                <div className="scroll-wrapper">
+                    <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Scroll left">
+                        <ChevronLeft size={24} />
+                    </button>
+
+                    <div className="recommendations-scroll" ref={scrollRef}>
+                        <div className="recommendations-track">
+                            {loopedRecommendations.map((rec, index) => (
+                                <div key={`${rec.id}-${index}`} className="rec-card">
+                                    <img src={rec.img} alt={rec.alt} loading="lazy" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
+                    <button className="scroll-btn right" onClick={() => scroll('right')} aria-label="Scroll right">
+                        <ChevronRight size={24} />
+                    </button>
                 </div>
             </div>
         </section>
