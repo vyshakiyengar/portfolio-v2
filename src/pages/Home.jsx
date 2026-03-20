@@ -5,6 +5,7 @@ import Narrative from '../components/Narrative'
 
 import HorizontalTimeline from '../components/HorizontalTimeline'
 import Recognition from '../components/Recognition'
+import Features from '../components/Features'
 import Recommendations from '../components/Recommendations'
 
 import Contact from '../components/Contact'
@@ -18,6 +19,7 @@ function Home() {
                 <Hero />
                 <Narrative />
 
+                <Features />
                 <HorizontalTimeline />
                 <Recognition />
                 <Recommendations />

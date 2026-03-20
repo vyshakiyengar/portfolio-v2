@@ -5,8 +5,9 @@ import '../styles/ScrollProgress.css';
 const sections = [
     { id: 'hero', label: 'Home' },
     { id: 'narrative', label: 'About' },
-    { id: 'experience', label: 'Experience' },
     { id: 'spotlight', label: 'Spotlight' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'research', label: 'Research' },
     { id: 'recommendations', label: 'Network' },
     { id: 'contact', label: 'Contact' }
 ];
