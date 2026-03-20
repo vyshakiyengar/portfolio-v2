@@ -3,6 +3,7 @@ import '../styles/Recognition.css'
 import patentPreview from '../assets/previews/patent-v3.png'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
+import clearadmitPreview from '../assets/previews/clearadmit.png'
 
 const spotlightItems = [
     {
@@ -14,7 +15,8 @@ const spotlightItems = [
         icon: FileText,
         link: "https://www.clearadmit.com/2026/03/real-humans-of-meta-lbs-mba-product-marketing-manager/",
         linkText: "Read in Clear Admit",
-        type: "media"
+        type: "media",
+        image: clearadmitPreview
     },
     {
         id: 1,
