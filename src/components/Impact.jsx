@@ -1,4 +1,4 @@
-import { Heart, Landmark, Users, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
+import { Heart, Landmark, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
 import '../styles/Impact.css'
 
 const Impact = () => {

@@ -304,3 +304,46 @@
         padding-left: 0;
     }
 }
+
+/* Spotlight Section Tag */
+.spotlight-section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-gold, var(--accent-highlight));
+    margin-bottom: 8px;
+}
+
+/* Block Link (entire card clickable) */
+.block-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card Link Text */
+.card-link-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-top: auto;
+}
+
+.card-link-text:hover,
+.builder-card:hover .card-link-text {
+    color: var(--accent-gold, var(--accent-highlight));
+}

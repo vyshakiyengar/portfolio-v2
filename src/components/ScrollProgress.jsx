@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import '../styles/ScrollProgress.css';
 
 const sections = [
     { id: 'hero', label: 'Home' },
     { id: 'narrative', label: 'About' },
+    { id: 'experience', label: 'Timeline' },
     { id: 'spotlight', label: 'Spotlight' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'research', label: 'Research' },
-    { id: 'recommendations', label: 'Network' },
+    { id: 'impact', label: 'Impact' },
+    { id: 'philosophy', label: 'Philosophy' },
     { id: 'contact', label: 'Contact' }
 ];
 
+const sectionIds = sections.map(s => s.id);
+
 const ScrollProgress = () => {
-    // Shared logic with Navbar for perfect sync
-    const activeSection = useActiveSection(sections.map(s => s.id));
+    const activeSection = useActiveSection(sectionIds);
 
     return (
         <div className="scroll-progress-container fade-in-delayed">
