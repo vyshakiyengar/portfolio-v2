@@ -57,6 +57,17 @@
     /* Subtle zoom */
 }
 
+.card-preview-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary, #f3f4f6);
+    color: var(--text-muted, #9ca3af);
+    font-size: 2rem;
+}
+
 /* Overlay for text readability if needed (optional) */
 .preview-overlay {
     position: absolute;

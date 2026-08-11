@@ -28,6 +28,13 @@
     z-index: -1;
 }
 
+.scroll-dots-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
 .scroll-dot-wrapper {
     position: relative;
     display: flex;

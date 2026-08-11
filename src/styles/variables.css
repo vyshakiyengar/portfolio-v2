@@ -47,6 +47,12 @@
 
   --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
   --transition-default: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Legacy aliases for backward compat */
+  --accent-highlight: var(--accent-gold);
+  --accent-main: var(--accent-blue);
+  --bg-navy: var(--bg-dark);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (max-width: 768px) {
