@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import '../styles/Recommendations.css'
-import ScrollIndicator from './ScrollIndicator'
 import rec1 from '../assets/recommendations/rec1.jpg'
 import rec2 from '../assets/recommendations/rec2.jpg'
 import rec3 from '../assets/recommendations/rec3.jpg'
