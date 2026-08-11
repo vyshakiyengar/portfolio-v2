@@ -1,365 +1,344 @@
-/* --- Hero Redesign v4: Luxury Editorial --- */
-
-/* 1. Layout & Spacing */
-.hero-split {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    /* Asymmetrical Balance: 1.2 (Text) to 1 (Image) */
+/* Hero Section - World-Class Editorial Layout */
+.hero-section {
     min-height: 100vh;
-    width: 100%;
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+    position: relative;
     overflow: hidden;
-    position: relative;
-    padding-top: 60px;
-    /* Reduced to remove dead space */
-    background: linear-gradient(120deg, var(--bg-primary) 0%, #F5F9FF 100%);
-    /* Subtle colorful lift */
 }
 
-/* Patent Watermark */
-.patent-watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    background-image: url('../assets/patent_drawing.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.03;
-    /* Barely visible texture */
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Left Column */
-.hero-left-col {
-    padding: var(--spacing-xxl);
-    padding-right: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Vertically centered */
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text-content {
-    max-width: 600px;
-    width: 100%;
-}
-
-/* 2. Typography: Name - Refined Scale */
-/* Name & Title */
-.hero-name {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    /* Reduced significantly for elegance */
-    font-weight: 600;
-    /* Bolder first name */
-    color: #111;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    /* Tighter spacing */
-    position: relative;
-    z-index: 2;
-}
-
-.hero-last-name {
-    font-size: 0.5em;
-    /* relative to parent */
-    display: block;
-    font-weight: 300;
-    /* Much lighter for contrast */
-    color: #333;
-    /* Slightly softer black */
-    margin-top: 8px;
-    letter-spacing: 0.02em;
-}
-
-/* 3. Accent Line - The "Bridge" -> 2px Hairline */
-.hero-divider {
-    height: 1px;
-    /* Thinner line */
-    background-color: #111;
-    /* Solid black */
-    width: 0;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    border-radius: 0;
-    opacity: 0.8;
-}
-
-.expand-width-long {
-    animation: expandLineLong 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: 0.2s;
-}
-
-@keyframes expandLineLong {
-    to {
-        width: 60px;
-        /* Shorter line */
-    }
-}
-
-/* Location Line - Micro-Typography */
-.hero-location {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: #666;
-    margin-bottom: 120px;
-    /* Increased to push logos down */
-    display: flex;
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--spacing-xl);
     align-items: center;
-    gap: 12px;
 }
 
-.hero-location .separator {
-    color: #111;
-    opacity: 0.4;
-    font-size: 1.2em;
-}
-
-/* 4. Minimal Logo Row - Colorful */
-.hero-logo-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 40px;
-    /* Reduced gap between logos */
-    flex-wrap: wrap;
-    opacity: 0;
-    margin-top: 0;
-}
-
-.hero-logo-mono {
-    height: 44px;
-    /* Slightly bigger (was 40px) */
-    width: auto;
-    object-fit: contain;
-    filter: none;
-    opacity: 0.95;
-    opacity: 0.95;
-    transition: transform 0.3s ease;
-}
-
-.logo-accenture {
-    height: 32px;
-    /* Visual balance adjustment */
-}
-
-.hero-logo-mono:hover {
-    transform: translateY(-2px);
-    opacity: 1;
-}
-
-.hero-cta-text {
+/* Badge Pill */
+.badge-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 24px;
-    /* Reduced from 40px (Closer to logos) */
+    padding: 6px 14px;
+    background-color: var(--accent-gold-subtle);
+    border: 1px solid var(--accent-line-gold);
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--spacing-md);
+}
+
+.badge-icon {
+    color: var(--accent-gold);
+}
+
+/* Name */
+.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5.5vw, 4.5rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-surname {
+    display: block;
+    font-weight: 300;
+    color: var(--text-secondary);
+    font-size: 0.82em;
+    margin-top: 4px;
+}
+
+/* Headline Bio */
+.hero-headline {
     font-family: var(--font-sans);
-    font-size: 10px;
-    /* Reduced from 11px */
+    font-size: 1.25rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    max-width: 620px;
+}
+
+.hero-headline strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Animated Hairline */
+.hero-animated-line {
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold) 0%, transparent 100%);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Location Tag */
+.hero-location-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+.pin-icon {
+    color: var(--accent-gold);
+}
+
+/* Authority Logos */
+.hero-logos-wrapper {
+    margin-bottom: var(--spacing-lg);
+}
+
+.logos-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #666;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding-bottom: 4px;
-    border-bottom: 1px solid transparent;
+    color: var(--text-muted);
+    margin-bottom: 12px;
 }
 
-.hero-cta-text:hover {
-    color: #000;
-}
-
-.hero-cta-text .arrow-down {
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
-}
-
-.hero-cta-text:hover .arrow-down {
-    transform: translateY(4px);
-}
-
-
-/* Right Column */
-.hero-right-col {
-    position: relative;
+.hero-logos-row {
     display: flex;
-    flex-direction: column;
-    /* Stack tagline and images */
-    justify-content: center;
     align-items: center;
-    padding: var(--spacing-lg);
-    padding-left: 0;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-/* Card Stack */
-.hero-card-stack {
+.logo-box {
+    padding: 10px 18px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-default);
+}
+
+.logo-box:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-gold);
+}
+
+.company-logo {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.logo-box:hover .company-logo {
+    filter: grayscale(0%);
+}
+
+/* CTAs */
+.hero-cta-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background-color: var(--text-primary);
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-default);
+}
+
+.btn-hero-primary:hover {
+    background-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background-color: #FFFFFF;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-default);
+}
+
+.btn-hero-secondary:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background-color: var(--bg-secondary);
+}
+
+/* Right Column: Photo Gallery Carousel */
+.hero-gallery-col {
     position: relative;
     width: 100%;
-    max-width: 420px;
-    aspect-ratio: 4/5;
-    /* Portrait aspect for editorial feel */
 }
 
-.card-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
+.gallery-card-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: #0F172A;
+}
+
+.gallery-slide-container {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+.gallery-slide {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
-    border-radius: var(--radius-md);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    transition: all 800ms cubic-bezier(0.22, 1, 0.36, 1);
-    /* Fine-tuned offset stack */
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.offset-0 {
-    z-index: 5;
-    transform: translateX(0) scale(1);
+.gallery-slide.active {
     opacity: 1;
+    transform: scale(1);
 }
 
-.offset-1 {
-    z-index: 4;
-    transform: translateX(20px) translateY(10px) scale(0.95);
-    opacity: 0.8;
+.slide-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 100%);
 }
 
-.offset-2 {
-    z-index: 3;
-    transform: translateX(40px) translateY(20px) scale(0.9);
-    opacity: 0.6;
+.slide-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 6px 14px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.offset-3 {
-    z-index: 2;
-    transform: translateX(60px) translateY(30px) scale(0.85);
-    opacity: 0.4;
+.slide-caption {
+    position: absolute;
+    bottom: 60px;
+    left: 24px;
+    right: 24px;
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 400;
 }
 
-.offset-4 {
-    z-index: 1;
-    transform: translateX(80px) translateY(40px) scale(0.8);
-    opacity: 0.2;
+/* Controls */
+.gallery-controls {
+    position: absolute;
+    bottom: 16px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
 }
 
-
-/* Animation Utilities */
-.fade-in-1 {
-    animation: fadeInEditorial 1s ease-out forwards;
-    animation-delay: 0s;
-    opacity: 0;
+.gallery-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.fade-in-2 {
-    animation: fadeInEditorial 1s ease-out forwards;
-    animation-delay: 0.1s;
-    opacity: 0;
+.gallery-nav-btn:hover {
+    background-color: #FFFFFF;
+    color: var(--text-primary);
+    transform: scale(1.1);
 }
 
-.fade-in-3 {
-    animation: fadeInEditorial 1s ease-out forwards;
-    animation-delay: 0.3s;
-    opacity: 0;
+.gallery-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.fade-in-4 {
-    animation: fadeInEditorial 1s ease-out forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
 }
 
-@keyframes fadeInEditorial {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.dot.active {
+    width: 24px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .hero-split {
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .hero-container {
         grid-template-columns: 1fr;
-        padding-top: 80px;
-        height: auto;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-text-col {
+        text-align: left;
     }
 
-    .hero-left-col {
-        padding: var(--spacing-md);
-        padding-top: 0;
-        align-items: center;
-        text-align: center;
+    .hero-gallery-col {
+        order: -1;
     }
 
-    .hero-name {
-        font-size: 56px;
-        align-items: center;
-    }
-
-    .hero-text-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero-divider {
-        margin-bottom: 48px;
-    }
-
-    .hero-subheading-right {
-        text-align: center;
-        width: 100%;
-        margin-top: 24px;
-    }
-
-    .hero-logos-minimal {
-        display: flex;
-        /* Ensure flex is active */
-        justify-content: center;
-        flex-wrap: nowrap;
-        /* Force single line */
-        gap: 16px;
-        /* Tighter gap */
-        margin-bottom: 40px;
-        overflow-x: auto;
-        /* Allow scroll if extreme small screen */
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    /* Make logos smaller on mobile to fit */
-    .hero-logo-mono {
-        height: 28px;
-    }
-
-    .logo-accenture {
-        height: 20px;
-        /* Proportional reduction */
-    }
-
-    .hero-right-col {
-        padding: var(--spacing-md);
-        padding-top: 0;
-        margin-top: 40px;
-    }
-
-    .hero-card-stack {
-        max-width: 300px;
+    .gallery-card-frame {
+        max-width: 100%;
+        aspect-ratio: 4/3;
     }
 }

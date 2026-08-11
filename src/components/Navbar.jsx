@@ -1,37 +1,46 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, User, Briefcase, Star, Users, Mail, Linkedin } from 'lucide-react'
+import { Menu, X, User, Briefcase, Sparkles, Heart, Compass, Mail, Linkedin } from 'lucide-react'
 import { useActiveSection } from '../hooks/useActiveSection'
 import '../styles/Navbar.css'
 
-const SECTION_IDS = ['hero', 'narrative', 'spotlight', 'experience', 'research', 'recommendations', 'contact'];
+const SECTION_IDS = ['hero', 'narrative', 'experience', 'spotlight', 'impact', 'philosophy', 'contact'];
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-    // Use Shared Hook
     const activeSection = useActiveSection(SECTION_IDS)
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
+            setIsScrolled(window.scrollY > 40)
         }
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
     const navLinks = [
-        { name: 'About', href: '#narrative', icon: <User size={18} strokeWidth={1} />, id: 'narrative' },
-        { name: 'Spotlight', href: '#spotlight', icon: <Star size={18} strokeWidth={1} />, id: 'spotlight' },
-        { name: 'Experience', href: '#experience', icon: <Briefcase size={18} strokeWidth={1} />, id: 'experience' },
-        { name: 'Network', href: '#recommendations', icon: <Users size={18} strokeWidth={1} />, id: 'recommendations' },
-        { name: 'Contact', href: '#contact', icon: <Mail size={18} strokeWidth={1} />, id: 'contact' },
+        { name: 'About', href: '#narrative', path: '/about', icon: <User size={16} />, id: 'narrative' },
+        { name: 'Timeline', href: '#experience', path: '/experience', icon: <Briefcase size={16} />, id: 'experience' },
+        { name: 'Spotlight', href: '#spotlight', path: '/spotlight', icon: <Sparkles size={16} />, id: 'spotlight' },
+        { name: 'Impact', href: '#impact', path: '/impact', icon: <Heart size={16} />, id: 'impact' },
+        { name: 'Philosophy', href: '#philosophy', path: '/philosophy', icon: <Compass size={16} />, id: 'philosophy' },
+        { name: 'Contact', href: '#contact', path: '/contact', icon: <Mail size={16} />, id: 'contact' },
     ]
+
+    const handleNavClick = (href, path) => {
+        setIsMobileMenuOpen(false)
+        if (window.location.pathname === '/' || window.location.pathname === '') {
+            // Update address bar cleanly without page reload
+            window.history.pushState(null, '', path)
+        }
+    }
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-container">
-                <a href="#hero" className="navbar-logo">
+                <a href="#hero" onClick={() => handleNavClick('#hero', '/')} className="navbar-logo">
+                    <span className="logo-box-mark">V</span>
                     <span className="logo-text">Vyshak Iyengar</span>
                 </a>
 
@@ -41,6 +50,7 @@ const Navbar = () => {
                         <a
                             key={link.name}
                             href={link.href}
+                            onClick={() => handleNavClick(link.href, link.path)}
                             className={`nav-link hover-underline ${activeSection === link.id ? 'active' : ''}`}
                         >
                             <span className="nav-icon">{link.icon}</span>
@@ -48,8 +58,8 @@ const Navbar = () => {
                         </a>
                     ))}
                     <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume">
-                        <span>Visit LinkedIn</span>
-                        <Linkedin size={16} />
+                        <span>LinkedIn</span>
+                        <Linkedin size={15} />
                     </a>
                 </div>
 
@@ -64,18 +74,23 @@ const Navbar = () => {
 
                 {/* Mobile Navigation */}
                 <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+                    <div className="mobile-menu-header">
+                        <span className="mobile-logo-text">Vyshak Iyengar</span>
+                    </div>
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
                             className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => handleNavClick(link.href, link.path)}
                         >
-                            {link.name}
+                            <span className="mobile-icon">{link.icon}</span>
+                            <span>{link.name}</span>
                         </a>
                     ))}
                     <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume">
-                        Visit LinkedIn <Linkedin size={16} />
+                        <span>LinkedIn Profile</span>
+                        <Linkedin size={16} />
                     </a>
                 </div>
             </div>

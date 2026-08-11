@@ -1,74 +1,88 @@
-import { useRef, useEffect } from 'react'
+import { GraduationCap, Briefcase, Building2, Heart, Award, CheckCircle2 } from 'lucide-react'
 import '../styles/Timeline.css'
 
+const milestones = [
+    {
+        year: "2013 - 2017",
+        role: "Computer Science Engineering",
+        institution: "Visvesvaraya Technological University",
+        impact: "Graduated with Distinction. Mastered core software engineering, data structures, and algorithmic logic.",
+        category: "Technical Foundation",
+        icon: GraduationCap
+    },
+    {
+        year: "2017 - 2022",
+        role: "Strategy Consultant",
+        institution: "Accenture Strategy",
+        impact: "Secured a rare direct internal transfer from Tech to Strategy without an MBA. Led digital enterprise transformations.",
+        category: "Enterprise Strategy",
+        icon: Briefcase
+    },
+    {
+        year: "2018 - Present",
+        role: "Co-Founder & Board Member",
+        institution: "BluFin Foundation",
+        impact: "Co-founded an inclusive sports non-profit supporting 120+ children and 7 international para-athletes. Backed by Accel Partners.",
+        category: "Social Impact",
+        icon: Heart
+    },
+    {
+        year: "2023 - 2025",
+        role: "MBA Candidate & BCG Summer Consultant",
+        institution: "London Business School",
+        impact: "Selected for LBS MBA (Class of 2025). Completed summer consultancy at BCG Dubai & exchange at Kellogg School of Management.",
+        category: "Global Business",
+        icon: Award
+    },
+    {
+        year: "Current Role",
+        role: "Product Strategy Lead",
+        institution: "Meta",
+        impact: "Drives product roadmap, monetization strategy, and platform growth for global mobile advertising products at scale.",
+        category: "Product Leadership",
+        icon: Building2
+    }
+]
+
 const Timeline = () => {
-    const timelineRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        const nodes = document.querySelectorAll('.timeline-node');
-        nodes.forEach(node => observer.observe(node));
-
-        return () => observer.disconnect();
-    }, []);
-
-    const milestones = [
-        {
-            year: "The Foundation",
-            title: "Engineering Roots",
-            subtitle: "Distinction & Technical Excellence",
-            description: "Built a robust foundation in Computer Science, mastering the logic that would later underpin strategic problem-solving. Graduated with distinction.",
-            category: "Engineering"
-        },
-        {
-            year: "The Pivot",
-            title: "Accenture Strategy",
-            subtitle: "Strategy Consultant",
-            description: "Defied the norm by securing a rare direct transfer to Strategy without an MBA. Architected digital transformation strategies for global enterprises.",
-            category: "Strategy"
-        },
-        {
-            year: "The Purpose",
-            title: "Blufin Foundation",
-            subtitle: "Co-Founder & Social Impact Leader",
-            description: "Founded a non-profit dedicated to para-sports and grassroots athletes. Demonstrated that leadership is about empowering others to succeed.",
-            category: "Social Impact"
-        },
-        {
-            year: "The Future",
-            title: "London Business School",
-            subtitle: "MBA Candidate & BCG Consultant",
-            description: "Selected for the world's elite MBA program. Completed a high-impact summer consultancy at BCG Dubai, cementing a global strategic perspective.",
-            category: "Global Leadership"
-        }
-    ];
-
     return (
-        <section className="timeline-section" id="timeline">
+        <section className="timeline-section" id="experience">
             <div className="container">
-                <h2 className="section-heading text-center">The Evolution</h2>
-                <div className="timeline-container" ref={timelineRef}>
-                    <div className="timeline-line"></div>
+                <div className="text-center">
+                    <span className="timeline-section-tag">Career Arc &amp; Milestones</span>
+                    <h2 className="section-heading">Career Evolution</h2>
+                    <p className="section-subheading">A structured journey across engineering, enterprise strategy, global business, and product leadership.</p>
+                    <div className="animated-divider"></div>
+                </div>
 
-                    {milestones.map((milestone, index) => (
-                        <div key={index} className="timeline-node">
-                            <div className="node-marker"></div>
-                            <div className="node-content">
-                                <span className="node-year">{milestone.year}</span>
-                                <h3 className="node-title">{milestone.title}</h3>
-                                <h4 className="node-subtitle">{milestone.subtitle}</h4>
-                                <p className="node-description">{milestone.description}</p>
-                                <span className="node-category">{milestone.category}</span>
+                <div className="timeline-vertical-container">
+                    <div className="timeline-central-line"></div>
+
+                    {milestones.map((item, index) => {
+                        const IconComponent = item.icon
+                        return (
+                            <div key={index} className={`timeline-row ${index % 2 === 0 ? 'left' : 'right'} fade-in-${(index % 3) + 1}`}>
+                                <div className="timeline-node-marker">
+                                    <IconComponent size={18} className="node-icon" />
+                                </div>
+
+                                <div className="timeline-card">
+                                    <div className="timeline-card-header">
+                                        <span className="timeline-category-tag">{item.category}</span>
+                                        <span className="timeline-year-tag">{item.year}</span>
+                                    </div>
+                                    <h3 className="timeline-role">{item.role}</h3>
+                                    <h4 className="timeline-institution">{item.institution}</h4>
+                                    <p className="timeline-impact">{item.impact}</p>
+                                    
+                                    <div className="timeline-verified-footer">
+                                        <CheckCircle2 size={14} className="check-icon" />
+                                        <span>Verified Milestone</span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        )
+                    })}
                 </div>
             </div>
         </section>

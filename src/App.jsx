@@ -1,15 +1,55 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react'
+import { useEffect } from 'react'
 import Home from './pages/Home'
-import About from './pages/About'
+
+function RouteHandler() {
+  const location = useLocation()
+  
+  useEffect(() => {
+    // Map URL sub-paths to in-page section IDs for seamless navigation & deep-linking
+    const pathMap = {
+      '/about': 'narrative',
+      '/narrative': 'narrative',
+      '/experience': 'experience',
+      '/timeline': 'experience',
+      '/spotlight': 'spotlight',
+      '/impact': 'impact',
+      '/philosophy': 'philosophy',
+      '/contact': 'contact'
+    }
+
+    const sectionId = pathMap[location.pathname]
+    if (sectionId) {
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    }
+  }, [location])
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<Home />} />
+      <Route path="/narrative" element={<Home />} />
+      <Route path="/experience" element={<Home />} />
+      <Route path="/timeline" element={<Home />} />
+      <Route path="/spotlight" element={<Home />} />
+      <Route path="/impact" element={<Home />} />
+      <Route path="/philosophy" element={<Home />} />
+      <Route path="/contact" element={<Home />} />
+      <Route path="*" element={<Home />} />
+    </Routes>
+  )
+}
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <RouteHandler />
       </div>
     </Router>
   )

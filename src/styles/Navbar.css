@@ -3,18 +3,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: var(--header-height);
     z-index: 1000;
     transition: all var(--transition-default);
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
     display: flex;
     align-items: center;
 }
 
 .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    border-bottom-color: var(--accent-line);
 }
 
 .navbar-container {
@@ -22,58 +25,62 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
 }
 
 .navbar-logo {
-    text-decoration: none;
-    color: #0c1a40;
-    /* Midnight Blue (Almost Black) - Deep & Premium */
-    font-family: 'Inter', sans-serif;
-    /* Hardcoded for safety */
-    font-weight: 600;
-    /* Increased weight for visibility */
-    font-size: 14px;
-    /* Micro-minimal size */
-    letter-spacing: 0.15em;
-    /* Wider tracking for small text */
-    text-transform: uppercase;
-    z-index: 1001;
-    position: relative;
-    /* Ensure z-index works */
     display: inline-flex;
-    /* Flex for proper boxing */
     align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    border: 1px solid #0c1a40;
-    /* Box Effect */
-    padding: 6px 14px;
-    /* Breathing room */
+    gap: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
 .navbar-logo:hover {
-    background-color: #0c1a40;
-    color: #fff;
+    transform: translateY(-1px);
+}
+
+.logo-box-mark {
+    width: 32px;
+    height: 32px;
+    background-color: var(--text-primary);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-logo:hover .logo-box-mark {
+    background-color: var(--accent-gold);
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: 6px;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 500;
     color: var(--text-secondary);
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-default);
 }
@@ -83,45 +90,42 @@
     background-color: var(--bg-secondary);
 }
 
+.nav-link.active {
+    color: var(--accent-gold);
+    font-weight: 600;
+    background-color: var(--accent-gold-subtle);
+}
+
 .nav-icon {
     display: flex;
     align-items: center;
+    color: var(--text-muted);
 }
 
-/* Made less prominent as requested */
+.nav-link.active .nav-icon,
+.nav-link:hover .nav-icon {
+    color: var(--accent-gold);
+}
+
 .btn-resume {
-    margin-left: var(--spacing-md);
-    display: flex;
+    margin-left: 12px;
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 10px;
-    border: 1px solid transparent;
-    /* Removed visible border */
-    border-radius: 4px;
-    color: var(--text-secondary);
-    /* Softer color */
-    font-weight: 500;
-    /* Lighter weight */
+    padding: 8px 16px;
+    border: 1px solid var(--accent-line-gold);
+    background-color: var(--accent-gold-subtle);
+    border-radius: 20px;
+    color: var(--accent-gold);
+    font-weight: 600;
     font-size: 0.85rem;
     transition: all var(--transition-default);
 }
 
 .btn-resume:hover {
-    color: var(--text-primary);
-    background-color: rgba(0, 0, 0, 0.05);
-    /* Subtle hover bg */
-}
-
-/* Active State for Navbar Links */
-.nav-link.active {
-    color: #111;
-    font-weight: 600;
-}
-
-.nav-link.active::after {
-    width: 100%;
-    /* If using underline animation */
-    background-color: #111;
+    background-color: var(--accent-gold);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-gold);
 }
 
 /* Mobile Toggle */
@@ -129,35 +133,70 @@
     display: none;
     color: var(--text-primary);
     z-index: 1001;
+    padding: 8px;
 }
 
 .mobile-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 100%;
+    width: 85%;
+    max-width: 360px;
     height: 100vh;
-    background-color: var(--bg-primary);
+    background-color: #FFFFFF;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-xl);
-    transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    padding: 40px 24px;
+    gap: 16px;
+    transition: right 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     display: flex;
     z-index: 999;
+    box-shadow: -10px 0 30px rgba(15, 23, 42, 0.15);
 }
 
 .mobile-menu.open {
     right: 0;
 }
 
-.mobile-nav-link {
+.mobile-menu-header {
+    padding-bottom: 20px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--accent-line);
+}
+
+.mobile-logo-text {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+    color: var(--accent-gold);
+    background-color: var(--accent-gold-subtle);
+}
+
+.mobile-resume {
+    margin-left: 0;
+    margin-top: 20px;
+    justify-content: center;
+    padding: 14px 20px;
+}
+
+@media (max-width: 992px) {
     .desktop-only {
         display: none;
     }

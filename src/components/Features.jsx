@@ -1,4 +1,4 @@
-import { Mic, Lightbulb, ExternalLink, FileText } from 'lucide-react'
+import { Mic, Lightbulb, ExternalLink, FileText, Sparkles } from 'lucide-react'
 import '../styles/Recognition.css'
 import patentPreview from '../assets/previews/patent-v3.png'
 import podcastPreview from '../assets/previews/podcast-v2.png'
@@ -10,11 +10,11 @@ const spotlightItems = [
         id: 4,
         tag: "Media Feature",
         title: "Real Humans of Meta",
-        subtitle: "LBS MBA Product Marketing Manager",
-        description: "Featured in Clear Admit discussing the journey from London Business School to Meta, product marketing strategy, and the MBA experience.",
+        subtitle: "Clear Admit Career Feature",
+        description: "Featured in Clear Admit profiling Vyshak Iyengar's trajectory from London Business School to Product Strategy at Meta, highlighting tech leadership and strategy.",
         icon: FileText,
         link: "https://www.clearadmit.com/2026/03/real-humans-of-meta-lbs-mba-product-marketing-manager/",
-        linkText: "Read in Clear Admit",
+        linkText: "Read Profile on Clear Admit",
         type: "media",
         image: clearadmitPreview
     },
@@ -22,35 +22,35 @@ const spotlightItems = [
         id: 1,
         tag: "Media Feature",
         title: "BluFin Foundation",
-        subtitle: "YourStory Feature",
-        description: "Profiled for co-founding an inclusive sporting ecosystem backing 120+ athletes. Supported by Accel Partners.",
+        subtitle: "YourStory National Profile",
+        description: "Profiled in YourStory for co-founding an inclusive sporting ecosystem backing 120+ children and 2 Asian Para Games athletes. Supported by Accel Partners.",
         icon: FileText,
         link: "https://yourstory.com/socialstory/2024/08/blufin-foundation-led-by-paralympian-sharath-gayak",
-        linkText: "Read in YourStory",
+        linkText: "Read Article on YourStory",
         type: "media",
         image: yourstoryPreview
     },
     {
         id: 2,
-        tag: "Media Feature",
-        title: "Crack The MBA",
-        subtitle: "Podcast Interview",
-        description: "A deep dive into the pivot from Engineering to Strategy, London Business School, and social leadership.",
+        tag: "Media Podcast",
+        title: "Crack The MBA Interview",
+        subtitle: "Strategic Leadership Podcast",
+        description: "Podcast interview featuring Vyshak Iyengar detailing the career transition from Computer Science Engineering to Accenture Strategy, London Business School, and social leadership.",
         icon: Mic,
         link: "https://www.youtube.com/watch?v=v4CaZ4xwotI",
-        linkText: "Listen Now",
+        linkText: "Watch Podcast Interview",
         type: "media",
         image: podcastPreview
     },
     {
         id: 3,
-        tag: "Patent",
-        title: "Project Visualization",
-        subtitle: "US Patent 12,020,352",
-        description: "Invented a system for visualizing complex project dependencies. Granted in 2024, a key signal of technical product leadership.",
+        tag: "Granted Patent",
+        title: "US Patent 12,020,352",
+        subtitle: "Project Dependency Visualization",
+        description: "Granted to inventor Vyshak Iyengar for an automated system visualizing complex project dependencies, reflecting technical product architecture and innovation.",
         icon: Lightbulb,
         link: "https://patents.google.com/patent/US12020352B2",
-        linkText: "View Patent",
+        linkText: "View Google Patent Record",
         type: "patent",
         image: patentPreview
     }
@@ -60,7 +60,15 @@ const Features = () => {
     return (
         <section className="recognition-section" id="spotlight">
             <div className="container">
-                <h2 className="section-heading text-center">Spotlight</h2>
+                <div className="text-center">
+                    <span className="spotlight-section-tag">
+                        <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
+                        Verified Index &amp; Press
+                    </span>
+                    <h2 className="section-heading">Spotlight &amp; Publications</h2>
+                    <p className="section-subheading">Selected press coverage, media interviews, and granted patents establishing authority and industry footprint.</p>
+                    <div className="animated-divider"></div>
+                </div>
 
                 <div className="recognition-grid">
                     {spotlightItems.map((item) => (
@@ -72,7 +80,7 @@ const Features = () => {
                                     <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
                                 </div>
                             ) : (
-                                <div className="card-preview-placeholder" style={{ padding: '10px 20px', backgroundColor: 'var(--card-bg, #f9f9f9)' }}>
+                                <div className="card-preview-placeholder">
                                     <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
                                 </div>
                             )}
@@ -80,7 +88,7 @@ const Features = () => {
                             <div className="card-content-wrapper">
                                 <div className="card-header">
                                     <span className="card-category">{item.category || item.tag}</span>
-                                    <item.icon size={16} className="card-icon" />
+                                    <item.icon size={18} className="card-icon" />
                                 </div>
 
                                 <h3 className="card-title">{item.title}</h3>
@@ -91,7 +99,7 @@ const Features = () => {
                                 </p>
 
                                 <div className="card-link-text">
-                                    {item.linkText}
+                                    <span>{item.linkText}</span>
                                     <ExternalLink size={14} />
                                 </div>
                             </div>

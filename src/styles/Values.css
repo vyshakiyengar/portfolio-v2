@@ -1,40 +1,82 @@
 .values-section {
     padding: var(--spacing-xxl) 0;
-    background-color: var(--bg-primary);
-    /* White */
+    background-color: var(--bg-secondary);
+    position: relative;
+    border-top: 1px solid var(--accent-line);
 }
 
-.values-list {
-    max-width: 800px;
-    margin: 0 auto;
+.values-section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: 40px;
+}
+
+.value-card {
+    background-color: #FFFFFF;
+    padding: 36px 28px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--accent-line);
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-default);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
-    text-align: center;
+    align-items: flex-start;
 }
 
-.value-item p {
+.value-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.value-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-gold-subtle);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon-box {
+    background-color: var(--accent-gold);
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+.value-title {
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    /* Large elegant type */
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.35;
     color: var(--text-primary);
-    line-height: 1.6;
+    margin-bottom: 12px;
 }
 
-.value-item {
-    position: relative;
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(10, 61, 98, 0.1);
+.value-desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 0;
 }
 
-.value-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .value-item p {
-        font-size: 1.2rem;
+@media (max-width: 992px) {
+    .values-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,30 +1,68 @@
+import { User, Award, Globe, Heart, ShieldCheck } from 'lucide-react'
 import '../styles/Narrative.css'
-import profileImg from '../assets/vyshak-portrait.jpg'
 
 const Narrative = () => {
     return (
         <section className="narrative-section" id="narrative">
             <div className="container">
                 <div className="narrative-grid">
-                    <div className="narrative-image-col">
-                        <div className="image-wrapper">
-                            <img src={profileImg} alt="Vyshak Iyengar" className="narrative-img" />
+                    {/* Left Column: Image Card */}
+                    <div className="narrative-image-col fade-in-1">
+                        <div className="narrative-frame">
+                            <img src="/images/vyshak-portrait.jpg" alt="Vyshak Kannan Iyengar" className="narrative-img" />
+                            <div className="narrative-badge">
+                                <ShieldCheck size={16} />
+                                <span>Official Profile</span>
+                            </div>
                         </div>
                     </div>
 
+                    {/* Right Column: Third-Person Narrative Bio */}
                     <div className="narrative-content-col fade-in-2">
-                        <h2 className="narrative-greeting">Hello, I'm Vyshak!</h2>
+                        <div className="section-meta">
+                            <User size={18} className="meta-icon" />
+                            <span>Executive Profile</span>
+                        </div>
 
-                        <div className="narrative-text">
+                        <h2 className="narrative-heading">About Vyshak Iyengar</h2>
+
+                        <div className="animated-divider-left"></div>
+
+                        <div className="narrative-body">
                             <p>
-                                I lead product strategy for a mobile advertising product at Meta, working at the intersection of growth, monetization, and platform strategy across global markets. Before Meta, I was a strategy consultant at Accenture and BCG (a background that taught me how to say "synergy" with a straight face), and I hold an MBA from London Business School.
+                                <strong>Vyshak Iyengar</strong> leads product strategy for mobile advertising products at <strong>Meta</strong>, operating at the intersection of product innovation, growth, monetization, and platform strategy across global markets. Prior to Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
                             </p>
                             <p>
-                                Today I'm driven by two North Stars: building high-impact technology products at scale and diving deep into social impact work. As co-founder of Blufin Foundation (NGO based in Bangalore), I'm working to enable disadvantaged youth to pursue professional sports, scaling it from a local trust to an organization backed by partners like Accel Partners and Kaleyra.
+                                His career trajectory combines technical rigor with global strategic execution. Starting with a distinction in Computer Science Engineering, he secured a direct transfer into Accenture’s strategy practice without an MBA, advising Fortune 500 leadership on digital enterprise transformation.
                             </p>
                             <p>
-                                When I'm not obsessing about startups or product strategy, you'll find me leaning into the classic "Tambram" trifecta: cricket, politics, and strong coffee. I like to think I'm on a serious spiritual journey, but memes keep distracting me from the path to enlightenment.
+                                In parallel with his technology career, Vyshak is co-founder of the <strong>BluFin Foundation</strong>, an organization dedicated to empowering disadvantaged youth and para-athletes. Under his leadership, the foundation has scaled from a grassroots initiative into an organization backed by institutional partners including Accel Partners and Kaleyra.
                             </p>
+                        </div>
+
+                        {/* Highlight Key Pillars */}
+                        <div className="narrative-pillars">
+                            <div className="pillar-item">
+                                <Globe size={20} className="pillar-icon" />
+                                <div className="pillar-text">
+                                    <strong>Global Strategy</strong>
+                                    <span>Meta &amp; BCG Dubai</span>
+                                </div>
+                            </div>
+                            <div className="pillar-item">
+                                <Award size={20} className="pillar-icon" />
+                                <div className="pillar-text">
+                                    <strong>Academic Rigor</strong>
+                                    <span>LBS MBA &amp; Kellogg</span>
+                                </div>
+                            </div>
+                            <div className="pillar-item">
+                                <Heart size={20} className="pillar-icon" />
+                                <div className="pillar-text">
+                                    <strong>Social Impact</strong>
+                                    <span>BluFin Foundation</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
