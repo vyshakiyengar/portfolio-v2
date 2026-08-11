@@ -5,6 +5,15 @@ import '../styles/Navbar.css'
 
 const SECTION_IDS = ['hero', 'narrative', 'experience', 'spotlight', 'impact', 'philosophy', 'contact'];
 
+const navLinks = [
+    { name: 'About', path: '/about', icon: <User size={16} />, id: 'narrative' },
+    { name: 'Timeline', path: '/experience', icon: <Briefcase size={16} />, id: 'experience' },
+    { name: 'Spotlight', path: '/spotlight', icon: <Sparkles size={16} />, id: 'spotlight' },
+    { name: 'Impact', path: '/impact', icon: <Heart size={16} />, id: 'impact' },
+    { name: 'Philosophy', path: '/philosophy', icon: <Compass size={16} />, id: 'philosophy' },
+    { name: 'Contact', path: '/contact', icon: <Mail size={16} />, id: 'contact' },
+]
+
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -19,27 +28,20 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const navLinks = [
-        { name: 'About', href: '#narrative', path: '/about', icon: <User size={16} />, id: 'narrative' },
-        { name: 'Timeline', href: '#experience', path: '/experience', icon: <Briefcase size={16} />, id: 'experience' },
-        { name: 'Spotlight', href: '#spotlight', path: '/spotlight', icon: <Sparkles size={16} />, id: 'spotlight' },
-        { name: 'Impact', href: '#impact', path: '/impact', icon: <Heart size={16} />, id: 'impact' },
-        { name: 'Philosophy', href: '#philosophy', path: '/philosophy', icon: <Compass size={16} />, id: 'philosophy' },
-        { name: 'Contact', href: '#contact', path: '/contact', icon: <Mail size={16} />, id: 'contact' },
-    ]
-
-    const handleNavClick = (href, path) => {
+    const handleNavClick = (e, path, sectionId) => {
+        e.preventDefault()
         setIsMobileMenuOpen(false)
-        if (window.location.pathname === '/' || window.location.pathname === '') {
-            // Update address bar cleanly without page reload
-            window.history.pushState(null, '', path)
+        const el = document.getElementById(sectionId)
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
         }
+        window.history.pushState(null, '', path)
     }
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-container">
-                <a href="#hero" onClick={() => handleNavClick('#hero', '/')} className="navbar-logo">
+                <a href="/" onClick={(e) => handleNavClick(e, '/', 'hero')} className="navbar-logo">
                     <span className="logo-box-mark">V</span>
                     <span className="logo-text">Vyshak Iyengar</span>
                 </a>
@@ -49,8 +51,8 @@ const Navbar = () => {
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
-                            href={link.href}
-                            onClick={() => handleNavClick(link.href, link.path)}
+                            href={link.path}
+                            onClick={(e) => handleNavClick(e, link.path, link.id)}
                             className={`nav-link hover-underline ${activeSection === link.id ? 'active' : ''}`}
                         >
                             <span className="nav-icon">{link.icon}</span>
@@ -80,9 +82,9 @@ const Navbar = () => {
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
-                            href={link.href}
+                            href={link.path}
                             className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
-                            onClick={() => handleNavClick(link.href, link.path)}
+                            onClick={(e) => handleNavClick(e, link.path, link.id)}
                         >
                             <span className="mobile-icon">{link.icon}</span>
                             <span>{link.name}</span>

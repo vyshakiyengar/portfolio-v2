@@ -1,7 +1,24 @@
 import { Linkedin, Mail, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import '../styles/Contact.css'
 
+const footerNavLinks = [
+    { label: 'Home', path: '/', id: 'hero' },
+    { label: 'About', path: '/about', id: 'narrative' },
+    { label: 'Timeline', path: '/experience', id: 'experience' },
+    { label: 'Spotlight', path: '/spotlight', id: 'spotlight' },
+    { label: 'Impact', path: '/impact', id: 'impact' },
+];
+
 const Contact = () => {
+    const handleFooterNav = (e, path, sectionId) => {
+        e.preventDefault();
+        const el = document.getElementById(sectionId);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.history.pushState(null, '', path);
+    };
+
     return (
         <footer className="footer-section" id="contact">
             <div className="container contact-container">
@@ -40,11 +57,15 @@ const Contact = () => {
                     </div>
 
                     <div className="footer-links-row">
-                        <a href="#hero">Home</a>
-                        <a href="#narrative">About</a>
-                        <a href="#experience">Timeline</a>
-                        <a href="#spotlight">Spotlight</a>
-                        <a href="#impact">Impact</a>
+                        {footerNavLinks.map((link) => (
+                            <a
+                                key={link.label}
+                                href={link.path}
+                                onClick={(e) => handleFooterNav(e, link.path, link.id)}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
                     </div>
 
                     <div className="footer-copy">

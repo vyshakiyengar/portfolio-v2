@@ -6,6 +6,11 @@ function RouteHandler() {
   const location = useLocation()
   
   useEffect(() => {
+    // Clean up any legacy hash fragment in URL bar
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+
     // Map URL sub-paths to in-page section IDs for seamless navigation & deep-linking
     const pathMap = {
       '/about': 'narrative',

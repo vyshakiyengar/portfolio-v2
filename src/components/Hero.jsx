@@ -103,7 +103,16 @@ const Hero = () => {
                     </div>
 
                     <div className="hero-cta-wrapper">
-                        <a href="#narrative" className="btn-hero-primary">
+                        <a 
+                            href="/about" 
+                            onClick={(e) => {
+                                e.preventDefault()
+                                const el = document.getElementById('narrative')
+                                if (el) el.scrollIntoView({ behavior: 'smooth' })
+                                window.history.pushState(null, '', '/about')
+                            }} 
+                            className="btn-hero-primary"
+                        >
                             <span>Explore Profile</span>
                             <ArrowDown size={16} />
                         </a>
