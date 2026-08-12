@@ -30,7 +30,7 @@ const milestones = [
         year: "2023 - 2025",
         role: "MBA Candidate & BCG Summer Consultant",
         institution: "London Business School",
-        impact: "Selected for LBS MBA (Class of 2025). Completed summer consultancy at BCG Dubai & exchange at Kellogg School of Management.",
+        impact: "Selected for LBS MBA (Class of 2025). Completed summer consultancy at BCG Dubai.",
         category: "Global Business",
         icon: Award
     },

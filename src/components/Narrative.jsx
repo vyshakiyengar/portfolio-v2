@@ -53,7 +53,7 @@ const Narrative = () => {
                                 <Award size={20} className="pillar-icon" />
                                 <div className="pillar-text">
                                     <strong>Academic Rigor</strong>
-                                    <span>LBS MBA &amp; Kellogg</span>
+                                    <span>London Business School</span>
                                 </div>
                             </div>
                             <div className="pillar-item">

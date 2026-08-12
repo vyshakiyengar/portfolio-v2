@@ -17,7 +17,7 @@ const experiences = [
         organization: 'London Business School',
         period: 'Class of 2025',
         icon: GraduationCap,
-        description: 'Executive Committee: Venture Capital Club & Cricket Club. Exchange Program: Kellogg School of Management. Global Business Experience: South America. Summer Consulting: BCG Dubai.',
+        description: 'Executive Committee: Venture Capital Club & Cricket Club. Global Business Experience: South America. Summer Consulting: BCG Dubai.',
         quote: '"How strategic frameworks translate across industries and cultures"'
     },
     {

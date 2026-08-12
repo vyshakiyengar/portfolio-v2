@@ -19,7 +19,7 @@ const Lead = () => {
             icon: <BookOpen size={24} />,
             title: "Academic",
             subtitle: "Distinction & Excellence",
-            items: ["MBA Class of 2025, London Business School", "Kellogg Exchange Program", "Engineering Distinction"]
+            items: ["MBA Class of 2025, London Business School", "BCG Dubai Consultancy", "Engineering Distinction"]
         }
     ];
 
