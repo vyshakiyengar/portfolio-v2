@@ -28,11 +28,19 @@ const milestones = [
     },
     {
         year: "2023 - 2025",
-        role: "MBA Candidate & BCG Summer Consultant",
+        role: "MBA Candidate",
         institution: "London Business School",
-        impact: "Selected for LBS MBA (Class of 2025). Completed summer consultancy at BCG Dubai.",
+        impact: "Selected for LBS MBA (Class of 2025). Focus on global business leadership, technology strategy, and venture creation.",
         category: "Global Business",
         icon: Award
+    },
+    {
+        year: "2024",
+        role: "Strategy Consultant (MBA Internship)",
+        institution: "Boston Consulting Group (BCG)",
+        impact: "Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
+        category: "Management Consulting",
+        icon: Briefcase
     },
     {
         year: "Current Role",
