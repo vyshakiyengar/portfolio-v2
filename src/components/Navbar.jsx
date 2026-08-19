@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, User, Briefcase, Sparkles, Heart, Compass, Mail, Linkedin } from 'lucide-react'
+import XIcon from './ui/XIcon'
 import { useActiveSection } from '../hooks/useActiveSection'
 import '../styles/Navbar.css'
 
@@ -59,10 +60,16 @@ const Navbar = () => {
                             <span className="nav-text">{link.name}</span>
                         </a>
                     ))}
-                    <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume">
-                        <span>LinkedIn</span>
-                        <Linkedin size={15} />
-                    </a>
+                    <div className="nav-social-group">
+                        <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume" title="LinkedIn Profile">
+                            <span>LinkedIn</span>
+                            <Linkedin size={15} />
+                        </a>
+                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-resume btn-x" title="X (Twitter) Profile">
+                            <span>X</span>
+                            <XIcon size={14} />
+                        </a>
+                    </div>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -90,10 +97,16 @@ const Navbar = () => {
                             <span>{link.name}</span>
                         </a>
                     ))}
-                    <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume">
-                        <span>LinkedIn Profile</span>
-                        <Linkedin size={16} />
-                    </a>
+                    <div className="mobile-social-group">
+                        <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume">
+                            <span>LinkedIn Profile</span>
+                            <Linkedin size={16} />
+                        </a>
+                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume mobile-x">
+                            <span>X Profile</span>
+                            <XIcon size={15} />
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>

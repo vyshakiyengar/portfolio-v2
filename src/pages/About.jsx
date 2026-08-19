@@ -16,8 +16,8 @@ function About() {
             "image": "https://vyshak.me/images/profile-v5.jpg",
             "sameAs": [
                 "https://www.linkedin.com/in/vyshakiyengar/",
-                "https://github.com/vyshak",
-                "https://twitter.com/vyshak"
+                "https://x.com/vyshakkiyengar",
+                "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem"
             ],
             "jobTitle": "Product Leader & Software Engineer",
             "worksFor": {

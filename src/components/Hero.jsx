@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, ArrowDown, MapPin, Sparkles, ShieldCheck } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowDown, MapPin, Sparkles, Linkedin } from 'lucide-react'
+import XIcon from './ui/XIcon'
 import '../styles/Hero.css'
 
 import bcgLogo from '../assets/logos/bcg.png'
@@ -117,8 +118,12 @@ const Hero = () => {
                             <ArrowDown size={16} />
                         </a>
                         <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-hero-secondary">
-                            <ShieldCheck size={16} />
-                            <span>Verified LinkedIn</span>
+                            <Linkedin size={16} />
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-hero-secondary">
+                            <XIcon size={15} />
+                            <span>X (Twitter)</span>
                         </a>
                     </div>
                 </div>

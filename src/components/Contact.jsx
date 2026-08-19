@@ -1,4 +1,5 @@
 import { Linkedin, Mail, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react'
+import XIcon from './ui/XIcon'
 import '../styles/Contact.css'
 
 const footerNavLinks = [
@@ -43,7 +44,12 @@ const Contact = () => {
                         </a>
                         <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-contact-sub">
                             <Linkedin size={18} />
-                            <span>LinkedIn Profile</span>
+                            <span>LinkedIn</span>
+                            <ArrowUpRight size={16} />
+                        </a>
+                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-contact-sub">
+                            <XIcon size={16} />
+                            <span>X Profile</span>
                             <ArrowUpRight size={16} />
                         </a>
                     </div>

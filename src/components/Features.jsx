@@ -1,11 +1,24 @@
-import { Mic, Lightbulb, ExternalLink, FileText, Sparkles } from 'lucide-react'
+import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot } from 'lucide-react'
 import '../styles/Recognition.css'
 import patentPreview from '../assets/previews/patent-v3.png'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
 import clearadmitPreview from '../assets/previews/clearadmit.png'
+import tipranksPreview from '../assets/previews/tipranks.svg'
 
 const spotlightItems = [
+    {
+        id: 5,
+        tag: "Media Feature",
+        title: "Voice-Based Kannada AI Ordering",
+        subtitle: "TipRanks Technology News",
+        description: "Featured in TipRanks for architecting a WhatsApp AI voice agent in Kannada utilizing Gnani.ai's PRISMA & TIMBRE speech models integrated into the Swiggy ecosystem via Model Context Protocol (MCP).",
+        icon: Bot,
+        link: "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem",
+        linkText: "Read Article on TipRanks",
+        type: "media",
+        image: tipranksPreview
+    },
     {
         id: 4,
         tag: "Media Feature",
