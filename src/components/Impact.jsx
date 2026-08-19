@@ -27,11 +27,21 @@ const Impact = () => {
 
                         <div className="impact-card-body">
                             <div className="card-header-flex">
-                                <h3 className="impact-card-title">BluFin Foundation</h3>
-                                <a href="https://yourstory.com/socialstory/2024/08/blufin-foundation-led-by-paralympian-sharath-gayak" target="_blank" rel="noopener noreferrer" className="impact-external-link">
-                                    <span>YourStory Profile</span>
-                                    <ExternalLink size={14} />
-                                </a>
+                                <h3 className="impact-card-title">
+                                    <a href="https://www.blufinfoundation.com/" target="_blank" rel="noopener noreferrer" className="impact-title-link">
+                                        BluFin Foundation
+                                    </a>
+                                </h3>
+                                <div className="impact-links-group">
+                                    <a href="https://www.blufinfoundation.com/" target="_blank" rel="noopener noreferrer" className="impact-external-link">
+                                        <span>Website</span>
+                                        <ExternalLink size={14} />
+                                    </a>
+                                    <a href="https://yourstory.com/socialstory/2024/08/blufin-foundation-led-by-paralympian-sharath-gayak" target="_blank" rel="noopener noreferrer" className="impact-external-link">
+                                        <span>YourStory</span>
+                                        <ExternalLink size={14} />
+                                    </a>
+                                </div>
                             </div>
 
                             <p className="impact-description">
@@ -88,7 +98,9 @@ const Impact = () => {
                             <div className="civic-item">
                                 <CheckCircle size={18} className="civic-check" />
                                 <div>
-                                    <strong>Governing Council Member — "Let's Be The Change"</strong>
+                                    <strong>
+                                        Governing Council Member — <a href="https://www.letsbethechange.in/" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
+                                    </strong>
                                     <p>Served on the leadership council driving urban cleanliness and civic engagement across Karnataka.</p>
                                 </div>
                             </div>

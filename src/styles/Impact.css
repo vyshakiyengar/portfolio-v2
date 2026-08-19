@@ -96,6 +96,22 @@
     margin-bottom: 0;
 }
 
+.impact-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.impact-title-link:hover {
+    color: var(--accent-gold);
+}
+
+.impact-links-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .impact-external-link {
     display: inline-flex;
     align-items: center;
@@ -104,6 +120,7 @@
     font-weight: 600;
     color: var(--accent-gold);
     transition: color 0.3s ease;
+    text-decoration: none;
 }
 
 .impact-external-link:hover {
@@ -238,6 +255,17 @@
     font-size: 0.95rem;
     color: var(--text-primary);
     margin-bottom: 2px;
+}
+
+.civic-inline-link {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.civic-inline-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
 }
 
 .civic-item p {
