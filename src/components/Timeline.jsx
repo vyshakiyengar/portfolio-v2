@@ -1,6 +1,13 @@
 import { GraduationCap, Briefcase, Building2, Heart, Award, CheckCircle2 } from 'lucide-react'
 import '../styles/Timeline.css'
 
+import accentureLogo from '../assets/logos/accenture.png'
+import bcgLogo from '../assets/logos/bcg.png'
+import lbsLogo from '../assets/logos/lbs.png'
+import metaLogo from '../assets/logos/meta.png'
+import vtuLogo from '../assets/logos/vtu.png'
+import blufinLogo from '../assets/logos/blufin.jpg'
+
 const milestones = [
     {
         year: "2013 - 2017",
@@ -8,7 +15,8 @@ const milestones = [
         institution: "Visvesvaraya Technological University",
         impact: "Graduated with Distinction. Mastered core software engineering, data structures, and algorithmic logic.",
         category: "Technical Foundation",
-        icon: GraduationCap
+        icon: GraduationCap,
+        logo: vtuLogo
     },
     {
         year: "2017 - 2022",
@@ -16,7 +24,8 @@ const milestones = [
         institution: "Accenture Strategy",
         impact: "Secured a rare direct internal transfer from Tech to Strategy without an MBA. Led digital enterprise transformations.",
         category: "Enterprise Strategy",
-        icon: Briefcase
+        icon: Briefcase,
+        logo: accentureLogo
     },
     {
         year: "2018 - Present",
@@ -24,7 +33,8 @@ const milestones = [
         institution: "BluFin Foundation",
         impact: "Co-founded an inclusive sports non-profit supporting 120+ children and 7 international para-athletes. Backed by Accel Partners.",
         category: "Social Impact",
-        icon: Heart
+        icon: Heart,
+        logo: blufinLogo
     },
     {
         year: "2023 - 2025",
@@ -32,7 +42,8 @@ const milestones = [
         institution: "London Business School",
         impact: "Selected for LBS MBA (Class of 2025). Focus on global business leadership, technology strategy, and venture creation.",
         category: "Global Business",
-        icon: Award
+        icon: Award,
+        logo: lbsLogo
     },
     {
         year: "2024",
@@ -40,7 +51,8 @@ const milestones = [
         institution: "Boston Consulting Group (BCG)",
         impact: "MBA Internship — Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
         category: "Management Consulting",
-        icon: Briefcase
+        icon: Briefcase,
+        logo: bcgLogo
     },
     {
         year: "Current Role",
@@ -48,7 +60,8 @@ const milestones = [
         institution: "Meta",
         impact: "Drives product roadmap, monetization strategy, and platform growth for global mobile advertising products at scale.",
         category: "Product Leadership",
-        icon: Building2
+        icon: Building2,
+        logo: metaLogo
     }
 ]
 
@@ -80,7 +93,14 @@ const Timeline = () => {
                                         <span className="timeline-year-tag">{item.year}</span>
                                     </div>
                                     <h3 className="timeline-role">{item.role}</h3>
-                                    <h4 className="timeline-institution">{item.institution}</h4>
+                                    <div className="timeline-institution-row">
+                                        {item.logo && (
+                                            <div className="timeline-logo-box">
+                                                <img src={item.logo} alt={item.institution} className="timeline-logo-img" />
+                                            </div>
+                                        )}
+                                        <h4 className="timeline-institution">{item.institution}</h4>
+                                    </div>
                                     <p className="timeline-impact">{item.impact}</p>
                                     
                                     <div className="timeline-verified-footer">
