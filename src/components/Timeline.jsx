@@ -36,9 +36,9 @@ const milestones = [
     },
     {
         year: "2024",
-        role: "Strategy Consultant (MBA Internship)",
+        role: "Strategy Consultant",
         institution: "Boston Consulting Group (BCG)",
-        impact: "Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
+        impact: "MBA Internship — Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
         category: "Management Consulting",
         icon: Briefcase
     },
