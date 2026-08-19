@@ -95,9 +95,7 @@ const Timeline = () => {
                                     <h3 className="timeline-role">{item.role}</h3>
                                     <div className="timeline-institution-row">
                                         {item.logo && (
-                                            <div className="timeline-logo-box">
-                                                <img src={item.logo} alt={item.institution} className="timeline-logo-img" />
-                                            </div>
+                                            <img src={item.logo} alt={item.institution} className="timeline-logo-img" />
                                         )}
                                         <h4 className="timeline-institution">{item.institution}</h4>
                                     </div>
