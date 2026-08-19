@@ -358,3 +358,42 @@
 .builder-card:hover .card-link-text {
     color: var(--accent-gold, var(--accent-highlight));
 }
+
+/* Multi-links row on card footer */
+.card-links-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.card-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.card-link-item:hover {
+    color: var(--accent-gold, var(--accent-highlight));
+}
+
+.card-link-secondary {
+    color: var(--accent-gold, var(--accent-highlight));
+}
+
+.card-link-secondary:hover {
+    color: var(--text-primary);
+}

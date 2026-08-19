@@ -63,7 +63,9 @@ const spotlightItems = [
         description: "Granted to inventor Vyshak Iyengar for an automated system visualizing complex project dependencies, reflecting technical product architecture and innovation.",
         icon: Lightbulb,
         link: "https://patents.google.com/patent/US12020352B2",
-        linkText: "View Google Patent Record",
+        linkText: "Google Patent",
+        secondaryLink: "https://scholar.google.com/citations?user=MKSlYmUAAAAJ&hl=en",
+        secondaryLinkText: "Google Scholar Profile",
         type: "patent",
         image: patentPreview
     }
@@ -84,40 +86,74 @@ const Features = () => {
                 </div>
 
                 <div className="recognition-grid">
-                    {spotlightItems.map((item) => (
-                        <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer" className={`builder-card feature-${item.type} block-link`}>
-                            {item.image ? (
-                                <div className="card-preview">
-                                    <img src={item.image} alt={item.title} />
-                                    <div className="preview-overlay"></div>
-                                    <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
-                                </div>
-                            ) : (
-                                <div className="card-preview-placeholder">
-                                    <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
-                                </div>
-                            )}
+                    {spotlightItems.map((item) => {
+                        const CardWrapper = item.secondaryLink ? 'div' : 'a';
+                        const wrapperProps = item.secondaryLink
+                            ? { className: `builder-card feature-${item.type}` }
+                            : { href: item.link, target: '_blank', rel: 'noopener noreferrer', className: `builder-card feature-${item.type} block-link` };
 
-                            <div className="card-content-wrapper">
-                                <div className="card-header">
-                                    <span className="card-category">{item.category || item.tag}</span>
-                                    <item.icon size={18} className="card-icon" />
+                        return (
+                            <CardWrapper key={item.id} {...wrapperProps}>
+                                {item.image ? (
+                                    <div className="card-preview">
+                                        {item.secondaryLink ? (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
+                                                <img src={item.image} alt={item.title} />
+                                            </a>
+                                        ) : (
+                                            <img src={item.image} alt={item.title} />
+                                        )}
+                                        <div className="preview-overlay"></div>
+                                        <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
+                                    </div>
+                                ) : (
+                                    <div className="card-preview-placeholder">
+                                        <span className={`feature-tag tag-${item.type}`}>{item.tag}</span>
+                                    </div>
+                                )}
+
+                                <div className="card-content-wrapper">
+                                    <div className="card-header">
+                                        <span className="card-category">{item.category || item.tag}</span>
+                                        <item.icon size={18} className="card-icon" />
+                                    </div>
+
+                                    <h3 className="card-title">
+                                        {item.secondaryLink ? (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                                {item.title}
+                                            </a>
+                                        ) : (
+                                            item.title
+                                        )}
+                                    </h3>
+                                    {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
+
+                                    <p className="card-desc">
+                                        {item.description}
+                                    </p>
+
+                                    {item.secondaryLink ? (
+                                        <div className="card-links-row">
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item">
+                                                <span>{item.linkText}</span>
+                                                <ExternalLink size={13} />
+                                            </a>
+                                            <a href={item.secondaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary">
+                                                <span>{item.secondaryLinkText}</span>
+                                                <ExternalLink size={13} />
+                                            </a>
+                                        </div>
+                                    ) : (
+                                        <div className="card-link-text">
+                                            <span>{item.linkText}</span>
+                                            <ExternalLink size={14} />
+                                        </div>
+                                    )}
                                 </div>
-
-                                <h3 className="card-title">{item.title}</h3>
-                                {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
-
-                                <p className="card-desc">
-                                    {item.description}
-                                </p>
-
-                                <div className="card-link-text">
-                                    <span>{item.linkText}</span>
-                                    <ExternalLink size={14} />
-                                </div>
-                            </div>
-                        </a>
-                    ))}
+                            </CardWrapper>
+                        );
+                    })}
                 </div>
             </div>
         </section>
