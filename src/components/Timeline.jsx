@@ -98,16 +98,13 @@ const Timeline = () => {
                                     <span className="tcard-year">{item.year}</span>
                                 </div>
 
+                                <h3 className="tcard-role">{item.role}</h3>
+
                                 <div className="tcard-institution-row">
                                     {item.logo && (
-                                        <div className="tcard-logo-wrap">
-                                            <img src={item.logo} alt={item.institution} className="tcard-logo-img" />
-                                        </div>
+                                        <img src={item.logo} alt={item.institution} className="tcard-logo-img" />
                                     )}
-                                    <div className="tcard-title-box">
-                                        <h3 className="tcard-role">{item.role}</h3>
-                                        <span className="tcard-institution">{item.institution}</span>
-                                    </div>
+                                    <h4 className="tcard-institution">{item.institution}</h4>
                                 </div>
 
                                 <p className="tcard-impact">{item.impact}</p>

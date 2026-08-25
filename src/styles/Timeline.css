@@ -31,7 +31,7 @@
     background-color: #FFFFFF;
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 8px;
-    padding: 22px 24px;
+    padding: 24px 26px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .tcard-step-badge {
@@ -94,67 +94,54 @@
     font-feature-settings: 'tnum';
 }
 
-/* Institution & Role Header */
+/* Role Typography */
+.tcard-role {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #0F172A;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+/* Institution & Logo Bar */
 .tcard-institution-row {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
-}
-
-.tcard-logo-wrap {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background: #F8FAFC;
-    border-radius: 6px;
-    border: 1px solid rgba(15, 23, 42, 0.05);
-    padding: 3px;
+    margin-bottom: 14px;
+    min-height: 36px;
 }
 
 .tcard-logo-img {
-    max-height: 28px;
-    max-width: 32px;
+    height: 32px;
+    max-height: 36px;
     width: auto;
-    height: auto;
+    max-width: 105px;
     object-fit: contain;
-}
-
-.tcard-title-box {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.tcard-role {
-    font-family: var(--font-display);
-    font-size: 1.28rem;
-    font-weight: 600;
-    color: #0F172A;
-    line-height: 1.25;
-    margin-bottom: 2px;
-    letter-spacing: -0.01em;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    flex-shrink: 0;
+    display: block;
 }
 
 .tcard-institution {
     font-family: var(--font-sans);
-    font-size: 0.84rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--accent-blue);
     letter-spacing: 0.01em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 0;
+    line-height: 1.3;
 }
 
 /* Impact Text */
 .tcard-impact {
     font-family: var(--font-sans);
-    font-size: 0.86rem;
-    line-height: 1.58;
+    font-size: 0.88rem;
+    line-height: 1.6;
     color: #475569;
     margin-bottom: 16px;
     flex-grow: 1;
@@ -211,6 +198,6 @@
     }
 
     .tcard-role {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 }
