@@ -10,51 +10,57 @@ import blufinLogo from '../assets/logos/blufin.jpg'
 
 const milestones = [
     {
-        year: "2013 - 2017",
+        step: "01",
+        year: "2013 – 2017",
         role: "Computer Science Engineering",
-        institution: "Visvesvaraya Technological University",
-        impact: "Graduated with Distinction. Mastered core software engineering, data structures, and algorithmic logic.",
+        institution: "Visvesvaraya Technological Univ. (VTU)",
+        impact: "Graduated with Distinction. Strong foundation in software engineering, data structures, and algorithmic logic.",
         category: "Technical Foundation",
         icon: GraduationCap,
         logo: vtuLogo
     },
     {
-        year: "2017 - 2022",
+        step: "02",
+        year: "2017 – 2022",
         role: "Strategy Consultant",
         institution: "Accenture Strategy",
-        impact: "Secured a rare direct internal transfer from Tech to Strategy without an MBA. Led digital enterprise transformations.",
+        impact: "Rare direct internal transfer from Tech to Strategy without an MBA. Advised on large-scale digital transformations.",
         category: "Enterprise Strategy",
         icon: Briefcase,
         logo: accentureLogo
     },
     {
-        year: "2018 - Present",
+        step: "03",
+        year: "2018 – Present",
         role: "Co-Founder & Board Member",
         institution: "BluFin Foundation",
-        impact: "Co-founded an inclusive sports non-profit supporting 120+ children and 7 international para-athletes. Backed by Accel Partners.",
+        impact: "Co-founded an inclusive sports NGO backing 120+ children and 7 international para-athletes. Backed by Accel Partners.",
         category: "Social Impact",
         icon: Heart,
         logo: blufinLogo
     },
     {
-        year: "2023 - 2025",
+        step: "04",
+        year: "2023 – 2025",
         role: "MBA Candidate",
         institution: "London Business School",
-        impact: "Selected for LBS MBA (Class of 2025). Focus on global business leadership, technology strategy, and venture creation.",
+        impact: "Selected for LBS MBA (Class of 2025). Focus on global technology strategy, venture creation, and leadership.",
         category: "Global Business",
         icon: Award,
         logo: lbsLogo
     },
     {
+        step: "05",
         year: "2024",
         role: "Strategy Consultant",
         institution: "Boston Consulting Group (BCG)",
-        impact: "MBA Internship — Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
+        impact: "MBA Internship — Advised on high-impact strategic initiatives and digital transformation engagements in Dubai.",
         category: "Management Consulting",
         icon: Briefcase,
         logo: bcgLogo
     },
     {
+        step: "06",
         year: "Current Role",
         role: "Product Strategy Lead",
         institution: "Meta",
@@ -79,44 +85,39 @@ const Timeline = () => {
                     <div className="animated-divider"></div>
                 </div>
 
-                <div className="timeline-vertical-container">
-                    <div className="timeline-central-line"></div>
-
+                <div className="timeline-grid-container">
                     {milestones.map((item, index) => {
                         const IconComponent = item.icon
-                        const isLeft = index % 2 === 0
                         return (
-                            <div 
-                                key={index} 
-                                className={`timeline-row ${isLeft ? 'left' : 'right'} fade-in-${(index % 3) + 1}`}
-                            >
-                                <div className="timeline-node-marker" title={item.category}>
-                                    <IconComponent size={18} className="node-icon" />
+                            <div key={index} className={`timeline-grid-card fade-in-${(index % 3) + 1}`}>
+                                <div className="tcard-top">
+                                    <div className="tcard-step-badge">
+                                        <span className="tcard-num">{item.step}</span>
+                                        <span className="tcard-cat">{item.category}</span>
+                                    </div>
+                                    <span className="tcard-year">{item.year}</span>
                                 </div>
-                                <div className="timeline-connector"></div>
 
-                                <div className="timeline-card">
-                                    <div className="timeline-card-header">
-                                        <span className="timeline-category-tag">
-                                            {item.category}
-                                        </span>
-                                        <span className="timeline-year-tag">
-                                            {item.year}
-                                        </span>
+                                <div className="tcard-institution-row">
+                                    {item.logo && (
+                                        <div className="tcard-logo-wrap">
+                                            <img src={item.logo} alt={item.institution} className="tcard-logo-img" />
+                                        </div>
+                                    )}
+                                    <div className="tcard-title-box">
+                                        <h3 className="tcard-role">{item.role}</h3>
+                                        <span className="tcard-institution">{item.institution}</span>
                                     </div>
-                                    <h3 className="timeline-role">{item.role}</h3>
-                                    <div className="timeline-institution-row">
-                                        {item.logo && (
-                                            <img src={item.logo} alt={item.institution} className="timeline-logo-img" />
-                                        )}
-                                        <h4 className="timeline-institution">{item.institution}</h4>
-                                    </div>
-                                    <p className="timeline-impact">{item.impact}</p>
-                                    
-                                    <div className="timeline-verified-footer">
-                                        <CheckCircle2 size={14} className="check-icon" />
+                                </div>
+
+                                <p className="tcard-impact">{item.impact}</p>
+
+                                <div className="tcard-footer">
+                                    <div className="tcard-verified">
+                                        <CheckCircle2 size={13} className="check-icon" />
                                         <span>Verified Milestone</span>
                                     </div>
+                                    <IconComponent size={16} className="tcard-corner-icon" />
                                 </div>
                             </div>
                         )
