@@ -11,7 +11,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--accent-gold);
+    color: var(--accent-blue);
     margin-bottom: 8px;
 }
 
@@ -25,16 +25,16 @@
 .impact-card {
     background-color: var(--bg-secondary);
     border-radius: var(--radius-lg);
-    border: 1px solid var(--accent-line);
+    border: 1px solid rgba(15, 23, 42, 0.08);
     overflow: hidden;
-    box-shadow: var(--shadow-subtle);
-    transition: all var(--transition-default);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-luxury);
     display: flex;
     flex-direction: column;
 }
 
 .impact-card:hover {
-    border-color: var(--accent-gold);
+    border-color: rgba(29, 78, 216, 0.35);
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
 }
@@ -55,7 +55,7 @@
 }
 
 .impact-card:hover .impact-card-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .image-overlay-badge {
@@ -72,6 +72,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .impact-card-body {
@@ -94,6 +95,7 @@
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0;
+    letter-spacing: -0.01em;
 }
 
 .impact-title-link {
@@ -103,7 +105,7 @@
 }
 
 .impact-title-link:hover {
-    color: var(--accent-gold);
+    color: var(--accent-blue);
 }
 
 .impact-links-group {
@@ -118,49 +120,55 @@
     gap: 4px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent-gold);
-    transition: color 0.3s ease;
-    text-decoration: none;
+    color: var(--accent-blue);
+    transition: all var(--transition-default);
 }
 
 .impact-external-link:hover {
-    color: var(--text-primary);
+    transform: translateY(-1px);
+    color: var(--accent-blue-deep);
 }
 
-.impact-description {
+.impact-card-desc {
     font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
-/* Metrics Row */
-.impact-metrics-row {
+/* Metrics Grid */
+.impact-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-bottom: 20px;
-    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
     background-color: #FFFFFF;
+    padding: 14px 12px;
     border-radius: var(--radius-md);
-    border: 1px solid var(--accent-line);
-}
-
-.metric-box {
+    border: 1px solid rgba(15, 23, 42, 0.08);
     text-align: center;
+    box-shadow: var(--shadow-subtle);
+    transition: all var(--transition-default);
 }
 
-.metric-num {
-    display: block;
+.stat-item:hover {
+    border-color: rgba(29, 78, 216, 0.3);
+    transform: translateY(-2px);
+}
+
+.stat-number {
     font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--accent-gold);
-    line-height: 1;
-    margin-bottom: 4px;
+    color: var(--accent-blue);
+    line-height: 1.1;
+    margin-bottom: 2px;
 }
 
-.metric-lbl {
+.stat-label {
     font-size: 0.72rem;
     font-weight: 600;
     color: var(--text-muted);
@@ -168,73 +176,38 @@
     letter-spacing: 0.05em;
 }
 
-/* Partners */
-.impact-partners {
-    margin-top: auto;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.impact-partners span {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.partner-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.partner-pill {
-    padding: 4px 10px;
-    background-color: #FFFFFF;
-    border: 1px solid var(--accent-line);
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-/* Civic Card */
-.civic-card {
-    padding: 28px;
-}
-
-.civic-card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--accent-line);
-}
-
-.civic-icon-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: var(--accent-gold-subtle);
-    color: var(--accent-gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.civic-subtitle {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent-gold);
+/* Institutional Backers */
+.backers-label {
+    font-size: 0.74rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
 }
 
-.civic-initiatives-list {
+.backers-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.backer-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Civic Engagement Card Items */
+.civic-items-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     margin-bottom: 24px;
 }
 
@@ -245,42 +218,37 @@
 }
 
 .civic-check {
-    color: #10B981;
+    color: var(--accent-blue);
     flex-shrink: 0;
     margin-top: 3px;
 }
 
 .civic-item strong {
-    display: block;
     font-size: 0.95rem;
     color: var(--text-primary);
+    display: block;
     margin-bottom: 2px;
-}
-
-.civic-inline-link {
-    color: var(--accent-gold);
-    text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
-}
-
-.civic-inline-link:hover {
-    color: var(--text-primary);
-    text-decoration: underline;
 }
 
 .civic-item p {
     font-size: 0.88rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.55;
     margin-bottom: 0;
 }
 
+.civic-inline-link {
+    color: var(--accent-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .civic-quote-box {
-    margin-top: auto;
-    padding: 16px 20px;
     background-color: #FFFFFF;
-    border-radius: var(--radius-md);
-    border-left: 3px solid var(--accent-gold);
+    border-left: 3px solid var(--accent-blue);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -288,15 +256,20 @@
     font-size: 1.05rem;
     font-style: italic;
     color: var(--text-primary);
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    border-right: 1px solid rgba(15, 23, 42, 0.06);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    margin-top: auto;
 }
 
 .trophy-icon {
-    color: var(--accent-gold);
+    color: var(--accent-blue);
     flex-shrink: 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
     .impact-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 }

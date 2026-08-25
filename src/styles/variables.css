@@ -1,16 +1,16 @@
 :root {
-  /* Colors - "Minimal White & Light Grey Editorial with Royal Blue Accents" */
+  /* Colors - "Presidential & Quiet Luxury Editorial" */
   --bg-primary: #FFFFFF;
   --bg-secondary: #FAFAFC; /* Crisp Clean Light Grey */
-  --bg-tertiary: #F1F5F9;  /* Soft Muted Grey */
-  --bg-dark: #0F172A;      /* Obsidian Charcoal for Footer */
+  --bg-tertiary: #F1F5F9;  /* Soft Slate Tint */
+  --bg-dark: #0A0F1D;      /* Deep Obsidian Ink */
   
-  --text-primary: #0F172A; /* Deep Charcoal / Slate */
-  --text-secondary: #475569; /* Balanced Editorial Grey */
+  --text-primary: #0B1120; /* High-Authority Deep Charcoal */
+  --text-secondary: #475569; /* Balanced Editorial Slate */
   --text-muted: #64748B;   /* Cool Slate */
   --text-light: #FFFFFF;
 
-  /* Blue Accents - Used strictly for micro-tags, active pills, and buttons */
+  /* Blue Accents - Pure precision for badges, active pills & buttons */
   --accent-blue: #1D4ED8; /* Royal Blue */
   --accent-blue-deep: #1E3A8A; /* Sapphire */
   --accent-blue-light: #3B82F6;
@@ -24,17 +24,17 @@
   --accent-main: var(--accent-blue);
   --bg-navy: var(--bg-dark);
 
-  /* Hairlines & Borders */
-  --accent-line: rgba(15, 23, 42, 0.08);
+  /* Architectural Hairlines */
+  --accent-line: rgba(15, 23, 42, 0.07);
   --accent-line-blue: rgba(29, 78, 216, 0.2);
   --accent-line-gold: rgba(29, 78, 216, 0.2);
 
-  /* Typography */
-  --font-display: 'Cormorant Garamond', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* High-Authority Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Spacing & Grid */
+  /* Spacing & Proportions */
   --spacing-xs: 4px;
   --spacing-sm: 12px;
   --spacing-md: 24px;
@@ -47,17 +47,23 @@
   --max-width: 1280px;
   --header-height: 80px;
 
-  /* Effects */
+  /* Geometry */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
 
-  --shadow-subtle: 0 2px 14px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 10px 25px rgba(15, 23, 42, 0.08);
-  --shadow-blue: 0 8px 20px rgba(29, 78, 216, 0.15);
+  /* Multi-Stop Architectural Shadows (No Muddy Shadows) */
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.03), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.02), 0 8px 20px -2px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 20px 40px -4px rgba(15, 23, 42, 0.08);
+  --shadow-blue: 0 4px 14px rgba(29, 78, 216, 0.18), 0 12px 28px -4px rgba(29, 78, 216, 0.22);
+  --shadow-float: 0 24px 48px -12px rgba(15, 23, 42, 0.16);
 
-  --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  --transition-default: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Silky Editorial Transitions (Apple / Stripe Easing Curve) */
+  --transition-luxury: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-default: 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (max-width: 768px) {
