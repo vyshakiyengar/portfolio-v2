@@ -16,8 +16,7 @@ const milestones = [
         impact: "Graduated with Distinction. Mastered core software engineering, data structures, and algorithmic logic.",
         category: "Technical Foundation",
         icon: GraduationCap,
-        logo: vtuLogo,
-        current: false
+        logo: vtuLogo
     },
     {
         year: "2017 - 2022",
@@ -26,8 +25,7 @@ const milestones = [
         impact: "Secured a rare direct internal transfer from Tech to Strategy without an MBA. Led digital enterprise transformations.",
         category: "Enterprise Strategy",
         icon: Briefcase,
-        logo: accentureLogo,
-        current: false
+        logo: accentureLogo
     },
     {
         year: "2018 - Present",
@@ -36,8 +34,7 @@ const milestones = [
         impact: "Co-founded an inclusive sports non-profit supporting 120+ children and 7 international para-athletes. Backed by Accel Partners.",
         category: "Social Impact",
         icon: Heart,
-        logo: blufinLogo,
-        current: false
+        logo: blufinLogo
     },
     {
         year: "2023 - 2025",
@@ -46,8 +43,7 @@ const milestones = [
         impact: "Selected for LBS MBA (Class of 2025). Focus on global business leadership, technology strategy, and venture creation.",
         category: "Global Business",
         icon: Award,
-        logo: lbsLogo,
-        current: false
+        logo: lbsLogo
     },
     {
         year: "2024",
@@ -56,8 +52,7 @@ const milestones = [
         impact: "MBA Internship — Advised on strategic initiatives, digital transformations, and high-impact regional engagements in Dubai.",
         category: "Management Consulting",
         icon: Briefcase,
-        logo: bcgLogo,
-        current: false
+        logo: bcgLogo
     },
     {
         year: "Current Role",
@@ -66,8 +61,7 @@ const milestones = [
         impact: "Drives product roadmap, monetization strategy, and platform growth for global mobile advertising products at scale.",
         category: "Product Leadership",
         icon: Building2,
-        logo: metaLogo,
-        current: true
+        logo: metaLogo
     }
 ]
 
@@ -94,7 +88,7 @@ const Timeline = () => {
                         return (
                             <div 
                                 key={index} 
-                                className={`timeline-row ${isLeft ? 'left' : 'right'} ${item.current ? 'is-current' : ''} fade-in-${(index % 3) + 1}`}
+                                className={`timeline-row ${isLeft ? 'left' : 'right'} fade-in-${(index % 3) + 1}`}
                             >
                                 <div className="timeline-node-marker" title={item.category}>
                                     <IconComponent size={18} className="node-icon" />
@@ -103,18 +97,10 @@ const Timeline = () => {
 
                                 <div className="timeline-card">
                                     <div className="timeline-card-header">
-                                        <div className="timeline-tag-group">
-                                            <span className={`timeline-category-tag ${item.current ? 'current-cat-tag' : ''}`}>
-                                                {item.category}
-                                            </span>
-                                            {item.current && (
-                                                <span className="timeline-live-pill">
-                                                    <span className="pulse-dot"></span>
-                                                    Active
-                                                </span>
-                                            )}
-                                        </div>
-                                        <span className={`timeline-year-tag ${item.current ? 'current-year-tag' : ''}`}>
+                                        <span className="timeline-category-tag">
+                                            {item.category}
+                                        </span>
+                                        <span className="timeline-year-tag">
                                             {item.year}
                                         </span>
                                     </div>
