@@ -29,7 +29,7 @@ const Contact = () => {
                         <span>Executive Inquiries</span>
                     </div>
 
-                    <h2 className="contact-heading">Connect with Vyshak Iyengar</h2>
+                    <h2 className="contact-heading">Connect with Vyshak K Iyengar</h2>
                     <p className="contact-subheading">
                         For product leadership, advisory, social impact initiatives, or executive correspondence.
                     </p>

@@ -44,7 +44,7 @@ const Navbar = () => {
             <div className="container navbar-container">
                 <a href="/" onClick={(e) => handleNavClick(e, '/', 'hero')} className="navbar-logo">
                     <span className="logo-box-mark">V</span>
-                    <span className="logo-text">Vyshak Iyengar</span>
+                    <span className="logo-text">Vyshak K Iyengar</span>
                 </a>
 
                 {/* Desktop Navigation */}
@@ -84,7 +84,7 @@ const Navbar = () => {
                 {/* Mobile Navigation */}
                 <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
                     <div className="mobile-menu-header">
-                        <span className="mobile-logo-text">Vyshak Iyengar</span>
+                        <span className="mobile-logo-text">Vyshak K Iyengar</span>
                     </div>
                     {navLinks.map((link) => (
                         <a

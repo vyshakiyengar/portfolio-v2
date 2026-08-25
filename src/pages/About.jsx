@@ -29,7 +29,7 @@ function About() {
 
                 <div className="bio-content" style={{ lineHeight: '1.8', fontSize: '1.1rem' }}>
                     <p style={{ marginBottom: '1.5rem' }}>
-                        Vyshak Iyengar is a technologist and product builder styled by a philosophy of quiet luxury and elite minimalism.
+                        Vyshak K Iyengar is a technologist and product builder styled by a philosophy of quiet luxury and elite minimalism.
                         With a background rooted in engineering excellence and strategic product thinking, Vyshak crafts digital experiences
                         that stand the test of time.
                     </p>

@@ -11,7 +11,7 @@ import accentureLogo from '../assets/logos/accenture.png'
 const heroSlides = [
     {
         image: '/images/vyshak-portrait.jpg',
-        caption: 'Vyshak Iyengar — Product Strategy Lead at Meta',
+        caption: 'Vyshak K Iyengar — Product Strategy Lead at Meta',
         tag: 'Product Leader'
     },
     {
@@ -70,7 +70,7 @@ const Hero = () => {
 
                     <h1 className="hero-name">
                         Vyshak
-                        <span className="hero-surname">Kannan Iyengar</span>
+                        <span className="hero-surname">K Iyengar</span>
                     </h1>
 
                     <div className="hero-headline">

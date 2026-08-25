@@ -9,7 +9,7 @@ const Impact = () => {
                     <span className="impact-section-tag">Social Leadership &amp; Governance</span>
                     <h2 className="section-heading">Social Impact &amp; Civic Engagement</h2>
                     <p className="section-subheading">
-                        Beyond corporate strategy, Vyshak Iyengar co-founded a non-profit backing grassroots athletes and leads civic tech initiatives.
+                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and leads civic tech initiatives.
                     </p>
                     <div className="animated-divider"></div>
                 </div>

@@ -9,7 +9,7 @@ const Narrative = () => {
                     {/* Left Column: Image Card */}
                     <div className="narrative-image-col fade-in-1">
                         <div className="narrative-frame">
-                            <img src="/images/vyshak-portrait.jpg" alt="Vyshak Kannan Iyengar" className="narrative-img" />
+                            <img src="/images/vyshak-portrait.jpg" alt="Vyshak K Iyengar" className="narrative-img" />
                             <div className="narrative-badge">
                                 <ShieldCheck size={16} />
                                 <span>Official Profile</span>
@@ -24,13 +24,13 @@ const Narrative = () => {
                             <span>Executive Profile</span>
                         </div>
 
-                        <h2 className="narrative-heading">About Vyshak Iyengar</h2>
+                        <h2 className="narrative-heading">About Vyshak K Iyengar</h2>
 
                         <div className="animated-divider-left"></div>
 
                         <div className="narrative-body">
                             <p>
-                                <strong>Vyshak Iyengar</strong> leads product strategy for mobile advertising products at <strong>Meta</strong>, operating at the intersection of product innovation, growth, monetization, and platform strategy across global markets. Prior to Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
+                                <strong>Vyshak K Iyengar</strong> leads product strategy for mobile advertising products at <strong>Meta</strong>, operating at the intersection of product innovation, growth, monetization, and platform strategy across global markets. Prior to Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
                             </p>
                             <p>
                                 His career trajectory combines technical rigor with global strategic execution. Starting with a distinction in Computer Science Engineering, he secured a direct transfer into Accenture’s strategy practice without an MBA, advising Fortune 500 leadership on digital enterprise transformation.
