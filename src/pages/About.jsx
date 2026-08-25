@@ -1,38 +1,8 @@
-import { useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Contact from '../components/Contact'
 import '../styles/variables.css'
 
 function About() {
-    useEffect(() => {
-        // JSON-LD Structured Data for Google Knowledge Panel
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Vyshak Iyengar",
-            "url": "https://vyshak.me",
-            "image": "https://vyshak.me/images/profile-v5.jpg",
-            "sameAs": [
-                "https://www.linkedin.com/in/vyshakiyengar/",
-                "https://x.com/vyshakkiyengar",
-                "https://www.prajavani.net/technology/gadget-news/start-up-bengaluru-techie-ai-shopping-agent-whatsapp-mcp-swiggy-4218412",
-                "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem"
-            ],
-            "jobTitle": "Product Leader & Software Engineer",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "Portfolio"
-            },
-            "description": "Vyshak Iyengar is a technologist and product builder styled by a philosophy of quiet luxury and elite minimalism. With a background rooted in engineering excellence and strategic product thinking, Vyshak crafts digital experiences that stand the test of time."
-        });
-        document.head.appendChild(script);
-
-        return () => {
-            document.head.removeChild(script);
-        }
-    }, []);
 
     return (
         <div className="about-page" style={{
