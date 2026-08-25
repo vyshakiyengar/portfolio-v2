@@ -11,7 +11,6 @@ import blufinLogo from '../assets/logos/blufin.jpg'
 const milestones = [
     {
         step: "01",
-        stageName: "Engineering Origin",
         year: "2013 - 2017",
         role: "Computer Science Engineering",
         institution: "Visvesvaraya Technological Univ. (VTU)",
@@ -19,12 +18,10 @@ const milestones = [
         category: "Technical Foundation",
         icon: GraduationCap,
         logo: vtuLogo,
-        flowLabel: "Stage 01",
-        nextHint: "Step 01 of 06"
+        flowNext: "Accenture Strategy (02)"
     },
     {
         step: "02",
-        stageName: "Strategy Transition",
         year: "2017 - 2022",
         role: "Strategy Consultant",
         institution: "Accenture Strategy",
@@ -32,12 +29,10 @@ const milestones = [
         category: "Enterprise Strategy",
         icon: Briefcase,
         logo: accentureLogo,
-        flowLabel: "Stage 02",
-        nextHint: "Step 02 of 06"
+        flowNext: "BluFin Foundation (03)"
     },
     {
         step: "03",
-        stageName: "Social Impact Venture",
         year: "2018 - Present",
         role: "Co-Founder & Board Member",
         institution: "BluFin Foundation",
@@ -45,12 +40,10 @@ const milestones = [
         category: "Social Impact",
         icon: Heart,
         logo: blufinLogo,
-        flowLabel: "Stage 03",
-        nextHint: "Step 03 of 06"
+        flowNext: "LBS MBA (04)"
     },
     {
         step: "04",
-        stageName: "Global Business MBA",
         year: "2023 - 2025",
         role: "MBA Candidate",
         institution: "London Business School",
@@ -58,12 +51,10 @@ const milestones = [
         category: "Global Business",
         icon: Award,
         logo: lbsLogo,
-        flowLabel: "Stage 04",
-        nextHint: "Step 04 of 06"
+        flowNext: "BCG Consulting (05)"
     },
     {
         step: "05",
-        stageName: "Executive Advisory",
         year: "2024",
         role: "Strategy Consultant",
         institution: "Boston Consulting Group (BCG)",
@@ -71,12 +62,10 @@ const milestones = [
         category: "Management Consulting",
         icon: Briefcase,
         logo: bcgLogo,
-        flowLabel: "Stage 05",
-        nextHint: "Step 05 of 06"
+        flowNext: "Meta Strategy (06)"
     },
     {
         step: "06",
-        stageName: "Scale Leadership",
         year: "Current Role",
         role: "Product Strategy Lead",
         institution: "Meta",
@@ -84,8 +73,7 @@ const milestones = [
         category: "Product Leadership",
         icon: Building2,
         logo: metaLogo,
-        flowLabel: "Stage 06 · Current",
-        nextHint: "Current Role"
+        flowNext: "Current Leadership"
     }
 ]
 
@@ -99,42 +87,46 @@ const Timeline = () => {
                         Career Arc &amp; Milestones
                     </span>
                     <h2 className="section-heading">Career Evolution</h2>
-                    <p className="section-subheading">A structured journey across engineering, enterprise strategy, global business, and product leadership.</p>
+                    <p className="section-subheading">A structured chronological journey across engineering, enterprise strategy, global business, and product leadership (01 ➔ 06).</p>
                     <div className="animated-divider"></div>
                 </div>
 
-                {/* Visual Sequence Track: Guides the eye across the 01 → 06 chronology */}
-                <div className="timeline-journey-track">
-                    <span className="journey-track-label">CHRONOLOGICAL JOURNEY</span>
-                    <div className="journey-steps-row">
-                        {milestones.map((item, idx) => (
-                            <div key={idx} className="journey-step-item">
-                                <div className="journey-step-pill">
-                                    <span className="journey-num">{item.step}</span>
-                                    <span className="journey-name">{item.stageName}</span>
-                                </div>
-                                {idx < milestones.length - 1 && (
-                                    <ArrowRight size={13} className="journey-arrow" />
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* 3-Column Milestone Cards Grid */}
+                {/* 3-Column Milestone Cards Grid with Embedded Connecting Lines & Flow Arrows */}
                 <div className="timeline-grid-container">
                     {milestones.map((item, index) => {
+                        const IconComponent = item.icon
                         const isRowOneEnd = index === 2
                         const isFinal = index === 5
 
                         return (
                             <div key={index} className={`timeline-grid-card fade-in-${(index % 3) + 1}`}>
-                                <div className="tcard-top">
-                                    <div className="tcard-step-badge">
-                                        <span className="tcard-num">{item.step}</span>
-                                        <span className="tcard-cat">{item.category}</span>
+                                {/* Card Progress Spine Header */}
+                                <div className="tcard-spine-row">
+                                    <div className="tcard-step-marker">
+                                        <span className="step-circle">{item.step}</span>
                                     </div>
-                                    <span className="tcard-year">{item.year}</span>
+                                    
+                                    <div className="tcard-spine-line-wrap">
+                                        <div className="spine-line"></div>
+                                        {!isRowOneEnd && !isFinal && (
+                                            <ArrowRight size={14} className="spine-arrow" />
+                                        )}
+                                        {isRowOneEnd && (
+                                            <span className="spine-turn-cue">
+                                                <span>Row 2</span>
+                                                <span className="turn-icon">⤵</span>
+                                            </span>
+                                        )}
+                                        {isFinal && (
+                                            <span className="spine-final-badge">Present</span>
+                                        )}
+                                    </div>
+
+                                    <span className="tcard-year-badge">{item.year}</span>
+                                </div>
+
+                                <div className="tcard-category-bar">
+                                    <span className="tcard-cat-label">{item.category}</span>
                                 </div>
 
                                 <h3 className="tcard-role">{item.role}</h3>
@@ -151,25 +143,9 @@ const Timeline = () => {
                                 <div className="tcard-footer">
                                     <div className="tcard-verified">
                                         <CheckCircle2 size={13} className="check-icon" />
-                                        <span>{item.flowLabel}</span>
+                                        <span>Verified Milestone</span>
                                     </div>
-
-                                    {/* Directional Flow Pointers */}
-                                    <div className="tcard-flow-pointer">
-                                        {isRowOneEnd ? (
-                                            <span className="flow-turn-tag">
-                                                Next: Row 2 ⤵
-                                            </span>
-                                        ) : isFinal ? (
-                                            <span className="flow-final-tag">
-                                                ★ Active Role
-                                            </span>
-                                        ) : (
-                                            <span className="flow-next-tag">
-                                                Proceed <ArrowRight size={11} style={{ display: 'inline', verticalAlign: 'middle' }} />
-                                            </span>
-                                        )}
-                                    </div>
+                                    <IconComponent size={16} className="tcard-corner-icon" />
                                 </div>
                             </div>
                         )

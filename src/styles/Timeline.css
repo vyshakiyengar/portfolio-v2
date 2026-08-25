@@ -1,4 +1,4 @@
-/* Timeline Section - Compact High-Density Grid with Visual Flow Directions */
+/* Timeline Section - High-Density Grid with Clear Progress Spines & Flow Arrows */
 .timeline-section {
     padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
     background-color: var(--bg-secondary);
@@ -16,94 +16,13 @@
     margin-bottom: 8px;
 }
 
-/* Horizontal Journey Track - Mental Map & Flow Direction */
-.timeline-journey-track {
-    max-width: var(--max-width);
-    margin: 24px auto 30px auto;
-    padding: 12px 20px;
-    background: #FFFFFF;
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
-    flex-wrap: wrap;
-}
-
-.journey-track-label {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: var(--text-muted);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    padding-right: 8px;
-    border-right: 1px solid rgba(15, 23, 42, 0.1);
-}
-
-.journey-steps-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.journey-step-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.journey-step-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
-    background: var(--bg-secondary);
-    border: 1px solid rgba(15, 23, 42, 0.06);
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-}
-
-.journey-step-pill:hover {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-    background: #FFFFFF;
-}
-
-.journey-num {
-    font-family: var(--font-mono, monospace);
-    font-weight: 700;
-    font-size: 0.72rem;
-    color: var(--accent-gold);
-}
-
-.journey-name {
-    font-family: var(--font-sans);
-    font-size: 0.74rem;
-    color: var(--text-primary);
-}
-
-.journey-arrow {
-    color: var(--accent-gold);
-    opacity: 0.6;
-    flex-shrink: 0;
-}
-
 /* 3-Column Compact Grid */
 .timeline-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
     max-width: var(--max-width);
-    margin: 0 auto;
+    margin: 36px auto 0 auto;
     padding: 0 var(--container-padding);
 }
 
@@ -112,7 +31,7 @@
     background-color: #FFFFFF;
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 8px;
-    padding: 24px 26px;
+    padding: 22px 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,42 +46,107 @@
     box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(180, 83, 9, 0.04);
 }
 
-/* Card Top Row */
-.tcard-top {
+/* Card Progress Spine Header - Connects milestones visually (01 -> 02 -> 03 -> 04 -> 05 -> 06) */
+.tcard-spine-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-.tcard-step-badge {
+.tcard-step-marker {
+    flex-shrink: 0;
+}
+
+.step-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    font-weight: 800;
+    box-shadow: 0 2px 6px rgba(180, 83, 9, 0.12);
+    transition: all 0.3s ease;
+}
+
+.timeline-grid-card:hover .step-circle {
+    background-color: var(--accent-gold);
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+/* Connecting Line & Arrow inside each card */
+.tcard-spine-line-wrap {
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    position: relative;
+    margin: 0 4px;
+    min-width: 40px;
 }
 
-.tcard-num {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.72rem;
-    font-weight: 700;
+.spine-line {
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold) 0%, rgba(180, 83, 9, 0.3) 100%);
+    border-radius: 2px;
+}
+
+.spine-arrow {
     color: var(--accent-gold);
-    background-color: rgba(180, 83, 9, 0.09);
-    padding: 2px 7px;
-    border-radius: 4px;
-    letter-spacing: 0.02em;
+    flex-shrink: 0;
+    animation: arrowNudge 2s infinite ease-in-out;
 }
 
-.tcard-cat {
+@keyframes arrowNudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+.spine-turn-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--accent-gold);
+    background: rgba(180, 83, 9, 0.09);
+    padding: 2px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
 }
 
-.tcard-year {
+.turn-icon {
+    font-size: 0.8rem;
+}
+
+.spine-final-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    background: rgba(30, 58, 138, 0.08);
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    padding: 2px 7px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.tcard-year-badge {
     font-family: var(--font-sans);
     font-size: 0.76rem;
     font-weight: 600;
@@ -173,12 +157,27 @@
     border-radius: 10px;
     white-space: nowrap;
     font-feature-settings: 'tnum';
+    flex-shrink: 0;
+}
+
+/* Category Label */
+.tcard-category-bar {
+    margin-bottom: 6px;
+}
+
+.tcard-cat-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-gold);
 }
 
 /* Role Typography */
 .tcard-role {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 1.32rem;
     font-weight: 600;
     color: #0F172A;
     line-height: 1.25;
@@ -228,7 +227,7 @@
     flex-grow: 1;
 }
 
-/* Card Footer with Directional Cues */
+/* Card Footer */
 .tcard-footer {
     display: flex;
     align-items: center;
@@ -252,50 +251,15 @@
     flex-shrink: 0;
 }
 
-/* Flow Directional Pointers on Cards */
-.tcard-flow-pointer {
-    display: flex;
-    align-items: center;
-}
-
-.flow-next-tag {
-    font-family: var(--font-sans);
-    font-size: 0.72rem;
-    font-weight: 700;
+.tcard-corner-icon {
     color: var(--accent-gold);
-    letter-spacing: 0.02em;
-    display: inline-flex;
-    align-items: center;
-    gap: 3px;
-    opacity: 0.85;
+    opacity: 0.45;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.timeline-grid-card:hover .flow-next-tag {
-    opacity: 1;
-    transform: translateX(2px);
-}
-
-.flow-turn-tag {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-    background: rgba(180, 83, 9, 0.09);
-    padding: 2px 8px;
-    border-radius: 8px;
-    letter-spacing: 0.02em;
-}
-
-.flow-final-tag {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent-blue);
-    background: var(--accent-blue-subtle);
-    padding: 2px 8px;
-    border-radius: 8px;
-    letter-spacing: 0.02em;
+.timeline-grid-card:hover .tcard-corner-icon {
+    opacity: 0.9;
+    transform: scale(1.1);
 }
 
 /* Responsive Grid Breakpoints */
@@ -304,22 +268,9 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
-
-    .journey-track-label {
-        border-right: none;
-        padding-right: 0;
-        width: 100%;
-        text-align: center;
-    }
 }
 
 @media (max-width: 640px) {
-    .timeline-journey-track {
-        border-radius: 12px;
-        padding: 12px 14px;
-        margin: 18px auto 22px auto;
-    }
-
     .timeline-grid-container {
         grid-template-columns: 1fr;
         gap: 14px;
