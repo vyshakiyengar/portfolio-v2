@@ -1,34 +1,33 @@
 :root {
-  /* Colors - "Executive Blue & Sapphire Luxury" Palette */
+  /* Colors - "Minimal White & Light Grey Editorial with Royal Blue Accents" */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F8FAFC; /* Crisp Ice White / Soft Slate-Blue Tint */
-  --bg-dark: #0B132B; /* Deep Midnight Oceanic Navy */
+  --bg-secondary: #FAFAFC; /* Crisp Clean Light Grey */
+  --bg-tertiary: #F1F5F9;  /* Soft Muted Grey */
+  --bg-dark: #0F172A;      /* Obsidian Charcoal for Footer */
   
-  --text-primary: #0F172A; /* Deep Slate / Charcoal */
-  --text-secondary: #334155; /* Refined Slate Grey */
-  --text-muted: #64748B; /* Cool Slate */
+  --text-primary: #0F172A; /* Deep Charcoal / Slate */
+  --text-secondary: #475569; /* Balanced Editorial Grey */
+  --text-muted: #64748B;   /* Cool Slate */
   --text-light: #FFFFFF;
 
-  /* Primary Blue Palette */
-  --accent-blue: #1D4ED8; /* Rich Royal Blue */
-  --accent-blue-deep: #1E3A8A; /* Deep Sapphire Navy */
-  --accent-blue-light: #38BDF8; /* Sky Ice Blue */
-  --accent-blue-subtle: rgba(29, 78, 216, 0.08); /* Soft Blue Tint */
-  --accent-blue-glow: rgba(37, 99, 235, 0.2);
+  /* Blue Accents - Used strictly for micro-tags, active pills, and buttons */
+  --accent-blue: #1D4ED8; /* Royal Blue */
+  --accent-blue-deep: #1E3A8A; /* Sapphire */
+  --accent-blue-light: #3B82F6;
+  --accent-blue-subtle: rgba(29, 78, 216, 0.08);
 
-  /* Gold / Amber alias mapped to Blue for complete site coherence */
-  --accent-gold: #1D4ED8; /* Royal Blue */
-  --accent-gold-light: #2563EB; /* Cobalt Blue */
+  /* Legacy & Compatibility Aliases */
+  --accent-gold: #1D4ED8;
+  --accent-gold-light: #2563EB;
   --accent-gold-subtle: rgba(29, 78, 216, 0.08);
-
-  /* Cyan / Ice Accents */
-  --accent-cyan: #0284C7;
-  --accent-cyan-subtle: rgba(2, 132, 199, 0.08);
+  --accent-highlight: var(--accent-blue);
+  --accent-main: var(--accent-blue);
+  --bg-navy: var(--bg-dark);
 
   /* Hairlines & Borders */
   --accent-line: rgba(15, 23, 42, 0.08);
-  --accent-line-blue: rgba(29, 78, 216, 0.22);
-  --accent-line-gold: rgba(29, 78, 216, 0.22);
+  --accent-line-blue: rgba(29, 78, 216, 0.2);
+  --accent-line-gold: rgba(29, 78, 216, 0.2);
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
@@ -53,18 +52,12 @@
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  --shadow-subtle: 0 4px 20px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 12px 30px rgba(29, 78, 216, 0.09);
-  --shadow-gold: 0 8px 25px rgba(29, 78, 216, 0.14);
-  --shadow-blue: 0 8px 25px rgba(29, 78, 216, 0.14);
+  --shadow-subtle: 0 2px 14px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-blue: 0 8px 20px rgba(29, 78, 216, 0.15);
 
   --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
   --transition-default: 300ms cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* Legacy aliases for backward compat */
-  --accent-highlight: var(--accent-blue);
-  --accent-main: var(--accent-blue);
-  --bg-navy: var(--bg-dark);
 }
 
 @media (max-width: 768px) {
