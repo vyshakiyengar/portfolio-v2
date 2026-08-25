@@ -1,6 +1,6 @@
 .narrative-section {
     padding: var(--spacing-xxl) 0;
-    background-color: #FFFFFF;
+    background-color: var(--bg-secondary);
     position: relative;
     border-top: 1px solid var(--accent-line);
 }
