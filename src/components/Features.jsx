@@ -22,10 +22,10 @@ const spotlightItems = [
     },
     {
         id: 5,
-        tag: "Industry Mention",
+        tag: "Media Feature",
         title: "Voice-Based Kannada AI Ordering",
-        subtitle: "TipRanks · English · 18 Aug 2026",
-        description: "TipRanks' auto-generated newsdesk highlighted a Gnani AI LinkedIn post about the Kannada voice-ordering agent built with PRISMA, TIMBRE and Swiggy MCP.",
+        subtitle: "TipRanks · 18 Aug 2026",
+        description: "Featured by TipRanks for architecting an end-to-end WhatsApp AI voice ordering agent in Kannada, pioneering vernacular voice commerce integrated with Swiggy via Model Context Protocol (MCP).",
         icon: Bot,
         link: "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem",
         linkText: "Read Article on TipRanks",

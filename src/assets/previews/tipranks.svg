@@ -57,8 +57,8 @@
   <!-- Article Headline -->
   <g transform="translate(40, 120)">
     <text font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#FFFFFF" letter-spacing="-0.2">
-      <tspan x="0" dy="0">Voice-Based Kannada Ordering Showcases</tspan>
-      <tspan x="0" dy="36">Gnani.ai Speech Technology in Swiggy</tspan>
+      <tspan x="0" dy="0">Voice-Based Kannada AI Ordering Agent</tspan>
+      <tspan x="0" dy="36">WhatsApp Voice Commerce via Swiggy MCP</tspan>
     </text>
   </g>
 
@@ -71,15 +71,15 @@
       <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#FFA500">Swiggy MCP Agent</text>
     </g>
 
-    <!-- Gnani AI Speech Pill -->
+    <!-- Vernacular Speech AI Pill -->
     <g transform="translate(192, 0)">
-      <rect width="188" height="34" rx="6" fill="rgba(0, 210, 180, 0.12)" stroke="rgba(0, 210, 180, 0.4)" stroke-width="1" />
+      <rect width="180" height="34" rx="6" fill="rgba(0, 210, 180, 0.12)" stroke="rgba(0, 210, 180, 0.4)" stroke-width="1" />
       <circle cx="18" cy="17" r="6" fill="#00D2B4" />
-      <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#00D2B4">Gnani.ai PRISMA &amp; TIMBRE</text>
+      <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#00D2B4">Vernacular Voice AI</text>
     </g>
 
     <!-- Kannada Voice Pill -->
-    <g transform="translate(392, 0)">
+    <g transform="translate(384, 0)">
       <rect width="144" height="34" rx="6" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
       <circle cx="18" cy="17" r="6" fill="#F59E0B" />
       <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#FBBF24">ಕನ್ನಡ Voice AI</text>
@@ -92,9 +92,9 @@
     
     <!-- Audio Waveform Graphic -->
     <g transform="translate(24, 30)">
-      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Vyshak K. Iyengar Developer Implementation</text>
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Vyshak K. Iyengar · AI Voice Agent Implementation</text>
       <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0" y="26">"ಮಸಾಲೆ ದೋಸೆ ಮತ್ತು ಫಿಲ್ಟರ್ ಕಾಫಿ ಆರ್ಡರ್ ಮಾಡಿ..."</text>
-      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="400" fill="#64748B" y="48">WhatsApp AI Voice Ordering Flow → Food Discovery &amp; Automated Checkout via Swiggy</text>
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="400" fill="#64748B" y="48">WhatsApp AI Voice Ordering Flow → Food Discovery &amp; Checkout via Swiggy</text>
     </g>
 
     <!-- Waveform Bars -->
