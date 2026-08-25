@@ -99,7 +99,7 @@ const Impact = () => {
                                 <CheckCircle size={18} className="civic-check" />
                                 <div>
                                     <strong>
-                                        Governing Council Member — <a href="https://www.letsbethechange.in/" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
+                                        Governing Council Member · <a href="https://www.letsbethechange.in/" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
                                     </strong>
                                     <p>Served on the leadership council driving urban cleanliness and civic engagement across Karnataka.</p>
                                 </div>

@@ -11,12 +11,12 @@ import accentureLogo from '../assets/logos/accenture.png'
 const heroSlides = [
     {
         image: '/images/vyshak-portrait.jpg',
-        caption: 'Vyshak K Iyengar — Product Strategy Lead at Meta',
+        caption: 'Vyshak K Iyengar · Product Strategy Lead at Meta',
         tag: 'Product Leader'
     },
     {
         image: '/images/lbs-campus.jpg',
-        caption: 'London Business School Campus — Regent\'s Park, London',
+        caption: 'London Business School Campus · Regent\'s Park, London',
         tag: 'MBA 2025'
     },
     {
@@ -26,12 +26,12 @@ const heroSlides = [
     },
     {
         image: '/images/lbs-grad-stage.jpg',
-        caption: 'Degree Conferment Stage — London Business School',
+        caption: 'Degree Conferment Stage · London Business School',
         tag: 'Leadership'
     },
     {
         image: '/images/blufin-pool.jpg',
-        caption: 'BluFin Foundation — Supporting 120+ Grassroots Athletes',
+        caption: 'BluFin Foundation · Supporting 120+ Grassroots Athletes',
         tag: 'Social Impact'
     }
 ]

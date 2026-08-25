@@ -1,122 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B1528" />
-      <stop offset="50%" stop-color="#0F172A" />
-      <stop offset="100%" stop-color="#1E293B" />
+    <linearGradient id="trBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#111827" />
     </linearGradient>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B" />
-      <stop offset="100%" stop-color="#D97706" />
-    </linearGradient>
-    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00D2B4" />
-      <stop offset="100%" stop-color="#0284C7" />
-    </linearGradient>
-    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)" />
-      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)" />
+    <linearGradient id="tealLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0EA5E9" />
+      <stop offset="50%" stop-color="#00D2B4" />
+      <stop offset="100%" stop-color="#38BDF8" />
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="800" height="420" fill="url(#bgGrad)" />
+  <!-- Background Canvas -->
+  <rect width="800" height="420" fill="url(#trBg)" />
 
-  <!-- Subtle Grid Pattern -->
-  <g stroke="rgba(255, 255, 255, 0.04)" stroke-width="1">
-    <line x1="0" y1="70" x2="800" y2="70" />
-    <line x1="0" y1="140" x2="800" y2="140" />
-    <line x1="0" y1="210" x2="800" y2="210" />
-    <line x1="0" y1="280" x2="800" y2="280" />
-    <line x1="0" y1="350" x2="800" y2="350" />
-    <line x1="160" y1="0" x2="160" y2="420" />
-    <line x1="320" y1="0" x2="320" y2="420" />
-    <line x1="480" y1="0" x2="480" y2="420" />
-    <line x1="640" y1="0" x2="640" y2="420" />
-  </g>
+  <!-- Outer Editorial Frame -->
+  <rect x="24" y="24" width="752" height="372" rx="6" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+  <rect x="28" y="28" width="744" height="364" rx="4" fill="none" stroke="rgba(14, 165, 233, 0.2)" stroke-width="1" />
 
-  <!-- Top Masthead Bar -->
-  <rect x="0" y="0" width="800" height="52" fill="#070D18" />
-  <g transform="translate(40, 15)">
+  <!-- Top Masthead Plaque -->
+  <g transform="translate(48, 52)">
     <!-- TipRanks Logo Mark -->
-    <rect x="0" y="0" width="22" height="22" rx="4" fill="#00D2B4" />
-    <path d="M5 11 L9 15 L17 7" fill="none" stroke="#070D18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-    <text x="30" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">TipRanks</text>
-    <text x="105" y="10" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="600" fill="#94A3B8">™</text>
-  </g>
-  <g transform="translate(620, 18)">
-    <rect x="0" y="0" width="140" height="18" rx="9" fill="rgba(0, 210, 180, 0.15)" stroke="rgba(0, 210, 180, 0.4)" stroke-width="1" />
-    <text x="70" y="12.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#00D2B4" letter-spacing="1">MARKET NEWS</text>
+    <rect x="0" y="0" width="30" height="30" rx="4" fill="#00D2B4" />
+    <path d="M7 15 L12 20 L23 10" fill="none" stroke="#0B0F19" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Masthead Wordmark -->
+    <text x="42" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">TipRanks</text>
+    <text x="135" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748B">™</text>
+    <text x="156" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" letter-spacing="1.5">| FINANCIAL &amp; MARKET TECHNOLOGY</text>
+
+    <!-- Date & Section Pill -->
+    <g transform="translate(560, 4)">
+      <rect width="144" height="24" rx="12" fill="rgba(0, 210, 180, 0.12)" stroke="rgba(0, 210, 180, 0.4)" stroke-width="1" />
+      <text x="72" y="16" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="700" fill="#00D2B4" letter-spacing="0.8">18 AUGUST 2026</text>
+    </g>
   </g>
 
-  <!-- Breadcrumbs & Category -->
-  <g transform="translate(40, 84)">
-    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#00D2B4" letter-spacing="1.5">PRIVATE COMPANIES  /  SPEECH AI  /  SWIGGY ECOSYSTEM</text>
+  <!-- Fine Editorial Divider -->
+  <line x1="48" y1="104" x2="752" y2="104" stroke="url(#tealLine)" stroke-width="1.5" />
+
+  <!-- Section Topic Kicker -->
+  <g transform="translate(48, 134)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#00D2B4" letter-spacing="1.8">PRIVATE COMPANIES  ·  SPEECH AI  ·  SWIGGY ECOSYSTEM</text>
   </g>
 
-  <!-- Article Headline -->
-  <g transform="translate(40, 120)">
-    <text font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#FFFFFF" letter-spacing="-0.2">
+  <!-- Primary Headline -->
+  <g transform="translate(48, 178)">
+    <text font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.3">
       <tspan x="0" dy="0">Voice-Based Kannada AI Ordering Agent</tspan>
-      <tspan x="0" dy="36">WhatsApp Voice Commerce via Swiggy MCP</tspan>
+      <tspan x="0" dy="38">Showcases Conversational Commerce in Swiggy</tspan>
     </text>
   </g>
 
-  <!-- Key Badges Container -->
-  <g transform="translate(40, 216)">
-    <!-- Swiggy Integration Pill -->
-    <g transform="translate(0, 0)">
-      <rect width="180" height="34" rx="6" fill="rgba(252, 128, 25, 0.15)" stroke="rgba(252, 128, 25, 0.5)" stroke-width="1" />
-      <circle cx="18" cy="17" r="6" fill="#FC8019" />
-      <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#FFA500">Swiggy MCP Agent</text>
-    </g>
-
-    <!-- Vernacular Speech AI Pill -->
-    <g transform="translate(192, 0)">
-      <rect width="180" height="34" rx="6" fill="rgba(0, 210, 180, 0.12)" stroke="rgba(0, 210, 180, 0.4)" stroke-width="1" />
-      <circle cx="18" cy="17" r="6" fill="#00D2B4" />
-      <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#00D2B4">Vernacular Voice AI</text>
-    </g>
-
-    <!-- Kannada Voice Pill -->
-    <g transform="translate(384, 0)">
-      <rect width="144" height="34" rx="6" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
-      <circle cx="18" cy="17" r="6" fill="#F59E0B" />
-      <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#FBBF24">ಕನ್ನಡ Voice AI</text>
-    </g>
+  <!-- Editorial Summary -->
+  <g transform="translate(48, 276)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="400" fill="#94A3B8" line-height="1.6">
+      <tspan x="0" dy="0">Architected by Vyshak Iyengar: pioneering vernacular voice ordering on Meta WhatsApp</tspan>
+      <tspan x="0" dy="22">interfaced seamlessly with food discovery and Swiggy checkout via Model Context Protocol.</tspan>
+    </text>
   </g>
 
-  <!-- Interactive Demo Card Graphic -->
-  <g transform="translate(40, 274)">
-    <rect width="720" height="114" rx="10" fill="url(#cardGrad)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
-    
-    <!-- Audio Waveform Graphic -->
-    <g transform="translate(24, 30)">
-      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#94A3B8">Vyshak K. Iyengar · AI Voice Agent Implementation</text>
-      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0" y="26">"ಮಸಾಲೆ ದೋಸೆ ಮತ್ತು ಫಿಲ್ಟರ್ ಕಾಫಿ ಆರ್ಡರ್ ಮಾಡಿ..."</text>
-      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="400" fill="#64748B" y="48">WhatsApp AI Voice Ordering Flow → Food Discovery &amp; Checkout via Swiggy</text>
+  <!-- Bottom Metadata Badges -->
+  <g transform="translate(48, 344)">
+    <g transform="translate(0, 0)">
+      <rect width="138" height="24" rx="4" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <text x="69" y="16" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">SWIGGY MCP AGENT</text>
+    </g>
+    <g transform="translate(148, 0)">
+      <rect width="144" height="24" rx="4" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <text x="72" y="16" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">SPEECH INTELLIGENCE</text>
+    </g>
+    <g transform="translate(302, 0)">
+      <rect width="132" height="24" rx="4" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <text x="66" y="16" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#CBD5E1">ಕನ್ನಡ VOICE AI</text>
     </g>
 
-    <!-- Waveform Bars -->
-    <g transform="translate(560, 42)" fill="#00D2B4">
-      <rect x="0" y="10" width="3" height="20" rx="1.5" opacity="0.4" />
-      <rect x="7" y="4" width="3" height="32" rx="1.5" opacity="0.7" />
-      <rect x="14" y="0" width="3" height="40" rx="1.5" opacity="1" />
-      <rect x="21" y="8" width="3" height="24" rx="1.5" opacity="0.6" />
-      <rect x="28" y="2" width="3" height="36" rx="1.5" opacity="0.9" />
-      <rect x="35" y="12" width="3" height="16" rx="1.5" opacity="0.5" />
-      <rect x="42" y="6" width="3" height="28" rx="1.5" opacity="0.8" />
-      <rect x="49" y="0" width="3" height="40" rx="1.5" opacity="1" />
-      <rect x="56" y="14" width="3" height="12" rx="1.5" opacity="0.4" />
-      <rect x="63" y="8" width="3" height="24" rx="1.5" opacity="0.7" />
-      <rect x="70" y="2" width="3" height="36" rx="1.5" opacity="0.9" />
-      <rect x="77" y="10" width="3" height="20" rx="1.5" opacity="0.5" />
-      <rect x="84" y="16" width="3" height="8" rx="1.5" opacity="0.3" />
-      <rect x="91" y="4" width="3" height="32" rx="1.5" opacity="0.8" />
-      <rect x="98" y="12" width="3" height="16" rx="1.5" opacity="0.5" />
-      <rect x="105" y="0" width="3" height="40" rx="1.5" opacity="0.9" />
-      <rect x="112" y="8" width="3" height="24" rx="1.5" opacity="0.6" />
-      <rect x="119" y="14" width="3" height="12" rx="1.5" opacity="0.4" />
-    </g>
+    <!-- Attribution on the right -->
+    <text x="704" y="16" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500" fill="#64748B">TipRanks Market Tech Desk</text>
   </g>
 </svg>

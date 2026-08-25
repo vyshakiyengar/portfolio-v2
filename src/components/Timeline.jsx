@@ -12,7 +12,7 @@ const milestones = [
     {
         step: "01",
         stageName: "Engineering Origin",
-        year: "2013 – 2017",
+        year: "2013 - 2017",
         role: "Computer Science Engineering",
         institution: "Visvesvaraya Technological Univ. (VTU)",
         impact: "Graduated with Distinction. Strong foundation in software engineering, data structures, and algorithmic logic.",
@@ -25,7 +25,7 @@ const milestones = [
     {
         step: "02",
         stageName: "Strategy Transition",
-        year: "2017 – 2022",
+        year: "2017 - 2022",
         role: "Strategy Consultant",
         institution: "Accenture Strategy",
         impact: "Rare direct internal transfer from Tech to Strategy without an MBA. Advised on large-scale digital transformations.",
@@ -38,7 +38,7 @@ const milestones = [
     {
         step: "03",
         stageName: "Social Impact Venture",
-        year: "2018 – Present",
+        year: "2018 - Present",
         role: "Co-Founder & Board Member",
         institution: "BluFin Foundation",
         impact: "Co-founded an inclusive sports NGO backing 120+ children and 7 international para-athletes. Backed by Accel Partners.",
@@ -51,7 +51,7 @@ const milestones = [
     {
         step: "04",
         stageName: "Global Business MBA",
-        year: "2023 – 2025",
+        year: "2023 - 2025",
         role: "MBA Candidate",
         institution: "London Business School",
         impact: "Selected for LBS MBA (Class of 2025). Focus on global technology strategy, venture creation, and leadership.",
@@ -67,7 +67,7 @@ const milestones = [
         year: "2024",
         role: "Strategy Consultant",
         institution: "Boston Consulting Group (BCG)",
-        impact: "MBA Internship — Advised on high-impact strategic initiatives and digital transformation engagements in Dubai.",
+        impact: "MBA Internship: Advised on high-impact strategic initiatives and digital transformation engagements in Dubai.",
         category: "Management Consulting",
         icon: Briefcase,
         logo: bcgLogo,

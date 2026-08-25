@@ -38,7 +38,7 @@ function About() {
                         His work bridges the gap between complex systems and intuitive, text-forward design, prioritizing clarity over noise.
                     </p>
                     <p>
-                        Vyshak's approach to software development effectively treats code as a form of editorial expression—precise,
+                        Vyshak's approach to software development effectively treats code as a form of editorial expression: precise,
                         intentional, and devoid of unnecessary embellishment.
                     </p>
                 </div>

@@ -14,7 +14,7 @@ const HorizontalTimeline = () => {
         {
             institution: "London Business School",
             degree: "MBA",
-            period: "2023 – 2025",
+            period: "2023 - 2025",
             impact: "Strategy, leadership, and global business focus",
             type: "education",
             logo: lbsLogo
@@ -22,7 +22,7 @@ const HorizontalTimeline = () => {
         {
             institution: "Vishweshwaraya Technical University (VTU)",
             degree: "Computer Science Engineering",
-            period: "2013 – 2017",
+            period: "2013 - 2017",
             impact: "Distinction. Top 10% of class. Strong foundations in systems and software engineering",
             type: "education",
             logo: vtuLogo
@@ -33,7 +33,7 @@ const HorizontalTimeline = () => {
         {
             role: "Product Strategy",
             institution: "Meta",
-            period: "2025 – Present", /* Updated from 2024 */
+            period: "2025 - Present", /* Updated from 2024 */
             impact: "Product strategy for large-scale mobile ads and monetisation platforms",
             type: "work",
             isCurrent: true,
@@ -51,7 +51,7 @@ const HorizontalTimeline = () => {
         {
             role: "Strategy Consultant",
             institution: "Accenture Strategy",
-            period: "2018 – 2023",
+            period: "2018 - 2023",
             impact: "Strategy across fintech, platforms, and emerging technologies",
             type: "work",
             logo: accentureLogo
@@ -59,7 +59,7 @@ const HorizontalTimeline = () => {
         {
             role: "Associate Engineer",
             institution: "Accenture Technology",
-            period: "2017 – 2018",
+            period: "2017 - 2018",
             impact: "Enterprise systems engineering and large-scale delivery",
             type: "work",
             logo: accentureLogo
@@ -70,7 +70,7 @@ const HorizontalTimeline = () => {
         {
             role: "Co-Founder",
             institution: "BluFin Foundation",
-            period: "2018 – Present",
+            period: "2018 - Present",
             impact: "BluFin Foundation is a non-profit focused on enabling youngsters to explore alternative career through sports. We are backed by Accel Partners (Global VC fund), Kaleyra (NYSE listed CPaaS company), and Antraprerana Ventures (Philanthropic fund).",
             type: "impact",
             logo: blufinLogo
@@ -78,7 +78,7 @@ const HorizontalTimeline = () => {
         {
             role: "Board Member",
             institution: "Let's Be The Change",
-            period: "2014 – Present", /* Updated from 2020-2022 */
+            period: "2014 - Present", /* Updated from 2020-2022 */
             impact: "Governing council member for a non-profit focused on civic engagement and urban governance.",
             type: "impact",
             logo: lbtcLogo

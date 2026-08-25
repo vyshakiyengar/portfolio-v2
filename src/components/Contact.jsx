@@ -59,7 +59,7 @@ const Contact = () => {
                 <div className="contact-bottom-bar">
                     <div className="footer-brand">
                         <Globe size={16} className="brand-globe" />
-                        <span>vyshak.me — Official Profile</span>
+                        <span>vyshak.me · Official Profile</span>
                     </div>
 
                     <div className="footer-links-row">
