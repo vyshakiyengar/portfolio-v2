@@ -1,27 +1,39 @@
 :root {
-  /* Colors - "Timeless Luxury & Authority" Palette */
+  /* Colors - "Executive Blue & Sapphire Luxury" Palette */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #FAFAFC;
-  --bg-dark: #0F172A;
+  --bg-secondary: #F8FAFC; /* Crisp Ice White / Soft Slate-Blue Tint */
+  --bg-dark: #0B132B; /* Deep Midnight Oceanic Navy */
   
   --text-primary: #0F172A; /* Deep Slate / Charcoal */
-  --text-secondary: #475569; /* Soft Slate Grey */
-  --text-muted: #64748B;
+  --text-secondary: #334155; /* Refined Slate Grey */
+  --text-muted: #64748B; /* Cool Slate */
   --text-light: #FFFFFF;
 
-  --accent-gold: #B45309; /* Burnished Gold / Amber */
-  --accent-gold-light: #D97706;
-  --accent-gold-subtle: rgba(180, 83, 9, 0.1);
+  /* Primary Blue Palette */
+  --accent-blue: #1D4ED8; /* Rich Royal Blue */
+  --accent-blue-deep: #1E3A8A; /* Deep Sapphire Navy */
+  --accent-blue-light: #38BDF8; /* Sky Ice Blue */
+  --accent-blue-subtle: rgba(29, 78, 216, 0.08); /* Soft Blue Tint */
+  --accent-blue-glow: rgba(37, 99, 235, 0.2);
 
-  --accent-blue: #1E3A8A; /* Midnight Navy */
-  --accent-blue-subtle: rgba(30, 58, 138, 0.06);
+  /* Gold / Amber alias mapped to Blue for complete site coherence */
+  --accent-gold: #1D4ED8; /* Royal Blue */
+  --accent-gold-light: #2563EB; /* Cobalt Blue */
+  --accent-gold-subtle: rgba(29, 78, 216, 0.08);
 
-  --accent-line: rgba(15, 23, 42, 0.1);
-  --accent-line-gold: rgba(180, 83, 9, 0.3);
+  /* Cyan / Ice Accents */
+  --accent-cyan: #0284C7;
+  --accent-cyan-subtle: rgba(2, 132, 199, 0.08);
+
+  /* Hairlines & Borders */
+  --accent-line: rgba(15, 23, 42, 0.08);
+  --accent-line-blue: rgba(29, 78, 216, 0.22);
+  --accent-line-gold: rgba(29, 78, 216, 0.22);
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Spacing & Grid */
   --spacing-xs: 4px;
@@ -29,7 +41,7 @@
   --spacing-md: 24px;
   --spacing-lg: 48px;
   --spacing-xl: 96px;
-  --spacing-xxl: 140px;
+  --spacing-xxl: 120px;
   --container-padding: 40px;
 
   /* Layout */
@@ -42,22 +54,22 @@
   --radius-lg: 16px;
 
   --shadow-subtle: 0 4px 20px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 12px 30px rgba(15, 23, 42, 0.08);
-  --shadow-gold: 0 8px 25px rgba(180, 83, 9, 0.12);
+  --shadow-hover: 0 12px 30px rgba(29, 78, 216, 0.09);
+  --shadow-gold: 0 8px 25px rgba(29, 78, 216, 0.14);
+  --shadow-blue: 0 8px 25px rgba(29, 78, 216, 0.14);
 
   --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
   --transition-default: 300ms cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Legacy aliases for backward compat */
-  --accent-highlight: var(--accent-gold);
+  --accent-highlight: var(--accent-blue);
   --accent-main: var(--accent-blue);
   --bg-navy: var(--bg-dark);
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (max-width: 768px) {
   :root {
-    --spacing-xxl: 80px;
+    --spacing-xxl: 70px;
     --container-padding: 20px;
     --header-height: 70px;
   }

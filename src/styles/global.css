@@ -22,14 +22,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Text Selection Highlight - High Priority User Request */
+/* Text Selection Highlight */
 ::selection {
-    background-color: #B45309 !important; /* Rich Gold/Amber */
+    background-color: #1D4ED8 !important; /* Rich Royal Blue */
     color: #FFFFFF !important;
 }
 
 ::-moz-selection {
-    background-color: #B45309 !important;
+    background-color: #1D4ED8 !important;
     color: #FFFFFF !important;
 }
 

@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Building2, Heart, Award, CheckCircle2, Sparkles, ArrowRight } from 'lucide-react'
+import { GraduationCap, Briefcase, Building2, Heart, Award, CheckCircle2, Sparkles } from 'lucide-react'
 import '../styles/Timeline.css'
 
 import accentureLogo from '../assets/logos/accenture.png'
@@ -17,8 +17,7 @@ const milestones = [
         impact: "Graduated with Distinction. Strong foundation in software engineering, data structures, and algorithmic logic.",
         category: "Technical Foundation",
         icon: GraduationCap,
-        logo: vtuLogo,
-        flowNext: "Accenture Strategy (02)"
+        logo: vtuLogo
     },
     {
         step: "02",
@@ -28,8 +27,7 @@ const milestones = [
         impact: "Rare direct internal transfer from Tech to Strategy without an MBA. Advised on large-scale digital transformations.",
         category: "Enterprise Strategy",
         icon: Briefcase,
-        logo: accentureLogo,
-        flowNext: "BluFin Foundation (03)"
+        logo: accentureLogo
     },
     {
         step: "03",
@@ -39,8 +37,7 @@ const milestones = [
         impact: "Co-founded an inclusive sports NGO backing 120+ children and 7 international para-athletes. Backed by Accel Partners.",
         category: "Social Impact",
         icon: Heart,
-        logo: blufinLogo,
-        flowNext: "LBS MBA (04)"
+        logo: blufinLogo
     },
     {
         step: "04",
@@ -50,8 +47,7 @@ const milestones = [
         impact: "Selected for LBS MBA (Class of 2025). Focus on global technology strategy, venture creation, and leadership.",
         category: "Global Business",
         icon: Award,
-        logo: lbsLogo,
-        flowNext: "BCG Consulting (05)"
+        logo: lbsLogo
     },
     {
         step: "05",
@@ -61,8 +57,7 @@ const milestones = [
         impact: "MBA Internship: Advised on high-impact strategic initiatives and digital transformation engagements in Dubai.",
         category: "Management Consulting",
         icon: Briefcase,
-        logo: bcgLogo,
-        flowNext: "Meta Strategy (06)"
+        logo: bcgLogo
     },
     {
         step: "06",
@@ -72,8 +67,7 @@ const milestones = [
         impact: "Drives product roadmap, monetization strategy, and platform growth for global mobile advertising products at scale.",
         category: "Product Leadership",
         icon: Building2,
-        logo: metaLogo,
-        flowNext: "Current Leadership"
+        logo: metaLogo
     }
 ]
 
@@ -87,65 +81,62 @@ const Timeline = () => {
                         Career Arc &amp; Milestones
                     </span>
                     <h2 className="section-heading">Career Evolution</h2>
-                    <p className="section-subheading">A structured chronological journey across engineering, enterprise strategy, global business, and product leadership (01 ➔ 06).</p>
+                    <p className="section-subheading">A structured journey across engineering, enterprise strategy, global business, and product leadership.</p>
                     <div className="animated-divider"></div>
                 </div>
 
-                {/* 3-Column Milestone Cards Grid with Embedded Connecting Lines & Flow Arrows */}
-                <div className="timeline-grid-container">
+                {/* Left-Spine Linear Timeline Stream - Gold Standard UX for Chronological Scanability */}
+                <div className="timeline-linear-container">
+                    <div className="timeline-linear-spine"></div>
+
                     {milestones.map((item, index) => {
                         const IconComponent = item.icon
-                        const isRowOneEnd = index === 2
-                        const isFinal = index === 5
+                        const isLatest = index === milestones.length - 1
 
                         return (
-                            <div key={index} className={`timeline-grid-card fade-in-${(index % 3) + 1}`}>
-                                {/* Card Progress Spine Header */}
-                                <div className="tcard-spine-row">
-                                    <div className="tcard-step-marker">
-                                        <span className="step-circle">{item.step}</span>
-                                    </div>
-                                    
-                                    <div className="tcard-spine-line-wrap">
-                                        <div className="spine-line"></div>
-                                        {!isRowOneEnd && !isFinal && (
-                                            <ArrowRight size={14} className="spine-arrow" />
-                                        )}
-                                        {isRowOneEnd && (
-                                            <span className="spine-turn-cue">
-                                                <span>Row 2</span>
-                                                <span className="turn-icon">⤵</span>
-                                            </span>
-                                        )}
-                                        {isFinal && (
-                                            <span className="spine-final-badge">Present</span>
-                                        )}
-                                    </div>
-
-                                    <span className="tcard-year-badge">{item.year}</span>
+                            <div 
+                                key={index} 
+                                className={`timeline-linear-row ${isLatest ? 'is-latest' : ''} fade-in-${(index % 3) + 1}`}
+                            >
+                                {/* Left Column: Year Pill (Desktop) */}
+                                <div className="timeline-col-year">
+                                    <span className="timeline-year-pill">{item.year}</span>
                                 </div>
 
-                                <div className="tcard-category-bar">
-                                    <span className="tcard-cat-label">{item.category}</span>
-                                </div>
-
-                                <h3 className="tcard-role">{item.role}</h3>
-
-                                <div className="tcard-institution-row">
-                                    {item.logo && (
-                                        <img src={item.logo} alt={item.institution} className="tcard-logo-img" />
-                                    )}
-                                    <h4 className="tcard-institution">{item.institution}</h4>
-                                </div>
-
-                                <p className="tcard-impact">{item.impact}</p>
-
-                                <div className="tcard-footer">
-                                    <div className="tcard-verified">
-                                        <CheckCircle2 size={13} className="check-icon" />
-                                        <span>Verified Milestone</span>
+                                {/* Center Column: Sequential Node on continuous blue spine */}
+                                <div className="timeline-col-node">
+                                    <div className="timeline-linear-node">
+                                        <span className="node-step-num">{item.step}</span>
                                     </div>
-                                    <IconComponent size={16} className="tcard-corner-icon" />
+                                </div>
+
+                                {/* Right Column: Clean, Compact Executive Card */}
+                                <div className="timeline-col-content">
+                                    <div className="timeline-stream-card">
+                                        <div className="stream-card-header">
+                                            <span className="stream-category-tag">{item.category}</span>
+                                            <span className="stream-year-mobile">{item.year}</span>
+                                        </div>
+
+                                        <h3 className="stream-role">{item.role}</h3>
+
+                                        <div className="stream-institution-row">
+                                            {item.logo && (
+                                                <img src={item.logo} alt={item.institution} className="stream-logo-img" />
+                                            )}
+                                            <h4 className="stream-institution">{item.institution}</h4>
+                                        </div>
+
+                                        <p className="stream-impact">{item.impact}</p>
+
+                                        <div className="stream-card-footer">
+                                            <div className="stream-verified">
+                                                <CheckCircle2 size={13} className="check-icon" />
+                                                <span>Verified Milestone</span>
+                                            </div>
+                                            <IconComponent size={16} className="stream-corner-icon" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )

@@ -67,19 +67,19 @@
     align-items: center;
     gap: 10px;
     padding: 14px 28px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-blue);
     color: #FFFFFF;
     font-size: 0.95rem;
     font-weight: 600;
     border-radius: var(--radius-sm);
-    box-shadow: 0 4px 20px rgba(180, 83, 9, 0.3);
+    box-shadow: 0 4px 20px rgba(29, 78, 216, 0.35);
     transition: all var(--transition-default);
 }
 
 .btn-contact-main:hover {
-    background-color: #D97706;
+    background-color: #1E3A8A;
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(180, 83, 9, 0.5);
+    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.5);
 }
 
 .btn-contact-sub {
