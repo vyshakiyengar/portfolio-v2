@@ -1,4 +1,4 @@
-/* Timeline Section - Compact High-Density Grid */
+/* Timeline Section - Compact High-Density Grid with Visual Flow Directions */
 .timeline-section {
     padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
     background-color: var(--bg-secondary);
@@ -16,13 +16,94 @@
     margin-bottom: 8px;
 }
 
+/* Horizontal Journey Track - Mental Map & Flow Direction */
+.timeline-journey-track {
+    max-width: var(--max-width);
+    margin: 24px auto 30px auto;
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    flex-wrap: wrap;
+}
+
+.journey-track-label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-right: 8px;
+    border-right: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.journey-steps-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.journey-step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.journey-step-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.journey-step-pill:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background: #FFFFFF;
+}
+
+.journey-num {
+    font-family: var(--font-mono, monospace);
+    font-weight: 700;
+    font-size: 0.72rem;
+    color: var(--accent-gold);
+}
+
+.journey-name {
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    color: var(--text-primary);
+}
+
+.journey-arrow {
+    color: var(--accent-gold);
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
 /* 3-Column Compact Grid */
 .timeline-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 22px;
     max-width: var(--max-width);
-    margin: 32px auto 0 auto;
+    margin: 0 auto;
     padding: 0 var(--container-padding);
 }
 
@@ -147,7 +228,7 @@
     flex-grow: 1;
 }
 
-/* Card Footer */
+/* Card Footer with Directional Cues */
 .tcard-footer {
     display: flex;
     align-items: center;
@@ -171,15 +252,50 @@
     flex-shrink: 0;
 }
 
-.tcard-corner-icon {
+/* Flow Directional Pointers on Cards */
+.tcard-flow-pointer {
+    display: flex;
+    align-items: center;
+}
+
+.flow-next-tag {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
     color: var(--accent-gold);
-    opacity: 0.45;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    opacity: 0.85;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.timeline-grid-card:hover .tcard-corner-icon {
-    opacity: 0.9;
-    transform: scale(1.1);
+.timeline-grid-card:hover .flow-next-tag {
+    opacity: 1;
+    transform: translateX(2px);
+}
+
+.flow-turn-tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: rgba(180, 83, 9, 0.09);
+    padding: 2px 8px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+
+.flow-final-tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+    background: var(--accent-blue-subtle);
+    padding: 2px 8px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
 }
 
 /* Responsive Grid Breakpoints */
@@ -188,9 +304,22 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
+
+    .journey-track-label {
+        border-right: none;
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 640px) {
+    .timeline-journey-track {
+        border-radius: 12px;
+        padding: 12px 14px;
+        margin: 18px auto 22px auto;
+    }
+
     .timeline-grid-container {
         grid-template-columns: 1fr;
         gap: 14px;
