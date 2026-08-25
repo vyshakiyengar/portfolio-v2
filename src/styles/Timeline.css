@@ -1,4 +1,4 @@
-/* Timeline Section - Horizontal Two-Line Oval Track (White & Light Grey Editorial Palette) */
+/* Timeline Section - Pure Vertical Stream with Distinct Academic Visuals */
 .timeline-section {
     padding: var(--spacing-xxl) 0;
     background-color: var(--bg-secondary);
@@ -16,236 +16,289 @@
     margin-bottom: 8px;
 }
 
-/* Horizontal Two-Line Oval Track System */
-.timeline-oval-system {
+/* Vertical Timeline Container */
+.timeline-v-container {
     position: relative;
-    max-width: 1140px;
+    max-width: 920px;
     margin: 48px auto 0 auto;
-    padding: 0 var(--container-padding);
+    padding: 0 20px;
 }
 
-/* Background Oval Track Circuit Lines */
-.timeline-oval-track-frame {
+/* Continuous Vertical Spine Line (Strictly in background) */
+.timeline-v-spine {
     position: absolute;
-    top: 40px;
-    bottom: 40px;
-    left: 40px;
-    right: 40px;
-    pointer-events: none;
+    top: 24px;
+    bottom: 36px;
+    left: 175px;
+    width: 2px;
+    background: linear-gradient(180deg, 
+        var(--accent-blue) 0%, 
+        var(--accent-blue-light) 50%, 
+        rgba(29, 78, 216, 0.25) 95%, 
+        transparent 100%
+    );
+    transform: translateX(-50%);
     z-index: 1;
 }
 
-.oval-track-line {
-    position: absolute;
-    left: 20px;
-    right: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, 
-        rgba(29, 78, 216, 0.15) 0%, 
-        var(--accent-blue) 25%, 
-        var(--accent-blue-light) 75%, 
-        rgba(29, 78, 216, 0.2) 100%
-    );
-}
-
-.top-track-line {
-    top: 0;
-}
-
-.bottom-track-line {
-    bottom: 0;
-}
-
-/* Smooth 180° Oval Loop Arc on Right Edge */
-.oval-turn-arc-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -24px;
-    width: 64px;
-    border-top: 2px solid var(--accent-blue-light);
-    border-bottom: 2px solid var(--accent-blue);
-    border-right: 2px solid var(--accent-blue);
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
+/* Milestone Row */
+.timeline-v-row {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 8px;
-    opacity: 0.85;
-}
-
-.turn-loop-indicator {
-    background: #FFFFFF;
-    border: 1px solid rgba(29, 78, 216, 0.25);
-    border-radius: 12px;
-    padding: 3px 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.1);
-    transform: translateX(12px);
-}
-
-.turn-loop-text {
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 700;
-    color: var(--accent-blue);
-    white-space: nowrap;
-}
-
-.turn-loop-arrow {
-    font-size: 0.75rem;
-    color: var(--accent-blue);
-}
-
-/* Horizontal Track Grid Rows (Line 1 & Line 2) */
-.timeline-track-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    align-items: flex-start;
     position: relative;
+    margin-bottom: 32px;
     z-index: 2;
 }
 
-.track-grid-top {
-    margin-bottom: 36px;
+.timeline-v-row:last-child {
+    margin-bottom: 0;
 }
 
-.track-grid-bottom {
-    margin-top: 0;
+/* Left Column: Year Badge (Desktop) */
+.timeline-v-year-col {
+    width: 145px;
+    padding-right: 24px;
+    text-align: right;
+    padding-top: 6px;
+    flex-shrink: 0;
 }
 
-/* Milestone Cards */
-.timeline-oval-card {
+.timeline-v-year-badge {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
     background-color: #FFFFFF;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 8px;
-    padding: 24px 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.03);
-    position: relative;
+    padding: 4px 12px;
+    border-radius: 12px;
+    white-space: nowrap;
+    display: inline-block;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+    font-feature-settings: 'tnum';
+    transition: all 0.3s ease;
 }
 
-.timeline-oval-card:hover {
-    border-color: rgba(29, 78, 216, 0.35);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(29, 78, 216, 0.05);
+.timeline-v-row:hover .timeline-v-year-badge {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue-light);
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.12);
 }
 
-/* Distinct Academic / Education Card Styling (VTU & LBS) */
-.timeline-oval-card.card-education {
-    background-color: #FFFFFF;
-    border: 1px solid rgba(29, 78, 216, 0.2);
-    border-left: 3px solid var(--accent-blue);
-    box-shadow: 0 3px 16px -2px rgba(29, 78, 216, 0.06);
+.timeline-v-year-badge.year-education {
+    color: #1E40AF;
+    background-color: #F8FAFF;
+    border-color: rgba(30, 64, 175, 0.2);
 }
 
-.timeline-oval-card.card-education:hover {
+.timeline-v-year-badge.year-latest {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-deep) 100%);
     border-color: var(--accent-blue);
-    border-left: 3px solid var(--accent-blue-deep);
-    box-shadow: 0 14px 30px -4px rgba(29, 78, 216, 0.12);
 }
 
-.cat-education {
-    background-color: #EFF6FF !important;
-    color: var(--accent-blue) !important;
-    border: 1px solid rgba(29, 78, 216, 0.2) !important;
-}
-
-/* Latest Role Card Styling (Meta) */
-.timeline-oval-card.card-latest {
-    border-left: 3px solid var(--accent-blue-deep);
-}
-
-/* Card Top: Node Number + Category Tag + Year */
-.oval-card-top {
+/* Center Column: Node Marker */
+.timeline-v-node-col {
+    width: 60px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 12px;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-top: 4px;
+    z-index: 5;
 }
 
-.oval-node-group {
+.timeline-v-node {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #FFFFFF !important;
+    border: 2px solid var(--accent-blue);
+    /* 6px solid halo ensures the spine line stays completely hidden behind */
+    box-shadow: 0 0 0 6px var(--bg-secondary), 0 2px 8px rgba(29, 78, 216, 0.15);
     display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.oval-step-circle {
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: var(--bg-secondary);
-    border: 1.5px solid var(--accent-blue);
-    color: var(--accent-blue);
-    font-family: var(--font-mono, monospace);
-    font-size: 0.72rem;
-    font-weight: 800;
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.timeline-oval-card:hover .oval-step-circle {
-    background-color: var(--accent-blue);
+.v-node-num {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    transition: color 0.3s ease;
+}
+
+.timeline-v-row:hover .timeline-v-node {
+    background-color: var(--accent-blue) !important;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px var(--bg-secondary), 0 6px 18px rgba(29, 78, 216, 0.3);
+}
+
+.timeline-v-row:hover .v-node-num {
     color: #FFFFFF;
 }
 
-.oval-category-tag {
+/* Distinct Education Node Styling (VTU & LBS) */
+.timeline-v-node.node-education {
+    border-color: #1E40AF;
+    background-color: #FFFFFF !important;
+    box-shadow: 0 0 0 6px var(--bg-secondary), 0 2px 10px rgba(30, 64, 175, 0.2);
+}
+
+.timeline-v-node.node-education .v-node-num {
+    color: #1E40AF;
+}
+
+.timeline-v-row.row-education:hover .timeline-v-node.node-education {
+    background-color: #1E40AF !important;
+}
+
+/* Latest Node Styling (Meta) */
+.timeline-v-node.node-latest {
+    border-color: var(--accent-blue-deep);
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-deep) 100%) !important;
+    box-shadow: 0 0 0 6px var(--bg-secondary), 0 0 0 9px rgba(29, 78, 216, 0.2), 0 4px 12px rgba(29, 78, 216, 0.25);
+}
+
+.timeline-v-node.node-latest .v-node-num {
+    color: #FFFFFF;
+}
+
+/* Right Column: Card Container */
+.timeline-v-card-col {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+/* Standard Professional & Venture Cards */
+.timeline-v-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 10px;
+    padding: 24px 28px;
+    box-shadow: 0 2px 12px -2px rgba(15, 23, 42, 0.03);
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+}
+
+.timeline-v-row:hover .timeline-v-card {
+    border-color: rgba(29, 78, 216, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px -4px rgba(29, 78, 216, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+}
+
+/* DISTINCT ACADEMIC / EDUCATION CARD STYLING (VTU & LBS) */
+.timeline-v-card.card-education {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
+    border: 1px solid rgba(30, 64, 175, 0.22);
+    border-left: 4px solid #1E40AF;
+    box-shadow: 0 3px 16px -2px rgba(30, 64, 175, 0.07);
+}
+
+.timeline-v-row.row-education:hover .timeline-v-card.card-education {
+    border-color: #1E40AF;
+    border-left: 4px solid #172554;
+    box-shadow: 0 14px 32px -4px rgba(30, 64, 175, 0.14);
+}
+
+/* Latest Role Card Styling (Meta) */
+.timeline-v-card.card-latest {
+    border-left: 4px solid var(--accent-blue-deep);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
+}
+
+/* Card Header & Tags */
+.v-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.v-tag-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.v-category-tag {
     font-family: var(--font-sans);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--accent-blue);
     background-color: var(--accent-blue-subtle);
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 4px;
     display: inline-block;
 }
 
-.oval-year-badge {
+.v-category-tag.cat-education {
+    background-color: #EFF6FF;
+    color: #1E40AF;
+    border: 1px solid rgba(30, 64, 175, 0.2);
+}
+
+.v-edu-credential-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #1E40AF;
+    background-color: rgba(30, 64, 175, 0.08);
+    border: 1px solid rgba(30, 64, 175, 0.15);
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.v-year-mobile {
+    display: none;
     font-family: var(--font-sans);
     font-size: 0.76rem;
     font-weight: 600;
-    color: #475569;
+    color: var(--text-secondary);
     background-color: #F8FAFC;
     border: 1px solid rgba(15, 23, 42, 0.07);
-    padding: 3px 9px;
+    padding: 2px 8px;
     border-radius: 10px;
-    white-space: nowrap;
-    font-feature-settings: 'tnum';
 }
 
 /* Role Typography */
-.oval-role {
+.v-role {
     font-family: var(--font-display);
-    font-size: 1.32rem;
+    font-size: 1.45rem;
     font-weight: 600;
     color: #0F172A;
     line-height: 1.25;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: -0.01em;
 }
 
-/* Institution & Logo Bar */
-.oval-institution-row {
+.v-role.role-education {
+    color: #0F172A;
+    font-weight: 600;
+}
+
+/* Institution Row */
+.v-institution-row {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 14px;
-    min-height: 36px;
+    margin-bottom: 12px;
+    min-height: 32px;
 }
 
-.oval-logo-img {
-    height: 32px;
-    max-height: 36px;
+.v-logo-img {
+    height: 30px;
+    max-height: 34px;
     width: auto;
     max-width: 105px;
     object-fit: contain;
@@ -256,9 +309,9 @@
     display: block;
 }
 
-.oval-institution {
+.v-institution {
     font-family: var(--font-sans);
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--accent-blue-deep);
     letter-spacing: 0.01em;
@@ -266,73 +319,96 @@
     line-height: 1.3;
 }
 
-/* Impact Text */
-.oval-impact {
-    font-family: var(--font-sans);
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: #475569;
-    margin-bottom: 16px;
-    flex-grow: 1;
+.card-education .v-institution {
+    color: #1E40AF;
 }
 
-/* Minimalist Card Footer - Clean, No "Verified Milestone" */
-.oval-card-footer {
+/* Impact Text */
+.v-impact {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.62;
+    color: #475569;
+    margin-bottom: 14px;
+}
+
+/* Card Footer */
+.v-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 12px;
-    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    padding-top: 10px;
+    border-top: 1px solid rgba(15, 23, 42, 0.05);
 }
 
-.oval-card-type-label {
+.v-footer-label {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 600;
     color: #64748B;
     letter-spacing: 0.02em;
 }
 
-.card-education .oval-card-type-label {
-    color: var(--accent-blue);
+.v-footer-label.label-education {
+    color: #1E40AF;
     font-weight: 700;
 }
 
-.oval-corner-icon {
+.v-corner-icon {
     color: var(--accent-blue);
     opacity: 0.45;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.timeline-oval-card:hover .oval-corner-icon {
-    opacity: 0.9;
+.v-corner-icon.icon-education {
+    color: #1E40AF;
+    opacity: 0.65;
+}
+
+.timeline-v-row:hover .v-corner-icon {
+    opacity: 0.95;
     transform: scale(1.1);
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1024px) {
-    .timeline-oval-track-frame {
+/* Responsive Mobile Layout */
+@media (max-width: 768px) {
+    .timeline-v-container {
+        padding: 0 10px;
+    }
+
+    .timeline-v-spine {
+        left: 20px;
+        top: 20px;
+        bottom: 30px;
+    }
+
+    .timeline-v-year-col {
         display: none;
     }
 
-    .timeline-track-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .v-year-mobile {
+        display: inline-block;
     }
 
-    .track-grid-top {
-        margin-bottom: 16px;
-    }
-}
-
-@media (max-width: 640px) {
-    .timeline-track-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 0;
+    .timeline-v-node-col {
+        width: 40px;
+        padding-top: 2px;
     }
 
-    .oval-role {
-        font-size: 1.25rem;
+    .timeline-v-node {
+        width: 32px;
+        height: 32px;
+    }
+
+    .timeline-v-card-col {
+        padding-left: 6px;
+    }
+
+    .timeline-v-card {
+        padding: 18px 20px;
+    }
+
+    .v-role {
+        font-size: 1.28rem;
     }
 }

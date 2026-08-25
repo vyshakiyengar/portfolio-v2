@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles, ArrowRight } from 'lucide-react'
+import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles } from 'lucide-react'
 import '../styles/Timeline.css'
 
 import accentureLogo from '../assets/logos/accenture.png'
@@ -8,7 +8,7 @@ import metaLogo from '../assets/logos/meta.png'
 import vtuLogo from '../assets/logos/vtu.png'
 import blufinLogo from '../assets/logos/blufin.jpg'
 
-const milestonesTopRow = [
+const milestones = [
     {
         step: "01",
         year: "2013 - 2017",
@@ -18,7 +18,8 @@ const milestonesTopRow = [
         category: "Technical Foundation",
         icon: GraduationCap,
         logo: vtuLogo,
-        isEducation: true
+        isEducation: true,
+        credentialType: "B.E. Computer Science · Distinction"
     },
     {
         step: "02",
@@ -29,7 +30,8 @@ const milestonesTopRow = [
         category: "Enterprise Strategy",
         icon: Briefcase,
         logo: accentureLogo,
-        isEducation: false
+        isEducation: false,
+        credentialType: "Management & Digital Strategy"
     },
     {
         step: "03",
@@ -40,11 +42,9 @@ const milestonesTopRow = [
         category: "Social Impact",
         icon: Heart,
         logo: blufinLogo,
-        isEducation: false
-    }
-]
-
-const milestonesBottomRow = [
+        isEducation: false,
+        credentialType: "Non-Profit Venture"
+    },
     {
         step: "04",
         year: "2023 - 2025",
@@ -54,7 +54,8 @@ const milestonesBottomRow = [
         category: "Global Business",
         icon: Award,
         logo: lbsLogo,
-        isEducation: true
+        isEducation: true,
+        credentialType: "Master of Business Administration (MBA)"
     },
     {
         step: "05",
@@ -65,7 +66,8 @@ const milestonesBottomRow = [
         category: "Management Consulting",
         icon: Briefcase,
         logo: bcgLogo,
-        isEducation: false
+        isEducation: false,
+        credentialType: "Executive Advisory"
     },
     {
         step: "06",
@@ -77,54 +79,10 @@ const milestonesBottomRow = [
         icon: Building2,
         logo: metaLogo,
         isEducation: false,
-        isLatest: true
+        isLatest: true,
+        credentialType: "Platform Monetization & Scale"
     }
 ]
-
-const MilestoneCard = ({ item, index, totalInRow, rowPosition }) => {
-    const IconComponent = item.icon
-    const isEducation = item.isEducation
-    const isLatest = item.isLatest
-
-    return (
-        <div 
-            className={`timeline-oval-card ${isEducation ? 'card-education' : 'card-standard'} ${isLatest ? 'card-latest' : ''} fade-in-${(index % 3) + 1}`}
-        >
-            {/* Card Progress Header with Connected Spine Dot & Line */}
-            <div className="oval-card-top">
-                <div className="oval-node-group">
-                    <span className="oval-step-circle">{item.step}</span>
-                    <span className={`oval-category-tag ${isEducation ? 'cat-education' : ''}`}>
-                        {item.category}
-                    </span>
-                </div>
-                <span className="oval-year-badge">{item.year}</span>
-            </div>
-
-            {/* Role Title */}
-            <h3 className="oval-role">{item.role}</h3>
-
-            {/* Institution & Logo Bar */}
-            <div className="oval-institution-row">
-                {item.logo && (
-                    <img src={item.logo} alt={item.institution} className="oval-logo-img" />
-                )}
-                <h4 className="oval-institution">{item.institution}</h4>
-            </div>
-
-            {/* Impact Text */}
-            <p className="oval-impact">{item.impact}</p>
-
-            {/* Micro Category Icon in Corner */}
-            <div className="oval-card-footer">
-                <span className="oval-card-type-label">
-                    {isEducation ? 'Academic Credential' : isLatest ? 'Current Leadership' : 'Professional Arc'}
-                </span>
-                <IconComponent size={16} strokeWidth={1.5} className="oval-corner-icon" />
-            </div>
-        </div>
-    )
-}
 
 const Timeline = () => {
     return (
@@ -136,49 +94,83 @@ const Timeline = () => {
                         Career Arc &amp; Milestones
                     </span>
                     <h2 className="section-heading">Career Evolution</h2>
-                    <p className="section-subheading">A continuous horizontal journey across engineering, enterprise strategy, global business, and product leadership.</p>
+                    <p className="section-subheading">A structured chronological journey across engineering, enterprise strategy, global business, and product leadership.</p>
                     <div className="animated-divider"></div>
                 </div>
 
-                {/* Horizontal Two-Line Oval Loop Timeline System */}
-                <div className="timeline-oval-system">
-                    {/* Continuous Oval Track Circuit */}
-                    <div className="timeline-oval-track-frame">
-                        <div className="oval-track-line top-track-line"></div>
-                        <div className="oval-turn-arc-right">
-                            <span className="turn-loop-indicator">
-                                <span className="turn-loop-text">MBA Arc</span>
-                                <span className="turn-loop-arrow">⤵</span>
-                            </span>
-                        </div>
-                        <div className="oval-track-line bottom-track-line"></div>
-                    </div>
+                {/* Pure Vertical Timeline Stream (01 -> 02 -> 03 -> 04 -> 05 -> 06) */}
+                <div className="timeline-v-container">
+                    <div className="timeline-v-spine"></div>
 
-                    {/* Top Row: Track Line 1 (01 -> 02 -> 03) */}
-                    <div className="timeline-track-grid track-grid-top">
-                        {milestonesTopRow.map((item, idx) => (
-                            <MilestoneCard 
-                                key={idx} 
-                                item={item} 
-                                index={idx} 
-                                totalInRow={3} 
-                                rowPosition="top" 
-                            />
-                        ))}
-                    </div>
+                    {milestones.map((item, index) => {
+                        const IconComponent = item.icon
+                        const isEducation = item.isEducation
+                        const isLatest = item.isLatest
 
-                    {/* Bottom Row: Track Line 2 (04 -> 05 -> 06) */}
-                    <div className="timeline-track-grid track-grid-bottom">
-                        {milestonesBottomRow.map((item, idx) => (
-                            <MilestoneCard 
-                                key={idx} 
-                                item={item} 
-                                index={idx} 
-                                totalInRow={3} 
-                                rowPosition="bottom" 
-                            />
-                        ))}
-                    </div>
+                        return (
+                            <div 
+                                key={index} 
+                                className={`timeline-v-row ${isEducation ? 'row-education' : 'row-standard'} ${isLatest ? 'row-latest' : ''} fade-in-${(index % 3) + 1}`}
+                            >
+                                {/* Left: Year Column (Desktop) */}
+                                <div className="timeline-v-year-col">
+                                    <span className={`timeline-v-year-badge ${isEducation ? 'year-education' : ''} ${isLatest ? 'year-latest' : ''}`}>
+                                        {item.year}
+                                    </span>
+                                </div>
+
+                                {/* Center: Continuous Node Marker */}
+                                <div className="timeline-v-node-col">
+                                    <div className={`timeline-v-node ${isEducation ? 'node-education' : ''} ${isLatest ? 'node-latest' : ''}`}>
+                                        <span className="v-node-num">{item.step}</span>
+                                    </div>
+                                </div>
+
+                                {/* Right: Card Body */}
+                                <div className="timeline-v-card-col">
+                                    <div className={`timeline-v-card ${isEducation ? 'card-education' : 'card-standard'} ${isLatest ? 'card-latest' : ''}`}>
+                                        {/* Card Top Header */}
+                                        <div className="v-card-header">
+                                            <div className="v-tag-group">
+                                                <span className={`v-category-tag ${isEducation ? 'cat-education' : ''}`}>
+                                                    {item.category}
+                                                </span>
+                                                {isEducation && (
+                                                    <span className="v-edu-credential-pill">
+                                                        <GraduationCap size={12} strokeWidth={1.75} />
+                                                        Academic Degree
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <span className="v-year-mobile">{item.year}</span>
+                                        </div>
+
+                                        {/* Role Title */}
+                                        <h3 className={`v-role ${isEducation ? 'role-education' : ''}`}>{item.role}</h3>
+
+                                        {/* Institution & Logo Bar */}
+                                        <div className="v-institution-row">
+                                            {item.logo && (
+                                                <img src={item.logo} alt={item.institution} className="v-logo-img" />
+                                            )}
+                                            <h4 className="v-institution">{item.institution}</h4>
+                                        </div>
+
+                                        {/* Impact Text */}
+                                        <p className="v-impact">{item.impact}</p>
+
+                                        {/* Card Bottom Meta Bar */}
+                                        <div className="v-card-footer">
+                                            <span className={`v-footer-label ${isEducation ? 'label-education' : ''}`}>
+                                                {item.credentialType}
+                                            </span>
+                                            <IconComponent size={16} strokeWidth={1.5} className={`v-corner-icon ${isEducation ? 'icon-education' : ''}`} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </section>
