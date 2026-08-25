@@ -1,12 +1,25 @@
-import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot } from 'lucide-react'
+import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper } from 'lucide-react'
 import '../styles/Recognition.css'
 import patentPreview from '../assets/previews/patent-v3.png'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
 import clearadmitPreview from '../assets/previews/clearadmit.png'
 import tipranksPreview from '../assets/previews/tipranks.svg'
+import prajavaniPreview from '../assets/previews/prajavani.svg'
 
 const spotlightItems = [
+    {
+        id: 6,
+        tag: "Media Feature",
+        title: "WhatsApp AI Shopping Agent",
+        subtitle: "Prajavani (Leading Kannada Daily)",
+        description: "Featured by Prajavani, Karnataka’s most popular Kannada daily, for developing an AI shopping agent on WhatsApp enabling voice & text daily need ordering via Swiggy MCP and multimodal AI.",
+        icon: Newspaper,
+        link: "https://www.prajavani.net/technology/gadget-news/start-up-bengaluru-techie-ai-shopping-agent-whatsapp-mcp-swiggy-4218412",
+        linkText: "Read Article on Prajavani",
+        type: "media",
+        image: prajavaniPreview
+    },
     {
         id: 5,
         tag: "Media Feature",

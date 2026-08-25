@@ -17,6 +17,7 @@ function About() {
             "sameAs": [
                 "https://www.linkedin.com/in/vyshakiyengar/",
                 "https://x.com/vyshakkiyengar",
+                "https://www.prajavani.net/technology/gadget-news/start-up-bengaluru-techie-ai-shopping-agent-whatsapp-mcp-swiggy-4218412",
                 "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem"
             ],
             "jobTitle": "Product Leader & Software Engineer",
