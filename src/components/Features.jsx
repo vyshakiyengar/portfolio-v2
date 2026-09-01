@@ -1,6 +1,6 @@
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap, Building2, Scale } from 'lucide-react'
 import '../styles/Recognition.css'
-import patentPreview from '../assets/previews/patent-v3.png'
+import patentAiPreview from '../assets/previews/patent-ai.jpg'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
 import clearadmitPreview from '../assets/previews/clearadmit.png'
@@ -111,7 +111,7 @@ const patentItems = [
         secondaryLink: "https://scholar.google.com/citations?user=MKSlYmUAAAAJ&hl=en",
         secondaryLinkText: "Google Scholar Profile",
         type: "patent",
-        image: patentPreview
+        image: patentAiPreview
     }
 ];
 
