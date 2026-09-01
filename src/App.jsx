@@ -18,6 +18,11 @@ function RouteHandler() {
       '/experience': 'experience',
       '/timeline': 'experience',
       '/spotlight': 'spotlight',
+      '/publications': 'spotlight',
+      '/patent': 'patent',
+      '/patents': 'patent',
+      '/research': 'research',
+      '/citations': 'research',
       '/impact': 'impact',
       '/philosophy': 'philosophy',
       '/contact': 'contact'
@@ -42,6 +47,11 @@ function RouteHandler() {
       <Route path="/experience" element={<Home />} />
       <Route path="/timeline" element={<Home />} />
       <Route path="/spotlight" element={<Home />} />
+      <Route path="/publications" element={<Home />} />
+      <Route path="/patent" element={<Home />} />
+      <Route path="/patents" element={<Home />} />
+      <Route path="/research" element={<Home />} />
+      <Route path="/citations" element={<Home />} />
       <Route path="/impact" element={<Home />} />
       <Route path="/philosophy" element={<Home />} />
       <Route path="/contact" element={<Home />} />

@@ -5,6 +5,78 @@
     border-top: 1px solid var(--accent-line);
 }
 
+/* Credibility Banner */
+.credibility-banner {
+    max-width: var(--max-width);
+    margin: 0 auto 48px auto;
+    background: #FFFFFF;
+    border: 1px solid rgba(29, 78, 216, 0.18);
+    border-left: 4px solid var(--accent-blue);
+    border-radius: var(--radius-md);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.credibility-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(29, 78, 216, 0.08);
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.credibility-text {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.credibility-text strong {
+    color: var(--accent-blue-deep);
+    font-weight: 600;
+}
+
+/* Subgroups */
+.spotlight-subgroup {
+    margin-bottom: 56px;
+}
+
+.spotlight-subgroup:last-child {
+    margin-bottom: 0;
+}
+
+.subgroup-header {
+    max-width: var(--max-width);
+    margin: 0 auto 24px auto;
+    padding: 0 var(--container-padding);
+}
+
+.subgroup-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+}
+
+.subgroup-desc {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Grid Layouts */
 .recognition-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -12,6 +84,14 @@
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--container-padding);
+}
+
+.single-patent-grid {
+    grid-template-columns: 1fr;
+}
+
+.citations-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
 .builder-card {
@@ -27,6 +107,12 @@
     box-shadow: var(--shadow-card);
 }
 
+.builder-card.block-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
 .builder-card:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-4px);
@@ -40,6 +126,10 @@
     position: relative;
     overflow: hidden;
     background-color: #F1F5F9;
+}
+
+.patent-preview-wrap {
+    height: 200px;
 }
 
 .card-preview img {
@@ -111,6 +201,12 @@
     background-color: var(--accent-blue-deep);
 }
 
+.tag-citation {
+    background-color: #1E293B;
+    color: #F8FAFC;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -159,7 +255,115 @@
     flex-grow: 1;
 }
 
-.card-link {
+/* Patent Subnote */
+.patent-subnote {
+    background: #F8FAFC;
+    border-left: 3px solid var(--accent-blue);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.patent-subnote .subnote-icon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Citation Specific Styling */
+.feature-citation {
+    background-color: #FFFFFF;
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+.citation-icon {
+    color: var(--accent-blue);
+    opacity: 0.8;
+}
+
+.citation-title {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+
+.citation-source {
+    font-size: 0.82rem;
+    color: var(--accent-blue-deep);
+    margin-bottom: 10px;
+}
+
+.citation-ref-pill {
+    display: inline-block;
+    background-color: #F1F5F9;
+    color: #334155;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    width: fit-content;
+}
+
+.citation-quote-box {
+    background-color: #F8FAFC;
+    border-left: 3px solid #64748B;
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 16px;
+}
+
+.citation-quote-text {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-style: italic;
+    color: #1E293B;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.citation-original-box {
+    margin-top: auto;
+    margin-bottom: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.1);
+}
+
+.original-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.original-title {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 2px;
+}
+
+.original-meta {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Links Rows */
+.card-link-text {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -175,9 +379,51 @@
     width: 100%;
 }
 
-.card-link:hover {
+.builder-card:hover .card-link-text {
     color: var(--accent-blue);
     transform: translateX(2px);
+}
+
+.card-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    width: 100%;
+    margin-top: auto;
+}
+
+.card-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-blue);
+    text-decoration: none;
+    padding: 6px 12px;
+    background: rgba(29, 78, 216, 0.06);
+    border-radius: 4px;
+    transition: all var(--transition-default);
+}
+
+.card-link-item:hover {
+    background: var(--accent-blue);
+    color: #FFFFFF;
+}
+
+.card-link-secondary {
+    color: var(--text-secondary);
+    background: #F1F5F9;
+}
+
+.card-link-secondary:hover {
+    background: var(--text-primary);
+    color: #FFFFFF;
 }
 
 @media (max-width: 768px) {
@@ -185,5 +431,17 @@
         grid-template-columns: 1fr;
         padding: 0 16px;
         gap: 18px;
+    }
+
+    .credibility-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 0 16px 36px 16px;
+        padding: 16px;
+    }
+
+    .subgroup-header {
+        padding: 0 16px;
     }
 }
