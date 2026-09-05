@@ -1,13 +1,12 @@
 import { Heart, Landmark, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
-import '../styles/Impact.css'
 
 const Impact = () => {
     return (
         <section className="impact-section" id="impact">
             <div className="container">
                 <div className="text-center">
-                    <span className="impact-section-tag">Social Leadership &amp; Governance</span>
-                    <h2 className="section-heading">Social Impact &amp; Civic Engagement</h2>
+                    <span className="impact-section-tag">04 / Impact</span>
+                    <h2 className="section-heading">Beyond the day job</h2>
                     <p className="section-subheading">
                         Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and leads civic tech initiatives.
                     </p>
@@ -18,7 +17,7 @@ const Impact = () => {
                     {/* Social Impact: BluFin Foundation */}
                     <div className="impact-card social-card fade-in-1">
                         <div className="impact-card-image">
-                            <img src="/images/blufin-pool.jpg" alt="BluFin Foundation Athletes & Team" />
+                            <img src="/images/blufin-pool.jpg" alt="BluFin Foundation Athletes & Team" loading="lazy" />
                             <div className="image-overlay-badge">
                                 <Heart size={14} />
                                 <span>Co-Founder &amp; Board Member</span>

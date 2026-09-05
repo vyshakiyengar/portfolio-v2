@@ -1,5 +1,4 @@
 import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles } from 'lucide-react'
-import '../styles/Timeline.css'
 
 import accentureLogo from '../assets/logos/accenture.png'
 import bcgLogo from '../assets/logos/bcg.png'
@@ -48,7 +47,7 @@ const milestones = [
     {
         step: "04",
         year: "2023 - 2025",
-        role: "MBA Candidate",
+        role: "MBA",
         institution: "London Business School",
         impact: "Selected for LBS MBA (Class of 2025). Focus on global technology strategy, venture creation, and leadership.",
         category: "Global Business",
@@ -91,10 +90,10 @@ const Timeline = () => {
                 <div className="text-center">
                     <span className="timeline-section-tag">
                         <Sparkles size={14} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px' }} />
-                        Career Arc &amp; Milestones
+                        02 / Experience
                     </span>
-                    <h2 className="section-heading">Career Evolution</h2>
-                    <p className="section-subheading">A structured chronological journey across engineering, enterprise strategy, global business, and product leadership.</p>
+                    <h2 className="section-heading">The path so far</h2>
+                    <p className="section-subheading">Engineering, enterprise strategy, global business, and product leadership.</p>
                     <div className="animated-divider"></div>
                 </div>
 

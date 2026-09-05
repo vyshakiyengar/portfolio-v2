@@ -1,12 +1,12 @@
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap, Building2, Scale } from 'lucide-react'
-import '../styles/Recognition.css'
-import patentAiPreview from '../assets/previews/patent-ai.jpg'
+import patentPreview from '../assets/patent_schematic.svg'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
 import clearadmitPreview from '../assets/previews/clearadmit.png'
-import tipranksPreview from '../assets/previews/tipranks.svg'
-import prajavaniPreview from '../assets/previews/prajavani.svg'
-import articlePreview from '../assets/previews/article.png'
+import tipranksPreview from '../assets/previews/tipranks-article.png'
+import prajavaniPreview from '../assets/previews/prajavani-article.png'
+import higherEducationPreview from '../assets/previews/higher-education-digest.png'
+import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.png'
 
 // 1. Independent Editorial Press & Media (Prioritized Hierarchy)
 const pressItems = [
@@ -51,12 +51,12 @@ const pressItems = [
         tag: "Editorial Feature",
         title: "World-Class Institution in the Making",
         subtitle: "Higher Education Digest · Alumni Profile",
-        description: "Featured as a distinguished alumnus in Higher Education Digest, highlighting academic grounding in engineering transitioning to Accenture Strategy, LBS, and Meta.",
+        description: "Featured in Higher Education Digest for founding Cookie Jar at RNSIT, a media tech venture whose events hosted over 1,000 people. An early chapter in a journey through Accenture Strategy, LBS, and Meta.",
         icon: GraduationCap,
         link: "https://www.highereducationdigest.com/rns-institute-of-technology-a-world-class-institution-in-making/",
         linkText: "Read Article on HE Digest",
         type: "media",
-        image: articlePreview
+        image: higherEducationPreview
     },
     {
         id: 'press-bangalore-mirror',
@@ -68,7 +68,7 @@ const pressItems = [
         link: "https://bangaloremirror.indiatimes.com/bangalore/others/push-to-build-a-dream-on/articleshow/89931399.cms",
         linkText: "Read Article on Bangalore Mirror",
         type: "media",
-        image: articlePreview
+        image: bangaloreMirrorPreview
     },
     {
         id: 'press-podcast',
@@ -86,7 +86,7 @@ const pressItems = [
         id: 'press-tipranks',
         tag: "Industry Coverage",
         title: "Voice-Based Kannada AI Ordering",
-        subtitle: "TipRanks · Tech News · 18 Aug 2026",
+        subtitle: "TipRanks · Automated newsdesk · 18 Aug 2026",
         description: "Covered by TipRanks for architecting an end-to-end WhatsApp AI voice ordering agent in Kannada, pioneering vernacular voice commerce integrated with Swiggy via Model Context Protocol (MCP).",
         icon: Bot,
         link: "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem",
@@ -111,7 +111,7 @@ const patentItems = [
         secondaryLink: "https://scholar.google.com/citations?user=MKSlYmUAAAAJ&hl=en",
         secondaryLinkText: "Google Scholar Profile",
         type: "patent",
-        image: patentAiPreview
+        image: patentPreview
     }
 ];
 
@@ -191,11 +191,11 @@ const Features = () => {
                 <div className="text-center">
                     <span className="spotlight-section-tag">
                         <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        Verified Index &amp; Publications
+                        03 / Spotlight
                     </span>
-                    <h2 className="section-heading">Spotlight &amp; Publications</h2>
+                    <h2 className="section-heading">Work, in the world</h2>
                     <p className="section-subheading">
-                        Selected editorial press coverage, media features, intellectual property, and verified research citations.
+                        Press coverage, interviews, intellectual property, and research citations.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -214,7 +214,7 @@ const Features = () => {
                 <div className="spotlight-subgroup">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Editorial Press &amp; Media Coverage</h3>
-                        <span className="subgroup-desc">Independent profiles, features, and broadcast interviews</span>
+                        <span className="subgroup-desc">Profiles, features, interviews, and industry coverage</span>
                     </div>
 
                     <div className="recognition-grid">
@@ -228,7 +228,7 @@ const Features = () => {
                             >
                                 {item.image ? (
                                     <div className="card-preview">
-                                        <img src={item.image} alt={item.title} />
+                                        <img src={item.image} alt={item.title} loading="lazy" />
                                         <div className="preview-overlay"></div>
                                         <span className="feature-tag tag-media">{item.tag}</span>
                                     </div>
@@ -263,7 +263,7 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="patent">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Intellectual Property &amp; Inventions</h3>
-                        <span className="subgroup-desc">Granted patent portfolio and technical architectures</span>
+                        <span className="subgroup-desc">Granted patent and technical architecture</span>
                     </div>
 
                     <div className="recognition-grid single-patent-grid">
@@ -271,7 +271,7 @@ const Features = () => {
                             <div key={item.id} className="builder-card feature-patent patent-card-expanded">
                                 <div className="card-preview patent-preview-wrap">
                                     <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
-                                        <img src={item.image} alt={item.title} />
+                                        <img src={item.image} alt={item.title} loading="lazy" />
                                     </a>
                                     <div className="preview-overlay"></div>
                                     <span className="feature-tag tag-patent">{item.tag}</span>

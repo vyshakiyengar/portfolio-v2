@@ -1,5 +1,4 @@
 import { User, Award, Globe, Heart, ShieldCheck } from 'lucide-react'
-import '../styles/Narrative.css'
 
 const Narrative = () => {
     return (
@@ -9,10 +8,10 @@ const Narrative = () => {
                     {/* Left Column: Image Card */}
                     <div className="narrative-image-col fade-in-1">
                         <div className="narrative-frame">
-                            <img src="/images/vyshak-portrait.jpg" alt="Vyshak K Iyengar" className="narrative-img" />
+                            <img src="/images/lbs-campus.jpg" alt="London Business School campus at Regent’s Park" loading="lazy" className="narrative-img" />
                             <div className="narrative-badge">
                                 <ShieldCheck size={16} />
-                                <span>Official Profile</span>
+                                <span>London Business School</span>
                             </div>
                         </div>
                     </div>
@@ -21,14 +20,15 @@ const Narrative = () => {
                     <div className="narrative-content-col fade-in-2">
                         <div className="section-meta">
                             <User size={18} className="meta-icon" />
-                            <span>Executive Profile</span>
+                            <span>01 / About</span>
                         </div>
 
-                        <h2 className="narrative-heading">About Vyshak K Iyengar</h2>
+                        <h2 className="narrative-heading">Strategy, technology &amp; purpose</h2>
 
                         <div className="animated-divider-left"></div>
 
                         <div className="narrative-body">
+                            <p className="full-name">Vyshak Kannan Iyengar · Also known as Vyshak K Iyengar and Vyshak Iyengar.</p>
                             <p>
                                 <strong>Vyshak K Iyengar</strong> leads product strategy for mobile advertising products at <strong>Meta</strong>, operating at the intersection of product innovation, growth, monetization, and platform strategy across global markets. Prior to Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
                             </p>

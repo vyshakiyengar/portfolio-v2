@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar'
-import ScrollProgress from '../components/ScrollProgress'
 import Hero from '../components/Hero'
 import Narrative from '../components/Narrative'
 import Timeline from '../components/Timeline'
@@ -13,8 +12,7 @@ function Home() {
     return (
         <div className="home-page">
             <Navbar />
-            <ScrollProgress />
-            <main>
+            <main id="main-content">
                 <Hero />
                 <Narrative />
                 <Timeline />

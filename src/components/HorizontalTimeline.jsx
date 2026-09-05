@@ -8,6 +8,33 @@ import lbtcLogo from '../assets/logos/lbtc.png'
 import blufinLogo from '../assets/logos/blufin.jpg'
 import vtuLogo from '../assets/logos/vtu.png'
 
+const Section = ({ title, items, isEducation = false }) => (
+        <div className="experience-group">
+            <h3 className="group-title">{title}</h3>
+            <div className="timeline-grid">
+                {items.map((item, index) => (
+                    <div key={index} className={`t-item fade-in type-${item.type} ${item.isCurrent ? 'current-role' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
+                        <div className="t-header-row">
+                            {item.logo && <img src={item.logo} alt={item.institution} className="t-card-logo" />}
+                            <div className="t-header-content">
+                                <div className="t-top">
+                                    <h3 className="t-primary">{isEducation ? item.institution : item.role}</h3>
+                                    <span className="t-period">{item.period}</span>
+                                </div>
+                                <h4 className="t-secondary">
+                                    {isEducation ? item.degree : item.institution}
+                                    {item.location && <span className="t-location"> | {item.location}</span>}
+                                </h4>
+                            </div>
+                        </div>
+                        <div className="t-divider"></div>
+                        <p className="t-impact">{item.impact}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+
 const HorizontalTimeline = () => {
     // Note: User requested "No All Caps", so we use Title Case for institutions
     const education = [
@@ -85,32 +112,6 @@ const HorizontalTimeline = () => {
         }
     ]
 
-    const Section = ({ title, items, isEducation = false }) => (
-        <div className="experience-group">
-            <h3 className="group-title">{title}</h3>
-            <div className="timeline-grid">
-                {items.map((item, index) => (
-                    <div key={index} className={`t-item fade-in type-${item.type} ${item.isCurrent ? 'current-role' : ''}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                        <div className="t-header-row">
-                            {item.logo && <img src={item.logo} alt={item.institution} className="t-card-logo" />}
-                            <div className="t-header-content">
-                                <div className="t-top">
-                                    <h3 className="t-primary">{isEducation ? item.institution : item.role}</h3>
-                                    <span className="t-period">{item.period}</span>
-                                </div>
-                                <h4 className="t-secondary">
-                                    {isEducation ? item.degree : item.institution}
-                                    {item.location && <span className="t-location"> | {item.location}</span>}
-                                </h4>
-                            </div>
-                        </div>
-                        <div className="t-divider"></div>
-                        <p className="t-impact">{item.impact}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
 
     return (
         <section className="horizontal-section" id="experience">

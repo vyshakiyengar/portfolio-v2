@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import '../styles/Recommendations.css'
 import rec1 from '../assets/recommendations/rec1.jpg'
 import rec2 from '../assets/recommendations/rec2.jpg'
 import rec3 from '../assets/recommendations/rec3.jpg'
@@ -16,8 +15,8 @@ const recommendations = [
 ]
 
 const Recommendations = () => {
-    // Duplicate the list 4 times for a smoother, longer infinite scroll effect
-    const loopedRecommendations = [...recommendations, ...recommendations, ...recommendations, ...recommendations];
+    // Keep every original recommendation once, with manual browsing.
+    const loopedRecommendations = recommendations;
     const scrollRef = useRef(null)
 
     const scroll = (direction) => {
@@ -34,14 +33,15 @@ const Recommendations = () => {
     return (
         <section className="recommendations-section" id="recommendations">
             <div className="container">
-                <h2 className="section-heading text-center">Words from the Network</h2>
+                <p className="eyebrow">06 / Recommendations</p>
+                <h2 className="section-heading text-center">Words from people I’ve worked with</h2>
 
                 <div className="scroll-wrapper">
                     <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Scroll left">
                         <ChevronLeft size={24} />
                     </button>
 
-                    <div className="recommendations-scroll" ref={scrollRef}>
+                    <div className="recommendations-scroll" ref={scrollRef} tabIndex={0} role="region" aria-label="Five recommendations; scroll horizontally to read all">
                         <div className="recommendations-track">
                             {loopedRecommendations.map((rec, index) => (
                                 <div key={`${rec.id}-${index}`} className="rec-card">

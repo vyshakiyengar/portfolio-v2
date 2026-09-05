@@ -1,15 +1,13 @@
-<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Abstract Tech Schematic -->
-    <rect x="100" y="100" width="600" height="400" stroke="#000" stroke-width="0.5" stroke-dasharray="4 4"/>
-    <circle cx="400" cy="300" r="150" stroke="#000" stroke-width="0.5"/>
-    <circle cx="400" cy="300" r="250" stroke="#000" stroke-width="0.2"/>
-    <line x1="100" y1="100" x2="700" y2="500" stroke="#000" stroke-width="0.5"/>
-    <line x1="700" y1="100" x2="100" y2="500" stroke="#000" stroke-width="0.5"/>
-    <rect x="350" y="50" width="100" height="500" stroke="#000" stroke-width="0.5" stroke-dasharray="2 2"/>
-    <path d="M50 300 H 750" stroke="#000" stroke-width="0.5"/>
-    <path d="M400 50 V 550" stroke="#000" stroke-width="0.5"/>
-    
-    <!-- Tech Markings -->
-    <text x="110" y="130" font-family="monospace" font-size="10" fill="#000">FIG. 1A</text>
-    <text x="650" y="480" font-family="monospace" font-size="10" fill="#000">REF-2025</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240" fill="none">
+  <title>Project dependencies</title>
+  <rect width="320" height="240" fill="#eeeee7"/>
+  <g stroke="#93998a" stroke-width="1.2">
+    <path d="M107 120H151M169 62H213M169 178H213M151 62V178"/>
+    <path d="M151 62H169M151 178H169"/>
+    <rect x="63" y="98" width="44" height="44"/>
+    <rect x="213" y="40" width="44" height="44"/>
+    <rect x="213" y="156" width="44" height="44"/>
+  </g>
+  <circle cx="151" cy="120" r="3" fill="#835038"/>
+  <path d="M77 120H93M227 62H243M227 178H243" stroke="#835038" stroke-width="1.2"/>
 </svg>

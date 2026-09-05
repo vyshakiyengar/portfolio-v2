@@ -1,6 +1,5 @@
 import { Linkedin, Mail, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import XIcon from './ui/XIcon'
-import '../styles/Contact.css'
 
 const footerNavLinks = [
     { label: 'Home', path: '/', id: 'hero' },
@@ -11,14 +10,6 @@ const footerNavLinks = [
 ];
 
 const Contact = () => {
-    const handleFooterNav = (e, path, sectionId) => {
-        e.preventDefault();
-        const el = document.getElementById(sectionId);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
-        window.history.pushState(null, '', path);
-    };
 
     return (
         <footer className="footer-section" id="contact">
@@ -26,12 +17,12 @@ const Contact = () => {
                 <div className="contact-card-box text-center fade-in-1">
                     <div className="contact-badge-pill">
                         <ShieldCheck size={14} />
-                        <span>Executive Inquiries</span>
+                        <span>07 / Contact</span>
                     </div>
 
-                    <h2 className="contact-heading">Connect with Vyshak K Iyengar</h2>
+                    <h2 className="contact-heading">Let’s connect.</h2>
                     <p className="contact-subheading">
-                        For product leadership, advisory, social impact initiatives, or executive correspondence.
+                        For conversations about product leadership, advisory, social impact initiatives, or working together.
                     </p>
 
                     <div className="animated-divider"></div>
@@ -53,21 +44,21 @@ const Contact = () => {
                             <ArrowUpRight size={16} />
                         </a>
                     </div>
+                    <div className="profile-links"><a href="https://github.com/vyshakiyengar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://medium.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Medium</a><a href="https://scholar.google.com/citations?user=MKSlYmUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://www.wikidata.org/wiki/Q141014773" target="_blank" rel="noopener noreferrer">Wikidata</a></div>
                 </div>
 
                 {/* Footer Navigation & Copyright */}
                 <div className="contact-bottom-bar">
                     <div className="footer-brand">
                         <Globe size={16} className="brand-globe" />
-                        <span>vyshak.me · Official Profile</span>
+                        <span>Vyshak K Iyengar</span>
                     </div>
 
                     <div className="footer-links-row">
                         {footerNavLinks.map((link) => (
                             <a
                                 key={link.label}
-                                href={link.path}
-                                onClick={(e) => handleFooterNav(e, link.path, link.id)}
+                                href={`#${link.id}`}
                             >
                                 {link.label}
                             </a>

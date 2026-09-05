@@ -1,116 +1,27 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, User, Briefcase, Sparkles, Heart, Compass, Mail, Linkedin } from 'lucide-react'
-import XIcon from './ui/XIcon'
-import { useActiveSection } from '../hooks/useActiveSection'
-import '../styles/Navbar.css'
-
-const SECTION_IDS = ['hero', 'narrative', 'experience', 'spotlight', 'impact', 'philosophy', 'contact'];
-
-const navLinks = [
-    { name: 'About', path: '/about', icon: <User size={16} />, id: 'narrative' },
-    { name: 'Timeline', path: '/experience', icon: <Briefcase size={16} />, id: 'experience' },
-    { name: 'Spotlight', path: '/spotlight', icon: <Sparkles size={16} />, id: 'spotlight' },
-    { name: 'Impact', path: '/impact', icon: <Heart size={16} />, id: 'impact' },
-    { name: 'Philosophy', path: '/philosophy', icon: <Compass size={16} />, id: 'philosophy' },
-    { name: 'Contact', path: '/contact', icon: <Mail size={16} />, id: 'contact' },
+import { useEffect, useRef, useState } from 'react'
+import { Menu, X } from 'lucide-react'
+const links = [
+ ['About', 'narrative'], ['Experience', 'experience'], ['Spotlight', 'spotlight'],
+ ['Impact', 'impact'], ['Philosophy', 'philosophy'], ['Contact', 'contact'],
 ]
-
-const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false)
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-    const activeSection = useActiveSection(SECTION_IDS)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 40)
-        }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-
-    const handleNavClick = (e, path, sectionId) => {
-        e.preventDefault()
-        setIsMobileMenuOpen(false)
-        const el = document.getElementById(sectionId)
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' })
-        }
-        window.history.pushState(null, '', path)
-    }
-
-    return (
-        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-            <div className="container navbar-container">
-                <a href="/" onClick={(e) => handleNavClick(e, '/', 'hero')} className="navbar-logo">
-                    <span className="logo-box-mark">V</span>
-                    <span className="logo-text">Vyshak K Iyengar</span>
-                </a>
-
-                {/* Desktop Navigation */}
-                <div className="nav-links desktop-only">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.path}
-                            onClick={(e) => handleNavClick(e, link.path, link.id)}
-                            className={`nav-link hover-underline ${activeSection === link.id ? 'active' : ''}`}
-                        >
-                            <span className="nav-icon">{link.icon}</span>
-                            <span className="nav-text">{link.name}</span>
-                        </a>
-                    ))}
-                    <div className="nav-social-group">
-                        <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume" title="LinkedIn Profile">
-                            <span>LinkedIn</span>
-                            <Linkedin size={15} />
-                        </a>
-                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-resume btn-x" title="X (Twitter) Profile">
-                            <span>X</span>
-                            <XIcon size={14} />
-                        </a>
-                    </div>
-                </div>
-
-                {/* Mobile Toggle */}
-                <button
-                    className="mobile-toggle"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle navigation"
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-
-                {/* Mobile Navigation */}
-                <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-                    <div className="mobile-menu-header">
-                        <span className="mobile-logo-text">Vyshak K Iyengar</span>
-                    </div>
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.path}
-                            className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
-                            onClick={(e) => handleNavClick(e, link.path, link.id)}
-                        >
-                            <span className="mobile-icon">{link.icon}</span>
-                            <span>{link.name}</span>
-                        </a>
-                    ))}
-                    <div className="mobile-social-group">
-                        <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume">
-                            <span>LinkedIn Profile</span>
-                            <Linkedin size={16} />
-                        </a>
-                        <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer" className="btn-resume mobile-resume mobile-x">
-                            <span>X Profile</span>
-                            <XIcon size={15} />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    )
+export default function Navbar() {
+ const [open, setOpen] = useState(false)
+ const toggle = useRef(null)
+ useEffect(() => {
+   const close = event => { if (event.key === 'Escape') { setOpen(false); toggle.current?.focus() } }
+   document.addEventListener('keydown', close)
+   return () => document.removeEventListener('keydown', close)
+ }, [])
+ return <>
+   <a className="skip-link" href="#main-content">Skip to content</a>
+   <header className="site-header">
+     <nav className="container site-nav" aria-label="Main navigation">
+       <a className="wordmark" href="#hero" onClick={() => setOpen(false)}>Vyshak K Iyengar<span>.</span></a>
+       <button ref={toggle} className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="navigation-links" onClick={() => setOpen(!open)}>{open ? <X size={22} /> : <Menu size={22} />}</button>
+       <div id="navigation-links" className={`navigation-links ${open ? 'is-open' : ''}`}>
+         {links.map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}
+       </div>
+     </nav>
+   </header>
+ </>
 }
-
-export default Navbar
