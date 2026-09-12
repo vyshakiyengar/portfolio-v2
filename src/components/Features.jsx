@@ -35,6 +35,17 @@ const pressItems = [
         image: clearadmitPreview
     },
     {
+        id: 'press-clearadmit-tech',
+        tag: "Featured Alumni",
+        title: "MBA Careers in Big Tech",
+        subtitle: "Featured · Clear Admit",
+        description: "Featured among MBA alumni from Meta, OpenAI, Google, Microsoft, Amazon and Adobe discussing how business school shaped careers in technology.",
+        icon: FileText,
+        link: "https://www.clearadmit.com/2026/07/what-tech-alumni-say-the-mba-is-really-worth/",
+        linkText: "Read Feature on Clear Admit",
+        type: "media"
+    },
+    {
         id: 'press-yourstory',
         tag: "National Feature",
         title: "BluFin Foundation",
@@ -45,6 +56,17 @@ const pressItems = [
         linkText: "Read Article on YourStory",
         type: "media",
         image: yourstoryPreview
+    },
+    {
+        id: 'press-rnsit-hof',
+        tag: "Distinguished Alumni",
+        title: "RNSIT Hall of Fame",
+        subtitle: "Distinguished Alumni · RNS Institute of Technology",
+        description: "Featured in RNSIT’s Hall of Fame recognising distinguished alumni across technology, public service and entrepreneurship.",
+        icon: GraduationCap,
+        link: "https://www.rnsit.ac.in/alumni/",
+        linkText: "View RNSIT Hall of Fame",
+        type: "media"
     },
     {
         id: 'press-hedigest',
