@@ -7,6 +7,8 @@ import tipranksPreview from '../assets/previews/tipranks-article.png'
 import prajavaniPreview from '../assets/previews/prajavani-article.png'
 import higherEducationPreview from '../assets/previews/higher-education-digest.png'
 import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.png'
+import rnsitHofPreview from '../assets/previews/rnsit-hall-of-fame.png'
+import clearadmitTechPreview from '../assets/previews/clearadmit-tech-alumni.png'
 
 // 1. Independent Editorial Press & Media (Prioritized Hierarchy)
 const pressItems = [
@@ -43,7 +45,8 @@ const pressItems = [
         icon: FileText,
         link: "https://www.clearadmit.com/2026/07/what-tech-alumni-say-the-mba-is-really-worth/",
         linkText: "Read Feature on Clear Admit",
-        type: "media"
+        type: "media",
+        image: clearadmitTechPreview
     },
     {
         id: 'press-yourstory',
@@ -66,7 +69,8 @@ const pressItems = [
         icon: GraduationCap,
         link: "https://www.rnsit.ac.in/alumni/",
         linkText: "View RNSIT Hall of Fame",
-        type: "media"
+        type: "media",
+        image: rnsitHofPreview
     },
     {
         id: 'press-hedigest',
