@@ -5,13 +5,15 @@ import rec2 from '../assets/recommendations/rec2.jpg'
 import rec3 from '../assets/recommendations/rec3.jpg'
 import rec4 from '../assets/recommendations/rec4.jpg'
 import rec5 from '../assets/recommendations/rec5.jpg'
+import rec6 from '../assets/recommendations/rec6.jpg'
 
 const recommendations = [
     { id: 1, img: rec1, alt: "Recommendation from Richard Harpin" },
     { id: 2, img: rec4, alt: "Recommendation from Prateek Khandelwal" },
     { id: 3, img: rec2, alt: "Recommendation from Santosh Katti" },
     { id: 4, img: rec3, alt: "Recommendation from Aniketh Jain" },
-    { id: 5, img: rec5, alt: "Recommendation from Muralikrishna Mysore" }
+    { id: 5, img: rec5, alt: "Recommendation from Muralikrishna Mysore" },
+    { id: 6, img: rec6, alt: "Recommendation from Nikunj Jhunjhunwala" }
 ]
 
 const Recommendations = () => {
@@ -41,7 +43,7 @@ const Recommendations = () => {
                         <ChevronLeft size={24} />
                     </button>
 
-                    <div className="recommendations-scroll" ref={scrollRef} tabIndex={0} role="region" aria-label="Five recommendations; scroll horizontally to read all">
+                    <div className="recommendations-scroll" ref={scrollRef} tabIndex={0} role="region" aria-label="Six recommendations; scroll horizontally to read all">
                         <div className="recommendations-track">
                             {loopedRecommendations.map((rec, index) => (
                                 <div key={`${rec.id}-${index}`} className="rec-card">
