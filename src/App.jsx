@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Home from './pages/Home'
 const sections = {
  '/about': 'narrative', '/narrative': 'narrative', '/experience': 'experience', '/timeline': 'experience',
- '/spotlight': 'spotlight', '/publications': 'spotlight', '/patent': 'patent', '/patents': 'patent',
+ '/spotlight': 'spotlight', '/publications': 'spotlight', '/products': 'products', '/patent': 'patent', '/patents': 'patent',
  '/research': 'research', '/citations': 'research', '/impact': 'impact', '/philosophy': 'philosophy',
  '/recommendations': 'recommendations', '/contact': 'contact',
 }
