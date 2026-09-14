@@ -325,7 +325,7 @@ const Features = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="builder-card feature-media block-link"
+                                className="builder-card block-link"
                             >
                                 <div className="card-content-wrapper">
                                     <div className="card-header">
