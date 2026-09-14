@@ -122,6 +122,32 @@ const pressItems = [
     }
 ];
 
+// 1b. Products shipped and launched publicly
+const productItems = [
+    {
+        id: 'product-speechon',
+        tag: "Product Launch",
+        title: "SpeechOn",
+        subtitle: "Product Hunt \u00b7 September 2026 \u00b7 speechon.app",
+        description: "A free speech warm-up that runs entirely in the browser with no sign-up. Routines of 5, 8, 12 or roughly 20 minutes cover breath setup, jaw and lip relaxation, lip trills, exaggerated articulation and pause placement. Over 1,700 people across 24 countries used it within days of launch.",
+        icon: Mic,
+        link: "https://www.producthunt.com/products/speechon",
+        linkText: "View SpeechOn on Product Hunt",
+        type: "product"
+    },
+    {
+        id: 'product-whatsapp-agent',
+        tag: "Product Launch",
+        title: "WhatsApp Voice Grocery Agent",
+        subtitle: "Product Hunt \u00b7 September 2026",
+        description: "Built for Vyshak\u2019s mother, a WhatsApp agent that turns natural Kannada, English or \u2018Kanglish\u2019 voice notes into Swiggy grocery orders. Gnani AI speech models handle Indic voice, Gemini interprets the request, Swiggy MCP searches and orders, and the agent replies with a Kannada voice note.",
+        icon: Bot,
+        link: "https://www.producthunt.com/products/whatsapp-voice-groceries-ordering-agent",
+        linkText: "View the agent on Product Hunt",
+        type: "product"
+    }
+];
+
 // 2. Intellectual Property (Patents)
 const patentItems = [
     {
@@ -221,7 +247,7 @@ const Features = () => {
                     </span>
                     <h2 className="section-heading">Work, in the world</h2>
                     <p className="section-subheading">
-                        Press coverage, interviews, intellectual property, and research citations.
+                        Products shipped, press coverage, interviews, intellectual property, and research citations.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -264,6 +290,43 @@ const Features = () => {
                                     </div>
                                 )}
 
+                                <div className="card-content-wrapper">
+                                    <div className="card-header">
+                                        <span className="card-category">{item.tag}</span>
+                                        <item.icon size={18} className="card-icon" />
+                                    </div>
+
+                                    <h4 className="card-title">{item.title}</h4>
+                                    {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
+
+                                    <p className="card-desc">{item.description}</p>
+
+                                    <div className="card-link-text">
+                                        <span>{item.linkText}</span>
+                                        <ExternalLink size={14} />
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 1b. Products & Launches */}
+                <div className="spotlight-subgroup" id="products">
+                    <div className="subgroup-header">
+                        <h3 className="subgroup-title">Products &amp; Launches</h3>
+                        <span className="subgroup-desc">Shipped and launched publicly on Product Hunt</span>
+                    </div>
+
+                    <div className="recognition-grid">
+                        {productItems.map((item) => (
+                            <a
+                                key={item.id}
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="builder-card feature-media block-link"
+                            >
                                 <div className="card-content-wrapper">
                                     <div className="card-header">
                                         <span className="card-category">{item.tag}</span>

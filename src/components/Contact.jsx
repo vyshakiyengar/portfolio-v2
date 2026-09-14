@@ -44,7 +44,7 @@ const Contact = () => {
                             <ArrowUpRight size={16} />
                         </a>
                     </div>
-                    <div className="profile-links"><a href="https://github.com/vyshakiyengar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://medium.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Medium</a><a href="https://scholar.google.com/citations?user=MKSlYmUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://www.wikidata.org/wiki/Q141014773" target="_blank" rel="noopener noreferrer">Wikidata</a></div>
+                    <div className="profile-links"><a href="https://github.com/vyshakiyengar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://medium.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Medium</a><a href="https://www.producthunt.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Product Hunt</a><a href="https://scholar.google.com/citations?user=MKSlYmUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://www.wikidata.org/wiki/Q141014773" target="_blank" rel="noopener noreferrer">Wikidata</a></div>
                 </div>
 
                 {/* Footer Navigation & Copyright */}
