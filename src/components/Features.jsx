@@ -309,7 +309,7 @@ const Features = () => {
                     </span>
                     <h2 className="section-heading">Press, products &amp; research</h2>
                     <p className="section-subheading">
-                        Media features and interviews, products I have shipped, a granted US patent, my publications, and who has cited them.
+                        Media features and interviews, products Vyshak has shipped, a granted US patent, his publications, and who has cited them.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -499,7 +499,7 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="research">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Research &amp; Citations</h3>
-                        <span className="subgroup-desc">Who has cited my writing, and where</span>
+                        <span className="subgroup-desc">Who has cited Vyshak’s writing, and where</span>
                     </div>
 
                     <div className="cite-summary">
@@ -511,7 +511,7 @@ const Features = () => {
                     <div className="cite-groups">
                         {citedWorks.map((work) => (
                             <article key={work.id} className="cite-group">
-                                <span className="cite-label">My article</span>
+                                <span className="cite-label">Article by Vyshak</span>
                                 <h4 className="cite-work-title"><a href={work.link} target="_blank" rel="noopener noreferrer">{work.title}</a></h4>
                                 <p className="cite-work-meta">{work.meta} · <a href={`https://doi.org/${work.doi}`} target="_blank" rel="noopener noreferrer">DOI {work.doi}</a></p>
 

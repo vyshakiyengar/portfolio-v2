@@ -27,7 +27,7 @@ const Values = () => {
                         <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
                         06 / Philosophy
                     </span>
-                    <h2 className="section-heading">What guides my work</h2>
+                    <h2 className="section-heading">What guides his work</h2>
                     <p className="section-subheading">Foundational tenets guiding product strategy, executive leadership, and social impact.</p>
                     <div className="animated-divider"></div>
                 </div>

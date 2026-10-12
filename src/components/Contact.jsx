@@ -21,9 +21,9 @@ const Contact = () => {
                         <span>07 / Contact</span>
                     </div>
 
-                    <h2 className="contact-heading">Let’s connect.</h2>
+                    <h2 className="contact-heading">Get in touch.</h2>
                     <p className="contact-subheading">
-                        For conversations about product leadership, advisory, social impact initiatives, or working together.
+                        For conversations with Vyshak about product leadership, advisory, social impact initiatives, or working together.
                     </p>
 
                     <div className="animated-divider"></div>

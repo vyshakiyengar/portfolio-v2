@@ -196,10 +196,10 @@ const Recommendations = () => {
         <section className="recommendations-section" id="recommendations">
             <div className="container">
                 <p className="eyebrow">03 / Recommendations</p>
-                <h2 className="section-heading text-center">Words from people I’ve worked with</h2>
+                <h2 className="section-heading text-center">Words about Vyshak from his network</h2>
                 <p className="section-subheading">
-                    Unedited LinkedIn recommendations from founders, operators and mentors I have
-                    worked with over the past decade.{' '}
+                    Unedited LinkedIn recommendations from founders, operators and mentors who have
+                    worked with Vyshak over the past decade.{' '}
                     <a className="rec-cta" href={PROFILE_URL} target="_blank" rel="noopener noreferrer">
                         See them on LinkedIn
                         <ArrowUpRight size={13} aria-hidden="true" />
