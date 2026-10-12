@@ -228,6 +228,6 @@ main > section{padding:60px 0}
 .contact-bottom-bar{margin-top:44px}
 @media(max-width:760px){main>section{padding:42px 0}.hero-section{padding-top:30px}.spotlight-subgroup{margin-top:34px}.footer-section{padding:44px 0 90px}}
 .partner-tags{gap:14px 30px;align-items:center}
-.partner-pill{display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:11px;color:var(--muted)}
-.partner-logo{display:block;height:30px;width:90px;object-fit:contain;object-position:left center}
-.partner-logo-kaleyra{width:40px}
+.partner-pill{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--muted)}
+.partner-logo{display:block;height:16px;width:52px;object-fit:contain;object-position:left center}
+.partner-logo-kaleyra{width:22px;height:18px}
