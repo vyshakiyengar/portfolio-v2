@@ -9,6 +9,7 @@ import higherEducationPreview from '../assets/previews/higher-education-digest.p
 import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.png'
 import rnsitHofPreview from '../assets/previews/rnsit-hall-of-fame.png'
 import clearadmitTechPreview from '../assets/previews/clearadmit-tech-alumni.png'
+import gnaniPreview from '../assets/previews/gnani-linkedin-post.jpg'
 
 // 1. Independent Editorial Press & Media (Prioritized Hierarchy)
 const pressItems = [
@@ -133,7 +134,8 @@ const pressItems = [
         icon: Mic,
         link: "https://www.linkedin.com/posts/gnani-ai_swiggy-someone-just-ordered-dinner-by-just-activity-7495448908274282496-V8Ua",
         linkText: "View gnani.ai's post",
-        type: "media"
+        type: "media",
+        image: gnaniPreview
     }
 ];
 
@@ -514,50 +516,22 @@ const Features = () => {
                         <span className="subgroup-desc">Verified citations of early AI &amp; fintech writing across academic journals, policy institutes, and industry publications</span>
                     </div>
 
-                    <div className="recognition-grid citations-grid">
+                    <ul className="citation-rows">
                         {citationItems.map((item) => (
-                            <div key={item.id} className="builder-card feature-citation">
-                                <div className="card-content-wrapper">
-                                    <div className="card-header">
-                                        <span className="feature-tag tag-citation">{item.tag}</span>
-                                        <item.icon size={18} className="card-icon citation-icon" />
-                                    </div>
-
-                                    <h4 className="card-title citation-title">{item.citingEntity}</h4>
-                                    <div className="card-subtitle citation-source">{item.citationSource}</div>
-
-                                    <div className="citation-ref-pill">
-                                        <span>{item.chapterRef}</span>
-                                    </div>
-
-                                    <div className="citation-quote-box">
-                                        <p className="citation-quote-text">“{item.citationQuote}”</p>
-                                    </div>
-
-                                    <div className="citation-original-box">
-                                        <span className="original-label">Citing Original Work:</span>
-                                        <p className="original-title">{item.originalTitle}</p>
-                                        <span className="original-meta">{item.originalMeta}</span>
-                                    </div>
-
-                                    <div className="card-links-row citation-links-row">
-                                        <a href={item.citingLink} target="_blank" rel="noopener noreferrer" className="card-link-item">
-                                            <span>{item.citingLinkText}</span>
-                                            <ExternalLink size={13} />
-                                        </a>
-                                        <a href={item.originalLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary">
-                                            <span>{item.originalLinkText}</span>
-                                            <ExternalLink size={13} />
-                                        </a>
-                                        {item.tertiaryLink && <a href={item.tertiaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary">
-                                            <span>{item.tertiaryLinkText}</span>
-                                            <ExternalLink size={13} />
-                                        </a>}
-                                    </div>
+                            <li key={item.id} className="citation-row">
+                                <span className="citation-row-tag">{item.tag}</span>
+                                <div className="citation-row-main">
+                                    <a className="citation-row-entity" href={item.citingLink} target="_blank" rel="noopener noreferrer">{item.citingEntity}</a>
+                                    <span className="citation-row-source">{item.citationSource} · {item.chapterRef}</span>
                                 </div>
-                            </div>
+                                <span className="citation-row-cites">cites <a href={item.originalLink} target="_blank" rel="noopener noreferrer">{item.originalTitle}</a></span>
+                                <span className="citation-row-links">
+                                    <a href={item.citingLink} target="_blank" rel="noopener noreferrer" aria-label={item.citingLinkText}><ExternalLink size={13} /></a>
+                                    {item.tertiaryLink && <a href={item.tertiaryLink} target="_blank" rel="noopener noreferrer" className="citation-row-extra">Open access</a>}
+                                </span>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
 
             </div>

@@ -1,4 +1,5 @@
 import { User, Award, Globe, Heart, ShieldCheck } from 'lucide-react'
+import IntroLanguages from './IntroLanguages'
 
 const Narrative = () => {
     return (
@@ -30,7 +31,7 @@ const Narrative = () => {
                         <div className="narrative-body">
                             <p className="full-name">Vyshak Kannan Iyengar · Also known as Vyshak K Iyengar and Vyshak Iyengar · <span lang="kn">ವೈಶಾಖ್ ಐಯ್ಯಂಗಾರ್</span></p>
                             <p>
-                                <strong>Vyshak K Iyengar</strong> is a product strategist working on AI products. Until October 2026 he was in <strong>Product Strategy &amp; Growth at Meta</strong>, working on mobile advertising (App Ads) products across global markets at the intersection of product innovation, growth, monetization and platform strategy. Before Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
+                                <strong>Vyshak K Iyengar</strong> is a product strategist working on AI products. From 2025 to 2026 he was in <strong>Product Strategy &amp; Growth at Meta</strong>, working on mobile advertising (App Ads) products across global markets at the intersection of product innovation, growth, monetization and platform strategy. Before Meta, he was a strategy consultant at <strong>Accenture Strategy</strong> and <strong>Boston Consulting Group (BCG)</strong>, and earned his MBA from <strong>London Business School</strong>.
                             </p>
                             <p>
                                 His career trajectory combines technical rigor with global strategic execution. After graduating with distinction in Computer Science Engineering from <strong>RNS Institute of Technology</strong>, Bengaluru, he secured a direct transfer into Accenture’s strategy practice without an MBA, advising Fortune 500 leadership on digital enterprise transformation.
@@ -38,10 +39,9 @@ const Narrative = () => {
                             <p>
                                 In parallel with his technology career, Vyshak is co-founder of the <strong>BluFin Foundation</strong>, an organization dedicated to empowering disadvantaged youth and para-athletes. Under his leadership, the foundation has scaled from a grassroots initiative into an organization backed by institutional partners including Accel Partners and Kaleyra.
                             </p>
-                            <p lang="kn" className="kannada-bio">
-                                ವೈಶಾಖ್ ಕಣ್ಣನ್ ಐಯ್ಯಂಗಾರ್ (ವೈಶಾಖ್ ಐಯ್ಯಂಗಾರ್) ಕರ್ನಾಟಕ ಮೂಲದ, ಲಂಡನ್‌ನಲ್ಲಿ ನೆಲೆಸಿರುವ ತಂತ್ರಜ್ಞ ಮತ್ತು ಸಾಮಾಜಿಕ ಉದ್ಯಮಿ. ಅವರು ಮೆಟಾದಲ್ಲಿ ಪ್ರಾಡಕ್ಟ್ ಸ್ಟ್ರಾಟಜಿ ಮತ್ತು ಗ್ರೋತ್ ವಿಭಾಗದಲ್ಲಿ ಕೆಲಸ ಮಾಡಿದ್ದಾರೆ, ಲಂಡನ್ ಬಿಸಿನೆಸ್ ಸ್ಕೂಲ್‌ನಲ್ಲಿ ಎಂಬಿಎ ಪಡೆದಿದ್ದಾರೆ ಮತ್ತು ಬ್ಲೂಫಿನ್ ಫೌಂಡೇಶನ್‌ನ ಸಹ-ಸಂಸ್ಥಾಪಕರು. ತಾಯಿಗಾಗಿ ಅವರು ರೂಪಿಸಿದ ವಾಟ್ಸ್‌ಆ್ಯಪ್ ಎಐ ಶಾಪಿಂಗ್ ಏಜೆಂಟ್ ಕುರಿತು ಪ್ರಜಾವಾಣಿ ವರದಿ ಮಾಡಿದೆ.
-                            </p>
                         </div>
+
+                        <IntroLanguages />
 
                         {/* Highlight Key Pillars */}
                         <div className="narrative-pillars">

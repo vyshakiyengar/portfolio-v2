@@ -70,7 +70,7 @@ const milestones = [
     },
     {
         step: "06",
-        year: "2025 - Oct 2026",
+        year: "2025 - 2026",
         role: "Product Strategy & Growth",
         institution: "Meta",
         impact: "Shaped product strategy, monetization and growth for Meta's global App Ads products, working with product, engineering, sales and advertisers.",
