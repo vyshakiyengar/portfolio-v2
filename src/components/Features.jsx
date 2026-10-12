@@ -505,7 +505,7 @@ const Features = () => {
                     <div className="cite-summary">
                         <div><strong>2</strong><span>articles cited</span></div>
                         <div><strong>4</strong><span>citing publications</span></div>
-                        <div><strong>2019–2024</strong><span>a book, a law journal, an Infosys whitepaper and a legal research collection</span></div>
+                        <div><strong>2019–2024</strong><span>years cited</span></div>
                     </div>
 
                     <div className="cite-groups">
