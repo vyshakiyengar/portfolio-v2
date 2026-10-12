@@ -232,3 +232,4 @@ main > section{padding:60px 0}
 .partner-logo{display:block;height:16px;width:52px;object-fit:contain;object-position:left center}
 .partner-logo-kaleyra{width:22px;height:18px}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.section-tracker{background:rgba(250,249,246,.94)}}
+@media(max-width:760px){.tracker-name{display:none}.section-tracker{max-width:calc(100vw - 24px)}.tracker-next{min-width:0;overflow:hidden;text-overflow:ellipsis}}
