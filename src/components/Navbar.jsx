@@ -63,9 +63,9 @@ function SectionTracker({ active }) {
      </div>
      <div className="tracker-text">
        {atStart ? (
-         <span className="tracker-now"><strong>{total} sections</strong> on this page</span>
+         <span className="tracker-now"><strong>{total} sections</strong> <span className="tracker-name">on this page</span></span>
        ) : (
-         <span className="tracker-now"><strong>{pad(active + 1)} / {pad(total)}</strong> {links[active][0]}</span>
+         <span className="tracker-now"><strong>{pad(active + 1)} / {pad(total)}</strong> <span className="tracker-name">{links[active][0]}</span></span>
        )}
        {atEnd ? (
          <button type="button" className="tracker-next" onClick={() => go('hero')}>Back to top <ArrowUp size={13} aria-hidden="true" /></button>
