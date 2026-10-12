@@ -1,14 +1,17 @@
 import { Heart, Landmark, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
+import accelLogo from '../assets/logos/partners/accel.png'
+import kaleyraLogo from '../assets/logos/partners/kaleyra.png'
+import paypalLogo from '../assets/logos/partners/paypal.png'
 
 const Impact = () => {
     return (
         <section className="impact-section" id="impact">
             <div className="container">
                 <div className="text-center">
-                    <span className="impact-section-tag">04 / Impact</span>
+                    <span className="impact-section-tag">05 / Impact</span>
                     <h2 className="section-heading">Beyond the day job</h2>
                     <p className="section-subheading">
-                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and leads civic tech initiatives.
+                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and has worked on civic tech initiatives.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -65,9 +68,9 @@ const Impact = () => {
                             <div className="impact-partners">
                                 <span>Institutional Partners:</span>
                                 <div className="partner-tags">
-                                    <span className="partner-pill">Accel Partners</span>
-                                    <span className="partner-pill">Kaleyra</span>
-                                    <span className="partner-pill">PayPal</span>
+                                    <span className="partner-pill"><img src={accelLogo} alt="" className="partner-logo partner-logo-accel" width="72" height="23" loading="lazy" />Accel Partners</span>
+                                    <span className="partner-pill"><img src={kaleyraLogo} alt="" className="partner-logo partner-logo-kaleyra" width="30" height="26" loading="lazy" />Kaleyra</span>
+                                    <span className="partner-pill"><img src={paypalLogo} alt="" className="partner-logo partner-logo-paypal" width="76" height="19" loading="lazy" />PayPal</span>
                                 </div>
                             </div>
                         </div>
@@ -98,9 +101,9 @@ const Impact = () => {
                                 <CheckCircle size={18} className="civic-check" />
                                 <div>
                                     <strong>
-                                        Governing Council Member · <a href="https://www.letsbethechange.in/" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
+                                        Secretary, Governing Members · <a href="https://www.letsbethechange.in/team" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
                                     </strong>
-                                    <p>Served on the leadership council driving urban cleanliness and civic engagement across Karnataka.</p>
+                                    <p>Serves as Secretary on the governing body of the NGO driving urban cleanliness and civic engagement across Karnataka.</p>
                                 </div>
                             </div>
 

@@ -1,7 +1,7 @@
 import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles } from 'lucide-react'
 
 import accentureLogo from '../assets/logos/accenture.png'
-import bcgLogo from '../assets/logos/bcg.png'
+import bcgLogo from '../assets/logos/bcg-2026.png'
 import lbsLogo from '../assets/logos/lbs.png'
 import metaLogo from '../assets/logos/meta.png'
 import vtuLogo from '../assets/logos/vtu.png'
@@ -12,8 +12,8 @@ const milestones = [
         step: "01",
         year: "2013 - 2017",
         role: "Computer Science Engineering",
-        institution: "Visvesvaraya Technological Univ. (VTU)",
-        impact: "Graduated with Distinction. Strong foundation in software engineering, data structures, and algorithmic logic.",
+        institution: "RNS Institute of Technology · Visvesvaraya Technological Univ. (VTU)",
+        impact: "Graduated with Distinction from RNS Institute of Technology, Bengaluru (degree awarded by VTU). Founded Cookie Jar, a student media venture, and is listed in the RNSIT Hall of Fame.",
         category: "Technical Foundation",
         icon: GraduationCap,
         logo: vtuLogo,
@@ -70,10 +70,10 @@ const milestones = [
     },
     {
         step: "06",
-        year: "Current Role",
-        role: "Product Strategy Lead",
+        year: "2025 - 2026",
+        role: "Product Strategy & Growth",
         institution: "Meta",
-        impact: "Drives product roadmap, monetization strategy, and platform growth for global mobile advertising products at scale.",
+        impact: "Shaped product strategy, monetization and growth for Meta's global App Ads products, working with product, engineering, sales and advertisers.",
         category: "Product Leadership",
         icon: Building2,
         logo: metaLogo,

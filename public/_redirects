@@ -1,1 +1,17 @@
-/*    /index.html   200
+# Section URLs serve the single-page profile (canonical stays https://vyshak.me/).
+# Anything not listed here falls through to 404.html with a real 404 status.
+/about            /index.html  200
+/narrative        /index.html  200
+/experience       /index.html  200
+/timeline         /index.html  200
+/spotlight        /index.html  200
+/publications     /index.html  200
+/products         /index.html  200
+/patent           /index.html  200
+/patents          /index.html  200
+/research         /index.html  200
+/citations        /index.html  200
+/impact           /index.html  200
+/philosophy       /index.html  200
+/recommendations  /index.html  200
+/contact          /index.html  200

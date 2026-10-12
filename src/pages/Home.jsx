@@ -16,10 +16,10 @@ function Home() {
                 <Hero />
                 <Narrative />
                 <Timeline />
+                <Recommendations />
                 <Features />
                 <Impact />
                 <Values />
-                <Recommendations />
                 <Contact />
             </main>
         </div>

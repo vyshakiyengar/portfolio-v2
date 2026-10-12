@@ -6,14 +6,15 @@ import avatarSantosh from '../assets/recommendations/avatars/santosh-katti.jpg'
 import avatarAniketh from '../assets/recommendations/avatars/aniketh-jain.jpg'
 import avatarMurali from '../assets/recommendations/avatars/muralikrishna-mysore.jpg'
 import avatarNikunj from '../assets/recommendations/avatars/nikunj-jhunjhunwala.jpg'
+import avatarAnirudh from '../assets/recommendations/avatars/anirudh-dutt.jpg'
 
 const PROFILE_URL = 'https://www.linkedin.com/in/vyshakiyengar/'
 
 const recommendations = [
     {
         id: 'richard-harpin',
-        name: 'Richard Harpin',
-        punchline: 'Built a £4.1bn business',
+        name: 'Sir Richard Harpin',
+        punchline: 'Billionaire entrepreneur who sold HomeServe for £4.1bn',
         role: 'Founder of HomeServe · Owner, Business Leader',
         relationship: 'Senior to Vyshak, but did not manage directly',
         date: 'March 2025',
@@ -26,30 +27,19 @@ const recommendations = [
         ]
     },
     {
-        id: 'prateek-khandelwal',
-        name: 'Prateek Khandelwal',
-        punchline: 'President’s Award-winning social entrepreneur',
-        role: 'Founder, RampMyCity · Building wheelchair-friendly cities across India',
+        id: 'nikunj-jhunjhunwala',
+        name: 'Nikunj Jhunjhunwala',
+        punchline: 'Product Leader at Meta',
+        role: 'Product Leader · Adtech, social commerce, e-commerce · IIM alumnus',
         relationship: 'Worked with Vyshak on the same team',
-        date: 'August 2022',
-        linkedin: 'https://www.linkedin.com/in/prateekkhandelwal5/',
-        avatar: avatarPrateek,
+        date: 'September 2026',
+        linkedin: 'https://www.linkedin.com/in/nikunj-jhunjhunwala-8853b89/',
+        avatar: avatarNikunj,
         quote: [
-            'I had the pleasure of working with Vyshak on a project to make public and private establishments in Bangalore South wheelchair accessible for the inclusion of Persons with Disabilities and Elderly Population. Vyshak played a key role in bringing together public office of Member of Parliament Tejasvi Surya, Dunzo and our organization RampMyCity for the successful execution of the project.',
-            'He showed astute leadership and management skills in a challenging environment, where we were able to seamlessly collaborate with different stakeholders in public and private spaces to make them disabled friendly. Vyshak’s zeal towards manifesting the idea of an inclusive and sustainable world is remarkable and he is leading by example to make it possible.'
-        ]
-    },
-    {
-        id: 'santosh-katti',
-        name: 'Santosh Katti',
-        punchline: 'Founder and CEO of Graphene AI',
-        role: 'Founder of bootstrapped AI tech companies · AI for healthcare and CPG',
-        relationship: 'Managed Vyshak directly',
-        date: 'February 2017',
-        linkedin: 'https://www.linkedin.com/in/santoshkatti/',
-        avatar: avatarSantosh,
-        quote: [
-            'Vyshak interned with us in Graphene and I loved his initiative and street smart ways of getting things done. He also showed great ownership of things we entrusted him -and turned around some great work which has helped move our business further. I hope he will come back and work for us full time when he graduates !'
+            'I worked closely with Vyshak on Meta’s App Ads products. As the PM working alongside him, I saw his impact firsthand. He was one of the top performers I worked with and played an important role in helping us double the business’s revenue.',
+            'Vyshak helped shape key strategies for signal growth and advertiser value, translating complex advertiser challenges into clear product opportunities. He worked with product and engineering to develop solutions and with sales teams and advertisers to drive adoption.',
+            'What stood out was his ownership. He proactively identified opportunities and drove them forward beyond the scope of his role. His product judgment and ability to execute made him a trusted partner.',
+            'I would gladly work with Vyshak again and strongly recommend him for a challenging role where he can shape products and drive growth.'
         ]
     },
     {
@@ -68,6 +58,46 @@ const recommendations = [
         ]
     },
     {
+        id: 'prateek-khandelwal',
+        name: 'Prateek Khandelwal',
+        punchline: 'President’s Award-winning social entrepreneur',
+        role: 'Founder, RampMyCity · Building wheelchair-friendly cities across India',
+        relationship: 'Worked with Vyshak on the same team',
+        date: 'August 2022',
+        linkedin: 'https://www.linkedin.com/in/prateekkhandelwal5/',
+        avatar: avatarPrateek,
+        quote: [
+            'I had the pleasure of working with Vyshak on a project to make public and private establishments in Bangalore South wheelchair accessible for the inclusion of Persons with Disabilities and Elderly Population. Vyshak played a key role in bringing together public office of Member of Parliament Tejasvi Surya, Dunzo and our organization RampMyCity for the successful execution of the project.',
+            'He showed astute leadership and management skills in a challenging environment, where we were able to seamlessly collaborate with different stakeholders in public and private spaces to make them disabled friendly. Vyshak’s zeal towards manifesting the idea of an inclusive and sustainable world is remarkable and he is leading by example to make it possible.'
+        ]
+    },
+    {
+        id: 'anirudh-dutt',
+        name: 'Anirudh S Dutt',
+        punchline: 'Founder of Let’s Be The Change, National Youth Awardee',
+        role: 'Social Entrepreneur · Founder, Let’s Be The Change',
+        relationship: 'Worked with Vyshak on the same team',
+        date: 'August 2018',
+        linkedin: 'https://www.linkedin.com/in/dutt-anirudh/',
+        avatar: avatarAnirudh,
+        quote: [
+            'Vyshak as one of the leaders of Let’s Be The Change has worked on some massive transformation initiatives that has helped accelerate the growth of our NGO significantly. His out of the box thinking, ability to lead large teams and communicate clearly are his strengths. I am super pleased to recommend him.'
+        ]
+    },
+    {
+        id: 'santosh-katti',
+        name: 'Santosh Katti',
+        punchline: 'Founder and CEO of Graphene AI',
+        role: 'Founder of bootstrapped AI tech companies · AI for healthcare and CPG',
+        relationship: 'Managed Vyshak directly',
+        date: 'February 2017',
+        linkedin: 'https://www.linkedin.com/in/santoshkatti/',
+        avatar: avatarSantosh,
+        quote: [
+            'Vyshak interned with us in Graphene and I loved his initiative and street smart ways of getting things done. He also showed great ownership of things we entrusted him -and turned around some great work which has helped move our business further. I hope he will come back and work for us full time when he graduates !'
+        ]
+    },
+    {
         id: 'muralikrishna-mysore',
         name: 'Muralikrishna Mysore',
         punchline: 'CTO of a leading institution, former industry VP',
@@ -79,22 +109,6 @@ const recommendations = [
         quote: [
             'I know Vyshak for the past 5 years. Excellent student, knowledgeable, articulate and most importantly humble. His PR skills, zeal to work on new things, his consulting capabilities and enthusiasm to support CSR activities are extremely amazing.',
             'A great student and friend to have..'
-        ]
-    },
-    {
-        id: 'nikunj-jhunjhunwala',
-        name: 'Nikunj Jhunjhunwala',
-        punchline: 'Product Leader at Meta',
-        role: 'Product Leader · Adtech, social commerce, e-commerce · IIM alumnus',
-        relationship: 'Worked with Vyshak on the same team',
-        date: 'September 2026',
-        linkedin: 'https://www.linkedin.com/in/nikunj-jhunjhunwala-8853b89/',
-        avatar: avatarNikunj,
-        quote: [
-            'I worked closely with Vyshak on Meta’s App Ads products. As the PM working alongside him, I saw his impact firsthand. He was one of the top performers I worked with and played an important role in helping us double the business’s revenue.',
-            'Vyshak helped shape key strategies for signal growth and advertiser value, translating complex advertiser challenges into clear product opportunities. He worked with product and engineering to develop solutions and with sales teams and advertisers to drive adoption.',
-            'What stood out was his ownership. He proactively identified opportunities and drove them forward beyond the scope of his role. His product judgment and ability to execute made him a trusted partner.',
-            'I would gladly work with Vyshak again and strongly recommend him for a challenging role where he can shape products and drive growth.'
         ]
     }
 ]
@@ -131,14 +145,20 @@ const RecommendationCard = ({ rec }) => {
             )}
 
             <footer className="rec-attribution">
-                <img
-                    className="rec-avatar"
-                    src={rec.avatar}
-                    alt={`${rec.name}, who recommended Vyshak Iyengar on LinkedIn`}
-                    width="52"
-                    height="52"
-                    loading="lazy"
-                />
+                {rec.avatar ? (
+                    <img
+                        className="rec-avatar"
+                        src={rec.avatar}
+                        alt={`${rec.name}, who recommended Vyshak Iyengar on LinkedIn`}
+                        width="52"
+                        height="52"
+                        loading="lazy"
+                    />
+                ) : (
+                    <span className="rec-avatar rec-avatar-initials" aria-hidden="true">
+                        {rec.name.split(' ').filter(w => w !== 'Sir').map(w => w[0]).filter((_, i, a) => i === 0 || i === a.length - 1).join('')}
+                    </span>
+                )}
                 <div className="rec-identity">
                     <a
                         className="rec-name"
@@ -175,11 +195,11 @@ const Recommendations = () => {
     return (
         <section className="recommendations-section" id="recommendations">
             <div className="container">
-                <p className="eyebrow">06 / Recommendations</p>
-                <h2 className="section-heading text-center">Words from people I’ve worked with</h2>
+                <p className="eyebrow">03 / Recommendations</p>
+                <h2 className="section-heading text-center">Words about Vyshak from his network</h2>
                 <p className="section-subheading">
-                    Unedited LinkedIn recommendations from founders, operators and mentors I have
-                    worked with over the past decade.{' '}
+                    Unedited LinkedIn recommendations from founders, operators and mentors who have
+                    worked with Vyshak over the past decade.{' '}
                     <a className="rec-cta" href={PROFILE_URL} target="_blank" rel="noopener noreferrer">
                         See them on LinkedIn
                         <ArrowUpRight size={13} aria-hidden="true" />
@@ -199,7 +219,7 @@ const Recommendations = () => {
                         ref={scrollRef}
                         tabIndex={0}
                         role="region"
-                        aria-label="Six LinkedIn recommendations; scroll horizontally to read all"
+                        aria-label="Seven LinkedIn recommendations; scroll horizontally to read all"
                     >
                         <div className="recommendations-track">
                             {recommendations.map((rec) => (
