@@ -9,24 +9,11 @@
   <meta name="theme-color" content="#faf9f6" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SPA redirect query decoder for static hosts -->
-  <script type="text/javascript">
-    (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
-  </script>
   
   <!-- Primary Meta Tags -->
   <title>Vyshak K Iyengar | Technology Leader &amp; Social Entrepreneur</title>
   <meta name="title" content="Vyshak K Iyengar | Technology Leader &amp; Social Entrepreneur" />
-  <meta name="description" content="Vyshak Kannan Iyengar is a technology leader and social entrepreneur, leading product strategy at Meta and co-founder of BluFin Foundation. Alumnus of London Business School, BCG and Accenture Strategy." />
+  <meta name="description" content="Vyshak Kannan Iyengar is a product strategist and social entrepreneur. Formerly Product Strategy &amp; Growth at Meta, co-founder of BluFin Foundation, and alumnus of London Business School, BCG and Accenture Strategy." />
   <meta name="author" content="Vyshak Kannan Iyengar" />
   <link rel="canonical" href="https://vyshak.me/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -35,7 +22,7 @@
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://vyshak.me/" />
   <meta property="og:title" content="Vyshak K Iyengar | Technology Leader &amp; Social Entrepreneur" />
-  <meta property="og:description" content="Technology leader and social entrepreneur. Product strategy at Meta, co-founder of BluFin Foundation, and alumnus of London Business School, BCG and Accenture Strategy." />
+  <meta property="og:description" content="Product strategist and social entrepreneur. Formerly Product Strategy &amp; Growth at Meta, co-founder of BluFin Foundation, and alumnus of London Business School, BCG and Accenture Strategy." />
   <meta property="og:image" content="https://vyshak.me/images/vyshak-portrait.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="855" />
@@ -48,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://vyshak.me/" />
   <meta name="twitter:title" content="Vyshak K Iyengar | Technology Leader &amp; Social Entrepreneur" />
-  <meta name="twitter:description" content="Technology leader and social entrepreneur. Product strategy at Meta, co-founder of BluFin Foundation, and alumnus of London Business School, BCG and Accenture Strategy." />
+  <meta name="twitter:description" content="Product strategist and social entrepreneur. Formerly Product Strategy &amp; Growth at Meta, co-founder of BluFin Foundation, and alumnus of London Business School, BCG and Accenture Strategy." />
   <meta name="twitter:image" content="https://vyshak.me/images/vyshak-portrait.jpg" />
   <meta name="twitter:image:alt" content="Portrait of Vyshak Kannan Iyengar" />
   <meta name="twitter:creator" content="@vyshakkiyengar" />
@@ -60,7 +47,7 @@
 
   <!-- Schema.org Knowledge Panel JSON-LD Markup -->
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -70,12 +57,13 @@
       "alternateName": [
         "Vyshak Iyengar",
         "Vyshak K Iyengar",
-        "ವೈಶಾಖ್ ಐಯ್ಯಂಗಾರ್"
+        "ವೈಶಾಖ್ ಐಯ್ಯಂಗಾರ್",
+        "ವೈಶಾಖ್ ಕಣ್ಣನ್ ಐಯ್ಯಂಗಾರ್"
       ],
       "givenName": "Vyshak",
       "familyName": "Iyengar",
-      "jobTitle": "Product Strategy Lead",
-      "description": "Vyshak Kannan Iyengar is a technology leader and social entrepreneur, leading product strategy at Meta and co-founder of BluFin Foundation. Alumnus of London Business School, BCG and Accenture Strategy.",
+      "jobTitle": "Product strategist",
+      "description": "Vyshak Kannan Iyengar is a product strategist and social entrepreneur. Formerly Product Strategy & Growth at Meta, he is co-founder of BluFin Foundation and an alumnus of London Business School, BCG and Accenture Strategy.",
       "url": "https://vyshak.me/",
       "image": {
         "@type": "ImageObject",
@@ -87,12 +75,6 @@
         "height": 1024,
         "representativeOfPage": true
       },
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Meta",
-        "url": "https://about.meta.com",
-        "sameAs": "https://en.wikipedia.org/wiki/Meta_Platforms"
-      },
       "alumniOf": [
         {
           "@type": "EducationalOrganization",
@@ -101,10 +83,34 @@
           "sameAs": "https://en.wikipedia.org/wiki/London_Business_School"
         },
         {
-          "@type": "EducationalOrganization",
+          "@type": "CollegeOrUniversity",
+          "name": "RNS Institute of Technology",
+          "url": "https://www.rnsit.ac.in",
+          "sameAs": "https://en.wikipedia.org/wiki/RNS_Institute_of_Technology"
+        },
+        {
+          "@type": "CollegeOrUniversity",
           "name": "Visvesvaraya Technological University",
           "url": "https://vtu.ac.in",
           "sameAs": "https://en.wikipedia.org/wiki/Visvesvaraya_Technological_University"
+        },
+        {
+          "@type": "Organization",
+          "name": "Meta",
+          "url": "https://about.meta.com",
+          "sameAs": "https://en.wikipedia.org/wiki/Meta_Platforms"
+        },
+        {
+          "@type": "Organization",
+          "name": "Boston Consulting Group",
+          "url": "https://www.bcg.com",
+          "sameAs": "https://en.wikipedia.org/wiki/Boston_Consulting_Group"
+        },
+        {
+          "@type": "Organization",
+          "name": "Accenture",
+          "url": "https://www.accenture.com",
+          "sameAs": "https://en.wikipedia.org/wiki/Accenture"
         }
       ],
       "knowsAbout": [
@@ -118,13 +124,14 @@
       ],
       "sameAs": [
         "https://www.linkedin.com/in/vyshakiyengar/",
-        "https://medium.com/@vyshakiyengar",
-        "https://www.producthunt.com/@vyshakiyengar",
-        "https://github.com/vyshakiyengar",
+        "https://x.com/vyshakkiyengar",
+        "https://www.instagram.com/vyshak_iyengar/",
+        "https://www.facebook.com/vyshakiyengar/",
         "https://orcid.org/0009-0002-5098-6448",
         "https://scholar.google.com/citations?user=MKSlYmUAAAAJ&hl=en",
-        "https://x.com/vyshakkiyengar",
-        "https://www.wikidata.org/wiki/Q141014773"
+        "https://medium.com/@vyshakiyengar",
+        "https://github.com/vyshakiyengar",
+        "https://www.producthunt.com/@vyshakiyengar"
       ],
       "subjectOf": [
         {
@@ -136,7 +143,11 @@
             "@type": "Organization",
             "name": "Prajavani"
           },
-          "datePublished": "2026-08-25"
+          "datePublished": "2026-08-25",
+          "sameAs": "https://m.dailyhunt.in/news/india/kannada/prajavani-epaper-praj/staart+ap+taayigaagi+ai+shaaping+ejent+parichayisidha+bengalurina+teki-newsid-n724533211",
+          "about": {
+            "@id": "https://vyshak.me/#person"
+          }
         },
         {
           "@type": "Article",
@@ -147,7 +158,14 @@
             "name": "Clear Admit"
           },
           "name": "Real Humans of Meta: Vyshak Kannan Iyengar",
-          "datePublished": "2026-03-18"
+          "datePublished": "2026-03-18",
+          "author": {
+            "@type": "Person",
+            "name": "Christina Griffith"
+          },
+          "about": {
+            "@id": "https://vyshak.me/#person"
+          }
         },
         {
           "@type": "Article",
@@ -158,7 +176,11 @@
             "@type": "Organization",
             "name": "Clear Admit"
           },
-          "datePublished": "2026-07-07"
+          "datePublished": "2026-07-07",
+          "author": {
+            "@type": "Person",
+            "name": "Lauren Wakal"
+          }
         },
         {
           "@type": "Article",
@@ -169,7 +191,11 @@
             "@type": "Organization",
             "name": "YourStory"
           },
-          "datePublished": "2024-08-30"
+          "datePublished": "2024-08-30",
+          "author": {
+            "@type": "Person",
+            "name": "Rekha Balakrishnan"
+          }
         },
         {
           "@type": "WebPage",
@@ -189,7 +215,8 @@
           "publisher": {
             "@type": "Organization",
             "name": "Higher Education Digest"
-          }
+          },
+          "datePublished": "2019-07-29"
         },
         {
           "@type": "NewsArticle",
@@ -204,12 +231,18 @@
         },
         {
           "@type": "PodcastEpisode",
-          "name": "Crack The MBA Interview: Strategic Leadership and Career Arc",
+          "name": "Crack The MBA Show, Ep028: Vyshak Iyengar",
           "url": "https://www.youtube.com/watch?v=v4CaZ4xwotI",
-          "inLanguage": "en"
+          "inLanguage": "en",
+          "datePublished": "2025-02-16",
+          "sameAs": "https://creators.spotify.com/pod/profile/nupur-gupta2/episodes/Ep028-Big-Four-Indian-Male-Engineer-Cracks-LBS--MBB--Crack-The-MBA-Show--Vyshak-Iyengar-e2uuhiq",
+          "partOfSeries": {
+            "@type": "PodcastSeries",
+            "name": "Crack The MBA Show"
+          }
         },
         {
-          "@type": "NewsArticle",
+          "@type": "Article",
           "headline": "Voice-Based Kannada Ordering Showcases Gnani AI Speech Technology in Swiggy Ecosystem",
           "url": "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem",
           "inLanguage": "en",
@@ -218,11 +251,29 @@
             "name": "TipRanks"
           },
           "datePublished": "2026-08-18"
+        },
+        {
+          "@type": "SocialMediaPosting",
+          "url": "https://www.linkedin.com/posts/gnani-ai_swiggy-someone-just-ordered-dinner-by-just-activity-7495448908274282496-V8Ua",
+          "headline": "gnani.ai on the Kannada WhatsApp voice ordering agent",
+          "datePublished": "2026-08-18",
+          "author": {
+            "@type": "Organization",
+            "name": "gnani.ai",
+            "url": "https://gnani.ai"
+          }
         }
       ],
-      "memberOf": {
-        "@id": "https://vyshak.me/#blufin"
-      },
+      "memberOf": [
+        {
+          "@id": "https://vyshak.me/#blufin"
+        },
+        {
+          "@type": "Organization",
+          "name": "Let's Be The Change",
+          "url": "https://www.letsbethechange.in/"
+        }
+      ],
       "mainEntityOfPage": {
         "@id": "https://vyshak.me/#webpage"
       },
@@ -233,6 +284,67 @@
           "value": "0009-0002-5098-6448",
           "url": "https://orcid.org/0009-0002-5098-6448"
         }
+      ],
+      "additionalName": "Kannan",
+      "nationality": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "London, United Kingdom"
+      },
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Product strategist",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "London"
+          },
+          "skills": "AI product strategy, growth, monetization, platform strategy"
+        },
+        {
+          "@type": "Occupation",
+          "name": "Social entrepreneur",
+          "description": "Co-founder and trustee of BluFin Foundation, a Bengaluru para-sports non-profit"
+        }
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Master of Business Administration (MBA)",
+          "credentialCategory": "degree",
+          "dateCreated": "2025",
+          "recognizedBy": {
+            "@type": "EducationalOrganization",
+            "name": "London Business School"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Bachelor of Engineering, Computer Science (Distinction)",
+          "credentialCategory": "degree",
+          "dateCreated": "2017",
+          "recognizedBy": {
+            "@type": "CollegeOrUniversity",
+            "name": "Visvesvaraya Technological University"
+          }
+        }
+      ],
+      "workExample": [
+        {
+          "@id": "https://doi.org/10.2139/ssrn.7479580"
+        },
+        {
+          "@id": "https://patents.google.com/patent/US12020352B2/en"
+        },
+        {
+          "@id": "https://www.speechon.app/#app"
+        },
+        {
+          "@id": "https://vyshak.me/#sahayaka"
+        }
       ]
     },
     {
@@ -240,7 +352,7 @@
       "@id": "https://vyshak.me/#website",
       "url": "https://vyshak.me/",
       "name": "Vyshak Kannan Iyengar",
-      "description": "Product strategy at Meta, AI projects, writing, and social impact by Vyshak Kannan Iyengar.",
+      "description": "Product strategy, AI products, research and social impact by Vyshak Kannan Iyengar.",
       "publisher": {
         "@id": "https://vyshak.me/#person"
       }
@@ -250,7 +362,7 @@
       "@id": "https://vyshak.me/#webpage",
       "url": "https://vyshak.me/",
       "name": "Vyshak K Iyengar | Technology Leader & Social Entrepreneur",
-      "dateModified": "2026-09-12T00:00:00Z",
+      "dateModified": "2026-10-12T00:00:00Z",
       "mainEntity": {
         "@id": "https://vyshak.me/#person"
       },
@@ -266,16 +378,37 @@
       }
     },
     {
-      "@type": "Organization",
+      "@type": "NGO",
       "name": "BluFin Foundation",
       "url": "https://www.blufinfoundation.com/",
       "@id": "https://vyshak.me/#blufin",
-      "founder": {
-        "@id": "https://vyshak.me/#person"
-      }
+      "founder": [
+        {
+          "@id": "https://vyshak.me/#person"
+        },
+        {
+          "@type": "Person",
+          "name": "Sharath Gayakwad",
+          "sameAs": "https://en.wikipedia.org/wiki/Sharath_Gayakwad"
+        }
+      ],
+      "foundingDate": "2018",
+      "description": "Bengaluru-based non-profit building an inclusive sports ecosystem for underprivileged children and para-athletes.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://in.linkedin.com/company/blufin-foundation",
+        "https://x.com/BluFinFoundati1",
+        "https://www.instagram.com/blufinfoundation/",
+        "https://www.facebook.com/blufinfoundation/"
+      ]
     },
     {
-      "@type": "ScholarlyArticle",
+      "@type": "Article",
       "@id": "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
       "headline": "Complete Overview of the AI Startup Ecosystem in India",
       "url": "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
@@ -283,7 +416,7 @@
         "@id": "https://vyshak.me/#person"
       },
       "name": "Complete Overview of the AI Startup Ecosystem in India",
-      "datePublished": "2018-09-19",
+      "datePublished": "2018-09-25",
       "publisher": {
         "@type": "Organization",
         "name": "DataDrivenInvestor"
@@ -301,7 +434,7 @@
       "license": "https://creativecommons.org/licenses/by/4.0/"
     },
     {
-      "@type": "ScholarlyArticle",
+      "@type": "Article",
       "@id": "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
       "headline": "Robo Advisors: A Disruption in Indian Wealth Management?",
       "url": "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
@@ -416,6 +549,121 @@
       "publisher": {
         "@type": "Organization",
         "name": "Eastern Book Company"
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.2139/ssrn.7479580",
+      "headline": "Headless Commerce for the Last Mile: An Agent-Mediated, Voice-First Architecture for Code-Mixed, Low-Literacy Users, with a Deployment Account, Source Audit and Evaluation Protocol",
+      "name": "Headless Commerce for the Last Mile",
+      "author": {
+        "@id": "https://vyshak.me/#person"
+      },
+      "datePublished": "2026-09-19",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7479580",
+      "publisher": {
+        "@type": "Organization",
+        "name": "SSRN"
+      },
+      "genre": "Preprint",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.2139/ssrn.7479580",
+        "url": "https://doi.org/10.2139/ssrn.7479580"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://medium.datadriveninvestor.com/the-evolving-role-of-ai-in-wealth-management-bcac791eeb64",
+      "headline": "The Evolving Role of AI in Wealth Management",
+      "author": {
+        "@id": "https://vyshak.me/#person"
+      },
+      "datePublished": "2024-11-18",
+      "url": "https://medium.datadriveninvestor.com/the-evolving-role-of-ai-in-wealth-management-bcac791eeb64",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DataDrivenInvestor"
+      }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://vyshak.me/#jgrcst-2016",
+      "headline": "Dependency on Family, Friends and Reviews: Consumer Behavior Towards Smartphones, A Study in Bangalore",
+      "author": {
+        "@id": "https://vyshak.me/#person"
+      },
+      "datePublished": "2016",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "4",
+        "isPartOf": {
+          "@type": "PublicationVolume",
+          "volumeNumber": "4",
+          "isPartOf": {
+            "@type": "Periodical",
+            "name": "Journal of Global Research in Computer Science & Technology"
+          }
+        }
+      },
+      "pagination": "28-44",
+      "url": "https://www.slideshare.net/slideshow/consumer-behavior-towards-smartphones-market-a-market-research-paper-by-vyshak-iyengar/251000747"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://patents.google.com/patent/US12020352B2/en",
+      "name": "Project visualization system (US Patent 12,020,352 B2)",
+      "author": [
+        {
+          "@id": "https://vyshak.me/#person"
+        }
+      ],
+      "dateCreated": "2022-01-04",
+      "datePublished": "2024-06-25",
+      "url": "https://patents.google.com/patent/US12020352B2/en",
+      "copyrightHolder": {
+        "@type": "Organization",
+        "name": "Accenture Global Solutions Ltd"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "US Patent",
+        "value": "US12020352B2"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.speechon.app/#app",
+      "name": "Speech On",
+      "url": "https://www.speechon.app/",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "description": "Free, research-backed speech warm-up exercises in the browser. No sign-up.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "creator": {
+        "@id": "https://vyshak.me/#person"
+      },
+      "sameAs": "https://www.producthunt.com/products/speechon"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vyshak.me/#sahayaka",
+      "name": "Sahayaka",
+      "alternateName": "WhatsApp Voice Grocery Agent",
+      "applicationCategory": "ShoppingApplication",
+      "operatingSystem": "WhatsApp",
+      "description": "WhatsApp agent that turns Kannada, English or Kanglish voice notes into Swiggy grocery orders.",
+      "creator": {
+        "@id": "https://vyshak.me/#person"
+      },
+      "sameAs": "https://www.producthunt.com/products/whatsapp-voice-groceries-ordering-agent",
+      "subjectOf": {
+        "@id": "https://doi.org/10.2139/ssrn.7479580"
       }
     }
   ]

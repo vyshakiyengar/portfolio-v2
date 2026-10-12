@@ -133,3 +133,15 @@ main > section { padding:94px 0; border-bottom:1px solid var(--line); }
 .hero-credentials img:nth-child(2){width:64px;height:35px}
 .hero-credentials img:nth-child(3){width:51px;height:28px}
 @media(max-width:760px){.hero-credentials{gap:27px;margin-top:24px}.hero-credentials img{width:58px}}
+
+.card-preview-placeholder{align-self:start;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:#fff;border:1px solid var(--line);padding:8px;text-align:center}
+.card-preview-placeholder .feature-tag{font-size:8px;line-height:1.4;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.card-title a,.publication-title a{color:inherit}
+.publication-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+.publication-item{display:grid;grid-template-columns:110px 1fr;gap:22px;border-top:1px solid var(--line);padding:26px 0}
+.publication-year{font:400 26px/1.1 var(--serif);color:var(--muted)}
+.publication-type{display:block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.publication-title{font:400 22px/1.25 var(--serif);margin-bottom:8px;max-width:820px}
+.publication-links{margin-top:12px}
+.narrative-body .kannada-bio{font-size:14px;border-left:2px solid var(--line);padding-left:16px}
+@media(max-width:760px){.publication-item{grid-template-columns:64px 1fr;gap:16px}.publication-year{font-size:20px}.publication-title{font-size:19px}}

@@ -20,14 +20,14 @@ export default function Hero() {
             <p className="eyebrow">Product strategy · AI · Social impact</p>
             <h1>Vyshak<br />K Iyengar<span className="name-period">.</span></h1>
             <p className="hero-role">Technology leader and social entrepreneur.</p>
-            <p className="hero-description">Leading product strategy at Meta. Co-founder of BluFin Foundation. Alumnus of London Business School, BCG &amp; Accenture Strategy.</p>
+            <p className="hero-description">Product strategy and AI. Formerly Product Strategy &amp; Growth at Meta. Co-founder of BluFin Foundation. Alumnus of London Business School, BCG &amp; Accenture Strategy.</p>
             <div className="hero-links">
               <a href="#spotlight">Explore my work <ArrowUpRight size={17} /></a>
               <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={17} /></a>
               <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer">X (Twitter) <ArrowUpRight size={17} /></a>
             </div>
             <div className="hero-credentials" aria-label="Career and education">
-              <img src={metaLogo} alt="Meta" title="Meta · Product Strategy" />
+              <img src={metaLogo} alt="Meta" title="Meta · Product Strategy &amp; Growth" />
               <img src={lbsLogo} alt="London Business School" title="London Business School · MBA" />
               <img src={bcgLogo} alt="BCG" title="BCG · MBA internship" />
               <img src={accentureLogo} alt="Accenture Strategy" title="Accenture Strategy" />
@@ -36,7 +36,7 @@ export default function Hero() {
           </div>
           <figure className="hero-portrait">
             <img src="/images/vyshak-portrait.jpg" width="855" height="1024" alt="Vyshak K Iyengar" fetchPriority="high" />
-            <figcaption><span>Vyshak K Iyengar</span><span>Product Strategy Lead at Meta</span></figcaption>
+            <figcaption><span>Vyshak K Iyengar</span><span>Product strategy &amp; AI</span></figcaption>
           </figure>
         </div>
         <div className="photo-journal" aria-label="Education and social impact photographs">

@@ -17,10 +17,12 @@ const pressItems = [
         tag: "Editorial Feature",
         title: "WhatsApp AI Shopping Agent",
         subtitle: "Prajavani · Kannada Daily · 25 Aug 2026",
-        description: "Featured by Prajavani, Karnataka’s leading Kannada daily, for developing an AI shopping agent on WhatsApp enabling voice and text daily-need ordering via Swiggy MCP and multimodal AI.",
+        description: "Featured by Prajavani, Karnataka’s leading Kannada daily, for the WhatsApp AI shopping agent he designed and deployed for his mother, enabling voice and text daily-need ordering via Swiggy MCP and multimodal AI.",
         icon: Newspaper,
         link: "https://www.prajavani.net/technology/gadget-news/start-up-bengaluru-techie-ai-shopping-agent-whatsapp-mcp-swiggy-4218412",
         linkText: "Read Article on Prajavani",
+        secondaryLink: "https://m.dailyhunt.in/news/india/kannada/prajavani-epaper-praj/staart+ap+taayigaagi+ai+shaaping+ejent+parichayisidha+bengalurina+teki-newsid-n724533211",
+        secondaryLinkText: "Read free on Dailyhunt",
         type: "media",
         image: prajavaniPreview
     },
@@ -28,7 +30,7 @@ const pressItems = [
         id: 'press-clearadmit',
         tag: "Career Profile",
         title: "Real Humans of Meta",
-        subtitle: "Clear Admit · Career Profile",
+        subtitle: "Clear Admit · Career Profile · 18 Mar 2026",
         description: "Featured in Clear Admit profiling Vyshak Kannan Iyengar's trajectory from London Business School to Product Strategy at Meta, highlighting tech leadership and strategy.",
         icon: FileText,
         link: "https://www.clearadmit.com/2026/03/real-humans-of-meta-lbs-mba-product-marketing-manager/",
@@ -40,7 +42,7 @@ const pressItems = [
         id: 'press-clearadmit-tech',
         tag: "Featured Alumni",
         title: "MBA Careers in Big Tech",
-        subtitle: "Featured · Clear Admit",
+        subtitle: "Clear Admit · Feature · 7 Jul 2026",
         description: "Featured among MBA alumni from Meta, OpenAI, Google, Microsoft, Amazon and Adobe discussing how business school shaped careers in technology.",
         icon: FileText,
         link: "https://www.clearadmit.com/2026/07/what-tech-alumni-say-the-mba-is-really-worth/",
@@ -52,7 +54,7 @@ const pressItems = [
         id: 'press-yourstory',
         tag: "National Feature",
         title: "BluFin Foundation",
-        subtitle: "YourStory · SocialStory National Profile",
+        subtitle: "YourStory · SocialStory · 30 Aug 2024",
         description: "Profiled in YourStory for co-founding an inclusive sporting ecosystem backing 120+ children and Asian Para Games athletes. Supported by Accel Partners and Kaleyra.",
         icon: FileText,
         link: "https://yourstory.com/socialstory/2024/08/blufin-foundation-led-by-paralympian-sharath-gayak",
@@ -76,7 +78,7 @@ const pressItems = [
         id: 'press-hedigest',
         tag: "Editorial Feature",
         title: "World-Class Institution in the Making",
-        subtitle: "Higher Education Digest · Alumni Profile",
+        subtitle: "Higher Education Digest · Alumni Profile · 29 Jul 2019",
         description: "Featured in Higher Education Digest for founding Cookie Jar at RNSIT, a media tech venture whose events hosted over 1,000 people. An early chapter in a journey through Accenture Strategy, LBS, and Meta.",
         icon: GraduationCap,
         link: "https://www.highereducationdigest.com/rns-institute-of-technology-a-world-class-institution-in-making/",
@@ -88,7 +90,7 @@ const pressItems = [
         id: 'press-bangalore-mirror',
         tag: "Civic Feature",
         title: "Push to Build a Dream On",
-        subtitle: "Bangalore Mirror · Feature",
+        subtitle: "Bangalore Mirror · Feature · 12 Mar 2022",
         description: "Covered by Bangalore Mirror for community leadership and civic impact initiatives supporting para-athlete training infrastructure and accessibility.",
         icon: Newspaper,
         link: "https://bangaloremirror.indiatimes.com/bangalore/others/push-to-build-a-dream-on/articleshow/89931399.cms",
@@ -99,26 +101,39 @@ const pressItems = [
     {
         id: 'press-podcast',
         tag: "Media Podcast",
-        title: "Crack The MBA Interview",
-        subtitle: "Strategic Leadership Podcast",
+        title: "Crack The MBA Show, Ep028",
+        subtitle: "Podcast interview · 16 Feb 2025",
         description: "In-depth podcast interview featuring Vyshak Kannan Iyengar detailing the career transition from Computer Science Engineering to Accenture Strategy, London Business School, and social leadership.",
         icon: Mic,
         link: "https://www.youtube.com/watch?v=v4CaZ4xwotI",
-        linkText: "Watch Podcast Interview",
+        linkText: "Watch on YouTube",
+        secondaryLink: "https://creators.spotify.com/pod/profile/nupur-gupta2/episodes/Ep028-Big-Four-Indian-Male-Engineer-Cracks-LBS--MBB--Crack-The-MBA-Show--Vyshak-Iyengar-e2uuhiq",
+        secondaryLinkText: "Listen on Spotify",
         type: "media",
         image: podcastPreview
     },
     {
         id: 'press-tipranks',
-        tag: "Industry Coverage",
+        tag: "Newswire Mention",
         title: "Voice-Based Kannada AI Ordering",
-        subtitle: "TipRanks · Financial news · 18 Aug 2026",
-        description: "Covered by TipRanks for architecting an end-to-end WhatsApp AI voice ordering agent in Kannada, pioneering vernacular voice commerce integrated with Swiggy via Model Context Protocol (MCP).",
+        subtitle: "TipRanks · Auto-generated newswire · 18 Aug 2026",
+        description: "Named in a TipRanks newswire item on Kannada voice ordering built on gnani.ai speech models and Swiggy's MCP, citing the WhatsApp agent Vyshak designed and deployed for his mother.",
         icon: Bot,
         link: "https://www.tipranks.com/news/private-companies/voice-based-kannada-ordering-showcases-gnani-ai-speech-technology-in-swiggy-ecosystem",
-        linkText: "Read Article on TipRanks",
+        linkText: "Read on TipRanks",
         type: "media",
         image: tipranksPreview
+    },
+    {
+        id: 'press-gnani',
+        tag: "Industry Endorsement",
+        title: "Ordering dinner by voice note",
+        subtitle: "gnani.ai · Official LinkedIn · 18 Aug 2026",
+        description: "gnani.ai, the Bengaluru voice AI company whose Indic speech models power the agent, featured the Kannada WhatsApp ordering agent on its official LinkedIn page, with its CEO also posting about it.",
+        icon: Mic,
+        link: "https://www.linkedin.com/posts/gnani-ai_swiggy-someone-just-ordered-dinner-by-just-activity-7495448908274282496-V8Ua",
+        linkText: "View gnani.ai's post",
+        type: "media"
     }
 ];
 
@@ -129,21 +144,25 @@ const productItems = [
         tag: "Product Launch",
         title: "SpeechOn",
         subtitle: "Product Hunt \u00b7 September 2026 \u00b7 speechon.app",
-        description: "A free speech warm-up that runs entirely in the browser with no sign-up. Routines of 5, 8, 12 or roughly 20 minutes cover breath setup, jaw and lip relaxation, lip trills, exaggerated articulation and pause placement. Over 1,700 people across 24 countries used it within days of launch.",
+        description: "A free speech warm-up that runs entirely in the browser with no sign-up. Routines of 5, 8, 12 or roughly 20 minutes cover breath setup, jaw and lip relaxation, lip trills, exaggerated articulation and pause placement. Over 1,700 people used it within days of launch, and it now has users in 38 countries.",
         icon: Mic,
-        link: "https://www.producthunt.com/products/speechon",
-        linkText: "View SpeechOn on Product Hunt",
+        link: "https://www.speechon.app/",
+        linkText: "Open speechon.app",
+        secondaryLink: "https://www.producthunt.com/products/speechon",
+        secondaryLinkText: "Product Hunt",
         type: "product"
     },
     {
         id: 'product-whatsapp-agent',
         tag: "Product Launch",
-        title: "WhatsApp Voice Grocery Agent",
-        subtitle: "Product Hunt \u00b7 September 2026",
-        description: "Built for Vyshak\u2019s mother, a WhatsApp agent that turns natural Kannada, English or \u2018Kanglish\u2019 voice notes into Swiggy grocery orders. Gnani AI speech models handle Indic voice, Gemini interprets the request, Swiggy MCP searches and orders, and the agent replies with a Kannada voice note.",
+        title: "Sahayaka: WhatsApp Voice Grocery Agent",
+        subtitle: "Product Hunt \u00b7 September 2026 \u00b7 SSRN preprint",
+        description: "Designed and deployed for Vyshak\u2019s mother, a WhatsApp agent that turns natural Kannada, English or \u2018Kanglish\u2019 voice notes into Swiggy grocery orders. Gnani AI speech models handle Indic voice, Gemini interprets the request, Swiggy MCP searches and orders, and the agent replies with a Kannada voice note.",
         icon: Bot,
         link: "https://www.producthunt.com/products/whatsapp-voice-groceries-ordering-agent",
         linkText: "View the agent on Product Hunt",
+        secondaryLink: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7479580",
+        secondaryLinkText: "Read the paper (SSRN)",
         type: "product"
     }
 ];
@@ -167,6 +186,59 @@ const patentItems = [
     }
 ];
 
+// 2b. Publications and preprints (newest first)
+const publicationItems = [
+    {
+        id: 'pub-ssrn-2026',
+        year: "2026",
+        type: "Preprint",
+        title: "Headless Commerce for the Last Mile: An Agent-Mediated, Voice-First Architecture for Code-Mixed, Low-Literacy Users, with a Deployment Account, Source Audit and Evaluation Protocol",
+        meta: "Vyshak Kannan Iyengar · SSRN · Sept 2026 · DOI 10.2139/ssrn.7479580",
+        link: "https://doi.org/10.2139/ssrn.7479580",
+        linkText: "Read on SSRN"
+    },
+    {
+        id: 'pub-medium-2024',
+        year: "2024",
+        type: "Article",
+        title: "The Evolving Role of AI in Wealth Management",
+        meta: "Vyshak Iyengar · DataDrivenInvestor · 18 Nov 2024",
+        link: "https://medium.datadriveninvestor.com/the-evolving-role-of-ai-in-wealth-management-bcac791eeb64",
+        linkText: "Read article"
+    },
+    {
+        id: 'pub-medium-2019',
+        year: "2019",
+        type: "Article · cited twice",
+        title: "Robo Advisors: A Disruption in Indian Wealth Management?",
+        meta: "Vyshak Iyengar · DataDrivenInvestor · 23 Oct 2019 · DOI 10.5281/zenodo.22460494",
+        link: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
+        linkText: "Read article",
+        secondaryLink: "https://doi.org/10.5281/zenodo.22460494",
+        secondaryLinkText: "Zenodo archive"
+    },
+    {
+        id: 'pub-medium-2018',
+        year: "2018",
+        type: "Article · cited twice",
+        title: "Complete Overview of the AI Startup Ecosystem in India",
+        meta: "Vyshak Iyengar · DataDrivenInvestor · 25 Sept 2018 · DOI 10.5281/zenodo.22459996",
+        link: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
+        linkText: "Read article",
+        secondaryLink: "https://doi.org/10.5281/zenodo.22459996",
+        secondaryLinkText: "Zenodo archive"
+    },
+    {
+        id: 'pub-jgrcst-2016',
+        year: "2016",
+        type: "Journal paper",
+        title: "Dependency on Family, Friends and Reviews: Consumer Behavior Towards Smartphones, A Study in Bangalore",
+        meta: "Vyshak Kannan Iyengar · Journal of Global Research in Computer Science & Technology, 4(4), 28–44 · 2016",
+        link: "https://www.slideshare.net/slideshow/consumer-behavior-towards-smartphones-market-a-market-research-paper-by-vyshak-iyengar/251000747",
+        linkText: "Read paper"
+    }
+];
+
 // 3. Verified Academic & Industry Research Citations
 const citationItems = [
     {
@@ -181,6 +253,8 @@ const citationItems = [
         icon: BookOpen,
         citingLink: "https://idrc-crdi.ca/en/books/state-open-data-histories-and-horizons",
         citingLinkText: "View IDRC Book",
+        tertiaryLink: "https://library.oapen.org/bitstream/handle/20.500.12657/24884/1/The_State_of_Open_Data_9781928331957_web.pdf",
+        tertiaryLinkText: "Open-access PDF (OAPEN)",
         originalLink: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
         originalLinkText: "Original 2018 Article",
         type: "citation"
@@ -247,7 +321,7 @@ const Features = () => {
                     </span>
                     <h2 className="section-heading">Work, in the world</h2>
                     <p className="section-subheading">
-                        Products shipped, press coverage, interviews, intellectual property, and research citations.
+                        Products shipped, press coverage, interviews, intellectual property, publications and research citations.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -258,7 +332,7 @@ const Features = () => {
                         <BookOpen size={20} className="credibility-icon" />
                     </div>
                     <p className="credibility-text">
-                        Early writing on AI and fintech has subsequently been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. Both articles are permanently archived with DOIs on <strong>Zenodo</strong> and listed under <strong>ORCID 0009-0002-5098-6448</strong>.
+                        Writing on AI and fintech since 2016 has been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. The two cited articles are archived with DOIs on <strong>Zenodo</strong>, and all work is listed under <strong>ORCID 0009-0002-5098-6448</strong>.
                     </p>
                 </div>
 
@@ -270,44 +344,54 @@ const Features = () => {
                     </div>
 
                     <div className="recognition-grid">
-                        {pressItems.map((item) => (
-                            <a
-                                key={item.id}
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="builder-card feature-media block-link"
-                            >
-                                {item.image ? (
-                                    <div className="card-preview">
-                                        <img src={item.image} alt={item.title} loading="lazy" />
-                                        <div className="preview-overlay"></div>
-                                        <span className="feature-tag tag-media">{item.tag}</span>
-                                    </div>
-                                ) : (
-                                    <div className="card-preview-placeholder">
-                                        <span className="feature-tag tag-media">{item.tag}</span>
-                                    </div>
-                                )}
-
-                                <div className="card-content-wrapper">
+                        {pressItems.map((item) => {
+                            const preview = item.image ? (
+                                <div className="card-preview">
+                                    <img src={item.image} alt={item.title} loading="lazy" />
+                                    <div className="preview-overlay"></div>
+                                    <span className="feature-tag tag-media">{item.tag}</span>
+                                </div>
+                            ) : (
+                                <div className="card-preview-placeholder">
+                                    <span className="feature-tag tag-media">{item.tag}</span>
+                                </div>
+                            )
+                            const body = (
+                                <>
                                     <div className="card-header">
                                         <span className="card-category">{item.tag}</span>
                                         <item.icon size={18} className="card-icon" />
                                     </div>
-
                                     <h4 className="card-title">{item.title}</h4>
                                     {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
-
                                     <p className="card-desc">{item.description}</p>
-
-                                    <div className="card-link-text">
-                                        <span>{item.linkText}</span>
-                                        <ExternalLink size={14} />
+                                </>
+                            )
+                            if (item.secondaryLink) return (
+                                <div key={item.id} className="builder-card feature-media">
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.linkText}>{preview}</a>
+                                    <div className="card-content-wrapper">
+                                        {body}
+                                        <div className="card-links-row">
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item"><span>{item.linkText}</span><ExternalLink size={13} /></a>
+                                            <a href={item.secondaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary"><span>{item.secondaryLinkText}</span><ExternalLink size={13} /></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
-                        ))}
+                            )
+                            return (
+                                <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer" className="builder-card feature-media block-link">
+                                    {preview}
+                                    <div className="card-content-wrapper">
+                                        {body}
+                                        <div className="card-link-text">
+                                            <span>{item.linkText}</span>
+                                            <ExternalLink size={14} />
+                                        </div>
+                                    </div>
+                                </a>
+                            )
+                        })}
                     </div>
                 </div>
 
@@ -315,35 +399,29 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="products">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Products &amp; Launches</h3>
-                        <span className="subgroup-desc">Shipped and launched publicly on Product Hunt</span>
+                        <span className="subgroup-desc">Designed, shipped and launched publicly</span>
                     </div>
 
                     <div className="recognition-grid">
                         {productItems.map((item) => (
-                            <a
-                                key={item.id}
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="builder-card block-link"
-                            >
+                            <div key={item.id} className="builder-card">
                                 <div className="card-content-wrapper">
                                     <div className="card-header">
                                         <span className="card-category">{item.tag}</span>
                                         <item.icon size={18} className="card-icon" />
                                     </div>
 
-                                    <h4 className="card-title">{item.title}</h4>
+                                    <h4 className="card-title"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                                     {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
 
                                     <p className="card-desc">{item.description}</p>
 
-                                    <div className="card-link-text">
-                                        <span>{item.linkText}</span>
-                                        <ExternalLink size={14} />
+                                    <div className="card-links-row">
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item"><span>{item.linkText}</span><ExternalLink size={13} /></a>
+                                        {item.secondaryLink && <a href={item.secondaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary"><span>{item.secondaryLinkText}</span><ExternalLink size={13} /></a>}
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -404,6 +482,31 @@ const Features = () => {
                     </div>
                 </div>
 
+                {/* 2b. Publications */}
+                <div className="spotlight-subgroup" id="publications">
+                    <div className="subgroup-header">
+                        <h3 className="subgroup-title">Publications</h3>
+                        <span className="subgroup-desc">Preprints, journal papers and articles, newest first</span>
+                    </div>
+
+                    <ol className="publication-list">
+                        {publicationItems.map((item) => (
+                            <li key={item.id} className="publication-item">
+                                <span className="publication-year">{item.year}</span>
+                                <div>
+                                    <span className="card-category publication-type">{item.type}</span>
+                                    <h4 className="publication-title"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
+                                    <p className="original-meta">{item.meta}</p>
+                                    <div className="card-links-row publication-links">
+                                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item"><span>{item.linkText}</span><ExternalLink size={13} /></a>
+                                        {item.secondaryLink && <a href={item.secondaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary"><span>{item.secondaryLinkText}</span><ExternalLink size={13} /></a>}
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+
                 {/* 3. Research & Citations Subsection */}
                 <div className="spotlight-subgroup" id="research">
                     <div className="subgroup-header">
@@ -446,6 +549,10 @@ const Features = () => {
                                             <span>{item.originalLinkText}</span>
                                             <ExternalLink size={13} />
                                         </a>
+                                        {item.tertiaryLink && <a href={item.tertiaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary">
+                                            <span>{item.tertiaryLinkText}</span>
+                                            <ExternalLink size={13} />
+                                        </a>}
                                     </div>
                                 </div>
                             </div>

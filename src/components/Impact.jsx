@@ -8,7 +8,7 @@ const Impact = () => {
                     <span className="impact-section-tag">04 / Impact</span>
                     <h2 className="section-heading">Beyond the day job</h2>
                     <p className="section-subheading">
-                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and leads civic tech initiatives.
+                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and has worked on civic tech initiatives.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -98,9 +98,9 @@ const Impact = () => {
                                 <CheckCircle size={18} className="civic-check" />
                                 <div>
                                     <strong>
-                                        Governing Council Member · <a href="https://www.letsbethechange.in/" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
+                                        Secretary, Governing Members · <a href="https://www.letsbethechange.in/team" target="_blank" rel="noopener noreferrer" className="civic-inline-link">"Let's Be The Change"</a>
                                     </strong>
-                                    <p>Served on the leadership council driving urban cleanliness and civic engagement across Karnataka.</p>
+                                    <p>Serves as Secretary on the governing body of the NGO driving urban cleanliness and civic engagement across Karnataka.</p>
                                 </div>
                             </div>
 
