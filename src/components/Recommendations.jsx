@@ -14,7 +14,7 @@ const recommendations = [
     {
         id: 'richard-harpin',
         name: 'Sir Richard Harpin',
-        punchline: 'Entrepreneur who sold HomeServe for £4.1bn',
+        punchline: 'Billionaire entrepreneur who sold HomeServe for £4.1bn',
         role: 'Founder of HomeServe · Owner, Business Leader',
         relationship: 'Senior to Vyshak, but did not manage directly',
         date: 'March 2025',
