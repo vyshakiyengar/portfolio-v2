@@ -1,6 +1,6 @@
 import '../styles/HorizontalTimeline.css'
 import ScrollIndicator from './ScrollIndicator'
-import bcgLogo from '../assets/logos/bcg.png'
+import bcgLogo from '../assets/logos/bcg-2026.png'
 import lbsLogo from '../assets/logos/lbs.png'
 import metaLogo from '../assets/logos/meta.png'
 import accentureLogo from '../assets/logos/accenture.png'

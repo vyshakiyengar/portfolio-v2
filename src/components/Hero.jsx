@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import metaLogo from '../assets/logos/meta.png'
 import lbsLogo from '../assets/logos/lbs.png'
-import bcgLogo from '../assets/logos/bcg.png'
+import bcgLogo from '../assets/logos/bcg-2026.png'
 import accentureLogo from '../assets/logos/accenture.png'
 
 const photographs = [

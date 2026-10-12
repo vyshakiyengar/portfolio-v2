@@ -5,6 +5,7 @@ const footerNavLinks = [
     { label: 'Home', path: '/', id: 'hero' },
     { label: 'About', path: '/about', id: 'narrative' },
     { label: 'Timeline', path: '/experience', id: 'experience' },
+    { label: 'Recommendations', path: '/recommendations', id: 'recommendations' },
     { label: 'Spotlight', path: '/spotlight', id: 'spotlight' },
     { label: 'Impact', path: '/impact', id: 'impact' },
 ];

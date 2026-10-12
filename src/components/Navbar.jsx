@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 const links = [
- ['About', 'narrative'], ['Experience', 'experience'], ['Spotlight', 'spotlight'],
+ ['About', 'narrative'], ['Experience', 'experience'], ['Recommendations', 'recommendations'], ['Spotlight', 'spotlight'],
  ['Impact', 'impact'], ['Philosophy', 'philosophy'], ['Contact', 'contact'],
 ]
 export default function Navbar() {

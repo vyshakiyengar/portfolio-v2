@@ -14,7 +14,7 @@ const recommendations = [
     {
         id: 'richard-harpin',
         name: 'Sir Richard Harpin',
-        punchline: 'Built a £4.1bn business',
+        punchline: 'Built HomeServe into a £4.1bn business',
         role: 'Founder of HomeServe · Owner, Business Leader',
         relationship: 'Senior to Vyshak, but did not manage directly',
         date: 'March 2025',
@@ -195,7 +195,7 @@ const Recommendations = () => {
     return (
         <section className="recommendations-section" id="recommendations">
             <div className="container">
-                <p className="eyebrow">06 / Recommendations</p>
+                <p className="eyebrow">03 / Recommendations</p>
                 <h2 className="section-heading text-center">Words from people I’ve worked with</h2>
                 <p className="section-subheading">
                     Unedited LinkedIn recommendations from founders, operators and mentors I have

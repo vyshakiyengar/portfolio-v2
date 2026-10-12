@@ -5,7 +5,7 @@ const Impact = () => {
         <section className="impact-section" id="impact">
             <div className="container">
                 <div className="text-center">
-                    <span className="impact-section-tag">04 / Impact</span>
+                    <span className="impact-section-tag">05 / Impact</span>
                     <h2 className="section-heading">Beyond the day job</h2>
                     <p className="section-subheading">
                         Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and has worked on civic tech initiatives.

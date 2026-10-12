@@ -1,4 +1,4 @@
-import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap, Building2, Scale } from 'lucide-react'
+import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
 import podcastPreview from '../assets/previews/podcast-v2.png'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
@@ -241,73 +241,59 @@ const publicationItems = [
     }
 ];
 
-// 3. Verified Academic & Industry Research Citations
-const citationItems = [
+// 3. Research citations, grouped by the original article that was cited
+const citedWorks = [
     {
-        id: 'cite-idrc',
-        tag: "Academic Citation",
-        citingEntity: "African Minds + IDRC",
-        citationSource: "Davies, T. (2019) · The State of Open Data: Histories and Horizons · African Minds & IDRC",
-        chapterRef: "Chapter: Algorithms and Artificial Intelligence · Reference #34 · ISBN 978-1-928331-95-7",
-        citationQuote: "Referenced as ‘Iyengar, V. (2018)’ in Tim Davies’ chapter on Algorithms and Artificial Intelligence.",
-        originalTitle: "Complete overview of the AI startup ecosystem in India",
-        originalMeta: "Vyshak Iyengar (2018) · DataDrivenInvestor · DOI 10.5281/zenodo.22459996",
-        icon: BookOpen,
-        citingLink: "https://idrc-crdi.ca/en/books/state-open-data-histories-and-horizons",
-        citingLinkText: "View IDRC Book",
-        tertiaryLink: "https://library.oapen.org/bitstream/handle/20.500.12657/24884/1/The_State_of_Open_Data_9781928331957_web.pdf",
-        tertiaryLinkText: "Open-access PDF (OAPEN)",
-        originalLink: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
-        originalLinkText: "Original 2018 Article",
-        type: "citation"
+        id: 'cited-ai-ecosystem',
+        title: "Complete Overview of the AI Startup Ecosystem in India",
+        meta: "DataDrivenInvestor · 25 Sept 2018",
+        doi: "10.5281/zenodo.22459996",
+        link: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
+        citedBy: [
+            {
+                kind: "Book chapter",
+                title: "The State of Open Data: Histories and Horizons",
+                detail: "Tim Davies, chapter on Algorithms and Artificial Intelligence · African Minds & IDRC · 2019",
+                where: "Reference 34",
+                link: "https://idrc-crdi.ca/en/books/state-open-data-histories-and-horizons",
+                linkText: "IDRC",
+                extraLink: "https://library.oapen.org/bitstream/handle/20.500.12657/24884/1/The_State_of_Open_Data_9781928331957_web.pdf",
+                extraLinkText: "Open-access PDF"
+            },
+            {
+                kind: "Law journal",
+                title: "Role of Artificial Intelligence in India: A Legal Study",
+                detail: "Fatima & Singh · Indian Journal of Law and Society, I(8), 74–91 · 2024",
+                where: "Reference 44",
+                link: "https://doi.org/10.5281/zenodo.10644585",
+                linkText: "Paper (DOI)"
+            }
+        ]
     },
     {
-        id: 'cite-ijls',
-        tag: "Law Journal Citation",
-        citingEntity: "Indian Journal of Law and Society",
-        citationSource: "Fatima, K. & Singh, V. V. B. (2024) · Indian Journal of Law and Society, I(8), 74–91",
-        chapterRef: "‘Role of Artificial Intelligence in India: A Legal Study’ · Reference #44 · DOI 10.5281/zenodo.10644585",
-        citationQuote: "The paper references the 2018 article URL at reference 44, followed immediately by Vyshak’s LinkedIn profile.",
-        originalTitle: "Complete overview of the AI startup ecosystem in India",
-        originalMeta: "Vyshak Iyengar (2018) · DataDrivenInvestor · DOI 10.5281/zenodo.22459996",
-        icon: Scale,
-        citingLink: "https://doi.org/10.5281/zenodo.10644585",
-        citingLinkText: "View Journal Paper (DOI)",
-        originalLink: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
-        originalLinkText: "Original 2018 Article",
-        type: "citation"
-    },
-    {
-        id: 'cite-infosys',
-        tag: "Industry Whitepaper",
-        citingEntity: "Infosys",
-        citationSource: "Mehta, P., De, D. & Bobby, A. (2020) · Infosys View Point",
-        chapterRef: "FinTech Disruption in the Automotive Finance Industry · Reference #7",
-        citationQuote: "Reference 7 of the paper’s source list is the 2019 robo-advisors article.",
-        originalTitle: "Robo Advisors: A disruption in Indian Wealth Management?",
-        originalMeta: "Vyshak Iyengar (2019) · DataDrivenInvestor · DOI 10.5281/zenodo.22460494",
-        icon: Building2,
-        citingLink: "https://www.infosys.com/industries/automotive/documents/fintech-disruption.pdf",
-        citingLinkText: "View Infosys Paper (PDF)",
-        originalLink: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
-        originalLinkText: "Original 2019 Article",
-        type: "citation"
-    },
-    {
-        id: 'cite-nliu',
-        tag: "Legal & Commercial Research",
-        citingEntity: "NLIU Bhopal",
-        citationSource: "Contemporary Developments in Corporate and Commercial Laws in India (2023)",
-        chapterRef: "7th NLIU–Trilegal Summit collection, Eastern Book Company · Footnote #10",
-        citationQuote: "The publication provides a full citation naming Vyshak Iyengar, the article title, publication date and source.",
-        originalTitle: "Robo Advisors: A disruption in Indian Wealth Management?",
-        originalMeta: "Vyshak Iyengar (2019) · DataDrivenInvestor · DOI 10.5281/zenodo.22460494",
-        icon: Scale,
-        citingLink: "https://cbcl.nliu.ac.in/wp-content/uploads/2023/04/FINAL-Compiled-Manuscripts_Trilegal-Summit-Book-2023.pdf",
-        citingLinkText: "View NLIU Publication (PDF)",
-        originalLink: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
-        originalLinkText: "Original 2019 Article",
-        type: "citation"
+        id: 'cited-robo-advisors',
+        title: "Robo Advisors: A Disruption in Indian Wealth Management?",
+        meta: "DataDrivenInvestor · 23 Oct 2019",
+        doi: "10.5281/zenodo.22460494",
+        link: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
+        citedBy: [
+            {
+                kind: "Industry whitepaper",
+                title: "FinTech Disruption in the Automotive Finance Industry",
+                detail: "Mehta, De & Bobby · Infosys View Point · 2020",
+                where: "Reference 7",
+                link: "https://www.infosys.com/industries/automotive/documents/fintech-disruption.pdf",
+                linkText: "Infosys PDF"
+            },
+            {
+                kind: "Legal research collection",
+                title: "Contemporary Developments in Corporate and Commercial Laws in India",
+                detail: "7th NLIU–Trilegal Summit · Eastern Book Company · 2023",
+                where: "Footnote 10",
+                link: "https://cbcl.nliu.ac.in/wp-content/uploads/2023/04/FINAL-Compiled-Manuscripts_Trilegal-Summit-Book-2023.pdf",
+                linkText: "NLIU PDF"
+            }
+        ]
     }
 ];
 
@@ -319,7 +305,7 @@ const Features = () => {
                 <div className="text-center">
                     <span className="spotlight-section-tag">
                         <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        03 / Spotlight
+                        04 / Spotlight
                     </span>
                     <h2 className="section-heading">Work, in the world</h2>
                     <p className="section-subheading">
@@ -513,25 +499,39 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="research">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Research &amp; Citations</h3>
-                        <span className="subgroup-desc">Verified citations of early AI &amp; fintech writing across academic journals, policy institutes, and industry publications</span>
+                        <span className="subgroup-desc">Who has cited my writing, and where</span>
                     </div>
 
-                    <ul className="citation-rows">
-                        {citationItems.map((item) => (
-                            <li key={item.id} className="citation-row">
-                                <span className="citation-row-tag">{item.tag}</span>
-                                <div className="citation-row-main">
-                                    <a className="citation-row-entity" href={item.citingLink} target="_blank" rel="noopener noreferrer">{item.citingEntity}</a>
-                                    <span className="citation-row-source">{item.citationSource} · {item.chapterRef}</span>
-                                </div>
-                                <span className="citation-row-cites">cites <a href={item.originalLink} target="_blank" rel="noopener noreferrer">{item.originalTitle}</a></span>
-                                <span className="citation-row-links">
-                                    <a href={item.citingLink} target="_blank" rel="noopener noreferrer" aria-label={item.citingLinkText}><ExternalLink size={13} /></a>
-                                    {item.tertiaryLink && <a href={item.tertiaryLink} target="_blank" rel="noopener noreferrer" className="citation-row-extra">Open access</a>}
-                                </span>
-                            </li>
+                    <div className="cite-summary">
+                        <div><strong>2</strong><span>articles cited</span></div>
+                        <div><strong>4</strong><span>citing publications</span></div>
+                        <div><strong>2019–2024</strong><span>a book, a law journal, an Infosys whitepaper and a legal research collection</span></div>
+                    </div>
+
+                    <div className="cite-groups">
+                        {citedWorks.map((work) => (
+                            <article key={work.id} className="cite-group">
+                                <span className="cite-label">My article</span>
+                                <h4 className="cite-work-title"><a href={work.link} target="_blank" rel="noopener noreferrer">{work.title}</a></h4>
+                                <p className="cite-work-meta">{work.meta} · <a href={`https://doi.org/${work.doi}`} target="_blank" rel="noopener noreferrer">DOI {work.doi}</a></p>
+
+                                <span className="cite-label cite-label-by">Cited by {work.citedBy.length}</span>
+                                <ul className="cite-list">
+                                    {work.citedBy.map((c) => (
+                                        <li key={c.title} className="cite-item">
+                                            <span className="cite-kind">{c.kind}</span>
+                                            <p className="cite-title">{c.title}</p>
+                                            <p className="cite-detail">{c.detail} · <strong>{c.where}</strong></p>
+                                            <div className="cite-links">
+                                                <a href={c.link} target="_blank" rel="noopener noreferrer">{c.linkText} <ExternalLink size={12} /></a>
+                                                {c.extraLink && <a href={c.extraLink} target="_blank" rel="noopener noreferrer">{c.extraLinkText} <ExternalLink size={12} /></a>}
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </article>
                         ))}
-                    </ul>
+                    </div>
                 </div>
 
             </div>
