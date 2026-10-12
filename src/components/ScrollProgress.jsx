@@ -5,7 +5,7 @@ const sections = [
     { id: 'hero', label: 'Home', path: '/' },
     { id: 'narrative', label: 'About', path: '/about' },
     { id: 'experience', label: 'Timeline', path: '/experience' },
-    { id: 'spotlight', label: 'Press & Work', path: '/spotlight' },
+    { id: 'spotlight', label: 'Media & Work', path: '/spotlight' },
     { id: 'impact', label: 'Impact', path: '/impact' },
     { id: 'philosophy', label: 'Philosophy', path: '/philosophy' },
     { id: 'contact', label: 'Contact', path: '/contact' }

@@ -305,9 +305,9 @@ const Features = () => {
                 <div className="text-center">
                     <span className="spotlight-section-tag">
                         <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        04 / Press &amp; work
+                        04 / Media &amp; work
                     </span>
-                    <h2 className="section-heading">Press, products &amp; research</h2>
+                    <h2 className="section-heading">Media features &amp; interviews</h2>
                     <p className="section-subheading">
                         Media features and interviews, products Vyshak has shipped, a granted US patent, his publications, and who has cited them.
                     </p>

@@ -22,7 +22,7 @@ export default function Hero() {
             <p className="hero-role">AI and product strategist.</p>
             <p className="hero-description">Most recently led product strategy and growth at Meta, building on strategy consulting at BCG and Accenture. An alumnus of London Business School and co-founder of the social enterprise BluFin Foundation.</p>
             <div className="hero-links">
-              <a href="#spotlight">See press &amp; work <ArrowUpRight size={17} /></a>
+              <a href="#spotlight">See media &amp; work <ArrowUpRight size={17} /></a>
               <a href="https://www.linkedin.com/in/vyshakiyengar/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={17} /></a>
               <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer">X (Twitter) <ArrowUpRight size={17} /></a>
             </div>
