@@ -305,11 +305,11 @@ const Features = () => {
                 <div className="text-center">
                     <span className="spotlight-section-tag">
                         <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        04 / Spotlight
+                        04 / Press &amp; work
                     </span>
-                    <h2 className="section-heading">Work, in the world</h2>
+                    <h2 className="section-heading">Press, products &amp; research</h2>
                     <p className="section-subheading">
-                        Products shipped, press coverage, interviews, intellectual property, publications and research citations.
+                        Media features and interviews, products I have shipped, a granted US patent, my publications, and who has cited them.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
