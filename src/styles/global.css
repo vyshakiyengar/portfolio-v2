@@ -183,3 +183,52 @@ main > section { padding:94px 0; border-bottom:1px solid var(--line); }
 .cite-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:7px}
 .cite-links a{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
 @media(max-width:760px){.cite-summary{grid-template-columns:repeat(3,max-content);gap:12px 28px}.cite-summary strong{font-size:28px}.cite-groups{grid-template-columns:1fr;gap:36px}.cite-work-title{font-size:23px}}
+
+/* Section tracking: active nav item, reading progress bar, floating section tracker */
+.navigation-links a{position:relative;color:var(--muted);transition:color .2s}
+.navigation-links a:hover{color:var(--ink)}
+.navigation-links a.is-active{color:var(--ink);font-weight:600}
+.navigation-links a.is-active::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--accent)}
+.nav-num{display:none;font-size:10px;color:var(--accent);margin-right:6px;font-weight:550}
+.read-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:transparent;overflow:hidden}
+.read-progress span{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);transition:transform .12s linear}
+.section-tracker{position:fixed;z-index:30;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:10px 12px 10px 16px;background:rgba(35,40,34,.94);color:#fff;border-radius:999px;box-shadow:0 8px 28px rgba(35,40,34,.18);backdrop-filter:blur(6px);max-width:calc(100vw - 32px)}
+.tracker-segments{display:flex;gap:4px}
+.tracker-seg{width:16px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);padding:0;transition:background .2s,width .2s}
+.tracker-seg.is-done{background:rgba(255,255,255,.6)}
+.tracker-seg.is-current{background:#e2a27f;width:26px}
+.tracker-text{display:flex;align-items:center;gap:14px;font-size:11.5px;white-space:nowrap}
+.tracker-now strong{font-weight:600;letter-spacing:.02em;margin-right:4px}
+.tracker-next{display:inline-flex;align-items:center;gap:5px;color:#fff;font-size:11.5px;font-weight:550;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12)}
+.tracker-next:hover{background:rgba(255,255,255,.22);color:#fff}
+.tracker-left{color:rgba(255,255,255,.65);font-weight:450}
+@media(max-width:760px){
+ .navigation-links a.is-active::after{bottom:6px;right:auto;width:28px}
+ .nav-num{display:inline}
+ .section-tracker{bottom:12px;gap:10px;padding:8px 8px 8px 12px}
+ .tracker-seg{width:9px}.tracker-seg.is-current{width:16px}
+ .tracker-text{gap:8px;font-size:11px}
+ .tracker-left{display:none}
+ .tracker-next{font-size:11px;padding:6px 10px}
+}
+@media(max-width:380px){.tracker-segments{display:none}}
+
+/* Tighter vertical rhythm so the page scrolls shorter */
+main > section{padding:60px 0}
+.hero-section{padding:44px 0 36px}
+.photo-journal{margin-top:40px}
+.section-subheading{margin-bottom:30px}
+.spotlight-subgroup{margin-top:44px}
+.credibility-banner{margin-bottom:36px}
+.timeline-v-container{margin-top:28px}
+.timeline-v-row{padding:22px 0}
+.builder-card{padding:24px 0}
+.scroll-wrapper{margin-top:20px}
+.footer-section{padding:60px 0 96px}
+.contact-bottom-bar{margin-top:44px}
+@media(max-width:760px){main>section{padding:42px 0}.hero-section{padding-top:30px}.spotlight-subgroup{margin-top:34px}.footer-section{padding:44px 0 90px}}
+.partner-tags{gap:14px 30px;align-items:center}
+.partner-pill{display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:11px;color:var(--muted)}
+.partner-logo{display:block;height:24px;width:auto;object-fit:contain}
+.partner-logo-kaleyra{height:30px}
+.partner-logo-paypal{height:20px;margin:2px 0}
