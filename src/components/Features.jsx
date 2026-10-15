@@ -32,7 +32,7 @@ const pressItems = [
         tag: "Career Profile",
         title: "Real Humans of Meta",
         subtitle: "Clear Admit · Career Profile · 18 Mar 2026",
-        description: "Featured in Clear Admit profiling Vyshak Kannan Iyengar's trajectory from London Business School to Product Strategy at Meta, highlighting tech leadership and strategy.",
+        description: "Featured in Clear Admit profiling Vyshak Kannan Iyengar's path from London Business School to Product Strategy and Growth at Meta, covering tech leadership and strategy.",
         icon: FileText,
         link: "https://www.clearadmit.com/2026/03/real-humans-of-meta-lbs-mba-product-marketing-manager/",
         linkText: "Read Profile on Clear Admit",
