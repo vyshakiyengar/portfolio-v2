@@ -26,7 +26,7 @@ const experiences = [
         organization: 'BluFin Foundation',
         period: '2017 - Present',
         icon: Waves,
-        description: 'Creating an inclusive sporting ecosystem. 100+ children trained. 2 athletes at Asian Para Games 2023. Partnerships with Accel Partners, PayPal.',
+        description: 'Creating an inclusive sporting ecosystem. 100+ children trained. 2 athletes at Asian Para Games 2023. Partnerships with Accel Partners and Kaleyra.',
         quote: '"Started with Rs 2 lakh from friends and family. Today, changing lives through sport."',
         link: 'https://www.blufinfoundation.com'
     },
