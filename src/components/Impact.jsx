@@ -1,7 +1,6 @@
 import { Heart, Landmark, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
 import accelLogo from '../assets/logos/partners/accel.png'
 import kaleyraLogo from '../assets/logos/partners/kaleyra.png'
-import paypalLogo from '../assets/logos/partners/paypal.png'
 
 const Impact = () => {
     return (
@@ -70,7 +69,6 @@ const Impact = () => {
                                 <div className="partner-tags">
                                     <span className="partner-pill"><img src={accelLogo} alt="" className="partner-logo partner-logo-accel" width="72" height="23" loading="lazy" />Accel Partners</span>
                                     <span className="partner-pill"><img src={kaleyraLogo} alt="" className="partner-logo partner-logo-kaleyra" width="30" height="26" loading="lazy" />Kaleyra</span>
-                                    <span className="partner-pill"><img src={paypalLogo} alt="" className="partner-logo partner-logo-paypal" width="76" height="19" loading="lazy" />PayPal</span>
                                 </div>
                             </div>
                         </div>
