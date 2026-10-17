@@ -177,7 +177,7 @@ const patentItems = [
         title: "US Patent 12,020,352",
         subtitle: "Project Visualization System · US12020352B2",
         description: "Co-inventor: Vyshak Kannan Iyengar · Assignee: Accenture Global Solutions. Granted for an automated system visualizing complex project dependencies and workflow logic.",
-        subNote: "Since cited by patent examiners as prior art against later filings from Microsoft, the United States Postal Service and others. See Research & Citations below.",
+        subNote: "The patent family has subsequently appeared in examiner-added prior-art citation trails for later patent applications.",
         icon: Lightbulb,
         link: "https://patents.google.com/patent/US12020352B2/en",
         linkText: "Google Patents",
@@ -245,41 +245,6 @@ const publicationItems = [
 
 // 3. Research citations, grouped by the original work that was cited
 const citedWorks = [
-    {
-        id: 'cited-patent',
-        label: "Patent by Vyshak",
-        wide: true,
-        title: "Project visualization system",
-        meta: "US 12,020,352 B2 · Accenture · granted 25 Jun 2024",
-        link: "https://patents.google.com/patent/US12020352B2/en",
-        byLabel: "Cited by patent examiners in 3 later filings",
-        citedBy: [
-            {
-                kind: "US patent · Microsoft",
-                title: "Artificial Intelligence-Powered Aggregation of Project-Related Collateral",
-                detail: "Microsoft Technology Licensing · US20240303568A1 · published 12 Sept 2024, since granted as US12657534B2",
-                where: "Cited by examiner",
-                link: "https://patents.google.com/patent/US20240303568A1/en",
-                linkText: "Google Patents"
-            },
-            {
-                kind: "US patent application · USPS",
-                title: "Project data visualization and management system",
-                detail: "United States Postal Service · US20230419263A1 · published 28 Dec 2023",
-                where: "Cited by examiner",
-                link: "https://patents.google.com/patent/US20230419263A1/en",
-                linkText: "Google Patents"
-            },
-            {
-                kind: "Chinese patent",
-                title: "Intelligent sensor-based highway green construction information management method, system, terminal and storage medium",
-                detail: "Heilongjiang Yiha Highway Engineering · CN121212715A · published 26 Dec 2025, since granted as CN121212715B",
-                where: "Cited by examiner",
-                link: "https://patents.google.com/patent/CN121212715A/en",
-                linkText: "Google Patents"
-            }
-        ]
-    },
     {
         id: 'cited-ai-ecosystem',
         title: "Complete Overview of the AI Startup Ecosystem in India",
@@ -357,7 +322,7 @@ const Features = () => {
                         <BookOpen size={20} className="credibility-icon" />
                     </div>
                     <p className="credibility-text">
-                        His granted US patent has been cited by patent examiners in later filings from <strong>Microsoft</strong> and the <strong>United States Postal Service</strong>, and his writing on AI and fintech has been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. The two cited articles are archived with DOIs on <strong>Zenodo</strong>, and all work is listed under <strong>ORCID 0009-0002-5098-6448</strong>.
+                        Writing on AI and fintech since 2016 has been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. The two cited articles are archived with DOIs on <strong>Zenodo</strong>, and all work is listed under <strong>ORCID 0009-0002-5098-6448</strong>.
                     </p>
                 </div>
 
@@ -537,18 +502,18 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="research">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Research &amp; Citations</h3>
-                        <span className="subgroup-desc">Who has cited Vyshak’s patent and writing, and where</span>
+                        <span className="subgroup-desc">Who has cited Vyshak’s writing, and where</span>
                     </div>
 
                     <div className="cite-summary">
-                        <div><strong>3</strong><span>works cited · 1 patent, 2 articles</span></div>
-                        <div><strong>7</strong><span>citing patents &amp; publications</span></div>
-                        <div><strong>2019–2025</strong><span>years cited</span></div>
+                        <div><strong>2</strong><span>articles cited</span></div>
+                        <div><strong>4</strong><span>citing publications</span></div>
+                        <div><strong>2019–2024</strong><span>years cited</span></div>
                     </div>
 
                     <div className="cite-groups">
                         {citedWorks.map((work) => (
-                            <article key={work.id} className={`cite-group${work.wide ? ' cite-group-wide' : ''}`}>
+                            <article key={work.id} className="cite-group">
                                 <span className="cite-label">{work.label || 'Article by Vyshak'}</span>
                                 <h4 className="cite-work-title"><a href={work.link} target="_blank" rel="noopener noreferrer">{work.title}</a></h4>
                                 <p className="cite-work-meta">{work.meta}{work.doi && <> · <a href={`https://doi.org/${work.doi}`} target="_blank" rel="noopener noreferrer">DOI {work.doi}</a></>}</p>
