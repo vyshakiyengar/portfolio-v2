@@ -217,7 +217,8 @@ const publicationItems = [
         link: "https://medium.com/datadriveninvestor/robo-advisors-a-disruption-in-indian-wealth-management-70d2392a03a8",
         linkText: "Read article",
         secondaryLink: "https://doi.org/10.5281/zenodo.22460494",
-        secondaryLinkText: "Zenodo archive"
+        secondaryLinkText: "Zenodo archive",
+        paperPage: "/papers/robo-advisors-indian-wealth-management/"
     },
     {
         id: 'pub-medium-2018',
@@ -228,7 +229,8 @@ const publicationItems = [
         link: "https://medium.com/datadriveninvestor/ai-startups-in-india-1c49e71a1ce5",
         linkText: "Read article",
         secondaryLink: "https://doi.org/10.5281/zenodo.22459996",
-        secondaryLinkText: "Zenodo archive"
+        secondaryLinkText: "Zenodo archive",
+        paperPage: "/papers/ai-startup-ecosystem-india/"
     },
     {
         id: 'pub-jgrcst-2016',
@@ -523,6 +525,7 @@ const Features = () => {
                                     <div className="card-links-row publication-links">
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item"><span>{item.linkText}</span><ExternalLink size={13} /></a>
                                         {item.secondaryLink && <a href={item.secondaryLink} target="_blank" rel="noopener noreferrer" className="card-link-item card-link-secondary"><span>{item.secondaryLinkText}</span><ExternalLink size={13} /></a>}
+                                        {item.paperPage && <a href={item.paperPage} className="card-link-item card-link-secondary"><span>Citation page &amp; PDF</span></a>}
                                     </div>
                                 </div>
                             </li>
