@@ -167,6 +167,8 @@ main > section { padding:94px 0; border-bottom:1px solid var(--line); }
 .cite-summary span{display:block;font-size:11px;line-height:1.4;color:var(--muted);margin-top:10px;white-space:nowrap}
 .cite-groups{display:grid;grid-template-columns:1fr 1fr;gap:42px}
 .cite-group{min-width:0}
+.cite-group-wide{grid-column:1/-1;padding-bottom:34px;border-bottom:1px solid var(--line)}
+.cite-group-wide .cite-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
 .cite-label{display:block;font:550 9px/1.4 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .cite-label-by{margin:22px 0 4px}
 .cite-work-title{font:400 25px/1.2 var(--serif);margin-bottom:8px}
@@ -182,7 +184,7 @@ main > section { padding:94px 0; border-bottom:1px solid var(--line); }
 .cite-detail strong{color:var(--ink);font-weight:550}
 .cite-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:7px}
 .cite-links a{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
-@media(max-width:760px){.cite-summary{grid-template-columns:repeat(3,max-content);gap:12px 28px}.cite-summary strong{font-size:28px}.cite-groups{grid-template-columns:1fr;gap:36px}.cite-work-title{font-size:23px}}
+@media(max-width:760px){.cite-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}.cite-summary strong{font-size:28px}.cite-summary span{white-space:normal}.cite-groups{grid-template-columns:1fr;gap:36px}.cite-work-title{font-size:23px}.cite-group-wide .cite-list{grid-template-columns:1fr}}
 
 /* Section tracking: active nav item, reading progress bar, floating section tracker */
 .navigation-links a{position:relative;color:var(--muted);transition:color .2s}
