@@ -146,7 +146,7 @@ export function useMotion() {
     cleanups.push(() => count.disconnect())
 
     // One scroll listener drives the scroll-linked details:
-    // the portrait drift and the BluFin photo opening up.
+    // the portrait drift and the Blufin photo opening up.
     const hero = document.querySelector('.hero-section')
     const photos = [...document.querySelectorAll('.impact-card-image, .narrative-frame')]
     let frame = 0

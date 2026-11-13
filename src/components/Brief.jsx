@@ -6,7 +6,7 @@ const items = [
   { label: 'Consulting', href: '#experience', text: 'Strategy consultant at BCG and Accenture.' },
   { label: 'Products', href: '#products', text: 'Built SpeechOn, used in 38 countries; Sahayaka, a WhatsApp voice agent; and PrepForCase, a free case interview course.' },
   { label: 'Patent', href: '#patent', text: 'Co-inventor on a granted US patent.' },
-  { label: 'BluFin Foundation', href: '#impact', text: 'Co-founded one of India’s leading foundations building an inclusive sports ecosystem.' },
+  { label: 'Blufin Foundation', href: '#impact', text: 'Co-founded one of India’s leading foundations building an inclusive sports ecosystem.' },
   { label: 'Policy', href: '#impact', text: 'Advised a Member of Parliament on technology and startup policy.' },
 ]
 

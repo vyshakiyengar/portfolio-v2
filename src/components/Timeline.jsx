@@ -37,7 +37,7 @@ const milestones = [
         step: "03",
         year: "2018–Present",
         role: "Co-Founder & Board Member",
-        institution: "BluFin Foundation",
+        institution: "Blufin Foundation",
         impact: "Co-founded an inclusive sports NGO backing 120+ children and 7 international para-athletes. Backed by Accel Partners.",
         category: "Social Impact",
         icon: Heart,

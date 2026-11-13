@@ -180,7 +180,7 @@
 }
 
 /* ALTERNATING WHITE AND LIGHT GREY CARDS (NO BLUE BACKGROUND) */
-/* Odd Rows (01 VTU, 03 BluFin, 05 BCG) -> Soft Clean Light Grey */
+/* Odd Rows (01 VTU, 03 Blufin, 05 BCG) -> Soft Clean Light Grey */
 .timeline-v-row:nth-child(odd) .timeline-v-card {
     background-color: #F8FAFC;
     border: 1px solid rgba(15, 23, 42, 0.08);

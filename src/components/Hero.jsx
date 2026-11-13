@@ -18,7 +18,7 @@ const credentials = [
 const roles = [
   'AI and product strategist.',
   'Builder of AI products.',
-  'Co-founder, BluFin Foundation.',
+  'Co-founder, Blufin Foundation.',
   'Co-inventor on a US patent.',
 ]
 const ROLE_INTERVAL = 1800
@@ -59,7 +59,7 @@ export default function Hero() {
               <span className="hero-line"><span>K Iyengar<span className="name-period">.</span></span></span>
             </h1>
             <RoleRoll />
-            <p className="hero-description hero-settle" style={{ '--i': 2 }}>Most recently led product strategy and growth at Meta, building on strategy consulting at BCG and Accenture. An alumnus of London Business School and co-founder of the social enterprise BluFin Foundation.</p>
+            <p className="hero-description hero-settle" style={{ '--i': 2 }}>Most recently led product strategy and growth at Meta, building on strategy consulting at BCG and Accenture. An alumnus of London Business School and co-founder of the social enterprise Blufin Foundation.</p>
             <div className="hero-links hero-settle" style={{ '--i': 3 }}>
               <a className="hero-cta" href="#contact">Get in touch</a>
               <a href="#spotlight">See press &amp; work <ArrowUpRight size={17} aria-hidden="true" /></a>

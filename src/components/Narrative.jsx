@@ -34,7 +34,7 @@ const Narrative = () => {
                                 After graduating with distinction in Computer Science Engineering from <strong>RNS Institute of Technology</strong>, Bengaluru, he secured a direct transfer into Accenture’s strategy practice without an MBA, advising Fortune 500 leadership on digital enterprise transformation.
                             </p>
                             <p>
-                                He is also co-founder of the <strong>BluFin Foundation</strong>, which supports disadvantaged youth and para-athletes and has grown from a grassroots initiative into an organization backed by Accel Partners and Kaleyra.
+                                He is also co-founder of the <strong>Blufin Foundation</strong>, which supports disadvantaged youth and para-athletes and has grown from a grassroots initiative into an organization backed by Accel Partners and Kaleyra.
                             </p>
                             <p className="full-name">Vyshak Kannan Iyengar · Also known as Vyshak K Iyengar and Vyshak Iyengar · <span lang="kn">ವೈಶಾಖ್ ಐಯ್ಯಂಗಾರ್</span></p>
                         </div>
