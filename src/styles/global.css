@@ -365,14 +365,38 @@ h2[data-reveal]{overflow:hidden}
 h2[data-reveal]>span{display:block;padding-bottom:.14em;transition:transform 1s cubic-bezier(.16,1,.3,1) .12s}
 .motion h2[data-reveal]:not(.is-in)>span{transform:translateY(112%)}
 
-/* In brief: the whole profile in one paragraph that takes ink as you scroll */
-main>section.brief-section{padding-bottom:104px}
-.brief-text{font:400 clamp(27px,3.35vw,45px)/1.24 var(--serif);letter-spacing:-.018em;max-width:1080px;text-wrap:pretty}
-.brief-text a{color:inherit}
-.brief-word{transition:color .45s ease}
-.brief-text.is-live .brief-word{color:var(--pale)}
-.brief-text.is-live .brief-word.is-lit{color:var(--ink)}
-.brief-text.is-live a:hover .brief-word.is-lit,.brief-text:not(.is-live) a:hover{color:var(--accent)}
+/* In brief: six short lines in a compact grid; they take ink together as the grid arrives */
+main>section.brief-section{padding-bottom:72px}
+.brief-section .chapter{margin-bottom:10px}
+.brief-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.brief-grid li{border-bottom:1px solid var(--line)}
+.brief-grid li:not(:nth-child(3n+1)){border-left:1px solid var(--line)}
+.brief-grid li:nth-last-child(-n+3){border-bottom:0}
+.brief-grid a{display:block;height:100%;padding:24px 30px 26px}
+.brief-grid li:nth-child(3n+1) a{padding-left:0}
+.brief-label{display:block;font-size:13px;font-weight:600;color:var(--accent);margin-bottom:9px}
+.brief-fact{display:block;font:400 21px/1.34 var(--serif);letter-spacing:-.008em;color:var(--ink);text-wrap:pretty;transition:color .7s ease calc(var(--i,0)*90ms)}
+.brief-grid a:hover .brief-fact{color:var(--accent);transition-delay:0s;transition-duration:.2s}
+.motion .brief-grid:not(.is-in) .brief-fact{color:var(--pale)}
+@media(max-width:1000px){
+ .brief-grid{grid-template-columns:1fr 1fr}
+ .brief-grid li:not(:nth-child(3n+1)){border-left:0}
+ .brief-grid li:nth-child(even){border-left:1px solid var(--line)}
+ .brief-grid li:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
+ .brief-grid li:nth-last-child(-n+2){border-bottom:0}
+ .brief-grid li:nth-child(3n+1) a{padding-left:30px}
+ .brief-grid li:nth-child(odd) a{padding-left:0}
+}
+@media(max-width:760px){
+ main>section.brief-section{padding-bottom:44px}
+ .brief-grid{grid-template-columns:1fr}
+ .brief-grid li,.brief-grid li:nth-child(even){border-left:0;border-bottom:1px solid var(--line)}
+ .brief-grid li:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
+ .brief-grid li:nth-last-child(1){border-bottom:0}
+ .brief-grid a,.brief-grid li:nth-child(3n+1) a{padding:16px 0 17px}
+ .brief-label{margin-bottom:5px}
+ .brief-fact{font-size:19px}
+}
 
 /* Small moments */
 .hero-portrait-frame img{scale:1.08;translate:0 calc(var(--drift,0)*3.4%)}
@@ -385,11 +409,9 @@ main>section.brief-section{padding-bottom:104px}
 @media(max-width:760px){
  main>section{padding:0 0 60px}
  main>section.hero-section{padding:30px 0 48px}
- main>section.brief-section{padding-bottom:68px}
  .chapter{gap:14px;margin-bottom:36px;padding-top:26px}
  .chapter-num{font-size:36px}
  .chapter-label{font-size:13px}
- .brief-text{line-height:1.28}
 }
 
 /* Hero motion graphics: drifting line field, rolling role line, scroll cue */
@@ -409,3 +431,7 @@ main>section.hero-section{position:relative;overflow:hidden}
 .scroll-cue-line{position:relative;display:block;width:1px;height:34px;background:var(--line);overflow:hidden}
 .scroll-cue-line::after{content:'';position:absolute;inset:0;background:var(--accent);animation:cue-drop 2.2s cubic-bezier(.65,0,.15,1) infinite}
 @media(max-width:760px){.scroll-cue{margin-top:22px}}
+
+/* Recommendations: comfortable tap targets */
+.rec-expand{min-height:44px}
+.rec-name{display:inline-flex;align-items:center;gap:6px;min-height:40px}
