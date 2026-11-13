@@ -19,7 +19,7 @@ const Impact = () => {
                     {/* Social Impact: BluFin Foundation */}
                     <div className="impact-card social-card fade-in-1">
                         <div className="impact-card-image">
-                            <img src="/images/blufin-pool.jpg" alt="BluFin Foundation Athletes & Team" loading="lazy" />
+                            <img src="/images/blufin-pool.jpg" srcSet="/images/blufin-pool-640.webp 640w, /images/blufin-pool-1024.webp 1024w" sizes="(max-width: 760px) 92vw, 612px" alt="Children and coaches of BluFin Foundation beside a swimming pool" width="1024" height="768" loading="lazy" decoding="async" />
                             <div className="image-overlay-badge">
                                 <Heart size={14} />
                                 <span>Co-Founder &amp; Board Member</span>

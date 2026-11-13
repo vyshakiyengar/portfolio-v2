@@ -1,16 +1,17 @@
+import { useState } from 'react'
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
-import podcastPreview from '../assets/previews/podcast-v2.png'
-import lifeAtLbsPreview from '../assets/previews/podcast-life-at-lbs.jpg'
-import yourstoryPreview from '../assets/previews/yourstory-v3.png'
-import clearadmitPreview from '../assets/previews/clearadmit.png'
-import tipranksPreview from '../assets/previews/tipranks-article.png'
-import prajavaniPreview from '../assets/previews/prajavani-article.png'
-import higherEducationPreview from '../assets/previews/higher-education-digest.png'
-import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.png'
-import rnsitHofPreview from '../assets/previews/rnsit-hall-of-fame.png'
-import clearadmitTechPreview from '../assets/previews/clearadmit-tech-alumni.png'
-import gnaniPreview from '../assets/previews/gnani-linkedin-post.jpg'
+import podcastPreview from '../assets/previews/podcast-v2.webp'
+import lifeAtLbsPreview from '../assets/previews/podcast-life-at-lbs.webp'
+import yourstoryPreview from '../assets/previews/yourstory-v3.webp'
+import clearadmitPreview from '../assets/previews/clearadmit.webp'
+import tipranksPreview from '../assets/previews/tipranks-article.webp'
+import prajavaniPreview from '../assets/previews/prajavani-article.webp'
+import higherEducationPreview from '../assets/previews/higher-education-digest.webp'
+import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.webp'
+import rnsitHofPreview from '../assets/previews/rnsit-hall-of-fame.webp'
+import clearadmitTechPreview from '../assets/previews/clearadmit-tech-alumni.webp'
+import gnaniPreview from '../assets/previews/gnani-linkedin-post.webp'
 
 // 1. Independent Editorial Press & Media (Prioritized Hierarchy)
 const pressItems = [
@@ -65,6 +66,18 @@ const pressItems = [
         image: yourstoryPreview
     },
     {
+        id: 'press-podcast-life-at-lbs',
+        tag: "Media Podcast",
+        title: "Life @ LBS: From Interning With BCG To Immersion In Peru",
+        subtitle: "Podcast interview \u00b7 Sarthak Verma \u00b7 9 Nov 2026",
+        description: "Conversation with Sarthak Verma, founder of Career Edge, on Vyshak\u2019s 21 months at London Business School: favourite courses, a curriculum flexible enough to span product, tech and strategy, interning with BCG\u2019s AI strategy team in Dubai, an international immersion in Peru, and how recruiting and alumni networking work.",
+        icon: Mic,
+        link: "https://www.youtube.com/watch?v=pKbUun-xIJc",
+        linkText: "Watch on YouTube",
+        type: "media",
+        image: lifeAtLbsPreview
+    },
+    {
         id: 'press-rnsit-hof',
         tag: "Distinguished Alumni",
         title: "RNSIT Hall of Fame",
@@ -99,18 +112,6 @@ const pressItems = [
         linkText: "Read Article on Bangalore Mirror",
         type: "media",
         image: bangaloreMirrorPreview
-    },
-    {
-        id: 'press-podcast-life-at-lbs',
-        tag: "Media Podcast",
-        title: "Life @ LBS: From Interning With BCG To Immersion In Peru",
-        subtitle: "Podcast interview \u00b7 Sarthak Verma \u00b7 9 Nov 2026",
-        description: "Conversation with Sarthak Verma, founder of Career Edge, on Vyshak\u2019s 21 months at London Business School: favourite courses, a curriculum flexible enough to span product, tech and strategy, interning with BCG\u2019s AI strategy team in Dubai, an international immersion in Peru, and how recruiting and alumni networking work.",
-        icon: Mic,
-        link: "https://www.youtube.com/watch?v=pKbUun-xIJc",
-        linkText: "Watch on YouTube",
-        type: "media",
-        image: lifeAtLbsPreview
     },
     {
         id: 'press-podcast',
@@ -312,7 +313,26 @@ const citedWorks = [
     }
 ];
 
+// Press cards shown before "Show all". The rest stay in the HTML and are only
+// collapsed once JavaScript is running (html.js), so crawlers and no-JS readers get everything.
+const PRESS_VISIBLE = 6
+
 const Features = () => {
+    const [showAllPress, setShowAllPress] = useState(false)
+    const citationCount = citedWorks.reduce((n, work) => n + work.citedBy.length, 0)
+    const index = [
+        ['Press', 'press', pressItems.length],
+        ['Products', 'products', productItems.length],
+        ['Patent', 'patent', patentItems.length],
+        ['Publications', 'publications', publicationItems.length],
+        ['Citations', 'research', citationCount],
+    ]
+    const togglePress = () => {
+        setShowAllPress((open) => {
+            if (open) document.getElementById('press')?.scrollIntoView({ block: 'start' })
+            return !open
+        })
+    }
     return (
         <section className="recognition-section" id="spotlight">
             <div className="container">
@@ -329,6 +349,13 @@ const Features = () => {
                     <div className="animated-divider"></div>
                 </div>
 
+                {/* Jump links: this is the longest section on the page */}
+                <nav className="spotlight-index" aria-label="In this section">
+                    {index.map(([label, id, count]) => (
+                        <a key={id} href={`#${id}`}>{label}<span>{count}</span></a>
+                    ))}
+                </nav>
+
                 {/* Factual Credibility Banner */}
                 <div className="credibility-banner fade-in-1">
                     <div className="credibility-icon-wrap">
@@ -340,17 +367,18 @@ const Features = () => {
                 </div>
 
                 {/* 1. Verified Editorial Press Coverage */}
-                <div className="spotlight-subgroup">
+                <div className="spotlight-subgroup" id="press">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Editorial Press &amp; Media Coverage</h3>
                         <span className="subgroup-desc">Profiles, features, interviews, and industry coverage</span>
                     </div>
 
-                    <div className="recognition-grid">
-                        {pressItems.map((item) => {
+                    <div id="press-list" className={`recognition-grid press-grid${showAllPress ? ' is-expanded' : ''}`}>
+                        {pressItems.map((item, i) => {
+                            const extra = i >= PRESS_VISIBLE ? ' is-extra' : ''
                             const preview = item.image ? (
                                 <div className="card-preview">
-                                    <img src={item.image} alt={item.title} loading="lazy" />
+                                    <img src={item.image} alt="" width="110" height="83" loading="lazy" decoding="async" />
                                     <div className="preview-overlay"></div>
                                     <span className="feature-tag tag-media">{item.tag}</span>
                                 </div>
@@ -371,7 +399,7 @@ const Features = () => {
                                 </>
                             )
                             if (item.secondaryLink) return (
-                                <div key={item.id} className="builder-card feature-media">
+                                <div key={item.id} className={`builder-card feature-media${extra}`}>
                                     <a href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.linkText}>{preview}</a>
                                     <div className="card-content-wrapper">
                                         {body}
@@ -383,7 +411,7 @@ const Features = () => {
                                 </div>
                             )
                             return (
-                                <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer" className="builder-card feature-media block-link">
+                                <a key={item.id} href={item.link} target="_blank" rel="noopener noreferrer" className={`builder-card feature-media block-link${extra}`}>
                                     {preview}
                                     <div className="card-content-wrapper">
                                         {body}
@@ -396,6 +424,11 @@ const Features = () => {
                             )
                         })}
                     </div>
+                    {pressItems.length > PRESS_VISIBLE && (
+                        <button type="button" className="press-toggle" onClick={togglePress} aria-expanded={showAllPress} aria-controls="press-list">
+                            {showAllPress ? 'Show fewer' : `Show all ${pressItems.length} features`}
+                        </button>
+                    )}
                 </div>
 
                 {/* 1b. Products & Launches */}
@@ -441,7 +474,7 @@ const Features = () => {
                             <div key={item.id} className="builder-card feature-patent patent-card-expanded">
                                 <div className="card-preview patent-preview-wrap">
                                     <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', height: '100%' }}>
-                                        <img src={item.image} alt={item.title} loading="lazy" />
+                                        <img src={item.image} alt="Schematic from US Patent 12,020,352" width="320" height="240" loading="lazy" decoding="async" />
                                     </a>
                                     <div className="preview-overlay"></div>
                                     <span className="feature-tag tag-patent">{item.tag}</span>

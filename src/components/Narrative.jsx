@@ -1,4 +1,4 @@
-import { User, Award, Globe, Heart, ShieldCheck } from 'lucide-react'
+import { User, ShieldCheck } from 'lucide-react'
 import IntroLanguages from './IntroLanguages'
 
 const Narrative = () => {
@@ -9,7 +9,7 @@ const Narrative = () => {
                     {/* Left Column: Image Card */}
                     <div className="narrative-image-col fade-in-1">
                         <div className="narrative-frame">
-                            <img src="/images/lbs-campus.jpg" alt="London Business School campus at Regent’s Park" loading="lazy" className="narrative-img" />
+                            <img src="/images/lbs-campus-800.webp" alt="Vyshak at the London Business School campus, Regent’s Park" width="758" height="1024" loading="lazy" decoding="async" className="narrative-img" />
                             <div className="narrative-badge">
                                 <ShieldCheck size={16} />
                                 <span>London Business School</span>
@@ -42,31 +42,6 @@ const Narrative = () => {
                         </div>
 
                         <IntroLanguages />
-
-                        {/* Highlight Key Pillars */}
-                        <div className="narrative-pillars">
-                            <div className="pillar-item">
-                                <Globe size={20} className="pillar-icon" />
-                                <div className="pillar-text">
-                                    <strong>Global Strategy</strong>
-                                    <span>Meta &amp; BCG Dubai</span>
-                                </div>
-                            </div>
-                            <div className="pillar-item">
-                                <Award size={20} className="pillar-icon" />
-                                <div className="pillar-text">
-                                    <strong>Academic Rigor</strong>
-                                    <span>London Business School</span>
-                                </div>
-                            </div>
-                            <div className="pillar-item">
-                                <Heart size={20} className="pillar-icon" />
-                                <div className="pillar-text">
-                                    <strong>Social Impact</strong>
-                                    <span>BluFin Foundation</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

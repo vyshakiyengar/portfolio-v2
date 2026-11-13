@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Libre+Caslon+Display&display=swap');
-:root { --paper:#faf9f6; --ink:#232822; --muted:#62665e; --line:#dddfd6; --accent:#835038; --serif:'Libre Caslon Display',Georgia,serif; --sans:'DM Sans',sans-serif; }
+:root { --paper:#faf9f6; --ink:#232822; --muted:#62665e; --line:#dddfd6; --accent:#835038; --serif:'Libre Caslon Display',Georgia,serif; --sans:'DM Sans Variable','DM Sans',system-ui,sans-serif; }
 *,*::before,*::after { box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:0; -webkit-font-smoothing:antialiased; }
 body { margin:0; background:var(--paper); color:var(--ink); font:400 16px/1.75 var(--sans); }
@@ -235,3 +234,133 @@ main > section{padding:60px 0}
 .partner-logo-kaleyra{width:22px;height:18px}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.section-tracker{background:rgba(255,255,255,.95)}}
 @media(max-width:760px){.tracker-name{display:none}.section-tracker{max-width:calc(100vw - 24px)}.tracker-next{min-width:0;overflow:hidden;text-overflow:ellipsis}}
+
+/* ───────── Site audit, Nov 2026 ───────── */
+
+/* Hero: one load sequence (name rises, portrait wipes in, details settle), then stillness.
+   Pure CSS so it runs on the prerendered HTML; switched off by prefers-reduced-motion above. */
+@keyframes hero-rise{from{transform:translateY(110%)}to{transform:none}}
+@keyframes hero-settle{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes hero-wipe{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes hero-zoom{from{transform:scale(1.12)}to{transform:none}}
+.hero-line{display:block;overflow:hidden;padding:.08em 0 .16em;margin:-.08em 0 -.16em}
+.hero-line>span{display:block;animation:hero-rise 1s cubic-bezier(.16,1,.3,1) both}
+.hero-line:nth-of-type(2)>span{animation-delay:.09s}
+.hero-settle{animation:hero-settle .8s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(.35s + var(--i,0)*70ms)}
+.hero-portrait-frame{overflow:hidden;animation:hero-wipe 1.1s cubic-bezier(.65,0,.15,1) .1s both}
+.hero-portrait-frame img{animation:hero-zoom 1.7s cubic-bezier(.16,1,.3,1) .1s both}
+
+/* Hero actions: one clear primary action, the rest stay quiet text links */
+.hero-links{gap:6px 24px;font-size:13.5px}
+.hero-links a{min-height:44px;padding:0;border-bottom:0;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:7px;transition:text-decoration-color .2s,color .2s}
+.hero-links a:hover{text-decoration-color:var(--accent)}
+.hero-links a.hero-cta{min-height:46px;padding:0 24px;background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none;transition:background .25s}
+.hero-links a.hero-cta:hover{background:var(--accent);color:#fff}
+
+/* Hero ledger: four facts, each linking to its evidence */
+.hero-ledger{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.hero-ledger li+li{border-left:1px solid var(--line)}
+.hero-ledger a{display:block;height:100%;padding:22px 26px 8px}
+.hero-ledger li:first-child a{padding-left:0}
+.ledger-verb{display:block;font-size:13px;font-weight:550;color:var(--accent);margin-bottom:8px}
+.ledger-fact{display:block;font:400 22px/1.28 var(--serif);letter-spacing:-.012em;color:var(--ink);text-wrap:balance;transition:color .2s}
+.hero-ledger a:hover .ledger-fact{color:var(--accent)}
+@media(max-width:1000px){
+ .hero-ledger{grid-template-columns:1fr 1fr}
+ .hero-ledger li:nth-child(odd) a{padding-left:0}
+ .hero-ledger li:nth-child(3){border-left:0}
+ .hero-ledger li:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media(max-width:760px){
+ .hero-ledger{grid-template-columns:1fr;margin-top:34px}
+ .hero-ledger li+li{border-left:0;border-top:1px solid var(--line)}
+ .hero-ledger a,.hero-ledger li:first-child a{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:baseline;padding:16px 0}
+ .ledger-verb{margin:0}
+ .ledger-fact{font-size:19px}
+}
+
+/* Press & Work: jump links for the longest section, and a collapsed press list */
+.spotlight-index{display:flex;flex-wrap:wrap;gap:4px 30px;margin:-8px 0 30px;font-size:14px}
+.spotlight-index a{display:inline-flex;align-items:baseline;gap:7px;min-height:44px;padding-top:11px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:7px;transition:text-decoration-color .2s,color .2s}
+.spotlight-index a:hover{text-decoration-color:var(--accent)}
+.spotlight-index a span{font-size:12px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.press-toggle{display:none}
+.js .press-toggle{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 22px;border:1px solid var(--ink);font-size:13.5px;font-weight:600;transition:background .2s,color .2s}
+.js .press-toggle:hover{background:var(--ink);color:var(--paper)}
+.js .press-grid:not(.is-expanded) .is-extra{display:none}
+.press-grid{border-bottom:1px solid var(--line);margin-bottom:22px}
+
+/* Readability: nothing set smaller than 12px, body copy at 15–16px */
+h1,h2,h3,h4,.ledger-fact{text-wrap:balance}
+p{text-wrap:pretty}
+.navigation-links{font-size:13px}
+.hero-location{font-size:12px}
+.hero-portrait figcaption{font-size:12px}
+.narrative-badge{font-size:12.5px}
+.narrative-body p{font-size:16px}
+.narrative-body .full-name{font-size:12.5px}
+.timeline-v-year-col{font-size:14px}
+.v-card-header{font-size:11.5px}
+.v-institution{font-size:14px}
+.v-impact{font-size:15px}
+.credibility-banner{font-size:15px}
+.subgroup-desc{font-size:13px}
+.card-header{font-size:11.5px}
+.card-subtitle{font-size:12.5px}
+.card-desc{font-size:15px}
+.card-link-text,.card-link-item{font-size:12.5px}
+.patent-subnote{font-size:13px}
+.publication-type{font-size:11.5px}
+.original-label{font-size:11.5px}
+.original-meta{font-size:12.5px}
+.cite-summary span{font-size:12.5px}
+.cite-label{font-size:11.5px}
+.cite-work-meta{font-size:12.5px}
+.cite-kind{font-size:11.5px}
+.cite-title{font-size:15px}
+.cite-detail{font-size:13px}
+.cite-links a{font-size:12.5px}
+.image-overlay-badge{font-size:12.5px}
+.impact-external-link{font-size:13px}
+.impact-description{font-size:15px}
+.metric-lbl{font-size:12.5px}
+.impact-partners,.partner-pill{font-size:12.5px}
+.civic-subtitle{font-size:12.5px}
+.civic-item strong{font-size:15px}
+.civic-item p{font-size:14.5px}
+.value-desc{font-size:15px}
+.rec-role{font-size:13px}
+.rec-meta{font-size:12px}
+.contact-subheading{font-size:16px}
+.contact-actions-row a{font-size:15px}
+.profile-links{font-size:13px}
+.contact-bottom-bar{font-size:12.5px}
+.intro-lang-title{font-size:11.5px}
+.intro-lang-count{font-size:12px}
+.intro-lang-tabs button{font-size:13px;padding:9px 12px}
+.intro-lang-text{font-size:15px}
+.intro-lang-arrows button{width:36px;height:36px}
+.tracker-text,.tracker-next{font-size:12px}
+@media(max-width:1000px){.navigation-links{font-size:12px}}
+@media(max-width:760px){
+ .navigation-links{font-size:15px}
+ .section-subheading{font-size:15.5px}
+ .narrative-body p{font-size:15.5px}
+ .timeline-v-year-col{font-size:13px}
+ .v-institution{font-size:13.5px}
+ .v-impact,.card-desc{font-size:14.5px}
+ .credibility-banner{font-size:14.5px}
+ .intro-lang-text{font-size:14.5px}
+ .tracker-next{font-size:11.5px}
+ /* Comfortable touch targets */
+ .card-link-text,.card-link-item,.cite-links a,.impact-external-link{min-height:40px}
+ .profile-links{gap:4px 22px}
+ .profile-links a,.footer-links-row a{display:inline-flex;align-items:center;min-height:40px}
+ .intro-lang-arrows button{width:40px;height:40px}
+ .intro-lang-tabs button{padding:11px 13px}
+}
+
+/* The floating tracker waits until the visitor starts scrolling, so it never covers the first screen */
+.section-tracker{transition:opacity .35s ease,transform .45s cubic-bezier(.16,1,.3,1),visibility 0s}
+.section-tracker.is-resting{opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(16px);transition:opacity .25s ease,transform .3s ease,visibility 0s .3s}
+.footer-links-row{flex-wrap:wrap;gap:4px 22px}

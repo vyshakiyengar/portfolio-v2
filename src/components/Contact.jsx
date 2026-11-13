@@ -1,13 +1,15 @@
 import { Linkedin, Mail, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react'
 import XIcon from './ui/XIcon'
 
+// Same labels and order as the top navigation.
 const footerNavLinks = [
-    { label: 'Home', path: '/', id: 'hero' },
-    { label: 'About', path: '/about', id: 'narrative' },
-    { label: 'Timeline', path: '/experience', id: 'experience' },
-    { label: 'Recommendations', path: '/recommendations', id: 'recommendations' },
-    { label: 'Press & Work', path: '/spotlight', id: 'spotlight' },
-    { label: 'Impact', path: '/impact', id: 'impact' },
+    { label: 'About', id: 'narrative' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Recommendations', id: 'recommendations' },
+    { label: 'Press & Work', id: 'spotlight' },
+    { label: 'Impact', id: 'impact' },
+    { label: 'Philosophy', id: 'philosophy' },
+    { label: 'Back to top', id: 'hero' },
 ];
 
 const Contact = () => {
