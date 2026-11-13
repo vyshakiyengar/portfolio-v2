@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, ArrowDown } from 'lucide-react'
-import HeroField from './HeroField'
+import Terrain from './Terrain'
 import metaLogo from '../assets/logos/meta.webp'
 import lbsLogo from '../assets/logos/lbs.webp'
 import bcgLogo from '../assets/logos/bcg-2026.webp'
@@ -37,7 +37,7 @@ function RoleRoll() {
 export default function Hero() {
   return (
     <section className="hero-section" id="hero">
-      <HeroField />
+      <Terrain />
       <div className="container">
         <div className="hero-layout">
           <div className="hero-intro">

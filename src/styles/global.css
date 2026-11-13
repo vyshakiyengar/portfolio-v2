@@ -435,3 +435,33 @@ main>section.hero-section{position:relative;overflow:hidden}
 /* Recommendations: comfortable tap targets */
 .rec-expand{min-height:44px}
 .rec-name{display:inline-flex;align-items:center;gap:6px;min-height:40px}
+
+/* ───────── Craft pass ───────── */
+
+/* Paper grain over the whole page */
+body::after{content:'';position:fixed;inset:0;z-index:45;pointer-events:none;opacity:.045;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0/220px 220px}
+@media print{body::after{display:none}}
+
+/* Portrait and name drift at different speeds as the hero scrolls away */
+.motion .hero-intro h1{translate:0 calc(var(--drift,0)*-14px)}
+
+/* Experience: a line draws down the timeline as you read, and the current row's dates pick up the accent */
+.timeline-v-container{position:relative}
+.motion .timeline-v-spine{display:block;position:absolute;left:150px;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none}
+.motion .timeline-v-spine::before{content:'';position:absolute;inset:0;background:var(--accent);transform-origin:50% 0;transform:scaleY(var(--p,0))}
+.motion .timeline-v-spine::after{content:'';position:absolute;left:-3px;top:calc(var(--p,0)*100% - 3.5px);width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.timeline-v-year-col{transition:color .35s ease}
+.motion .timeline-v-row.is-current .timeline-v-year-col{color:var(--accent)}
+@media(max-width:760px){.motion .timeline-v-spine{left:96px}}
+@media(max-width:380px){.motion .timeline-v-spine{left:80px}}
+
+/* Impact: the BluFin photograph opens up as it arrives */
+.motion .impact-card-image>img{clip-path:inset(calc((1 - var(--r,1))*11%) calc((1 - var(--r,1))*8%));scale:calc(1.16 - var(--r,1)*.16)}
+
+/* Primary button: leans toward the pointer, settles back smoothly */
+.hero-links a.hero-cta{transition:background .25s,translate .45s cubic-bezier(.16,1,.3,1)}
+
+/* Recommendations: drag with the mouse */
+@media(hover:hover) and (pointer:fine){.recommendations-scroll{cursor:grab}}
+.recommendations-scroll.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.recommendations-scroll.is-dragging *{pointer-events:none}

@@ -5,6 +5,47 @@ import { useEffect } from 'react'
 // enhancement: the prerendered page is complete without it, and it is skipped entirely
 // for visitors who ask for reduced motion.
 export function useMotion() {
+  // Recommendations can be dragged sideways with a mouse, like a strip of cards on a table.
+  useEffect(() => {
+    const strip = document.querySelector('.recommendations-scroll')
+    if (!strip) return
+    let startX = 0
+    let startLeft = 0
+    let dragging = false
+    let moved = false
+    const down = event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return
+      dragging = true
+      moved = false
+      startX = event.clientX
+      startLeft = strip.scrollLeft
+    }
+    const move = event => {
+      if (!dragging) return
+      const dx = event.clientX - startX
+      if (!moved && Math.abs(dx) < 6) return
+      moved = true
+      strip.classList.add('is-dragging')
+      strip.scrollLeft = startLeft - dx
+    }
+    const up = () => {
+      if (!dragging) return
+      dragging = false
+      strip.classList.remove('is-dragging')
+    }
+    const click = event => { if (moved) { event.preventDefault(); event.stopPropagation(); moved = false } }
+    strip.addEventListener('pointerdown', down)
+    window.addEventListener('pointermove', move)
+    window.addEventListener('pointerup', up)
+    strip.addEventListener('click', click, true)
+    return () => {
+      strip.removeEventListener('pointerdown', down)
+      window.removeEventListener('pointermove', move)
+      window.removeEventListener('pointerup', up)
+      strip.removeEventListener('click', click, true)
+    }
+  }, [])
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return
     const root = document.documentElement
@@ -40,14 +81,52 @@ export function useMotion() {
     document.querySelectorAll('[data-count]').forEach(el => count.observe(el))
     cleanups.push(() => count.disconnect())
 
-    // Portrait drifts a little slower than the page.
-    const portrait = document.querySelector('.hero-portrait-frame img')
-    if (portrait) {
-      let frame = 0
-      const drift = () => { frame = 0; portrait.style.setProperty('--drift', Math.min(1, window.scrollY / 700).toFixed(3)) }
-      const onScroll = () => { if (!frame) frame = requestAnimationFrame(drift) }
-      window.addEventListener('scroll', onScroll, { passive: true })
-      cleanups.push(() => { window.removeEventListener('scroll', onScroll); if (frame) cancelAnimationFrame(frame) })
+    // One scroll listener drives the scroll-linked details:
+    // the portrait drift, the line that draws down the Experience timeline, and the BluFin photo opening up.
+    const hero = document.querySelector('.hero-section')
+    const timeline = document.querySelector('.timeline-v-container')
+    const rows = timeline ? [...timeline.querySelectorAll('.timeline-v-row')] : []
+    const photo = document.querySelector('.impact-card-image')
+    let frame = 0
+    const update = () => {
+      frame = 0
+      const vh = window.innerHeight
+      if (hero) hero.style.setProperty('--drift', Math.min(1, window.scrollY / 700).toFixed(3))
+      if (timeline) {
+        const rect = timeline.getBoundingClientRect()
+        const progress = Math.min(1, Math.max(0, (vh * 0.55 - rect.top) / rect.height))
+        timeline.style.setProperty('--p', progress.toFixed(4))
+        let current = -1
+        rows.forEach((row, i) => { if (row.getBoundingClientRect().top <= vh * 0.55) current = i })
+        rows.forEach((row, i) => row.classList.toggle('is-current', i === current && progress < 1))
+      }
+      if (photo) {
+        const rect = photo.getBoundingClientRect()
+        photo.style.setProperty('--r', Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.62))).toFixed(3))
+      }
+    }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    cleanups.push(() => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (frame) cancelAnimationFrame(frame)
+    })
+
+    // The primary button leans toward a nearby mouse pointer.
+    const cta = document.querySelector('.hero-cta')
+    if (cta && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const onMove = event => {
+        const rect = cta.getBoundingClientRect()
+        const dx = event.clientX - (rect.left + rect.width / 2)
+        const dy = event.clientY - (rect.top + rect.height / 2)
+        const near = Math.abs(dx) < rect.width / 2 + 60 && Math.abs(dy) < rect.height / 2 + 50
+        cta.style.translate = near ? `${(dx * 0.22).toFixed(1)}px ${(dy * 0.3).toFixed(1)}px` : ''
+      }
+      window.addEventListener('pointermove', onMove, { passive: true })
+      cleanups.push(() => { window.removeEventListener('pointermove', onMove); cta.style.translate = '' })
     }
 
     return () => { cleanups.forEach(fn => fn()); root.classList.remove('motion') }
