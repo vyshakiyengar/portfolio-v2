@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Languages } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Languages } from 'lucide-react'
 
 // Short intro in Indian and international languages. Every version is rendered into the
 // prerendered HTML (inactive ones are hidden), so search engines can read all of them.
@@ -48,18 +48,22 @@ const intros = [
 
 export default function IntroLanguages() {
     const [active, setActive] = useState(0)
-    const go = step => setActive(i => (i + step + intros.length) % intros.length)
-    const current = intros[active]
+
+    // Kannada leads by default. A visitor whose browser is set to one of the other
+    // languages here (other than English, which the page is already in) sees their own first.
+    useEffect(() => {
+        const preferred = (navigator.languages || [navigator.language || '']).map(tag => tag.slice(0, 2).toLowerCase())
+        const match = preferred.find(code => code !== 'en' && intros.some(intro => intro.code === code))
+        const index = intros.findIndex(intro => intro.code === match)
+        // Runs once after hydration to pick up a browser-only value; the prerendered default stays Kannada.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        if (index > 0) setActive(index)
+    }, [])
 
     return (
         <section className="intro-lang" aria-label="Short introduction in other languages">
             <div className="intro-lang-head">
                 <span className="intro-lang-title"><Languages size={14} aria-hidden="true" /> Intro in {intros.length} languages</span>
-                <div className="intro-lang-arrows">
-                    <button type="button" onClick={() => go(-1)} aria-label="Previous language"><ChevronLeft size={16} /></button>
-                    <span className="intro-lang-count" aria-live="polite">{current.name} · {active + 1}/{intros.length}</span>
-                    <button type="button" onClick={() => go(1)} aria-label="Next language"><ChevronRight size={16} /></button>
-                </div>
             </div>
 
             <div className="intro-lang-tabs" role="tablist" aria-label="Choose a language">

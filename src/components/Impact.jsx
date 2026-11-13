@@ -11,7 +11,7 @@ const Impact = () => {
                     <SectionMark n="05" label="Impact" />
                     <h2 className="section-heading" data-reveal><span>Beyond the day job</span></h2>
                     <p className="section-subheading">
-                        Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and has worked on civic tech initiatives.
+                        A non-profit backing grassroots athletes, and civic technology work.
                     </p>
                     <div className="animated-divider"></div>
                 </div>
@@ -83,7 +83,6 @@ const Impact = () => {
                             </div>
                             <div>
                                 <h3 className="impact-card-title">Civic &amp; Governance Work</h3>
-                                <span className="civic-subtitle">Public Policy &amp; Tech Initiatives</span>
                             </div>
                         </div>
 
@@ -115,10 +114,6 @@ const Impact = () => {
                             </div>
                         </div>
 
-                        <div className="civic-quote-box">
-                            <Trophy size={16} className="trophy-icon" />
-                            <span>"Building enduring systems that empower communities at grassroots scale."</span>
-                        </div>
                     </div>
                 </div>
             </div>

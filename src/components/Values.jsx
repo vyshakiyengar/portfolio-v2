@@ -30,7 +30,7 @@ const Values = () => {
                     <div className="animated-divider"></div>
                 </div>
 
-                <div className="values-grid">
+                <div className="values-grid" data-reveal>
                     {principles.map((item, index) => {
                         const IconComponent = item.icon
                         return (

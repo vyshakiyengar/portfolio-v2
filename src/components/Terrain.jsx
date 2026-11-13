@@ -125,7 +125,7 @@ export default function Terrain() {
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
-      ratio = Math.min(1.5, window.devicePixelRatio || 1)
+      ratio = Math.min(1.25, window.devicePixelRatio || 1)
       canvas.width = Math.max(1, Math.round(rect.width * ratio))
       canvas.height = Math.max(1, Math.round(rect.height * ratio))
       gl.viewport(0, 0, canvas.width, canvas.height)
@@ -133,7 +133,7 @@ export default function Terrain() {
     }
     const draw = now => {
       frame = requestAnimationFrame(draw)
-      if (!visible || now - last < 30) return
+      if (!visible || now - last < 38) return
       last = now
       pointer.x += (pointer.tx - pointer.x) * 0.08
       pointer.y += (pointer.ty - pointer.y) * 0.08

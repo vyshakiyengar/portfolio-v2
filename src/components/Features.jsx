@@ -203,7 +203,6 @@ const patentItems = [
         title: "US Patent 12,020,352",
         subtitle: "Project Visualization System · US12020352B2",
         description: "Co-inventor: Vyshak Kannan Iyengar · Assignee: Accenture Global Solutions. Granted for an automated system visualizing complex project dependencies and workflow logic.",
-        subNote: "The patent family has subsequently appeared in examiner-added prior-art citation trails for later patent applications.",
         icon: Lightbulb,
         link: "https://patents.google.com/patent/US12020352B2/en",
         linkText: "Google Patents",
@@ -352,9 +351,6 @@ const Features = () => {
                 <div className="text-center">
                     <SectionMark n="04" label="Press &amp; Work" />
                     <h2 className="section-heading" data-reveal><span>Media features, product launches &amp; research</span></h2>
-                    <p className="section-subheading">
-                        Media features and interviews, products Vyshak has shipped, a granted US patent, his publications, and who has cited them.
-                    </p>
                     <div className="animated-divider"></div>
                 </div>
 
@@ -365,21 +361,10 @@ const Features = () => {
                     ))}
                 </nav>
 
-                {/* Factual Credibility Banner */}
-                <div className="credibility-banner fade-in-1">
-                    <div className="credibility-icon-wrap">
-                        <BookOpen size={20} className="credibility-icon" />
-                    </div>
-                    <p className="credibility-text">
-                        Writing on AI and fintech since 2016 has been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. The two cited articles are archived with DOIs on <strong>Zenodo</strong>, and all work is listed under <strong>ORCID 0009-0002-5098-6448</strong>.
-                    </p>
-                </div>
-
                 {/* 1. Verified Editorial Press Coverage */}
                 <div className="spotlight-subgroup" id="press">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Editorial Press &amp; Media Coverage</h3>
-                        <span className="subgroup-desc">Profiles, features, interviews, and industry coverage</span>
                     </div>
 
                     <div id="press-list" className={`recognition-grid press-grid${showAllPress ? ' is-expanded' : ''}`}>
@@ -398,10 +383,6 @@ const Features = () => {
                             )
                             const body = (
                                 <>
-                                    <div className="card-header">
-                                        <span className="card-category">{item.tag}</span>
-                                        <item.icon size={18} className="card-icon" />
-                                    </div>
                                     <h4 className="card-title">{item.title}</h4>
                                     {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
                                     <p className="card-desc">{item.description}</p>
@@ -444,18 +425,12 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="products">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Products &amp; Launches</h3>
-                        <span className="subgroup-desc">Designed, shipped and launched publicly</span>
                     </div>
 
                     <div className="recognition-grid">
                         {productItems.map((item) => (
                             <div key={item.id} className="builder-card">
                                 <div className="card-content-wrapper">
-                                    <div className="card-header">
-                                        <span className="card-category">{item.tag}</span>
-                                        <item.icon size={18} className="card-icon" />
-                                    </div>
-
                                     <h4 className="card-title"><a href={item.link} target="_blank" rel="noopener noreferrer">{item.title}</a></h4>
                                     {item.subtitle && <div className="card-subtitle">{item.subtitle}</div>}
 
@@ -475,7 +450,6 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="patent">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Intellectual Property &amp; Inventions</h3>
-                        <span className="subgroup-desc">Granted patent and technical architecture</span>
                     </div>
 
                     <div className="recognition-grid single-patent-grid">
@@ -490,11 +464,6 @@ const Features = () => {
                                 </div>
 
                                 <div className="card-content-wrapper">
-                                    <div className="card-header">
-                                        <span className="card-category">US Patent and Trademark Office (USPTO)</span>
-                                        <Lightbulb size={18} className="card-icon" />
-                                    </div>
-
                                     <h4 className="card-title">
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
                                             {item.title}
@@ -503,13 +472,6 @@ const Features = () => {
                                     <div className="card-subtitle">{item.subtitle}</div>
 
                                     <p className="card-desc">{item.description}</p>
-
-                                    {item.subNote && (
-                                        <div className="patent-subnote">
-                                            <Sparkles size={14} className="subnote-icon" />
-                                            <span>{item.subNote}</span>
-                                        </div>
-                                    )}
 
                                     <div className="card-links-row">
                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link-item">
@@ -531,7 +493,7 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="publications">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Publications</h3>
-                        <span className="subgroup-desc">Preprints, journal papers and articles, newest first</span>
+                        <span className="subgroup-desc">Newest first</span>
                     </div>
 
                     <ol className="publication-list">
@@ -557,12 +519,20 @@ const Features = () => {
                 <div className="spotlight-subgroup" id="research">
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Research &amp; Citations</h3>
-                        <span className="subgroup-desc">Who has cited Vyshak’s writing, and where</span>
+                    </div>
+
+                    <div className="credibility-banner fade-in-1">
+                        <div className="credibility-icon-wrap">
+                            <BookOpen size={20} className="credibility-icon" />
+                        </div>
+                        <p className="credibility-text">
+                            Writing on AI and fintech since 2016 has been referenced in research and industry publications from <strong>African Minds / IDRC</strong>, <strong>Infosys</strong>, <strong>NLIU Bhopal</strong>, and the <strong>Indian Journal of Law and Society</strong>. The two cited articles are archived with DOIs on <strong>Zenodo</strong>, and all work is listed under <strong>ORCID 0009-0002-5098-6448</strong>.
+                        </p>
                     </div>
 
                     <div className="cite-summary">
-                        <div><strong data-count="2">2</strong><span>articles cited</span></div>
-                        <div><strong data-count="4">4</strong><span>citing publications</span></div>
+                        <div><strong>2</strong><span>articles cited</span></div>
+                        <div><strong>4</strong><span>citing publications</span></div>
                         <div><strong>2019–2024</strong><span>years cited</span></div>
                     </div>
 
