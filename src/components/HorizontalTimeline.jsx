@@ -96,9 +96,9 @@ const HorizontalTimeline = () => {
     const socialImpact = [
         {
             role: "Co-Founder",
-            institution: "BluFin Foundation",
+            institution: "Blufin Foundation",
             period: "2018 - Present",
-            impact: "BluFin Foundation is a non-profit focused on enabling youngsters to explore alternative career through sports. We are backed by Accel Partners (Global VC fund), Kaleyra (NYSE listed CPaaS company), and Antraprerana Ventures (Philanthropic fund).",
+            impact: "Blufin Foundation is a non-profit focused on enabling youngsters to explore alternative career through sports. We are backed by Accel Partners (Global VC fund), Kaleyra (NYSE listed CPaaS company), and Antraprerana Ventures (Philanthropic fund).",
             type: "impact",
             logo: blufinLogo
         },

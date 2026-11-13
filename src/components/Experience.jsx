@@ -23,7 +23,7 @@ const experiences = [
     {
         id: 'blufin',
         role: 'Co-founder & Board Member',
-        organization: 'BluFin Foundation',
+        organization: 'Blufin Foundation',
         period: '2017 - Present',
         icon: Waves,
         description: 'Creating an inclusive sporting ecosystem. 100+ children trained. 2 athletes at Asian Para Games 2023. Partnerships with Accel Partners and Kaleyra.',

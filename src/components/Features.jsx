@@ -68,7 +68,7 @@ const pressItems = [
     {
         id: 'press-yourstory',
         tag: "National Feature",
-        title: "BluFin Foundation",
+        title: "Blufin Foundation",
         subtitle: "YourStory · SocialStory · 30 Aug 2024",
         description: "Profiled in YourStory for co-founding an inclusive sporting ecosystem backing 120+ children and Asian Para Games athletes. Supported by Accel Partners and Kaleyra.",
         icon: FileText,

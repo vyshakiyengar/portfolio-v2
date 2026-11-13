@@ -17,10 +17,10 @@ const Impact = () => {
                 </div>
 
                 <div className="impact-grid">
-                    {/* Social Impact: BluFin Foundation */}
+                    {/* Social Impact: Blufin Foundation */}
                     <div className="impact-card social-card fade-in-1">
                         <div className="impact-card-image">
-                            <img src="/images/blufin-pool.jpg" srcSet="/images/blufin-pool-640.webp 640w, /images/blufin-pool-1024.webp 1024w" sizes="(max-width: 760px) 92vw, 612px" alt="Children and coaches of BluFin Foundation beside a swimming pool" width="1024" height="768" loading="lazy" decoding="async" />
+                            <img src="/images/blufin-pool.jpg" srcSet="/images/blufin-pool-640.webp 640w, /images/blufin-pool-1024.webp 1024w" sizes="(max-width: 760px) 92vw, 612px" alt="Children and coaches of Blufin Foundation beside a swimming pool" width="1024" height="768" loading="lazy" decoding="async" />
                             <div className="image-overlay-badge">
                                 <Heart size={14} />
                                 <span>Co-Founder &amp; Board Member</span>
@@ -31,7 +31,7 @@ const Impact = () => {
                             <div className="card-header-flex">
                                 <h3 className="impact-card-title">
                                     <a href="https://www.blufinfoundation.com/" target="_blank" rel="noopener noreferrer" className="impact-title-link">
-                                        BluFin Foundation
+                                        Blufin Foundation
                                     </a>
                                 </h3>
                                 <div className="impact-links-group">
@@ -47,7 +47,7 @@ const Impact = () => {
                             </div>
 
                             <p className="impact-description">
-                                Co-founded in 2018, BluFin Foundation is a Bangalore-based NGO building an inclusive sports ecosystem for underprivileged children and para-athletes.
+                                Co-founded in 2018, Blufin Foundation is a Bangalore-based NGO building an inclusive sports ecosystem for underprivileged children and para-athletes.
                             </p>
 
                             <div className="impact-metrics-row">

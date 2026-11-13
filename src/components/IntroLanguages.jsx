@@ -22,23 +22,23 @@ const intros = [
     },
     {
         code: 'en', label: 'English', name: 'English',
-        text: 'Vyshak Kannan Iyengar is a London-based technologist and social entrepreneur from Karnataka. He worked in Product Strategy & Growth at Meta, holds an MBA from London Business School, and co-founded BluFin Foundation. Prajavani reported on the WhatsApp AI shopping agent he designed for his mother.'
+        text: 'Vyshak Kannan Iyengar is a London-based technologist and social entrepreneur from Karnataka. He worked in Product Strategy & Growth at Meta, holds an MBA from London Business School, and co-founded Blufin Foundation. Prajavani reported on the WhatsApp AI shopping agent he designed for his mother.'
     },
     {
         code: 'fr', label: 'Français', name: 'French',
-        text: 'Vyshak Kannan Iyengar est un technologue et entrepreneur social originaire du Karnataka, basé à Londres. Il a travaillé chez Meta en stratégie produit et croissance, est titulaire d’un MBA de la London Business School et a cofondé la BluFin Foundation. Le quotidien Prajavani a consacré un article à l’agent d’achat IA sur WhatsApp qu’il a conçu pour sa mère.'
+        text: 'Vyshak Kannan Iyengar est un technologue et entrepreneur social originaire du Karnataka, basé à Londres. Il a travaillé chez Meta en stratégie produit et croissance, est titulaire d’un MBA de la London Business School et a cofondé la Blufin Foundation. Le quotidien Prajavani a consacré un article à l’agent d’achat IA sur WhatsApp qu’il a conçu pour sa mère.'
     },
     {
         code: 'es', label: 'Español', name: 'Spanish',
-        text: 'Vyshak Kannan Iyengar es un tecnólogo y emprendedor social de Karnataka que vive en Londres. Trabajó en estrategia de producto y crecimiento en Meta, tiene un MBA de London Business School y es cofundador de BluFin Foundation. El diario Prajavani publicó un reportaje sobre el agente de compras con IA en WhatsApp que diseñó para su madre.'
+        text: 'Vyshak Kannan Iyengar es un tecnólogo y emprendedor social de Karnataka que vive en Londres. Trabajó en estrategia de producto y crecimiento en Meta, tiene un MBA de London Business School y es cofundador de Blufin Foundation. El diario Prajavani publicó un reportaje sobre el agente de compras con IA en WhatsApp que diseñó para su madre.'
     },
     {
         code: 'de', label: 'Deutsch', name: 'German',
-        text: 'Vyshak Kannan Iyengar ist ein Technologe und Sozialunternehmer aus Karnataka mit Sitz in London. Er arbeitete bei Meta im Bereich Produktstrategie und Wachstum, hat einen MBA der London Business School und ist Mitgründer der BluFin Foundation. Die Zeitung Prajavani berichtete über den KI-Einkaufsagenten auf WhatsApp, den er für seine Mutter entwickelt hat.'
+        text: 'Vyshak Kannan Iyengar ist ein Technologe und Sozialunternehmer aus Karnataka mit Sitz in London. Er arbeitete bei Meta im Bereich Produktstrategie und Wachstum, hat einen MBA der London Business School und ist Mitgründer der Blufin Foundation. Die Zeitung Prajavani berichtete über den KI-Einkaufsagenten auf WhatsApp, den er für seine Mutter entwickelt hat.'
     },
     {
         code: 'ja', label: '日本語', name: 'Japanese',
-        text: 'ヴァイシャーク・カンナン・アイヤンガーは、インド・カルナータカ州出身でロンドンを拠点とするテクノロジストであり、社会起業家です。Metaでプロダクト戦略とグロースに携わり、ロンドン・ビジネス・スクールでMBAを取得、BluFin Foundationを共同設立しました。母親のために設計したWhatsApp上のAIショッピングエージェントは、カンナダ語紙プラジャヴァーニで紹介されました。'
+        text: 'ヴァイシャーク・カンナン・アイヤンガーは、インド・カルナータカ州出身でロンドンを拠点とするテクノロジストであり、社会起業家です。Metaでプロダクト戦略とグロースに携わり、ロンドン・ビジネス・スクールでMBAを取得、Blufin Foundationを共同設立しました。母親のために設計したWhatsApp上のAIショッピングエージェントは、カンナダ語紙プラジャヴァーニで紹介されました。'
     },
     {
         code: 'ar', label: 'العربية', name: 'Arabic', dir: 'rtl',
