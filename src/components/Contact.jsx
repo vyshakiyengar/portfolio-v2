@@ -1,4 +1,5 @@
-import { Linkedin, Mail, Globe, ShieldCheck, ArrowUpRight } from 'lucide-react'
+import { Linkedin, Mail, Globe, ArrowUpRight } from 'lucide-react'
+import SectionMark from './SectionMark'
 import XIcon from './ui/XIcon'
 
 // Same labels and order as the top navigation.
@@ -18,12 +19,9 @@ const Contact = () => {
         <footer className="footer-section" id="contact">
             <div className="container contact-container">
                 <div className="contact-card-box text-center fade-in-1">
-                    <div className="contact-badge-pill">
-                        <ShieldCheck size={14} />
-                        <span>07 / Contact</span>
-                    </div>
+                    <SectionMark n="07" label="Contact" />
 
-                    <h2 className="contact-heading">Get in touch.</h2>
+                    <h2 className="contact-heading" data-reveal><span>Get in touch.</span></h2>
                     <p className="contact-subheading">
                         For conversations with Vyshak about product leadership, advisory, social impact initiatives, or working together.
                     </p>

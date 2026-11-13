@@ -1,20 +1,43 @@
-import { ArrowUpRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowUpRight, ArrowDown } from 'lucide-react'
+import HeroField from './HeroField'
 import metaLogo from '../assets/logos/meta.webp'
 import lbsLogo from '../assets/logos/lbs.webp'
 import bcgLogo from '../assets/logos/bcg-2026.webp'
 import accentureLogo from '../assets/logos/accenture.webp'
 
-// Four facts a first-time visitor should leave with. Each one links to its evidence further down.
-const ledger = [
-  { verb: 'Built', fact: 'SpeechOn, a speech exercise app used in 38 countries', href: '#products' },
-  { verb: 'Co-invented', fact: 'A project visualization system, US\u00a0Patent\u00a012,020,352', href: '#patent' },
-  { verb: 'Co-founded', fact: 'BluFin Foundation, which has trained 120+\u00a0children in sport', href: '#impact' },
-  { verb: 'Cited', fact: 'By four research and industry publications', href: '#research' },
+// The first line is the one search engines and the prerendered page carry; the rest
+// roll through after the load sequence to show the range in the first screen.
+const roles = [
+  'AI and product strategist.',
+  'Builder of AI products.',
+  'Co-founder, BluFin Foundation.',
+  'Co-inventor on a US patent.',
 ]
+
+function RoleRoll() {
+  const [tick, setTick] = useState(0)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const id = setInterval(() => setTick(n => n + 1), 2800)
+    return () => clearInterval(id)
+  }, [])
+  const current = roles[tick % roles.length]
+  const previous = tick > 0 ? roles[(tick - 1) % roles.length] : null
+  return (
+    <p className="hero-role hero-settle" style={{ '--i': 1 }}>
+      <span className="role-roll">
+        {previous && <span key={`out-${tick}`} className="role-item is-out" aria-hidden="true">{previous}</span>}
+        <span key={`in-${tick}`} className={`role-item${tick > 0 ? ' is-in' : ''}`}>{current}</span>
+      </span>
+    </p>
+  )
+}
 
 export default function Hero() {
   return (
     <section className="hero-section" id="hero">
+      <HeroField />
       <div className="container">
         <div className="hero-layout">
           <div className="hero-intro">
@@ -23,7 +46,7 @@ export default function Hero() {
               <span className="hero-line"><span>Vyshak</span></span>{' '}
               <span className="hero-line"><span>K Iyengar<span className="name-period">.</span></span></span>
             </h1>
-            <p className="hero-role hero-settle" style={{ '--i': 1 }}>AI and product strategist.</p>
+            <RoleRoll />
             <p className="hero-description hero-settle" style={{ '--i': 2 }}>Most recently led product strategy and growth at Meta, building on strategy consulting at BCG and Accenture. An alumnus of London Business School and co-founder of the social enterprise BluFin Foundation.</p>
             <div className="hero-links hero-settle" style={{ '--i': 3 }}>
               <a className="hero-cta" href="#contact">Get in touch</a>
@@ -54,16 +77,10 @@ export default function Hero() {
             <figcaption><span>Vyshak K Iyengar</span><span>Product strategy &amp; AI</span></figcaption>
           </figure>
         </div>
-        <ul className="hero-ledger" aria-label="At a glance">
-          {ledger.map((item, i) => (
-            <li key={item.verb} className="hero-settle" style={{ '--i': 6 + i }}>
-              <a href={item.href}>
-                <span className="ledger-verb">{item.verb}</span>
-                <span className="ledger-fact">{item.fact}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <a className="scroll-cue hero-settle" style={{ '--i': 7 }} href="#brief">
+          <span className="scroll-cue-line" aria-hidden="true" />
+          In brief <ArrowDown size={14} aria-hidden="true" />
+        </a>
       </div>
     </section>
   )

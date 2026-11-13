@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import SectionMark from './SectionMark'
 import { ChevronLeft, ChevronRight, Linkedin, ArrowUpRight } from 'lucide-react'
 import avatarRichard from '../assets/recommendations/avatars/richard-harpin.jpg'
 import avatarPrateek from '../assets/recommendations/avatars/prateek-khandelwal.jpg'
@@ -195,8 +196,8 @@ const Recommendations = () => {
     return (
         <section className="recommendations-section" id="recommendations">
             <div className="container">
-                <p className="eyebrow">03 / Recommendations</p>
-                <h2 className="section-heading text-center">Words about Vyshak from his network</h2>
+                <SectionMark n="03" label="Recommendations" />
+                <h2 className="section-heading text-center" data-reveal><span>Words about Vyshak from his network</span></h2>
                 <p className="section-subheading">
                     Unedited LinkedIn recommendations from founders, operators and mentors who have
                     worked with Vyshak over the past decade.{' '}

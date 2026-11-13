@@ -1,10 +1,12 @@
-import { User, ShieldCheck } from 'lucide-react'
+import { ShieldCheck } from 'lucide-react'
+import SectionMark from './SectionMark'
 import IntroLanguages from './IntroLanguages'
 
 const Narrative = () => {
     return (
         <section className="narrative-section" id="narrative">
             <div className="container">
+                <SectionMark n="01" label="About" />
                 <div className="narrative-grid">
                     {/* Left Column: Image Card */}
                     <div className="narrative-image-col fade-in-1">
@@ -19,12 +21,8 @@ const Narrative = () => {
 
                     {/* Right Column: Third-Person Narrative Bio */}
                     <div className="narrative-content-col fade-in-2">
-                        <div className="section-meta">
-                            <User size={18} className="meta-icon" />
-                            <span>01 / About</span>
-                        </div>
 
-                        <h2 className="narrative-heading">Strategy, technology &amp; purpose</h2>
+                        <h2 className="narrative-heading" data-reveal><span>Strategy, technology &amp; purpose</span></h2>
 
                         <div className="animated-divider-left"></div>
 

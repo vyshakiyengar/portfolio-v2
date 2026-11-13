@@ -257,28 +257,6 @@ main > section{padding:60px 0}
 .hero-links a.hero-cta{min-height:46px;padding:0 24px;background:var(--ink);color:var(--paper);font-weight:600;text-decoration:none;transition:background .25s}
 .hero-links a.hero-cta:hover{background:var(--accent);color:#fff}
 
-/* Hero ledger: four facts, each linking to its evidence */
-.hero-ledger{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.hero-ledger li+li{border-left:1px solid var(--line)}
-.hero-ledger a{display:block;height:100%;padding:22px 26px 8px}
-.hero-ledger li:first-child a{padding-left:0}
-.ledger-verb{display:block;font-size:13px;font-weight:550;color:var(--accent);margin-bottom:8px}
-.ledger-fact{display:block;font:400 22px/1.28 var(--serif);letter-spacing:-.012em;color:var(--ink);text-wrap:balance;transition:color .2s}
-.hero-ledger a:hover .ledger-fact{color:var(--accent)}
-@media(max-width:1000px){
- .hero-ledger{grid-template-columns:1fr 1fr}
- .hero-ledger li:nth-child(odd) a{padding-left:0}
- .hero-ledger li:nth-child(3){border-left:0}
- .hero-ledger li:nth-child(n+3){border-top:1px solid var(--line)}
-}
-@media(max-width:760px){
- .hero-ledger{grid-template-columns:1fr;margin-top:34px}
- .hero-ledger li+li{border-left:0;border-top:1px solid var(--line)}
- .hero-ledger a,.hero-ledger li:first-child a{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:baseline;padding:16px 0}
- .ledger-verb{margin:0}
- .ledger-fact{font-size:19px}
-}
-
 /* Press & Work: jump links for the longest section, and a collapsed press list */
 .spotlight-index{display:flex;flex-wrap:wrap;gap:4px 30px;margin:-8px 0 30px;font-size:14px}
 .spotlight-index a{display:inline-flex;align-items:baseline;gap:7px;min-height:44px;padding-top:11px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:7px;transition:text-decoration-color .2s,color .2s}
@@ -364,3 +342,70 @@ p{text-wrap:pretty}
 .section-tracker{transition:opacity .35s ease,transform .45s cubic-bezier(.16,1,.3,1),visibility 0s}
 .section-tracker.is-resting{opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(16px);transition:opacity .25s ease,transform .3s ease,visibility 0s .3s}
 .footer-links-row{flex-wrap:wrap;gap:4px 22px}
+
+/* ───────── Section dividers, In brief, scroll motion ───────── */
+
+/* Every section opens with a number, a rule and its name, on alternating paper tones */
+:root{--paper-deep:#f3f1ea;--pale:#cdcec5}
+main>section{padding:0 0 92px}
+main>section.hero-section{padding:44px 0 64px}
+#narrative,#recommendations,#impact{background:var(--paper-deep)}
+.footer-section{padding-top:0}
+.chapter{display:flex;align-items:center;gap:22px;margin:0 0 54px;padding-top:34px}
+.chapter-num{font:400 46px/1 var(--serif);letter-spacing:-.03em;color:var(--ink)}
+.chapter-rule{flex:1;height:1px;background:var(--ink);transform-origin:0 50%;transition:transform 1.3s cubic-bezier(.65,0,.15,1)}
+.chapter-label{font-size:14px;font-weight:600;color:var(--accent);white-space:nowrap}
+.motion .chapter:not(.is-in) .chapter-rule{transform:scaleX(0)}
+.chapter-num,.chapter-label{transition:opacity .7s ease .25s}
+.motion .chapter:not(.is-in) .chapter-num,.motion .chapter:not(.is-in) .chapter-label{opacity:0}
+.contact-card-box>.chapter{text-align:left}
+
+/* Headings rise through a mask, the same move as the name in the hero */
+h2[data-reveal]{overflow:hidden}
+h2[data-reveal]>span{display:block;padding-bottom:.14em;transition:transform 1s cubic-bezier(.16,1,.3,1) .12s}
+.motion h2[data-reveal]:not(.is-in)>span{transform:translateY(112%)}
+
+/* In brief: the whole profile in one paragraph that takes ink as you scroll */
+main>section.brief-section{padding-bottom:104px}
+.brief-text{font:400 clamp(27px,3.35vw,45px)/1.24 var(--serif);letter-spacing:-.018em;max-width:1080px;text-wrap:pretty}
+.brief-text a{color:inherit}
+.brief-word{transition:color .45s ease}
+.brief-text.is-live .brief-word{color:var(--pale)}
+.brief-text.is-live .brief-word.is-lit{color:var(--ink)}
+.brief-text.is-live a:hover .brief-word.is-lit,.brief-text:not(.is-live) a:hover{color:var(--accent)}
+
+/* Small moments */
+.hero-portrait-frame img{scale:1.08;translate:0 calc(var(--drift,0)*3.4%)}
+.card-preview{overflow:hidden}
+.card-preview img{transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.builder-card:hover .card-preview img{transform:scale(1.06)}
+@keyframes soft-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.intro-lang-text:not([hidden]){animation:soft-in .45s ease both}
+
+@media(max-width:760px){
+ main>section{padding:0 0 60px}
+ main>section.hero-section{padding:30px 0 48px}
+ main>section.brief-section{padding-bottom:68px}
+ .chapter{gap:14px;margin-bottom:36px;padding-top:26px}
+ .chapter-num{font-size:36px}
+ .chapter-label{font-size:13px}
+ .brief-text{line-height:1.28}
+}
+
+/* Hero motion graphics: drifting line field, rolling role line, scroll cue */
+main>section.hero-section{position:relative;overflow:hidden}
+.hero-section>.container{position:relative;z-index:1}
+@keyframes field-in{from{opacity:0}to{opacity:1}}
+.hero-field{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;animation:field-in 2.4s ease .5s both;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 80%,transparent 100%)}
+@keyframes role-in{from{transform:translateY(105%)}to{transform:none}}
+@keyframes role-out{from{transform:none}to{transform:translateY(-105%)}}
+.role-roll{display:block;position:relative;overflow:hidden;height:1.5em;line-height:1.5}
+.role-item{display:block;white-space:nowrap}
+.role-item.is-in{animation:role-in .8s cubic-bezier(.16,1,.3,1) both}
+.role-item.is-out{position:absolute;left:0;top:0;animation:role-out .8s cubic-bezier(.16,1,.3,1) both}
+@keyframes cue-drop{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
+.scroll-cue{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:34px;font-size:13px;font-weight:550;color:var(--muted)}
+.scroll-cue:hover{color:var(--ink)}
+.scroll-cue-line{position:relative;display:block;width:1px;height:34px;background:var(--line);overflow:hidden}
+.scroll-cue-line::after{content:'';position:absolute;inset:0;background:var(--accent);animation:cue-drop 2.2s cubic-bezier(.65,0,.15,1) infinite}
+@media(max-width:760px){.scroll-cue{margin-top:22px}}

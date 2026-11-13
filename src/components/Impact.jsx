@@ -1,4 +1,5 @@
 import { Heart, Landmark, Trophy, ExternalLink, CheckCircle } from 'lucide-react'
+import SectionMark from './SectionMark'
 import accelLogo from '../assets/logos/partners/accel.png'
 import kaleyraLogo from '../assets/logos/partners/kaleyra.png'
 
@@ -7,8 +8,8 @@ const Impact = () => {
         <section className="impact-section" id="impact">
             <div className="container">
                 <div className="text-center">
-                    <span className="impact-section-tag">05 / Impact</span>
-                    <h2 className="section-heading">Beyond the day job</h2>
+                    <SectionMark n="05" label="Impact" />
+                    <h2 className="section-heading" data-reveal><span>Beyond the day job</span></h2>
                     <p className="section-subheading">
                         Beyond corporate strategy, Vyshak K Iyengar co-founded a non-profit backing grassroots athletes and has worked on civic tech initiatives.
                     </p>
@@ -51,15 +52,15 @@ const Impact = () => {
 
                             <div className="impact-metrics-row">
                                 <div className="metric-box">
-                                    <span className="metric-num">120+</span>
+                                    <span className="metric-num" data-count="120" data-suffix="+">120+</span>
                                     <span className="metric-lbl">Children Trained</span>
                                 </div>
                                 <div className="metric-box">
-                                    <span className="metric-num">7</span>
+                                    <span className="metric-num" data-count="7">7</span>
                                     <span className="metric-lbl">Intl. Para Athletes</span>
                                 </div>
                                 <div className="metric-box">
-                                    <span className="metric-num">2</span>
+                                    <span className="metric-num" data-count="2">2</span>
                                     <span className="metric-lbl">Asian Para Games '23</span>
                                 </div>
                             </div>
