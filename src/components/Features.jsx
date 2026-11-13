@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SectionMark from './SectionMark'
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
@@ -13,6 +13,17 @@ import bangaloreMirrorPreview from '../assets/previews/bangalore-mirror.webp'
 import rnsitHofPreview from '../assets/previews/rnsit-hall-of-fame.webp'
 import clearadmitTechPreview from '../assets/previews/clearadmit-tech-alumni.webp'
 import gnaniPreview from '../assets/previews/gnani-linkedin-post.webp'
+
+// Larger versions of the press thumbnails, fetched only when someone hovers a thumbnail.
+const largePreviews = import.meta.glob('../assets/previews/lg/*.webp', { eager: true, import: 'default' })
+const largeById = {
+    'press-prajavani': 'prajavani-article', 'press-clearadmit': 'clearadmit', 'press-clearadmit-tech': 'clearadmit-tech-alumni',
+    'press-yourstory': 'yourstory-v3', 'press-podcast-life-at-lbs': 'podcast-life-at-lbs', 'press-rnsit-hof': 'rnsit-hall-of-fame',
+    'press-hedigest': 'higher-education-digest', 'press-bangalore-mirror': 'bangalore-mirror', 'press-podcast': 'podcast-v2',
+    'press-tipranks': 'tipranks-article', 'press-gnani': 'gnani-linkedin-post',
+}
+const largeFor = id => largePreviews[`../assets/previews/lg/${largeById[id]}.webp`]
+const subsectionIds = ['press', 'products', 'patent', 'publications', 'research']
 
 // 1. Independent Editorial Press & Media (Prioritized Hierarchy)
 const pressItems = [
@@ -330,6 +341,28 @@ const PRESS_VISIBLE = 6
 
 const Features = () => {
     const [showAllPress, setShowAllPress] = useState(false)
+    const [currentSub, setCurrentSub] = useState(null)
+
+    // Marks which part of this long section is on screen, for the jump links.
+    useEffect(() => {
+        let frame = 0
+        const measure = () => {
+            frame = 0
+            const line = window.innerHeight * 0.4
+            let current = null
+            subsectionIds.forEach(id => {
+                const el = document.getElementById(id)
+                if (el && el.getBoundingClientRect().top <= line) current = id
+            })
+            const section = document.getElementById('spotlight')
+            if (section && section.getBoundingClientRect().bottom < line) current = null
+            setCurrentSub(prev => (prev === current ? prev : current))
+        }
+        const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
+        measure()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => { window.removeEventListener('scroll', onScroll); if (frame) cancelAnimationFrame(frame) }
+    }, [])
     const citationCount = citedWorks.reduce((n, work) => n + work.citedBy.length, 0)
     const index = [
         ['Press', 'press', pressItems.length],
@@ -357,7 +390,7 @@ const Features = () => {
                 {/* Jump links: this is the longest section on the page */}
                 <nav className="spotlight-index" aria-label="In this section">
                     {index.map(([label, id, count]) => (
-                        <a key={id} href={`#${id}`}>{label}<span>{count}</span></a>
+                        <a key={id} href={`#${id}`} className={currentSub === id ? 'is-current' : ''} aria-current={currentSub === id ? 'location' : undefined}>{label}<span>{count}</span></a>
                     ))}
                 </nav>
 
@@ -371,7 +404,7 @@ const Features = () => {
                         {pressItems.map((item, i) => {
                             const extra = i >= PRESS_VISIBLE ? ' is-extra' : ''
                             const preview = item.image ? (
-                                <div className="card-preview">
+                                <div className="card-preview" data-preview={largeFor(item.id)}>
                                     <img src={item.image} alt="" width="110" height="83" loading="lazy" decoding="async" />
                                     <div className="preview-overlay"></div>
                                     <span className="feature-tag tag-media">{item.tag}</span>

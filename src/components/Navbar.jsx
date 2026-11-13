@@ -9,9 +9,11 @@ const links = [
 const pad = n => String(n).padStart(2, '0')
 
 function useScrollState() {
- const [state, setState] = useState({ active: -1, progress: 0, scrolled: false })
+ const [state, setState] = useState({ active: -1, progress: 0, scrolled: false, away: false })
  useEffect(() => {
    let frame = 0
+   let lastY = 0
+   let away = false
    const measure = () => {
      frame = 0
      const doc = document.documentElement
@@ -25,7 +27,13 @@ function useScrollState() {
      })
      if (max - window.scrollY < 4) active = links.length - 1
      const scrolled = window.scrollY > 24
-     setState(prev => (prev.active === active && prev.scrolled === scrolled && Math.abs(prev.progress - progress) < 0.002 ? prev : { active, progress, scrolled }))
+     // On phones the header steps aside while reading down and returns on the first scroll up.
+     const y = window.scrollY
+     if (window.innerWidth > 760 || y < 160) away = false
+     else if (y > lastY + 6) away = true
+     else if (y < lastY - 6) away = false
+     lastY = y
+     setState(prev => (prev.active === active && prev.scrolled === scrolled && prev.away === away && Math.abs(prev.progress - progress) < 0.002 ? prev : { active, progress, scrolled, away }))
    }
    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
    measure()
@@ -66,7 +74,7 @@ function SectionTracker({ active, scrolled }) {
        {atStart ? (
          <span className="tracker-now"><strong>{total} sections</strong> <span className="tracker-name">on this page</span></span>
        ) : (
-         <span className="tracker-now"><strong>{pad(active + 1)} / {pad(total)}</strong> <span className="tracker-name">{links[active][0]}</span></span>
+         <span className="tracker-now" key={active}><strong>{pad(active + 1)} / {pad(total)}</strong> <span className="tracker-name">{links[active][0]}</span></span>
        )}
        {atEnd ? (
          <button type="button" className="tracker-next" onClick={() => go('hero')}>Back to top <ArrowUp size={13} aria-hidden="true" /></button>
@@ -83,7 +91,7 @@ function SectionTracker({ active, scrolled }) {
 export default function Navbar() {
  const [open, setOpen] = useState(false)
  const toggle = useRef(null)
- const { active, progress, scrolled } = useScrollState()
+ const { active, progress, scrolled, away } = useScrollState()
  useEffect(() => {
    const close = event => { if (event.key === 'Escape') { setOpen(false); toggle.current?.focus() } }
    document.addEventListener('keydown', close)
@@ -91,7 +99,7 @@ export default function Navbar() {
  }, [])
  return <>
    <a className="skip-link" href="#main-content">Skip to content</a>
-   <header className="site-header">
+   <header className={`site-header${away && !open ? ' is-away' : ''}`}>
      <nav className="container site-nav" aria-label="Main navigation">
        <a className="wordmark" href="#hero" onClick={() => setOpen(false)}>Vyshak K Iyengar<span>.</span></a>
        <button ref={toggle} className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="navigation-links" onClick={() => setOpen(!open)}>{open ? <X size={22} /> : <Menu size={22} />}</button>

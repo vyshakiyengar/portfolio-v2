@@ -6,6 +6,13 @@ import lbsLogo from '../assets/logos/lbs.webp'
 import bcgLogo from '../assets/logos/bcg-2026.webp'
 import accentureLogo from '../assets/logos/accenture.webp'
 
+const credentials = [
+  { name: 'Meta', tip: 'Product Strategy & Growth, 2025–2026', className: 'cred-meta', logo: metaLogo, width: 220, height: 124 },
+  { name: 'BCG', tip: 'Strategy consulting, 2024', className: 'cred-bcg', logo: bcgLogo, width: 220, height: 90 },
+  { name: 'London Business School', tip: 'MBA, 2023–2025', className: 'cred-lbs', logo: lbsLogo, width: 220, height: 220 },
+  { name: 'Accenture Strategy', tip: 'Strategy consultant, 2017–2022', className: 'cred-accenture', logo: accentureLogo, width: 220, height: 76 },
+]
+
 // The first line is the one search engines and the prerendered page carry. The rest roll
 // through once after the load sequence, then the line settles back on the first.
 const roles = [
@@ -59,10 +66,11 @@ export default function Hero() {
               <a href="https://x.com/vyshakkiyengar" target="_blank" rel="noopener noreferrer">X (Twitter) <ArrowUpRight size={17} aria-hidden="true" /></a>
             </div>
             <div className="hero-credentials hero-settle" style={{ '--i': 4 }} aria-label="Career and education">
-              <img className="cred-meta" src={metaLogo} width="220" height="124" alt="Meta" title="Meta · Product Strategy &amp; Growth" />
-              <img className="cred-bcg" src={bcgLogo} width="220" height="90" alt="BCG" title="BCG · Strategy consulting" />
-              <img className="cred-lbs" src={lbsLogo} width="220" height="220" alt="London Business School" title="London Business School · MBA" />
-              <img className="cred-accenture" src={accentureLogo} width="220" height="76" alt="Accenture Strategy" title="Accenture Strategy" />
+              {credentials.map(item => (
+                <a key={item.name} className="cred" href="#experience" data-tip={item.tip} aria-label={`${item.name}: ${item.tip}. Go to Experience`}>
+                  <img className={item.className} src={item.logo} width={item.width} height={item.height} alt="" />
+                </a>
+              ))}
             </div>
             <p className="hero-location hero-settle" style={{ '--i': 5 }}>London · Bangalore · Dubai</p>
           </div>
