@@ -1,6 +1,7 @@
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
 import podcastPreview from '../assets/previews/podcast-v2.png'
+import lifeAtLbsPreview from '../assets/previews/podcast-life-at-lbs.jpg'
 import yourstoryPreview from '../assets/previews/yourstory-v3.png'
 import clearadmitPreview from '../assets/previews/clearadmit.png'
 import tipranksPreview from '../assets/previews/tipranks-article.png'
@@ -98,6 +99,18 @@ const pressItems = [
         linkText: "Read Article on Bangalore Mirror",
         type: "media",
         image: bangaloreMirrorPreview
+    },
+    {
+        id: 'press-podcast-life-at-lbs',
+        tag: "Media Podcast",
+        title: "Life @ LBS: From Interning With BCG To Immersion In Peru",
+        subtitle: "Podcast interview \u00b7 Sarthak Verma \u00b7 9 Nov 2026",
+        description: "Conversation with Sarthak Verma, founder of Career Edge, on Vyshak\u2019s 21 months at London Business School: favourite courses, a curriculum flexible enough to span product, tech and strategy, interning with BCG\u2019s AI strategy team in Dubai, an international immersion in Peru, and how recruiting and alumni networking work.",
+        icon: Mic,
+        link: "https://www.youtube.com/watch?v=pKbUun-xIJc",
+        linkText: "Watch on YouTube",
+        type: "media",
+        image: lifeAtLbsPreview
     },
     {
         id: 'press-podcast',
