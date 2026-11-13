@@ -75,7 +75,7 @@ export function useMotion() {
       if (!entry.isIntersecting) return
       entry.target.classList.add('is-in')
       reveal.unobserve(entry.target)
-    }), { rootMargin: '0px 0px -12% 0px' })
+    }), { rootMargin: '0px 0px -6% 0px' })
     targets.forEach(el => { if (!el.classList.contains('is-in')) reveal.observe(el) })
     cleanups.push(() => reveal.disconnect())
 
@@ -100,16 +100,20 @@ export function useMotion() {
     // One scroll listener drives the scroll-linked details:
     // the portrait drift and the BluFin photo opening up.
     const hero = document.querySelector('.hero-section')
-    const photo = document.querySelector('.impact-card-image')
+    const photos = [...document.querySelectorAll('.impact-card-image, .narrative-frame')]
     let frame = 0
     const update = () => {
       frame = 0
       const vh = window.innerHeight
       if (hero) hero.style.setProperty('--drift', Math.min(1, window.scrollY / 700).toFixed(3))
-      if (photo) {
+      photos.forEach(photo => {
         const rect = photo.getBoundingClientRect()
         photo.style.setProperty('--r', Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.62))).toFixed(3))
-      }
+      })
+      // Safety net: nothing marked for reveal may stay hidden once it is on screen.
+      document.querySelectorAll('[data-reveal]:not(.is-in)').forEach(el => {
+        if (el.getBoundingClientRect().top < vh * 0.94) el.classList.add('is-in')
+      })
     }
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update) }
     update()

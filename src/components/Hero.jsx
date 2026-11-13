@@ -6,8 +6,8 @@ import lbsLogo from '../assets/logos/lbs.webp'
 import bcgLogo from '../assets/logos/bcg-2026.webp'
 import accentureLogo from '../assets/logos/accenture.webp'
 
-// The first line is the one search engines and the prerendered page carry; the rest
-// roll through after the load sequence to show the range in the first screen.
+// The first line is the one search engines and the prerendered page carry. The rest roll
+// through once after the load sequence, then the line settles back on the first.
 const roles = [
   'AI and product strategist.',
   'Builder of AI products.',
@@ -19,7 +19,11 @@ function RoleRoll() {
   const [tick, setTick] = useState(0)
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = setInterval(() => setTick(n => n + 1), 2800)
+    // One pass through the list, ending back on the first line, then it stays put.
+    const id = setInterval(() => setTick(n => {
+      if (n + 1 >= roles.length) clearInterval(id)
+      return n + 1
+    }), 2800)
     return () => clearInterval(id)
   }, [])
   const current = roles[tick % roles.length]
@@ -74,7 +78,6 @@ export default function Hero() {
                 fetchPriority="high"
               />
             </div>
-            <figcaption><span>Vyshak K Iyengar</span><span>Product strategy &amp; AI</span></figcaption>
           </figure>
         </div>
         <a className="scroll-cue hero-settle" style={{ '--i': 7 }} href="#brief">

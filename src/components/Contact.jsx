@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Linkedin, Mail, Globe, ArrowUpRight, Copy, Check } from 'lucide-react'
 import SectionMark from './SectionMark'
 import XIcon from './ui/XIcon'
+import Terrain from './Terrain'
 
 // Same labels and order as the top navigation.
 const footerNavLinks = [
@@ -61,6 +62,7 @@ const Contact = () => {
 
     return (
         <footer className="footer-section" id="contact">
+            <Terrain />
             <div className="container contact-container">
                 <div className="contact-card-box text-center fade-in-1">
                     <SectionMark n="07" label="Contact" />

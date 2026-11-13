@@ -94,7 +94,7 @@ const Timeline = () => {
                 <div className="text-center">
                     <SectionMark n="02" label="Experience" />
                     <h2 className="section-heading" data-reveal><span>The path so far</span></h2>
-                    <p className="section-subheading">Product strategy at Meta, consulting at BCG and Accenture, an MBA from London Business School and an engineering degree. Most recent first.</p>
+                    <p className="section-subheading">Most recent first.</p>
                     <div className="animated-divider"></div>
                 </div>
 
@@ -128,23 +128,7 @@ const Timeline = () => {
                                 {/* Right: Card Body */}
                                 <div className="timeline-v-card-col">
                                     <div className={`timeline-v-card ${isEducation ? 'card-education' : 'card-standard'} ${isLatest ? 'card-latest' : ''}`}>
-                                        {/* Card Top Header */}
-                                        <div className="v-card-header">
-                                            <div className="v-tag-group">
-                                                <span className={`v-category-tag ${isEducation ? 'cat-education' : ''}`}>
-                                                    {item.category}
-                                                </span>
-                                                {isEducation && (
-                                                    <span className="v-edu-credential-pill">
-                                                        <GraduationCap size={12} strokeWidth={1.75} />
-                                                        Academic Degree
-                                                    </span>
-                                                )}
-                                            </div>
-                                            <span className="v-year-mobile">{item.year}</span>
-                                        </div>
 
-                                        {/* Role Title */}
                                         <h3 className={`v-role ${isEducation ? 'role-education' : ''}`}>{item.role}</h3>
 
                                         {/* Institution & Logo Bar */}
