@@ -9,7 +9,7 @@ const links = [
 const pad = n => String(n).padStart(2, '0')
 
 function useScrollState() {
- const [state, setState] = useState({ active: -1, progress: 0 })
+ const [state, setState] = useState({ active: -1, progress: 0, scrolled: false })
  useEffect(() => {
    let frame = 0
    const measure = () => {
@@ -24,7 +24,8 @@ function useScrollState() {
        if (el && el.getBoundingClientRect().top <= line) active = i
      })
      if (max - window.scrollY < 4) active = links.length - 1
-     setState(prev => (prev.active === active && Math.abs(prev.progress - progress) < 0.002 ? prev : { active, progress }))
+     const scrolled = window.scrollY > 24
+     setState(prev => (prev.active === active && prev.scrolled === scrolled && Math.abs(prev.progress - progress) < 0.002 ? prev : { active, progress, scrolled }))
    }
    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
    measure()
@@ -39,7 +40,7 @@ function useScrollState() {
  return state
 }
 
-function SectionTracker({ active }) {
+function SectionTracker({ active, scrolled }) {
  const total = links.length
  const atStart = active < 0
  const atEnd = active === total - 1
@@ -48,7 +49,7 @@ function SectionTracker({ active }) {
  const go = id => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
  return (
-   <nav className={`section-tracker${atStart ? ' is-start' : ''}`} aria-label="Section progress">
+   <nav className={`section-tracker${atStart ? ' is-start' : ''}${scrolled ? '' : ' is-resting'}`} aria-label="Section progress">
      <div className="tracker-segments" aria-hidden="true">
        {links.map(([label, id], i) => (
          <button
@@ -82,7 +83,7 @@ function SectionTracker({ active }) {
 export default function Navbar() {
  const [open, setOpen] = useState(false)
  const toggle = useRef(null)
- const { active, progress } = useScrollState()
+ const { active, progress, scrolled } = useScrollState()
  useEffect(() => {
    const close = event => { if (event.key === 'Escape') { setOpen(false); toggle.current?.focus() } }
    document.addEventListener('keydown', close)
@@ -110,6 +111,6 @@ export default function Navbar() {
      </nav>
      <div className="read-progress" aria-hidden="true"><span style={{ transform: `scaleX(${progress})` }} /></div>
    </header>
-   <SectionTracker active={active} />
+   <SectionTracker active={active} scrolled={scrolled} />
  </>
 }

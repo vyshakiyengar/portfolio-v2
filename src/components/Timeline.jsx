@@ -1,16 +1,16 @@
 import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles } from 'lucide-react'
 
-import accentureLogo from '../assets/logos/accenture.png'
-import bcgLogo from '../assets/logos/bcg-2026.png'
-import lbsLogo from '../assets/logos/lbs.png'
-import metaLogo from '../assets/logos/meta.png'
-import vtuLogo from '../assets/logos/vtu.png'
-import blufinLogo from '../assets/logos/blufin.jpg'
+import accentureLogo from '../assets/logos/accenture.webp'
+import bcgLogo from '../assets/logos/bcg-2026.webp'
+import lbsLogo from '../assets/logos/lbs.webp'
+import metaLogo from '../assets/logos/meta.webp'
+import vtuLogo from '../assets/logos/vtu.webp'
+import blufinLogo from '../assets/logos/blufin.webp'
 
 const milestones = [
     {
         step: "01",
-        year: "2013 - 2017",
+        year: "2013–2017",
         role: "Computer Science Engineering",
         institution: "RNS Institute of Technology · Visvesvaraya Technological Univ. (VTU)",
         impact: "Graduated with Distinction from RNS Institute of Technology, Bengaluru (degree awarded by VTU). Founded Cookie Jar, a student media venture, and is listed in the RNSIT Hall of Fame.",
@@ -22,7 +22,7 @@ const milestones = [
     },
     {
         step: "02",
-        year: "2017 - 2022",
+        year: "2017–2022",
         role: "Strategy Consultant",
         institution: "Accenture Strategy",
         impact: "Rare direct internal transfer from Tech to Strategy without an MBA. Advised on large-scale digital transformations.",
@@ -34,7 +34,7 @@ const milestones = [
     },
     {
         step: "03",
-        year: "2018 - Present",
+        year: "2018–Present",
         role: "Co-Founder & Board Member",
         institution: "BluFin Foundation",
         impact: "Co-founded an inclusive sports NGO backing 120+ children and 7 international para-athletes. Backed by Accel Partners.",
@@ -46,7 +46,7 @@ const milestones = [
     },
     {
         step: "04",
-        year: "2023 - 2025",
+        year: "2023–2025",
         role: "MBA",
         institution: "London Business School",
         impact: "Selected for LBS MBA (Class of 2025). Focus on global technology strategy, venture creation, and leadership.",
@@ -70,7 +70,7 @@ const milestones = [
     },
     {
         step: "06",
-        year: "2025 - 2026",
+        year: "2025–2026",
         role: "Product Strategy & Growth",
         institution: "Meta",
         impact: "Shaped product strategy, monetization and growth for Meta's global App Ads products, working with product, engineering, sales and advertisers.",
@@ -83,6 +83,9 @@ const milestones = [
     }
 ]
 
+// The data above is kept in career order; the page shows the most recent role first.
+const newestFirst = [...milestones].reverse()
+
 const Timeline = () => {
     return (
         <section className="timeline-section" id="experience">
@@ -93,7 +96,7 @@ const Timeline = () => {
                         02 / Experience
                     </span>
                     <h2 className="section-heading">The path so far</h2>
-                    <p className="section-subheading">Engineering, enterprise strategy, global business, and product leadership.</p>
+                    <p className="section-subheading">Product strategy at Meta, consulting at BCG and Accenture, an MBA from London Business School and an engineering degree. Most recent first.</p>
                     <div className="animated-divider"></div>
                 </div>
 
@@ -101,8 +104,7 @@ const Timeline = () => {
                 <div className="timeline-v-container">
                     <div className="timeline-v-spine"></div>
 
-                    {milestones.map((item, index) => {
-                        const IconComponent = item.icon
+                    {newestFirst.map((item, index) => {
                         const isEducation = item.isEducation
                         const isLatest = item.isLatest
 
@@ -150,21 +152,13 @@ const Timeline = () => {
                                         {/* Institution & Logo Bar */}
                                         <div className="v-institution-row">
                                             {item.logo && (
-                                                <img src={item.logo} alt={item.institution} className="v-logo-img" />
+                                                <img src={item.logo} alt="" width="40" height="26" loading="lazy" decoding="async" className="v-logo-img" />
                                             )}
                                             <h4 className="v-institution">{item.institution}</h4>
                                         </div>
 
                                         {/* Impact Text */}
                                         <p className="v-impact">{item.impact}</p>
-
-                                        {/* Card Bottom Meta Bar */}
-                                        <div className="v-card-footer">
-                                            <span className={`v-footer-label ${isEducation ? 'label-education' : ''}`}>
-                                                {item.credentialType}
-                                            </span>
-                                            <IconComponent size={16} strokeWidth={1.5} className={`v-corner-icon ${isEducation ? 'icon-education' : ''}`} />
-                                        </div>
                                     </div>
                                 </div>
                             </div>

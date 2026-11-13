@@ -28,7 +28,7 @@ const Values = () => {
                         06 / Philosophy
                     </span>
                     <h2 className="section-heading">What guides his work</h2>
-                    <p className="section-subheading">Foundational tenets guiding product strategy, executive leadership, and social impact.</p>
+                    <p className="section-subheading">Three principles behind the product work and the non-profit work.</p>
                     <div className="animated-divider"></div>
                 </div>
 
