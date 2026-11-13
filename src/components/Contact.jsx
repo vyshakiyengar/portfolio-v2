@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Linkedin, Mail, Globe, ArrowUpRight, Copy, Check } from 'lucide-react'
+import { Linkedin, Mail, Globe, ArrowUpRight, Copy, Check, Download, Share2 } from 'lucide-react'
 import SectionMark from './SectionMark'
 import XIcon from './ui/XIcon'
 import Terrain from './Terrain'
@@ -58,6 +58,26 @@ function CopyEmail() {
     )
 }
 
+// Uses the phone's own share sheet where there is one; otherwise copies the link.
+function SharePage() {
+    const [done, setDone] = useState(false)
+    const share = async () => {
+        const data = { title: 'Vyshak K Iyengar', text: 'Vyshak K Iyengar, AI and product strategist', url: 'https://vyshak.me/' }
+        try {
+            if (navigator.share) { await navigator.share(data); return }
+            await navigator.clipboard.writeText(data.url)
+            setDone(true)
+            setTimeout(() => setDone(false), 2200)
+        } catch { /* share sheet dismissed */ }
+    }
+    return (
+        <button type="button" className={`copy-email${done ? ' is-copied' : ''}`} onClick={share}>
+            {done ? <Check size={15} aria-hidden="true" /> : <Share2 size={15} aria-hidden="true" />}
+            <span aria-live="polite">{done ? 'Link copied' : 'Share this page'}</span>
+        </button>
+    )
+}
+
 const Contact = () => {
 
     return (
@@ -93,6 +113,13 @@ const Contact = () => {
                             <span>X Profile</span>
                             <ArrowUpRight size={16} />
                         </a>
+                    </div>
+                    <div className="contact-utils">
+                        <a className="copy-email" href="/vyshak-iyengar.vcf" download="Vyshak K Iyengar.vcf">
+                            <Download size={15} aria-hidden="true" />
+                            <span>Save contact</span>
+                        </a>
+                        <SharePage />
                     </div>
                     <div className="profile-links"><a href="https://github.com/vyshakiyengar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://medium.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Medium</a><a href="https://www.producthunt.com/@vyshakiyengar" target="_blank" rel="noopener noreferrer">Product Hunt</a><a href="https://scholar.google.com/citations?user=MKSlYmUAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a><a href="https://orcid.org/0009-0002-5098-6448" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7479580" target="_blank" rel="noopener noreferrer">SSRN</a><a href="https://www.instagram.com/vyshak_iyengar/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/vyshakiyengar/" target="_blank" rel="noopener noreferrer">Facebook</a></div>
                 </div>

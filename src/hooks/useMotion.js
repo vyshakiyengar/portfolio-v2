@@ -49,6 +49,53 @@ export function useMotion() {
       }, 450)
     }
     document.addEventListener('click', arrive)
+
+    // Hovering a press thumbnail lifts a larger copy of it beside the pointer.
+    let removePreview = () => {}
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const box = document.createElement('div')
+      box.className = 'hover-preview'
+      box.setAttribute('aria-hidden', 'true')
+      const image = document.createElement('img')
+      image.alt = ''
+      box.appendChild(image)
+      document.body.appendChild(box)
+      let active = null
+      let x = 0, y = 0, tx = 0, ty = 0, raf = 0
+      const follow = () => {
+        x += (tx - x) * 0.18
+        y += (ty - y) * 0.18
+        box.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`
+        raf = active ? requestAnimationFrame(follow) : 0
+      }
+      const place = event => {
+        const width = 340
+        tx = event.clientX + 26
+        if (tx + width > window.innerWidth - 16) tx = event.clientX - width - 26
+        ty = Math.max(90, Math.min(event.clientY - 60, window.innerHeight - 300))
+      }
+      const over = event => {
+        const thumb = event.target.closest ? event.target.closest('[data-preview]') : null
+        if (thumb === active) return
+        active = thumb
+        if (!thumb) { box.classList.remove('is-on'); return }
+        place(event)
+        image.src = thumb.dataset.preview
+        box.classList.add('is-on')
+        if (!raf) { x = tx; y = ty; raf = requestAnimationFrame(follow) }
+      }
+      const hide = () => { active = null; box.classList.remove('is-on') }
+      document.addEventListener('pointerover', over)
+      document.addEventListener('pointermove', place, { passive: true })
+      window.addEventListener('scroll', hide, { passive: true })
+      removePreview = () => {
+        document.removeEventListener('pointerover', over)
+        document.removeEventListener('pointermove', place)
+        window.removeEventListener('scroll', hide)
+        if (raf) cancelAnimationFrame(raf)
+        box.remove()
+      }
+    }
     strip.addEventListener('pointerdown', down)
     window.addEventListener('pointermove', move)
     window.addEventListener('pointerup', up)
@@ -59,6 +106,7 @@ export function useMotion() {
       window.removeEventListener('pointerup', up)
       strip.removeEventListener('click', click, true)
       document.removeEventListener('click', arrive)
+      removePreview()
     }
   }, [])
 

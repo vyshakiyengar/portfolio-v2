@@ -537,3 +537,75 @@ h2[data-reveal]>span{transition:transform .7s cubic-bezier(.16,1,.3,1)}
 .narrative-body .full-name{margin:4px 0 22px}
 #research .credibility-banner{margin:0 0 30px}
 .civic-card-header{margin-bottom:4px}
+
+/* ───────── Wow on interaction, and usability ───────── */
+
+/* Hero logos: links to Experience, with a tooltip that says what each one was */
+.hero-credentials .cred{position:relative;display:inline-flex;align-items:center;min-height:44px}
+.hero-credentials .cred img{transition:scale .4s cubic-bezier(.16,1,.3,1)}
+.hero-credentials .cred:hover img{scale:1.08}
+.hero-credentials .cred::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 4px);translate:-50% 6px;padding:7px 11px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:500;line-height:1.3;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s ease,translate .3s cubic-bezier(.16,1,.3,1);z-index:3}
+.hero-credentials .cred:hover::after,.hero-credentials .cred:focus-visible::after{opacity:1;translate:-50% 0}
+@media(hover:none){.hero-credentials .cred::after{display:none}}
+
+/* Navigation: the underline draws in on hover */
+@media(min-width:761px){
+ .navigation-links a::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+ .navigation-links a:hover::after,.navigation-links a.is-active::after{transform:scaleX(1)}
+}
+
+/* Phones: the header steps aside while reading down */
+.site-header{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.site-header.is-away{transform:translateY(-101%)}
+
+/* Tracker: the section count ticks over */
+@keyframes tick-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.tracker-now{display:inline-block;animation:tick-in .35s cubic-bezier(.16,1,.3,1)}
+
+/* In brief: a small arrow says each line jumps to its evidence */
+.brief-label::after{content:'\2193';display:inline-block;margin-left:7px;opacity:0;transform:translateY(-5px);transition:opacity .25s ease,transform .35s cubic-bezier(.16,1,.3,1)}
+.brief-grid a:hover .brief-label::after,.brief-grid a:focus-visible .brief-label::after{opacity:1;transform:none}
+
+/* Recommendations: cards lift slightly under the pointer */
+.rec-card{transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s ease}
+@media(hover:hover) and (pointer:fine){.recommendations-scroll:not(.is-dragging) .rec-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -30px rgba(35,40,34,.45)}}
+.recommendations-track{padding-top:6px}
+
+/* Press & Work: jump links stay in reach on larger screens and show where you are */
+.spotlight-index a.is-current{color:var(--accent);text-decoration-color:var(--accent)}
+@media(min-width:761px){
+ .spotlight-index{position:sticky;top:83px;z-index:10;margin-left:-12px;margin-right:-12px;padding:0 12px;background:var(--paper);box-shadow:0 1px 0 var(--line)}
+}
+
+/* Press thumbnails: a larger copy lifts beside the pointer */
+[data-preview]{cursor:zoom-in}
+.hover-preview{position:fixed;left:0;top:0;z-index:44;width:340px;pointer-events:none;opacity:0;transition:opacity .22s ease;will-change:transform}
+.hover-preview img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--line);box-shadow:0 30px 70px -34px rgba(35,40,34,.55);transform:scale(.94);transform-origin:0 30%;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.hover-preview.is-on{opacity:1}
+.hover-preview.is-on img{transform:none}
+
+/* Contact: save the contact card, share the page */
+.contact-utils{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.contact-utils .copy-email{text-decoration:none}
+.contact-utils a.copy-email:hover{color:var(--ink)}
+
+/* Print or save as PDF: a clean document with everything expanded */
+@media print{
+ .site-header,.section-tracker,.hero-field,.scroll-cue,.skip-link,.scroll-btn,.rec-position,.press-toggle,.spotlight-index,.intro-lang,.copy-email,.contact-utils,.hover-preview,.rec-expand,.footer-links-row{display:none!important}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ html,body{background:#fff}
+ main>section,.footer-section{background:none!important;border:0;padding:0 0 26px}
+ h2[data-reveal]>span,.chapter-rule,.chapter-num,.value-card,.hero-portrait-frame,.hero-portrait-frame img,.impact-card-image>img,.narrative-frame>img,.hero-intro h1{transform:none!important;opacity:1!important;clip-path:none!important;scale:1!important;translate:none!important}
+ .chapter-num,.chapter-label{opacity:1!important}
+ .brief-fact{color:var(--ink)!important}
+ .js .press-grid:not(.is-expanded) .is-extra{display:grid!important}
+ .recommendations-scroll{overflow:visible}
+ .recommendations-track{flex-wrap:wrap}
+ .rec-card{flex:1 1 45%;max-width:none}
+ .rec-quote.is-clamped{max-height:none}
+ .rec-quote.is-clamped::after{display:none}
+ .builder-card,.timeline-v-row,.publication-item,.cite-item,.value-card,.rec-card,.brief-grid li{break-inside:avoid}
+ .chapter{break-after:avoid}
+ .role-item.is-out{display:none}
+}
+.hero-credentials{margin:22px 0 16px;padding-top:12px}
