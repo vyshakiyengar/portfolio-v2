@@ -1,4 +1,5 @@
-import { GraduationCap, Briefcase, Building2, Heart, Award, Sparkles } from 'lucide-react'
+import { GraduationCap, Briefcase, Building2, Heart, Award } from 'lucide-react'
+import SectionMark from './SectionMark'
 
 import accentureLogo from '../assets/logos/accenture.webp'
 import bcgLogo from '../assets/logos/bcg-2026.webp'
@@ -91,11 +92,8 @@ const Timeline = () => {
         <section className="timeline-section" id="experience">
             <div className="container">
                 <div className="text-center">
-                    <span className="timeline-section-tag">
-                        <Sparkles size={14} strokeWidth={1.5} style={{ display: 'inline', marginRight: '6px' }} />
-                        02 / Experience
-                    </span>
-                    <h2 className="section-heading">The path so far</h2>
+                    <SectionMark n="02" label="Experience" />
+                    <h2 className="section-heading" data-reveal><span>The path so far</span></h2>
                     <p className="section-subheading">Product strategy at Meta, consulting at BCG and Accenture, an MBA from London Business School and an engineering degree. Most recent first.</p>
                     <div className="animated-divider"></div>
                 </div>

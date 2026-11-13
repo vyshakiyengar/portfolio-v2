@@ -1,4 +1,5 @@
-import { Compass, Sliders, TrendingUp, Sparkles } from 'lucide-react'
+import { Compass, Sliders, TrendingUp } from 'lucide-react'
+import SectionMark from './SectionMark'
 
 const principles = [
     {
@@ -23,11 +24,8 @@ const Values = () => {
         <section className="values-section" id="philosophy">
             <div className="container">
                 <div className="text-center">
-                    <span className="values-section-tag">
-                        <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        06 / Philosophy
-                    </span>
-                    <h2 className="section-heading">What guides his work</h2>
+                    <SectionMark n="06" label="Philosophy" />
+                    <h2 className="section-heading" data-reveal><span>What guides his work</span></h2>
                     <p className="section-subheading">Three principles behind the product work and the non-profit work.</p>
                     <div className="animated-divider"></div>
                 </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SectionMark from './SectionMark'
 import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
 import podcastPreview from '../assets/previews/podcast-v2.webp'
@@ -180,6 +181,17 @@ const productItems = [
         secondaryLink: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7479580",
         secondaryLinkText: "Read the paper (SSRN)",
         type: "product"
+    },
+    {
+        id: 'product-prepforcase',
+        tag: "Product Launch",
+        title: "PrepForCase",
+        subtitle: "Free case interview course \u00b7 prepforcase.com",
+        description: "A free course that teaches the case interview and then lets candidates practise it: 11 core frameworks, 102 cases with worked answers, and drills for maths, structuring, charts and market sizing.",
+        icon: GraduationCap,
+        link: "https://www.prepforcase.com/",
+        linkText: "Open prepforcase.com",
+        type: "product"
     }
 ];
 
@@ -338,11 +350,8 @@ const Features = () => {
             <div className="container">
                 {/* Main Section Header */}
                 <div className="text-center">
-                    <span className="spotlight-section-tag">
-                        <Sparkles size={14} style={{ display: 'inline', marginRight: '6px' }} />
-                        04 / Press &amp; work
-                    </span>
-                    <h2 className="section-heading">Media features, product launches &amp; research</h2>
+                    <SectionMark n="04" label="Press &amp; Work" />
+                    <h2 className="section-heading" data-reveal><span>Media features, product launches &amp; research</span></h2>
                     <p className="section-subheading">
                         Media features and interviews, products Vyshak has shipped, a granted US patent, his publications, and who has cited them.
                     </p>
@@ -552,8 +561,8 @@ const Features = () => {
                     </div>
 
                     <div className="cite-summary">
-                        <div><strong>2</strong><span>articles cited</span></div>
-                        <div><strong>4</strong><span>citing publications</span></div>
+                        <div><strong data-count="2">2</strong><span>articles cited</span></div>
+                        <div><strong data-count="4">4</strong><span>citing publications</span></div>
                         <div><strong>2019–2024</strong><span>years cited</span></div>
                     </div>
 
