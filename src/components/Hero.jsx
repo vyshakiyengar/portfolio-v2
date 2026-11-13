@@ -13,24 +13,25 @@ const credentials = [
   { name: 'Accenture Strategy', tip: 'Strategy consultant, 2017–2022', className: 'cred-accenture', logo: accentureLogo, width: 220, height: 76 },
 ]
 
-// The first line is the one search engines and the prerendered page carry. The rest roll
-// through once after the load sequence, then the line settles back on the first.
+// The first line is the one search engines and the prerendered page carry. After the load
+// sequence the lines roll continuously, one every ROLE_INTERVAL ms.
 const roles = [
   'AI and product strategist.',
   'Builder of AI products.',
   'Co-founder, BluFin Foundation.',
   'Co-inventor on a US patent.',
 ]
+const ROLE_INTERVAL = 1800
 
 function RoleRoll() {
   const [tick, setTick] = useState(0)
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    // One pass through the list, ending back on the first line, then it stays put.
-    const id = setInterval(() => setTick(n => {
-      if (n + 1 >= roles.length) clearInterval(id)
-      return n + 1
-    }), 2800)
+    // Loops for as long as the page is open; holds still while the tab is in the background
+    // so it does not skip ahead when you come back.
+    const id = setInterval(() => {
+      if (!document.hidden) setTick(n => n + 1)
+    }, ROLE_INTERVAL)
     return () => clearInterval(id)
   }, [])
   const current = roles[tick % roles.length]
