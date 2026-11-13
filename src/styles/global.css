@@ -445,16 +445,6 @@ body::after{content:'';position:fixed;inset:0;z-index:45;pointer-events:none;opa
 /* Portrait and name drift at different speeds as the hero scrolls away */
 .motion .hero-intro h1{translate:0 calc(var(--drift,0)*-14px)}
 
-/* Experience: a line draws down the timeline as you read, and the current row's dates pick up the accent */
-.timeline-v-container{position:relative}
-.motion .timeline-v-spine{display:block;position:absolute;left:150px;top:0;bottom:0;width:1px;background:var(--line);pointer-events:none}
-.motion .timeline-v-spine::before{content:'';position:absolute;inset:0;background:var(--accent);transform-origin:50% 0;transform:scaleY(var(--p,0))}
-.motion .timeline-v-spine::after{content:'';position:absolute;left:-3px;top:calc(var(--p,0)*100% - 3.5px);width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.timeline-v-year-col{transition:color .35s ease}
-.motion .timeline-v-row.is-current .timeline-v-year-col{color:var(--accent)}
-@media(max-width:760px){.motion .timeline-v-spine{left:96px}}
-@media(max-width:380px){.motion .timeline-v-spine{left:80px}}
-
 /* Impact: the BluFin photograph opens up as it arrives */
 .motion .impact-card-image>img{clip-path:inset(calc((1 - var(--r,1))*11%) calc((1 - var(--r,1))*8%));scale:calc(1.16 - var(--r,1)*.16)}
 
@@ -465,3 +455,48 @@ body::after{content:'';position:fixed;inset:0;z-index:45;pointer-events:none;opa
 @media(hover:hover) and (pointer:fine){.recommendations-scroll{cursor:grab}}
 .recommendations-scroll.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
 .recommendations-scroll.is-dragging *{pointer-events:none}
+
+/* ───────── Polish and usability ───────── */
+
+/* Portrait: tilts toward the pointer and catches a soft light */
+.hero-portrait{perspective:1000px}
+.hero-portrait-frame{position:relative;transform:rotateX(calc(var(--tx,0)*1deg)) rotateY(calc(var(--ty,0)*1deg));transition:transform .7s cubic-bezier(.16,1,.3,1);will-change:transform}
+.hero-portrait-frame::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease;background:radial-gradient(circle at var(--sx,50%) var(--sy,50%),rgba(255,255,255,.26),rgba(255,255,255,0) 46%)}
+.hero-portrait-frame.is-lit::after{opacity:1}
+
+/* Link arrows nudge on hover */
+a svg.lucide-arrow-up-right,a svg.lucide-external-link{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+a:hover svg.lucide-arrow-up-right,a:hover svg.lucide-external-link{transform:translate(2px,-2px)}
+
+/* Section numbers rise into place like the headings */
+.chapter-num{transition:opacity .7s ease .25s,clip-path .9s cubic-bezier(.16,1,.3,1) .2s,transform .9s cubic-bezier(.16,1,.3,1) .2s}
+.motion .chapter:not(.is-in) .chapter-num{clip-path:inset(0 0 100% 0);transform:translateY(45%)}
+
+/* The heading you jump to is briefly marked */
+@keyframes arrived{0%,45%{color:var(--accent)}100%{color:var(--ink)}}
+.has-arrived,.has-arrived a{animation:arrived 2.1s ease both}
+
+/* Press: the extra cards arrive in sequence when you ask for them */
+.press-grid.is-expanded .is-extra{animation:soft-in .55s cubic-bezier(.16,1,.3,1) both}
+.press-grid.is-expanded .is-extra:nth-child(8){animation-delay:.06s}
+.press-grid.is-expanded .is-extra:nth-child(9){animation-delay:.12s}
+.press-grid.is-expanded .is-extra:nth-child(10){animation-delay:.18s}
+.press-grid.is-expanded .is-extra:nth-child(11){animation-delay:.24s}
+
+/* Recommendations: where you are in the strip */
+.scroll-btn{transition:opacity .25s,border-color .2s,color .2s}
+.scroll-btn:hover:not(:disabled){border-color:var(--ink)}
+.scroll-btn:disabled{opacity:.35;cursor:default}
+.rec-position{position:absolute;top:0;left:108px;height:40px;display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rec-track{display:block;width:120px;height:1px;background:var(--line);overflow:hidden}
+.rec-track span{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transition:transform .25s ease}
+
+/* Contact: copy the address without opening a mail app; local time in London */
+.contact-time{margin-top:14px;font-size:13.5px;color:var(--muted)}
+.contact-time time{color:var(--ink);font-weight:550;font-variant-numeric:tabular-nums}
+.copy-email{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:0 14px;border:1px solid #b8bbaf;font-size:13px;font-weight:550;transition:background .2s,color .2s,border-color .2s}
+.copy-email:hover{border-color:var(--ink)}
+.copy-email.is-copied{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+@media(max-width:760px){.rec-track{width:72px}}
+/* The opening-up photograph must never widen the page while it is still scaled */
+.impact-card-image{overflow:hidden}

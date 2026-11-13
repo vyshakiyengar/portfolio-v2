@@ -34,6 +34,21 @@ export function useMotion() {
       strip.classList.remove('is-dragging')
     }
     const click = event => { if (moved) { event.preventDefault(); event.stopPropagation(); moved = false } }
+    // Orientation after a jump: the heading you arrive at is briefly marked.
+    const arrive = event => {
+      const link = event.target.closest && event.target.closest('a[href^="#"]')
+      if (!link || link.getAttribute('href').length < 2) return
+      const target = document.getElementById(link.getAttribute('href').slice(1))
+      if (!target || target.id === 'hero') return
+      const heading = target.matches('h2,h3') ? target : target.querySelector('h2, .subgroup-title, .impact-card-title')
+      if (!heading) return
+      heading.classList.remove('has-arrived')
+      setTimeout(() => {
+        heading.classList.add('has-arrived')
+        setTimeout(() => heading.classList.remove('has-arrived'), 2200)
+      }, 450)
+    }
+    document.addEventListener('click', arrive)
     strip.addEventListener('pointerdown', down)
     window.addEventListener('pointermove', move)
     window.addEventListener('pointerup', up)
@@ -43,6 +58,7 @@ export function useMotion() {
       window.removeEventListener('pointermove', move)
       window.removeEventListener('pointerup', up)
       strip.removeEventListener('click', click, true)
+      document.removeEventListener('click', arrive)
     }
   }, [])
 
@@ -82,24 +98,14 @@ export function useMotion() {
     cleanups.push(() => count.disconnect())
 
     // One scroll listener drives the scroll-linked details:
-    // the portrait drift, the line that draws down the Experience timeline, and the BluFin photo opening up.
+    // the portrait drift and the BluFin photo opening up.
     const hero = document.querySelector('.hero-section')
-    const timeline = document.querySelector('.timeline-v-container')
-    const rows = timeline ? [...timeline.querySelectorAll('.timeline-v-row')] : []
     const photo = document.querySelector('.impact-card-image')
     let frame = 0
     const update = () => {
       frame = 0
       const vh = window.innerHeight
       if (hero) hero.style.setProperty('--drift', Math.min(1, window.scrollY / 700).toFixed(3))
-      if (timeline) {
-        const rect = timeline.getBoundingClientRect()
-        const progress = Math.min(1, Math.max(0, (vh * 0.55 - rect.top) / rect.height))
-        timeline.style.setProperty('--p', progress.toFixed(4))
-        let current = -1
-        rows.forEach((row, i) => { if (row.getBoundingClientRect().top <= vh * 0.55) current = i })
-        rows.forEach((row, i) => row.classList.toggle('is-current', i === current && progress < 1))
-      }
       if (photo) {
         const rect = photo.getBoundingClientRect()
         photo.style.setProperty('--r', Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.62))).toFixed(3))
@@ -114,6 +120,29 @@ export function useMotion() {
       window.removeEventListener('resize', onScroll)
       if (frame) cancelAnimationFrame(frame)
     })
+
+    // The portrait tilts a few degrees toward the mouse pointer and catches a soft light.
+    const portrait = document.querySelector('.hero-portrait-frame')
+    if (portrait && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const tilt = event => {
+        const rect = portrait.getBoundingClientRect()
+        const x = (event.clientX - rect.left) / rect.width
+        const y = (event.clientY - rect.top) / rect.height
+        portrait.style.setProperty('--ty', ((x - 0.5) * 7).toFixed(2))
+        portrait.style.setProperty('--tx', ((0.5 - y) * 7).toFixed(2))
+        portrait.style.setProperty('--sx', `${(x * 100).toFixed(1)}%`)
+        portrait.style.setProperty('--sy', `${(y * 100).toFixed(1)}%`)
+        portrait.classList.add('is-lit')
+      }
+      const rest = () => {
+        portrait.style.setProperty('--tx', '0')
+        portrait.style.setProperty('--ty', '0')
+        portrait.classList.remove('is-lit')
+      }
+      portrait.addEventListener('pointermove', tilt)
+      portrait.addEventListener('pointerleave', rest)
+      cleanups.push(() => { portrait.removeEventListener('pointermove', tilt); portrait.removeEventListener('pointerleave', rest); rest() })
+    }
 
     // The primary button leans toward a nearby mouse pointer.
     const cta = document.querySelector('.hero-cta')

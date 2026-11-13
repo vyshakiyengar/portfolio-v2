@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SectionMark from './SectionMark'
 import { ChevronLeft, ChevronRight, Linkedin, ArrowUpRight } from 'lucide-react'
 import avatarRichard from '../assets/recommendations/avatars/richard-harpin.jpg'
@@ -180,6 +180,32 @@ const RecommendationCard = ({ rec }) => {
 
 const Recommendations = () => {
     const scrollRef = useRef(null)
+    const [position, setPosition] = useState({ index: 0, progress: 0, atStart: true, atEnd: false })
+
+    useEffect(() => {
+        const strip = scrollRef.current
+        if (!strip) return
+        let frame = 0
+        const measure = () => {
+            frame = 0
+            const max = strip.scrollWidth - strip.clientWidth
+            const card = strip.querySelector('.rec-card')
+            const step = card ? card.offsetWidth + 24 : 454
+            const atEnd = max - strip.scrollLeft < 4
+            const index = atEnd ? recommendations.length - 1 : Math.min(recommendations.length - 1, Math.round(strip.scrollLeft / step))
+            const progress = max > 0 ? strip.scrollLeft / max : 0
+            setPosition(prev => (prev.index === index && Math.abs(prev.progress - progress) < 0.004 && prev.atEnd === atEnd ? prev : { index, progress, atStart: strip.scrollLeft < 4, atEnd }))
+        }
+        const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
+        measure()
+        strip.addEventListener('scroll', onScroll, { passive: true })
+        window.addEventListener('resize', onScroll)
+        return () => {
+            strip.removeEventListener('scroll', onScroll)
+            window.removeEventListener('resize', onScroll)
+            if (frame) cancelAnimationFrame(frame)
+        }
+    }, [])
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -208,12 +234,17 @@ const Recommendations = () => {
                 </p>
 
                 <div className="scroll-wrapper">
-                    <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Previous recommendation">
+                    <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Previous recommendation" disabled={position.atStart}>
                         <ChevronLeft size={20} />
                     </button>
-                    <button className="scroll-btn right" onClick={() => scroll('right')} aria-label="Next recommendation">
+                    <button className="scroll-btn right" onClick={() => scroll('right')} aria-label="Next recommendation" disabled={position.atEnd}>
                         <ChevronRight size={20} />
                     </button>
+                    <p className="rec-position" aria-hidden="true">
+                        <span className="rec-count">{position.index + 1} / {recommendations.length}</span>
+                        <span className="rec-track"><span style={{ transform: `scaleX(${(1 / recommendations.length + position.progress * (1 - 1 / recommendations.length)).toFixed(4)})` }} /></span>
+                    </p>
+
 
                     <div
                         className="recommendations-scroll"
