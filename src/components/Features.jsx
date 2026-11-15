@@ -202,6 +202,8 @@ const productItems = [
         icon: GraduationCap,
         link: "https://www.prepforcase.com/",
         linkText: "Open prepforcase.com",
+        secondaryLink: "https://www.prepforcase.com/author/vyshak-iyengar",
+        secondaryLinkText: "Read my case interview guides",
         type: "product"
     }
 ];
