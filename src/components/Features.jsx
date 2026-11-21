@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import SectionMark from './SectionMark'
-import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap } from 'lucide-react'
+import { Mic, Lightbulb, ExternalLink, FileText, Sparkles, Bot, Newspaper, BookOpen, GraduationCap, Wallet } from 'lucide-react'
 import patentPreview from '../assets/patent_schematic.svg'
 import podcastPreview from '../assets/previews/podcast-v2.webp'
 import lifeAtLbsPreview from '../assets/previews/podcast-life-at-lbs.webp'
@@ -167,6 +167,19 @@ const pressItems = [
 
 // 1b. Products shipped and launched publicly
 const productItems = [
+    {
+        id: 'product-heya-cards',
+        tag: "Product Launch",
+        title: "Heya Cards",
+        subtitle: "Product Hunt \u00b7 November 2026 \u00b7 heya.cards",
+        description: "A free way to make Apple Wallet contact cards. Build a card for WhatsApp, phone, Instagram, LinkedIn or email, or put everything on one card, then add it to Apple Wallet and share it with a tap.",
+        icon: Wallet,
+        link: "https://www.heya.cards/",
+        linkText: "Open heya.cards",
+        secondaryLink: "https://www.producthunt.com/products/heya-cards?launch=heya-cards",
+        secondaryLinkText: "Product Hunt",
+        type: "product"
+    },
     {
         id: 'product-speechon',
         tag: "Product Launch",
