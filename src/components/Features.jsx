@@ -356,28 +356,57 @@ const PRESS_VISIBLE = 6
 
 const Features = () => {
     const [showAllPress, setShowAllPress] = useState(false)
-    const [currentSub, setCurrentSub] = useState(null)
+    const [activeTab, setActiveTab] = useState('press')
 
-    // Marks which part of this long section is on screen, for the jump links.
+    // Press & Work is a set of tabs: one list at a time, Press first. Every panel stays in the
+    // prerendered HTML; the others are only hidden once JavaScript is running (html.js).
+    // Links to a part of it (#products from In brief, /patent, /publications…) open that tab.
     useEffect(() => {
-        let frame = 0
-        const measure = () => {
-            frame = 0
-            const line = window.innerHeight * 0.4
-            let current = null
-            subsectionIds.forEach(id => {
-                const el = document.getElementById(id)
-                if (el && el.getBoundingClientRect().top <= line) current = id
-            })
-            const section = document.getElementById('spotlight')
-            if (section && section.getBoundingClientRect().bottom < line) current = null
-            setCurrentSub(prev => (prev === current ? prev : current))
+        const paths = { '/press': 'press', '/products': 'products', '/patent': 'patent', '/patents': 'patent', '/publications': 'publications', '/research': 'research', '/citations': 'research' }
+        const open = id => {
+            setActiveTab(id)
+            requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById('spotlight-tabs')?.scrollIntoView({ block: 'start' })))
         }
-        const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure) }
-        measure()
-        window.addEventListener('scroll', onScroll, { passive: true })
-        return () => { window.removeEventListener('scroll', onScroll); if (frame) cancelAnimationFrame(frame) }
+        const first = window.location.hash.slice(1) || paths[window.location.pathname.replace(/\/$/, '')]
+        if (subsectionIds.includes(first)) open(first)
+        const onClick = event => {
+            const link = event.target.closest && event.target.closest('a[href^="#"]')
+            const id = link && link.getAttribute('href').slice(1)
+            if (!subsectionIds.includes(id)) return
+            event.preventDefault()
+            if (window.location.hash !== `#${id}`) history.pushState(null, '', `#${id}`)
+            open(id)
+        }
+        const onHash = () => {
+            const id = window.location.hash.slice(1)
+            if (subsectionIds.includes(id)) open(id)
+        }
+        document.addEventListener('click', onClick)
+        window.addEventListener('hashchange', onHash)
+        return () => { document.removeEventListener('click', onClick); window.removeEventListener('hashchange', onHash) }
     }, [])
+    const chooseTab = id => {
+        setActiveTab(id)
+        // If the reader is deep in a long list, bring the new one into view from its top.
+        requestAnimationFrame(() => {
+            const mark = document.getElementById('spotlight-tabs')
+            if (mark && mark.getBoundingClientRect().top < 0) mark.scrollIntoView({ block: 'start' })
+        })
+    }
+    const onTabKey = event => {
+        const i = subsectionIds.indexOf(event.currentTarget.id.slice(4))
+        const next = { ArrowRight: subsectionIds[(i + 1) % subsectionIds.length], ArrowLeft: subsectionIds[(i - 1 + subsectionIds.length) % subsectionIds.length], Home: subsectionIds[0], End: subsectionIds[subsectionIds.length - 1] }[event.key]
+        if (!next) return
+        event.preventDefault()
+        chooseTab(next)
+        document.getElementById(`tab-${next}`)?.focus()
+    }
+    const panel = id => ({
+        id,
+        role: 'tabpanel',
+        'aria-labelledby': `tab-${id}`,
+        className: `spotlight-subgroup${activeTab === id ? ' is-active' : ''}`,
+    })
     const citationCount = citedWorks.reduce((n, work) => n + work.citedBy.length, 0)
     const index = [
         ['Press', 'press', pressItems.length],
@@ -402,15 +431,16 @@ const Features = () => {
                     <div className="animated-divider"></div>
                 </div>
 
-                {/* Jump links: this is the longest section on the page */}
-                <nav className="spotlight-index" aria-label="In this section">
+                {/* Tabs: one list at a time, so the longest section on the page stays short */}
+                <div id="spotlight-tabs" className="spotlight-tabs-mark" aria-hidden="true"></div>
+                <div className="spotlight-index" role="tablist" aria-label="Press and work">
                     {index.map(([label, id, count]) => (
-                        <a key={id} href={`#${id}`} className={currentSub === id ? 'is-current' : ''} aria-current={currentSub === id ? 'location' : undefined}>{label}<span>{count}</span></a>
+                        <button key={id} type="button" role="tab" id={`tab-${id}`} aria-controls={id} aria-selected={activeTab === id} tabIndex={activeTab === id ? 0 : -1} className={activeTab === id ? 'is-current' : ''} onClick={() => chooseTab(id)} onKeyDown={onTabKey}>{label}<span>{count}</span></button>
                     ))}
-                </nav>
+                </div>
 
                 {/* 1. Verified Editorial Press Coverage */}
-                <div className="spotlight-subgroup" id="press">
+                <div {...panel('press')}>
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Editorial Press &amp; Media Coverage</h3>
                     </div>
@@ -470,7 +500,7 @@ const Features = () => {
                 </div>
 
                 {/* 1b. Products & Launches */}
-                <div className="spotlight-subgroup" id="products">
+                <div {...panel('products')}>
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Products &amp; Launches</h3>
                     </div>
@@ -495,7 +525,7 @@ const Features = () => {
                 </div>
 
                 {/* 2. Intellectual Property (Patents) */}
-                <div className="spotlight-subgroup" id="patent">
+                <div {...panel('patent')}>
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Intellectual Property &amp; Inventions</h3>
                     </div>
@@ -538,7 +568,7 @@ const Features = () => {
                 </div>
 
                 {/* 2b. Publications */}
-                <div className="spotlight-subgroup" id="publications">
+                <div {...panel('publications')}>
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Publications</h3>
                         <span className="subgroup-desc">Newest first</span>
@@ -564,7 +594,7 @@ const Features = () => {
                 </div>
 
                 {/* 3. Research & Citations Subsection */}
-                <div className="spotlight-subgroup" id="research">
+                <div {...panel('research')}>
                     <div className="subgroup-header">
                         <h3 className="subgroup-title">Research &amp; Citations</h3>
                     </div>
