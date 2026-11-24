@@ -259,9 +259,9 @@ main > section{padding:60px 0}
 
 /* Press & Work: jump links for the longest section, and a collapsed press list */
 .spotlight-index{display:flex;flex-wrap:wrap;gap:4px 30px;margin:-8px 0 30px;font-size:14px}
-.spotlight-index a{display:inline-flex;align-items:baseline;gap:7px;min-height:44px;padding-top:11px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:7px;transition:text-decoration-color .2s,color .2s}
-.spotlight-index a:hover{text-decoration-color:var(--accent)}
-.spotlight-index a span{font-size:12px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.spotlight-index button{display:inline-flex;padding:11px 0 0;align-items:baseline;gap:7px;min-height:44px;font-weight:550;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:7px;transition:text-decoration-color .2s,color .2s}
+.spotlight-index button:hover{text-decoration-color:var(--accent)}
+.spotlight-index button span{font-size:12px;font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
 .press-toggle{display:none}
 .js .press-toggle{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 22px;border:1px solid var(--ink);font-size:13.5px;font-weight:600;transition:background .2s,color .2s}
 .js .press-toggle:hover{background:var(--ink);color:var(--paper)}
@@ -365,19 +365,61 @@ h2[data-reveal]{overflow:hidden}
 h2[data-reveal]>span{display:block;padding-bottom:.14em;transition:transform 1s cubic-bezier(.16,1,.3,1) .12s}
 .motion h2[data-reveal]:not(.is-in)>span{transform:translateY(112%)}
 
-/* In brief: six short lines in a compact grid; they take ink together as the grid arrives */
+/* In brief: six short lines in a compact grid, each over a small chart of its fact; they take ink together as the grid arrives */
 main>section.brief-section{padding-bottom:72px}
 .brief-section .chapter{margin-bottom:10px}
 .brief-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
 .brief-grid li{border-bottom:1px solid var(--line)}
 .brief-grid li:not(:nth-child(3n+1)){border-left:1px solid var(--line)}
 .brief-grid li:nth-last-child(-n+3){border-bottom:0}
-.brief-grid a{display:block;height:100%;padding:24px 30px 26px}
+.brief-grid a{display:block;height:100%;padding:30px 30px 30px}
 .brief-grid li:nth-child(3n+1) a{padding-left:0}
 .brief-label{display:block;font-size:13px;font-weight:600;color:var(--accent);margin-bottom:9px}
 .brief-fact{display:block;font:400 21px/1.34 var(--serif);letter-spacing:-.008em;color:var(--ink);text-wrap:pretty;transition:color .7s ease calc(var(--i,0)*90ms)}
 .brief-grid a:hover .brief-fact{color:var(--accent);transition-delay:0s;transition-duration:.2s}
 .motion .brief-grid:not(.is-in) .brief-fact{color:var(--pale)}
+
+/* The charts: grey is context, the accent is his part */
+.bc{display:block;width:100%;max-width:300px;height:auto;overflow:visible;margin-bottom:22px}
+.bc .ln{fill:none;stroke:var(--line)}
+.bc .dotted{stroke-dasharray:1 3}
+.bc .ax{fill:none;stroke:var(--muted)}
+.bc .ctx{fill:#b9bcb1}
+.bc .ctx-dash{fill:none;stroke:#b9bcb1;stroke-dasharray:2 4}
+.bc .ac{fill:var(--accent)}
+.bc .acs{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.bc .acs.thick,.bc .acs.glyph{stroke-width:1.6}
+.bc .acs.dotted{stroke-width:1;stroke-linecap:butt}
+.bc .area{fill:var(--accent);fill-opacity:.07}
+.bc .ring{fill:var(--paper);stroke:var(--muted)}
+.bc .quad{fill:var(--accent);fill-opacity:.06}
+.bc .app{fill:var(--paper-deep);stroke:var(--line)}
+.bc .fig{fill:none;stroke:#8f9388}
+.bc .fig.box{fill:var(--paper-deep)}
+.bc .ctx-dots{fill:none;stroke:#b9bcb1;stroke-width:3.6;stroke-linecap:round}
+.bc .ac-dots{fill:none;stroke:var(--accent);stroke-width:3.4;stroke-linecap:round}
+.bc .ac-dots.big-dots{stroke-width:5.2}
+.bc .seat-dots{fill:none;stroke:#c3c5bb;stroke-width:2.4;stroke-linecap:round}
+.bc text{font-family:var(--sans)}
+.bc .lbl{font-size:11px;fill:var(--muted)}
+.bc .lbl.small{font-size:10px}
+.bc .caps{letter-spacing:1.4px}
+.bc .strong{fill:var(--ink);font-weight:600}
+.bc .strong.accent{fill:var(--accent)}
+.bc .big{font-family:var(--serif);font-size:25px;fill:var(--accent)}
+.bc .num{font-family:var(--serif);font-size:21px;fill:var(--ink)}
+/* They draw in, tile after tile, as the grid is revealed, and redraw under the pointer */
+.bc-draw{stroke-dasharray:var(--len);stroke-dashoffset:0;transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1) calc(var(--i,0)*110ms + var(--d,0s) + .15s)}
+.bc-fade{transition:opacity .8s ease calc(var(--i,0)*110ms + var(--d,0s))}
+.motion .brief-grid:not(.is-in) .bc-draw{stroke-dashoffset:var(--len)}
+.motion .brief-grid:not(.is-in) .bc-fade{opacity:0}
+@keyframes bc-draw{from{stroke-dashoffset:var(--len)}}
+@keyframes bc-fade{from{opacity:0}}
+@media(hover:hover) and (pointer:fine){
+ .motion .brief-grid.is-in a:hover .bc-draw{animation:bc-draw 1.4s cubic-bezier(.16,1,.3,1) var(--d,0s) both}
+ .motion .brief-grid.is-in a:hover .bc-fade{animation:bc-fade .7s ease var(--d,0s) both}
+}
+.brief-pager{display:none}
 @media(max-width:1000px){
  .brief-grid{grid-template-columns:1fr 1fr}
  .brief-grid li:not(:nth-child(3n+1)){border-left:0}
@@ -387,16 +429,22 @@ main>section.brief-section{padding-bottom:72px}
  .brief-grid li:nth-child(3n+1) a{padding-left:30px}
  .brief-grid li:nth-child(odd) a{padding-left:0}
 }
+/* Phones: the six become a strip of cards you swipe through */
 @media(max-width:760px){
  main>section.brief-section{padding-bottom:44px}
- .brief-grid{grid-template-columns:1fr}
- .brief-grid li,.brief-grid li:nth-child(even){border-left:0;border-bottom:1px solid var(--line)}
- .brief-grid li:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
- .brief-grid li:nth-last-child(1){border-bottom:0}
- .brief-grid a,.brief-grid li:nth-child(3n+1) a{padding:16px 0 17px}
- .brief-label{margin-bottom:5px}
+ .brief-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin:0 -24px;padding:2px 24px;scroll-padding-inline:24px;scrollbar-width:none}
+ .brief-grid::-webkit-scrollbar{display:none}
+ .brief-grid li:nth-child(n){flex:0 0 min(290px,78vw);scroll-snap-align:start;border:1px solid var(--line)}
+ .brief-grid li:nth-child(n) a{padding:22px 18px 24px}
+ .bc{max-width:252px;margin-bottom:18px}
+ .brief-label{margin-bottom:6px}
  .brief-fact{font-size:19px}
+ .brief-pager{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:18px;font-size:12px;color:var(--muted)}
+ .brief-pager-marks{display:flex;gap:6px;align-items:center}
+ .brief-pager-marks span{width:10px;height:2px;background:var(--pale);transition:width .3s ease,background .3s ease}
+ .brief-pager-marks span.is-on{width:22px;background:var(--accent)}
 }
+@media(max-width:380px){.brief-grid{margin:0 -19px;padding:2px 19px;scroll-padding-inline:19px}}
 
 /* Small moments */
 .hero-portrait-frame img{scale:1.08;translate:0 calc(var(--drift,0)*3.4%)}
@@ -572,7 +620,13 @@ h2[data-reveal]>span{transition:transform .7s cubic-bezier(.16,1,.3,1)}
 .recommendations-track{padding-top:6px}
 
 /* Press & Work: jump links stay in reach on larger screens and show where you are */
-.spotlight-index a.is-current{color:var(--accent);text-decoration-color:var(--accent)}
+.spotlight-index button.is-current{color:var(--accent);text-decoration-color:var(--accent);text-decoration-thickness:2px}
+/* Press & Work tabs: one panel at a time once JavaScript runs; without it every list shows and the tab row is hidden */
+.spotlight-index{display:none}
+.js .spotlight-index{display:flex}
+.js .spotlight-subgroup:not(.is-active){display:none}
+.js .spotlight-subgroup.is-active{margin-top:34px;animation:soft-in .45s cubic-bezier(.16,1,.3,1) both}
+.spotlight-tabs-mark{height:0}
 @media(min-width:761px){
  .spotlight-index{position:sticky;top:83px;z-index:10;margin-left:-12px;margin-right:-12px;padding:0 12px;background:var(--paper);box-shadow:0 1px 0 var(--line)}
 }
@@ -598,6 +652,8 @@ h2[data-reveal]>span{transition:transform .7s cubic-bezier(.16,1,.3,1)}
  h2[data-reveal]>span,.chapter-rule,.chapter-num,.value-card,.hero-portrait-frame,.hero-portrait-frame img,.impact-card-image>img,.narrative-frame>img,.hero-intro h1{transform:none!important;opacity:1!important;clip-path:none!important;scale:1!important;translate:none!important}
  .chapter-num,.chapter-label{opacity:1!important}
  .brief-fact{color:var(--ink)!important}
+ .js .spotlight-subgroup{display:block!important}
+ .bc-draw{stroke-dashoffset:0!important}.bc-fade{opacity:1!important}.brief-pager{display:none!important}
  .js .press-grid:not(.is-expanded) .is-extra{display:grid!important}
  .recommendations-scroll{overflow:visible}
  .recommendations-track{flex-wrap:wrap}
