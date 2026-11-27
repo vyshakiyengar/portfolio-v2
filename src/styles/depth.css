@@ -1,0 +1,102 @@
+/* ───────── Depth: the same page, in three dimensions ─────────
+   Layout, type, colour and copy are unchanged. These rules only add depth: the hero lies back
+   onto the landscape as it scrolls away, headings and section numbers flip up into place,
+   blocks of content stand up as they arrive, the card strips turn like a carousel, and
+   pictures and cards tilt toward the pointer and catch the light. Everything rests flat, so
+   type stays crisp when nothing is moving, and the global reduced-motion rule turns it all off. */
+
+@property --depth{syntax:'<number>';inherits:true;initial-value:0}
+
+/* Hero: a shallow diorama. The name, the details and the portrait sit at different depths
+   and the whole scene turns gently with the mouse; scrolling away lays it back. */
+.motion .hero-section>.container{perspective:1600px;perspective-origin:50% 30%}
+.motion .hero-layout{
+ transform-style:preserve-3d;transform-origin:50% 100%;
+ transform:rotateX(calc(var(--drift,0)*13deg + var(--hx,0)*1deg)) rotateY(calc(var(--hy,0)*1deg)) translateZ(calc(var(--drift,0)*-60px));
+ transition:transform .9s cubic-bezier(.16,1,.3,1),--depth .9s cubic-bezier(.16,1,.3,1)
+}
+.motion .hero-section.is-turning .hero-layout{--depth:1}
+.motion .hero-intro,.motion .hero-portrait{transform-style:preserve-3d}
+.motion .hero-intro .eyebrow{translate:0 0 calc(var(--depth)*14px)}
+.motion .hero-intro h1{translate:0 calc(var(--drift,0)*-14px) calc(var(--depth)*44px)}
+.motion .hero-intro .hero-role{translate:0 0 calc(var(--depth)*30px)}
+.motion .hero-intro .hero-description{translate:0 0 calc(var(--depth)*18px)}
+.motion .hero-intro .hero-links{translate:0 0 calc(var(--depth)*24px)}
+.motion .hero-intro .hero-credentials{translate:0 0 calc(var(--depth)*12px)}
+.motion .hero-portrait{translate:0 0 calc(var(--depth)*36px)}
+
+/* Headings flip up through their mask, hinged at the top like a card turning over */
+h2[data-reveal]{perspective:620px;perspective-origin:30% 0}
+h2[data-reveal]>span{transform-origin:50% 0;backface-visibility:hidden}
+.motion h2[data-reveal]:not(.is-in)>span{transform:translateY(96%) rotateX(-88deg)}
+h2[data-reveal]>span{transition:transform .95s cubic-bezier(.16,1,.3,1)}
+
+/* Section numbers turn up like a split-flap display */
+.chapter{perspective:420px}
+.chapter-num{display:inline-block;transform-origin:50% 100%;backface-visibility:hidden}
+.motion .chapter:not(.is-in) .chapter-num{clip-path:none;transform:rotateX(-92deg)}
+.chapter-num{transition:opacity .45s ease .1s,transform .9s cubic-bezier(.16,1,.3,1) .05s}
+
+/* Philosophy: the three principles stand up one after another */
+.value-card{transform-origin:50% 100%}
+.motion .values-grid:not(.is-in) .value-card{transform:perspective(900px) rotateX(38deg) translateY(18px)}
+
+/* Photographs: open up and tip forward into place as they arrive, then tilt toward the pointer */
+.impact-card-image,.narrative-frame{
+ position:relative;transform-origin:50% 100%;
+ transform:perspective(1300px) rotateX(calc((1 - var(--r,1))*20deg + var(--tilt-x,0deg))) rotateY(var(--tilt-y,0deg));
+ transition:transform .6s cubic-bezier(.16,1,.3,1)
+}
+
+/* Pointer tilt with a soft light, for cards and pictures (mouse and trackpad only) */
+.rec-card,.card-preview,.brief-grid a{position:relative}
+.tilt-light::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(circle at var(--glare-x,50%) var(--glare-y,50%),rgba(255,255,255,.34),rgba(255,255,255,0) 52%)}
+.tilt-light.is-tilting::after{opacity:1}
+@media(hover:hover) and (pointer:fine){
+ .rec-card{transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(var(--lift,0px));transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .45s ease}
+ .recommendations-scroll:not(.is-dragging) .rec-card:hover{--lift:18px;transform:perspective(1000px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(var(--lift,0px));box-shadow:0 34px 60px -38px rgba(35,40,34,.5)}
+ .card-preview{transform:perspective(700px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(var(--lift,0px));transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .45s ease}
+ .builder-card:hover .card-preview{--lift:14px;box-shadow:0 22px 40px -26px rgba(35,40,34,.45)}
+ .brief-grid a{transform-style:preserve-3d;transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .6s cubic-bezier(.16,1,.3,1)}
+ .brief-grid a .bc{transition:translate .6s cubic-bezier(.16,1,.3,1)}
+ .brief-grid a.is-tilting .bc{translate:0 0 34px}
+ .brief-grid a.is-tilting .brief-fact{translate:0 0 16px}
+ .brief-grid a .brief-fact{transition:color .7s ease calc(var(--i,0)*90ms),translate .6s cubic-bezier(.16,1,.3,1)}
+}
+
+/* Content stands up as it scrolls into view, tied directly to the scroll where the browser can */
+@keyframes d3-rise{
+ from{opacity:.12;transform:perspective(1100px) rotateX(30deg) translateY(40px) scale(.97)}
+ to{opacity:1;transform:none}
+}
+/* The card strips turn like a carousel: cards coming in from the right and going out on the left face the middle */
+@keyframes d3-in{from{rotate:y -38deg;scale:.9;opacity:.45}to{rotate:y 0deg;scale:1;opacity:1}}
+@keyframes d3-out{from{rotate:y 0deg;scale:1;opacity:1}to{rotate:y 38deg;scale:.9;opacity:.45}}
+
+@supports (animation-timeline:view()){
+ .motion :is(.timeline-v-row,.builder-card,.publication-item,.civic-item,.cite-item,.cite-summary,.impact-metrics-row,.credibility-banner,.subgroup-header){
+  transform-origin:50% 100%;animation:d3-rise linear both;animation-timeline:view();animation-range:entry 0% cover 26%
+ }
+ .motion .recognition-grid>.builder-card:nth-child(even){animation-range:entry 0% cover 31%}
+ .motion .recommendations-scroll{perspective:1500px}
+ .motion .recommendations-track{transform-style:preserve-3d}
+ .motion .rec-card{animation:d3-in linear both,d3-out linear forwards;animation-timeline:view(inline),view(inline);animation-range:entry,exit}
+ @media(min-width:761px){
+  .motion .brief-grid li{transform-origin:50% 100%;animation:d3-rise linear both;animation-timeline:view();animation-range:entry 0% cover 24%}
+  .motion .brief-grid li:nth-child(3n+2){animation-range:entry 0% cover 29%}
+  .motion .brief-grid li:nth-child(3n+3){animation-range:entry 0% cover 34%}
+ }
+ @media(max-width:760px){
+  .motion .brief-grid{perspective:1100px}
+  .motion .brief-grid li{animation:d3-in linear both,d3-out linear forwards;animation-timeline:view(inline),view(inline);animation-range:entry,exit}
+ }
+}
+
+/* Browsers without scroll-linked animation get the same move once, as each block arrives */
+.no-sda [data-d3]{transform-origin:50% 100%;transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+.no-sda [data-d3=wait]{opacity:.12;transform:perspective(1100px) rotateX(30deg) translateY(40px) scale(.97)}
+
+@media print{
+ .hero-layout,.hero-intro *,.hero-portrait,.impact-card-image,.narrative-frame,.rec-card,.card-preview,.brief-grid a,.brief-grid li,.value-card,.chapter-num,h2[data-reveal]>span,[data-d3]{transform:none!important;translate:none!important;rotate:none!important;scale:none!important;opacity:1!important;animation:none!important}
+ .tilt-light::after{display:none}
+}
