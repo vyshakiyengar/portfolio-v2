@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Brief from '../components/Brief'
 import { useMotion } from '../hooks/useMotion'
+import { useDepth } from '../hooks/useDepth'
 import Narrative from '../components/Narrative'
 import Timeline from '../components/Timeline'
 import Features from '../components/Features'
@@ -12,6 +13,7 @@ import Contact from '../components/Contact'
 
 function Home() {
     useMotion()
+    useDepth()
     return (
         <div className="home-page">
             <Navbar />
